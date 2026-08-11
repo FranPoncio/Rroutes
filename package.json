@@ -7,6 +7,8 @@
   "scripts": {
     "start": "http-server -p 8000 -c-1",
     "gtfs": "node scripts/build-gtfs.mjs",
+    "powerbi": "node scripts/build-powerbi-data.mjs && node scripts/build-powerbi-report.mjs && node scripts/check-powerbi-data.mjs",
+    "powerbi:check": "node scripts/check-powerbi-data.mjs",
     "format": "prettier --write \"**/*.{js,css,html,json,md,yml}\" --ignore-path .prettierignore"
   },
   "devDependencies": {

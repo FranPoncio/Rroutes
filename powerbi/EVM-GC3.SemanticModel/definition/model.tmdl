@@ -1,0 +1,15 @@
+model Model
+	culture: es-AR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-AR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Proyecto","Paquetes","Avances"]
+
+ref table Proyecto
+ref table Paquetes
+ref table Avances
+ref table Calendario
+ref table Medidas

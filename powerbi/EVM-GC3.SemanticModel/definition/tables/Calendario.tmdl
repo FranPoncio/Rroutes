@@ -1,0 +1,86 @@
+/// Tabla de fechas del proyecto, derivada del baseline: va del inicio planificado
+/// más temprano al fin planificado más tardío de los paquetes de trabajo. Es la
+/// tabla de fechas oficial del modelo (dataCategory: Time), así que sirve para
+/// segmentadores y para la inteligencia de tiempo.
+table Calendario
+	dataCategory: Time
+
+	/// Día calendario. Clave de la tabla de fechas.
+	column Fecha
+		dataType: dateTime
+		isKey
+		formatString: yyyy-mm-dd
+		summarizeBy: none
+		sourceColumn: [Fecha]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	/// Año calendario.
+	column Año
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: [Año]
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Mes en formato "ene 2026". Se ordena por MesNro, no alfabéticamente.
+	column Mes
+		dataType: string
+		summarizeBy: none
+		sourceColumn: [Mes]
+		sortByColumn: MesNro
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Número de mes correlativo desde el inicio del proyecto. Solo existe para
+	/// darle un orden cronológico a la columna Mes.
+	column MesNro
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: [MesNro]
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Primer día del mes. Útil como eje continuo en los gráficos de línea.
+	column InicioMes
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		summarizeBy: none
+		sourceColumn: [InicioMes]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	/// Trimestre calendario en formato "T3 2026".
+	column Trimestre
+		dataType: string
+		summarizeBy: none
+		sourceColumn: [Trimestre]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendario = calculated
+		mode: import
+		source =
+				VAR Inicio =
+					MIN ( Paquetes[fechaInicioPlan] )
+				VAR Fin =
+					MAX ( Paquetes[fechaFinPlan] )
+				RETURN
+					SELECTCOLUMNS (
+						CALENDAR ( Inicio, Fin ),
+						"Fecha", [Date],
+						"Año", YEAR ( [Date] ),
+						"Mes", FORMAT ( [Date], "mmm yyyy" ),
+						"MesNro", ( YEAR ( [Date] ) - YEAR ( Inicio ) ) * 12 + MONTH ( [Date] ),
+						"InicioMes", DATE ( YEAR ( [Date] ), MONTH ( [Date] ), 1 ),
+						"Trimestre", "T" & ROUNDUP ( MONTH ( [Date] ) / 3, 0 ) & " " & YEAR ( [Date] )
+					)
+
+	annotation PBI_Id = Calendario

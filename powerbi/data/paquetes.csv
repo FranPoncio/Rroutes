@@ -1,0 +1,8 @@
+id,nombre,presupuesto,peso,fechaInicioPlan,fechaFinPlan,responsable
+wp-ing,Ingeniería de detalle,850000,3.7,2025-09-01,2026-03-31,M. Alcaraz
+wp-adq,Adquisición de cañería y válvulas,4200000,18.1,2025-11-01,2026-09-30,S. Duarte
+wp-civ,Obras civiles planta compresora,3100000,13.4,2026-01-15,2026-12-15,R. Ibáñez
+wp-duc,Tendido y soldadura de ducto,6800000,29.3,2026-03-01,2026-12-31,J. Molina
+wp-mon,Montaje electromecánico,5400000,23.3,2026-05-01,2027-01-31,L. Ferreyra
+wp-scada,Instrumentación y SCADA,1650000,7.1,2026-08-01,2027-02-28,P. Sosa
+wp-pru,"Pruebas, precomisionado y habilitación",1200000,5.2,2026-11-01,2027-03-31,C. Vega

@@ -1,0 +1,11 @@
+/// Cada reporte de avance pertenece a un paquete de trabajo.
+relationship Avances-Paquetes
+	fromColumn: Avances.workPackageId
+	toColumn: Paquetes.id
+
+/// Cada reporte de avance cae en un día del calendario del proyecto.
+/// El filtrado va del calendario hacia los avances, nunca al revés: las medidas
+/// EVM necesitan poder mirar todo el historial con REMOVEFILTERS ( Calendario ).
+relationship Avances-Calendario
+	fromColumn: Avances.fechaCorte
+	toColumn: Calendario.Fecha

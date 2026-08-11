@@ -1,0 +1,186 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.0.0/schema.json",
+  "name": "tablaPaquetes",
+  "position": {
+    "x": 16,
+    "y": 80,
+    "z": 1,
+    "width": 1248,
+    "height": 340,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Paquetes"
+                    }
+                  },
+                  "Property": "nombre"
+                }
+              },
+              "queryRef": "Paquetes.nombre",
+              "nativeQueryRef": "nombre"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Paquetes"
+                    }
+                  },
+                  "Property": "responsable"
+                }
+              },
+              "queryRef": "Paquetes.responsable",
+              "nativeQueryRef": "responsable"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "BAC"
+                }
+              },
+              "queryRef": "Medidas.BAC",
+              "nativeQueryRef": "BAC"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "PV"
+                }
+              },
+              "queryRef": "Medidas.PV",
+              "nativeQueryRef": "PV"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "EV"
+                }
+              },
+              "queryRef": "Medidas.EV",
+              "nativeQueryRef": "EV"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "AC"
+                }
+              },
+              "queryRef": "Medidas.AC",
+              "nativeQueryRef": "AC"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "SV"
+                }
+              },
+              "queryRef": "Medidas.SV",
+              "nativeQueryRef": "SV"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "CV"
+                }
+              },
+              "queryRef": "Medidas.CV",
+              "nativeQueryRef": "CV"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "SPI"
+                }
+              },
+              "queryRef": "Medidas.SPI",
+              "nativeQueryRef": "SPI"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "CPI"
+                }
+              },
+              "queryRef": "Medidas.CPI",
+              "nativeQueryRef": "CPI"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'EVM por paquete'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,269 @@
+/// Tabla sin datos que agrupa todas las medidas del modelo. No tiene filas: la
+/// única columna está oculta y existe solo para que la tabla pueda materializarse.
+///
+/// La matemática replica pmtool/src/core/evm.ts. Una diferencia de forma: donde
+/// el TypeScript devuelve `null` al dividir por cero, acá se usa DIVIDE, que
+/// devuelve BLANK — misma semántica de "indefinido, no cero".
+table Medidas
+
+	column Columna
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	// ── Contexto temporal ────────────────────────────────────────────────────
+
+	/// Corte más reciente con avance reportado, ignorando cualquier filtro de
+	/// fecha. Es el "data date" real del proyecto.
+	measure 'Último corte' =
+			CALCULATE ( MAX ( Avances[fechaCorte] ), REMOVEFILTERS ( Calendario ) )
+		formatString: yyyy-mm-dd
+
+	/// Fecha a la que se evalúan PV, EV y AC.
+	///
+	/// Si el visual filtra por fecha (un eje de meses, una segmentación), se usa
+	/// el fin de ese período: así el gráfico de curva S dibuja un punto por mes.
+	/// Si no filtra por fecha (una tarjeta de KPI), se usa el último corte
+	/// reportado — que es lo que uno espera leer en un indicador, y no el valor
+	/// al final del proyecto.
+	measure 'Fecha de análisis' =
+			IF (
+				ISCROSSFILTERED ( Calendario ),
+				MAX ( Calendario[Fecha] ),
+				[Último corte]
+			)
+		formatString: yyyy-mm-dd
+
+	// ── Las cuatro magnitudes base ───────────────────────────────────────────
+
+	/// Budget At Completion: presupuesto autorizado de los paquetes en contexto.
+	measure BAC =
+			SUM ( Paquetes[presupuesto] )
+		formatString: \$#,0
+		displayFolder: 1 Base
+
+	/// Planned Value (BCWS): presupuesto que debería estar devengado a la fecha
+	/// de análisis, distribuido en el tiempo con una curva S (smoothstep de
+	/// Hermite, 3t²−2t³) sobre la ventana de baseline de cada paquete.
+	measure PV =
+			VAR Corte = [Fecha de análisis]
+			RETURN
+				SUMX (
+					Paquetes,
+					VAR Inicio = Paquetes[fechaInicioPlan]
+					VAR Fin = Paquetes[fechaFinPlan]
+					VAR T =
+						IF (
+							Fin = Inicio,
+							IF ( Corte >= Fin, 1, 0 ),
+							DIVIDE ( Corte - Inicio, Fin - Inicio )
+						)
+					VAR Tc = MIN ( MAX ( T, 0 ), 1 )
+					RETURN
+						Paquetes[presupuesto] * Tc * Tc * ( 3 - 2 * Tc )
+				)
+		formatString: \$#,0
+		displayFolder: 1 Base
+
+	/// Earned Value (BCWP): Σ presupuesto × avance físico, tomando para cada
+	/// paquete su último reporte con fecha menor o igual a la de análisis.
+	/// Queda en blanco más allá del último corte reportado, para que la línea
+	/// del gráfico se corte ahí en vez de caer a cero.
+	measure EV =
+			VAR Corte = [Fecha de análisis]
+			VAR Valor =
+				SUMX (
+					VALUES ( Paquetes[id] ),
+					VAR Presupuesto = CALCULATE ( SUM ( Paquetes[presupuesto] ) )
+					VAR FechaVigente =
+						CALCULATE (
+							MAX ( Avances[fechaCorte] ),
+							REMOVEFILTERS ( Calendario ),
+							Avances[fechaCorte] <= Corte
+						)
+					VAR Avance =
+						CALCULATE (
+							SUM ( Avances[avanceFisico] ),
+							REMOVEFILTERS ( Calendario ),
+							Avances[fechaCorte] = FechaVigente
+						)
+					RETURN
+						Presupuesto * COALESCE ( Avance, 0 )
+				)
+			RETURN
+				IF (
+					NOT ISCROSSFILTERED ( Calendario )
+						|| MIN ( Calendario[Fecha] ) <= [Último corte],
+					Valor
+				)
+		formatString: \$#,0
+		displayFolder: 1 Base
+
+	/// Actual Cost (ACWP): costo real acumulado, tomando para cada paquete su
+	/// último reporte con fecha menor o igual a la de análisis.
+	measure AC =
+			VAR Corte = [Fecha de análisis]
+			VAR Valor =
+				SUMX (
+					VALUES ( Paquetes[id] ),
+					VAR FechaVigente =
+						CALCULATE (
+							MAX ( Avances[fechaCorte] ),
+							REMOVEFILTERS ( Calendario ),
+							Avances[fechaCorte] <= Corte
+						)
+					RETURN
+						CALCULATE (
+							SUM ( Avances[costoRealAcum] ),
+							REMOVEFILTERS ( Calendario ),
+							Avances[fechaCorte] = FechaVigente
+						)
+				)
+			RETURN
+				IF (
+					NOT ISCROSSFILTERED ( Calendario )
+						|| MIN ( Calendario[Fecha] ) <= [Último corte],
+					Valor
+				)
+		formatString: \$#,0
+		displayFolder: 1 Base
+
+	// ── Variaciones e índices ────────────────────────────────────────────────
+
+	/// Schedule Variance = EV − PV. Positivo, adelantado; negativo, atrasado.
+	measure SV =
+			[EV] - [PV]
+		formatString: \$#,0;(\$#,0);\$0
+		displayFolder: 2 Desvíos
+
+	/// Cost Variance = EV − AC. Positivo, bajo presupuesto; negativo, sobrecosto.
+	measure CV =
+			[EV] - [AC]
+		formatString: \$#,0;(\$#,0);\$0
+		displayFolder: 2 Desvíos
+
+	/// Schedule Performance Index = EV / PV. 1 es estar en plan.
+	measure SPI =
+			DIVIDE ( [EV], [PV] )
+		formatString: 0.00
+		displayFolder: 2 Desvíos
+
+	/// Cost Performance Index = EV / AC. 1 es gastar lo previsto por lo hecho.
+	measure CPI =
+			DIVIDE ( [EV], [AC] )
+		formatString: 0.00
+		displayFolder: 2 Desvíos
+
+	/// Avance físico ganado sobre el total autorizado = EV / BAC.
+	measure '% Avance real' =
+			DIVIDE ( [EV], [BAC] )
+		formatString: 0.0%
+		displayFolder: 2 Desvíos
+
+	/// Avance que marcaba el baseline a la fecha de análisis = PV / BAC.
+	measure '% Avance plan' =
+			DIVIDE ( [PV], [BAC] )
+		formatString: 0.0%
+		displayFolder: 2 Desvíos
+
+	// ── Proyecciones al cierre ───────────────────────────────────────────────
+
+	/// EAC = BAC / CPI. Asume que la eficiencia de costo observada se mantiene
+	/// hasta el final. Es la proyección por defecto del tablero: la más
+	/// conservadora cuando el desvío es sistémico y no un evento puntual.
+	measure 'EAC por CPI' =
+			DIVIDE ( [BAC], [CPI] )
+		formatString: \$#,0
+		displayFolder: 3 Proyección
+
+	/// EAC = AC + (BAC − EV). Asume que lo que falta se ejecuta al presupuesto
+	/// original, o sea que el desvío ya ocurrido no se repite.
+	measure 'EAC por presupuesto' =
+			[AC] + [BAC] - [EV]
+		formatString: \$#,0
+		displayFolder: 3 Proyección
+
+	/// EAC = AC + (BAC − EV) / (CPI × SPI). Castiga el remanente por costo y por
+	/// plazo a la vez. Es la proyección más pesimista de las tres.
+	measure 'EAC por CPI y SPI' =
+			VAR Factor = [CPI] * [SPI]
+			RETURN
+				[AC] + DIVIDE ( [BAC] - [EV], Factor )
+		formatString: \$#,0
+		displayFolder: 3 Proyección
+
+	/// Estimate To Complete: lo que falta gastar según la proyección por CPI.
+	measure ETC =
+			[EAC por CPI] - [AC]
+		formatString: \$#,0
+		displayFolder: 3 Proyección
+
+	/// Variance At Completion = BAC − EAC. Negativo, se termina por encima del
+	/// presupuesto autorizado.
+	measure VAC =
+			[BAC] - [EAC por CPI]
+		formatString: \$#,0;(\$#,0);\$0
+		displayFolder: 3 Proyección
+
+	/// TCPI contra BAC = (BAC − EV) / (BAC − AC). Eficiencia de costo que hay
+	/// que sostener de acá al final para cerrar dentro del presupuesto.
+	measure 'TCPI hasta BAC' =
+			DIVIDE ( [BAC] - [EV], [BAC] - [AC] )
+		formatString: 0.00
+		displayFolder: 3 Proyección
+
+	/// TCPI contra EAC = (BAC − EV) / (EAC − AC). Eficiencia necesaria para
+	/// cerrar en la proyección por CPI, que es la referencia realista.
+	measure 'TCPI hasta EAC' =
+			DIVIDE ( [BAC] - [EV], [EAC por CPI] - [AC] )
+		formatString: 0.00
+		displayFolder: 3 Proyección
+
+	// ── Lectura ejecutiva ────────────────────────────────────────────────────
+
+	/// Semáforo de costo. Los cortes en 1.00 y 0.95 son la convención del
+	/// tablero de PMTool, no una regla del PMBOK.
+	measure 'Estado costo' =
+			VAR C = [CPI]
+			RETURN
+				SWITCH (
+					TRUE (),
+					ISBLANK ( C ), "Sin datos",
+					C >= 1, "En plan",
+					C >= 0.95, "Atención",
+					"Crítico"
+				)
+		displayFolder: 4 Lectura
+
+	/// Semáforo de plazo, con los mismos cortes que el de costo.
+	measure 'Estado plazo' =
+			VAR S = [SPI]
+			RETURN
+				SWITCH (
+					TRUE (),
+					ISBLANK ( S ), "Sin datos",
+					S >= 1, "En plan",
+					S >= 0.95, "Atención",
+					"Crítico"
+				)
+		displayFolder: 4 Lectura
+
+	/// Subtítulo del tablero: deja la fecha de corte a la vista para que nadie
+	/// lea los indicadores sin saber a qué día corresponden.
+	measure 'Subtítulo' =
+			"Corte al " & FORMAT ( [Último corte], "dd/mm/yyyy" )
+				& " · " & FORMAT ( [% Avance real], "0.0%" ) & " ejecutado"
+				& " · CPI " & FORMAT ( [CPI], "0.00" )
+				& " · SPI " & FORMAT ( [SPI], "0.00" )
+		displayFolder: 4 Lectura
+
+	partition Medidas = calculated
+		mode: import
+		source =
+				{ BLANK () }
+
+	annotation PBI_Id = Medidas

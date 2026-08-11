@@ -127,3 +127,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Node
+node_modules/
+
+# Power BI Desktop — caché y preferencias locales del proyecto PBIP.
+# La definición del informe y del modelo sí se versiona; esto no.
+**/.pbi/
+*.pbix
+

@@ -1,0 +1,79 @@
+/// Cabecera del proyecto: presupuesto autorizado (BAC) y fechas de baseline.
+table Proyecto
+
+	/// Identificador del proyecto.
+	column id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Nombre del proyecto.
+	column nombre
+		dataType: string
+		summarizeBy: none
+		sourceColumn: nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Tipo de proyecto (obra_civil, industrial, ti, servicios).
+	column tipo
+		dataType: string
+		summarizeBy: none
+		sourceColumn: tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Budget At Completion: presupuesto total autorizado.
+	column bac
+		dataType: double
+		summarizeBy: none
+		sourceColumn: bac
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Inicio del proyecto.
+	column fechaInicio
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		summarizeBy: none
+		sourceColumn: fechaInicio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	/// Fin planificado (baseline).
+	column fechaFinPlan
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		summarizeBy: none
+		sourceColumn: fechaFinPlan
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	/// Código ISO 4217 de la moneda del proyecto.
+	column moneda
+		dataType: string
+		summarizeBy: none
+		sourceColumn: moneda
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Proyecto = m
+		mode: import
+		source =
+				let
+					Origen = #table(
+						type table [id = text, nombre = text, tipo = text, bac = number, fechaInicio = date, fechaFinPlan = date, moneda = text],
+						{
+						{"gc3", "Gasoducto Regional Norte — Tramo Compresión GC-3", "obra_civil", 23200000, #date(2025, 9, 1), #date(2027, 3, 31), "USD"}
+						}
+					)
+				in
+					Origen
+
+	annotation PBI_ResultType = Table

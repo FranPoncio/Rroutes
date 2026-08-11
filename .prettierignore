@@ -4,3 +4,7 @@ assets/vendor/
 # Artefactos generados y datos GTFS crudos
 assets/data/
 data/gtfs/
+
+# Proyecto Power BI — lo generan los scripts y lo reescribe Power BI Desktop
+powerbi/EVM-GC3.Report/
+powerbi/EVM-GC3.SemanticModel/
