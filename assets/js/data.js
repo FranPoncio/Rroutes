@@ -12359,6 +12359,891 @@ const LOCALIDADES_LA = [
   },
 ];
 
+// ---------- Vietnam: localidades adicionales ----------
+const VN_CENTRO = { es: "Centro", en: "Central" };
+const LOCALIDADES_VN2 = [
+  {
+    id: "hoian",
+    nombre: "Hội An",
+    provincia: VN_CENTRO,
+    center: [15.8801, 108.338],
+    zoom: 14,
+    eventos: {
+      nombre: { es: "Info de Hội An", en: "Hội An info" },
+      lat: 15.8801,
+      lng: 108.338,
+      img: "Hoi_An_Vietnam.jpg",
+      url: "https://www.vietnam.travel/places-to-go/central-vietnam/hoi-an",
+      sinopsis: {
+        es: "Antiguo puerto comercial de casas amarillas y farolillos, Patrimonio de la Humanidad; mágico en la noche del farol (luna llena).",
+        en: "An old trading port of yellow houses and lanterns, a World Heritage site; magical on the full-moon lantern night.",
+      },
+    },
+    puntos: [
+      PN(
+        "ancient-town-hoian",
+        "Casco antiguo de Hội An",
+        ["Histórico", "Old town"],
+        "historico",
+        15.877,
+        108.327,
+        "Hoi_An_Vietnam.jpg",
+        ["Ticket ₫ ~120.000", "Ticket ₫ ~120,000"],
+        ["A pie (zona peatonal).", "On foot (pedestrian area)."],
+        [
+          "Calles de casas mercantes de los siglos XV-XIX, iluminadas por miles de farolillos de seda.",
+          "Streets of 15th–19th-century merchant houses, lit by thousands of silk lanterns.",
+        ]
+      ),
+      PN(
+        "japanese-bridge",
+        "Puente cubierto japonés",
+        ["Histórico", "Historic"],
+        "historico",
+        15.8773,
+        108.326,
+        "Hoi_An_Vietnam.jpg",
+        ["Incluido en el ticket", "Included in ticket"],
+        ["A pie.", "On foot."],
+        [
+          "Puente-templo de 1590 con tejado, símbolo de la ciudad y del billete de 20.000 dong.",
+          "A roofed 1590 temple-bridge, symbol of the town and of the 20,000-dong note.",
+        ]
+      ),
+      PN(
+        "lantern-market",
+        "Mercado nocturno de farolillos",
+        ["Mercado", "Market"],
+        "shopping",
+        15.876,
+        108.33,
+        "Hoi_An_Vietnam.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["A pie, cruzando el puente.", "On foot, across the bridge."],
+        [
+          "Puestos de farolillos de seda de todos los colores a orillas del río Thu Bồn.",
+          "Stalls of silk lanterns in every colour on the banks of the Thu Bồn River.",
+        ]
+      ),
+      PN(
+        "thu-bon-boat",
+        "Paseo en bote por el río Thu Bồn",
+        ["Paseo", "Boat ride"],
+        "paseo",
+        15.876,
+        108.328,
+        "Hoi_An_Vietnam.jpg",
+        ["₫ ~150.000", "₫ ~150,000"],
+        ["Muelle del casco antiguo.", "Old-town riverfront."],
+        [
+          "Al atardecer se sueltan farolillos de papel sobre el agua desde botes a remo.",
+          "At dusk, paper lanterns are floated on the water from rowing boats.",
+        ]
+      ),
+      PN(
+        "an-bang",
+        "Playa An Bàng",
+        ["Playa", "Beach"],
+        "playa",
+        15.908,
+        108.338,
+        "Hoi_An_Vietnam.jpg",
+        ["Gratis", "Free"],
+        ["Bici / taxi (~4 km).", "Bike / taxi (~4 km)."],
+        [
+          "Playa relajada de palmeras y bares, la mejor de la zona.",
+          "A laid-back palm-fringed beach of beach bars, the area's best.",
+        ]
+      ),
+      PN(
+        "my-son",
+        "Santuario de Mỹ Sơn",
+        ["Ruinas", "Ruins"],
+        "historico",
+        15.764,
+        108.124,
+        "My_Son_Vietnam.jpg",
+        ["₫ ~150.000", "₫ ~150,000"],
+        ["Excursión / auto (~1 h).", "Tour / car (~1 h)."],
+        [
+          "Templos de ladrillo del reino Champa (siglos IV-XIII), Patrimonio de la Humanidad.",
+          "Brick temples of the Champa kingdom (4th–13th c.), a World Heritage site.",
+        ]
+      ),
+      PN(
+        "tra-que",
+        "Aldea de verduras Trà Quế",
+        ["Naturaleza", "Village"],
+        "naturaleza",
+        15.9,
+        108.32,
+        "Hoi_An_Vietnam.jpg",
+        ["Con tour", "With tour"],
+        ["Bici (~3 km).", "Bike (~3 km)."],
+        [
+          "Huertas tradicionales de hierbas aromáticas entre el río y el mar.",
+          "Traditional herb gardens between the river and the sea.",
+        ]
+      ),
+      PN(
+        "coconut-village",
+        "Aldea de cocoteros (Cẩm Thanh)",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        15.883,
+        108.36,
+        "Hoi_An_Vietnam.jpg",
+        ["Bote arancelado", "Paid basket boat"],
+        ["Bici / taxi (~5 km).", "Bike / taxi (~5 km)."],
+        [
+          "Palmeral de agua donde se navega en 'botes canasta' redondos de bambú.",
+          "A water-palm grove where you ride round bamboo 'basket boats'.",
+        ]
+      ),
+      PN(
+        "central-market-hoian",
+        "Mercado Central de Hội An",
+        ["Mercado", "Market"],
+        "gastronomia",
+        15.877,
+        108.33,
+        "Hoi_An_Vietnam.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["A pie.", "On foot."],
+        [
+          "Mercado bullicioso de especias y comida, cuna del cao lầu y el white rose.",
+          "A bustling spice-and-food market, home of cao lầu and white rose dumplings.",
+        ]
+      ),
+      PN(
+        "fujian-hall",
+        "Sala de Asamblea Phúc Kiến",
+        ["Histórico", "Historic"],
+        "historico",
+        15.877,
+        108.329,
+        "Hoi_An_Vietnam.jpg",
+        ["Incluido en el ticket", "Included in ticket"],
+        ["A pie.", "On foot."],
+        [
+          "Templo-club de la comunidad china de Fujian, de dragones y patios coloridos.",
+          "A temple-hall of the Fujian Chinese community, of dragons and colourful courtyards.",
+        ]
+      ),
+      PN(
+        "tailors-hoian",
+        "Sastres y seda de Hội An",
+        ["Compras", "Tailors"],
+        "shopping",
+        15.8765,
+        108.3285,
+        "Hoi_An_Vietnam.jpg",
+        ["Variable", "Varies"],
+        ["A pie.", "On foot."],
+        [
+          "La capital de la ropa a medida: cientos de sastres cosen trajes en 24 horas.",
+          "The capital of tailored clothing: hundreds of tailors make suits in 24 hours.",
+        ]
+      ),
+      PN(
+        "cua-dai",
+        "Playa Cửa Đại",
+        ["Playa", "Beach"],
+        "playa",
+        15.895,
+        108.37,
+        "Hoi_An_Vietnam.jpg",
+        ["Gratis", "Free"],
+        ["Bici / taxi (~5 km).", "Bike / taxi (~5 km)."],
+        [
+          "Amplia playa de arena en la desembocadura del río, con marisquerías.",
+          "A wide sandy beach at the river mouth, with seafood shacks.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "danang",
+    nombre: "Đà Nẵng",
+    provincia: VN_CENTRO,
+    center: [16.0544, 108.2022],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Agenda de Đà Nẵng", en: "Da Nang events" },
+      lat: 16.0544,
+      lng: 108.2022,
+      img: "Da_Nang_Vietnam.jpg",
+      url: "https://www.vietnam.travel/places-to-go/central-vietnam/da-nang",
+      sinopsis: {
+        es: "Ciudad costera moderna de playas y puentes; sede del famoso Festival Internacional de Fuegos Artificiales.",
+        en: "A modern coastal city of beaches and bridges; host of the famous International Fireworks Festival.",
+      },
+    },
+    puntos: [
+      PN(
+        "golden-bridge",
+        "Puente Dorado (Bà Nà Hills)",
+        ["Ícono", "Icon"],
+        "paseo",
+        15.995,
+        107.996,
+        "Golden_Bridge_Vietnam.jpg",
+        ["Bà Nà ₫ ~900.000", "Bà Nà ₫ ~900,000"],
+        ["Teleférico desde Đà Nẵng (~40 min).", "Cable car from Da Nang (~40 min)."],
+        [
+          "Pasarela dorada sostenida por dos manos gigantes de piedra, en la montaña.",
+          "A golden walkway held up by two giant stone hands, up in the mountains.",
+        ]
+      ),
+      PN(
+        "marble-mountains",
+        "Montañas de Mármol",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        16.004,
+        108.263,
+        "Da_Nang_Vietnam.jpg",
+        ["₫ ~40.000", "₫ ~40,000"],
+        ["Taxi / bus (~10 min).", "Taxi / bus (~10 min)."],
+        [
+          "Cinco colinas de mármol con cuevas, pagodas y miradores sobre el mar.",
+          "Five marble hills riddled with caves, pagodas and sea lookouts.",
+        ]
+      ),
+      PN(
+        "my-khe",
+        "Playa Mỹ Khê",
+        ["Playa", "Beach"],
+        "playa",
+        16.059,
+        108.247,
+        "Da_Nang_Vietnam.jpg",
+        ["Gratis", "Free"],
+        ["Taxi / a pie.", "Taxi / walk."],
+        [
+          "Larga playa de arena blanca, de las más bellas del país.",
+          "A long white-sand beach, among the country's finest.",
+        ]
+      ),
+      PN(
+        "dragon-bridge",
+        "Puente del Dragón",
+        ["Paseo", "Landmark"],
+        "paseo",
+        16.061,
+        108.227,
+        "Dragon_Bridge_Da_Nang.jpg",
+        ["Gratis", "Free"],
+        ["A pie / taxi.", "Walk / taxi."],
+        [
+          "Puente con forma de dragón que escupe fuego y agua los fines de semana.",
+          "A dragon-shaped bridge that breathes fire and water on weekends.",
+        ]
+      ),
+      PN(
+        "son-tra",
+        "Península de Sơn Trà",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        16.105,
+        108.29,
+        "Da_Nang_Vietnam.jpg",
+        ["Gratis", "Free"],
+        ["Moto / taxi.", "Motorbike / taxi."],
+        [
+          "'Montaña de los Monos', reserva de bosque con miradores y langures raros.",
+          "'Monkey Mountain', a forest reserve with lookouts and rare langurs.",
+        ]
+      ),
+      PN(
+        "lady-buddha",
+        "Dama Buda (Pagoda Linh Ứng)",
+        ["Histórico", "Landmark"],
+        "historico",
+        16.1,
+        108.278,
+        "Da_Nang_Vietnam.jpg",
+        ["Gratis", "Free"],
+        ["Taxi a Sơn Trà.", "Taxi to Sơn Trà."],
+        [
+          "La estatua de Buda más alta del país (67 m), mirando al mar.",
+          "The country's tallest Buddha statue (67 m), gazing out to sea.",
+        ]
+      ),
+      PN(
+        "cham-museum",
+        "Museo de Escultura Cham",
+        ["Museo", "Museum"],
+        "museo",
+        16.061,
+        108.223,
+        "Da_Nang_Vietnam.jpg",
+        ["₫ ~60.000", "₫ ~60,000"],
+        ["A pie / taxi.", "Walk / taxi."],
+        [
+          "La mayor colección de arte del reino Champa, en un pabellón colonial.",
+          "The largest collection of Champa art, in a colonial pavilion.",
+        ]
+      ),
+      PN(
+        "han-market",
+        "Mercado Hàn",
+        ["Mercado", "Market"],
+        "gastronomia",
+        16.068,
+        108.224,
+        "Da_Nang_Vietnam.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["A pie en el centro.", "Walk in the centre."],
+        [
+          "Mercado histórico de comida, especias y souvenirs junto al río.",
+          "A historic market of food, spices and souvenirs by the river.",
+        ]
+      ),
+      PN(
+        "hai-van-pass",
+        "Paso de Hải Vân",
+        ["Mirador", "Mountain pass"],
+        "naturaleza",
+        16.198,
+        108.13,
+        "Hai_Van_Pass.jpg",
+        ["Gratis", "Free"],
+        ["Moto / auto (~40 min).", "Motorbike / car (~40 min)."],
+        [
+          "Camino de cornisa entre montañas y mar, célebre por 'Top Gear'.",
+          "A cliff-hugging mountain-and-sea road, made famous by 'Top Gear'.",
+        ]
+      ),
+      PN(
+        "ba-na-hills",
+        "Bà Nà Hills",
+        ["Paseo", "Hill station"],
+        "paseo",
+        15.995,
+        107.996,
+        "Golden_Bridge_Vietnam.jpg",
+        ["₫ ~900.000", "₫ ~900,000"],
+        ["Teleférico (récord mundial).", "Cable car (world-record)."],
+        [
+          "Estación de montaña con un pueblo francés de fantasía y jardines, a 1.487 m.",
+          "A hill station with a fantasy French village and gardens, at 1,487 m.",
+        ]
+      ),
+      PN(
+        "han-riverfront",
+        "Costanera del río Hàn",
+        ["Paseo", "Waterfront"],
+        "paseo",
+        16.07,
+        108.227,
+        "Da_Nang_Vietnam.jpg",
+        ["Gratis", "Free"],
+        ["A pie en el centro.", "Walk in the centre."],
+        [
+          "Paseo junto al río con puentes iluminados y cafés, corazón nocturno de la ciudad.",
+          "A riverside promenade of lit-up bridges and cafés, the city's nightlife heart.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "hue",
+    nombre: "Huế",
+    provincia: VN_CENTRO,
+    center: [16.4637, 107.5909],
+    zoom: 13,
+    eventos: {
+      nombre: { es: "Info de Huế", en: "Huế info" },
+      lat: 16.4637,
+      lng: 107.5909,
+      img: "Hue_Imperial_City.jpg",
+      url: "https://www.vietnam.travel/places-to-go/central-vietnam/hue",
+      sinopsis: {
+        es: "La antigua capital imperial de la dinastía Nguyễn, a orillas del Río de los Perfumes; su ciudadela y tumbas reales son Patrimonio de la Humanidad.",
+        en: "The old imperial capital of the Nguyễn dynasty, on the Perfume River; its citadel and royal tombs are a World Heritage site.",
+      },
+    },
+    puntos: [
+      PN(
+        "imperial-city-hue",
+        "Ciudad Imperial (Ciudadela)",
+        ["Histórico", "Historic"],
+        "historico",
+        16.47,
+        107.577,
+        "Hue_Imperial_City.jpg",
+        ["₫ ~200.000", "₫ ~200,000"],
+        ["A pie / taxi cruzando el río.", "Walk / taxi across the river."],
+        [
+          "Vasta ciudadela amurallada con la Ciudad Púrpura Prohibida de los emperadores.",
+          "A vast walled citadel enclosing the emperors' Purple Forbidden City.",
+        ]
+      ),
+      PN(
+        "thien-mu",
+        "Pagoda Thiên Mụ",
+        ["Templo", "Temple"],
+        "historico",
+        16.454,
+        107.545,
+        "Hue_Vietnam.jpg",
+        ["Gratis", "Free"],
+        ["Barco por el río / taxi.", "River boat / taxi."],
+        [
+          "Pagoda de siete pisos junto al río, símbolo de Huế desde 1601.",
+          "A seven-storey riverside pagoda, symbol of Huế since 1601.",
+        ]
+      ),
+      PN(
+        "khai-dinh-tomb",
+        "Tumba de Khải Định",
+        ["Histórico", "Historic"],
+        "historico",
+        16.397,
+        107.572,
+        "Hue_Vietnam.jpg",
+        ["₫ ~150.000", "₫ ~150,000"],
+        ["Taxi / tour.", "Taxi / tour."],
+        [
+          "Mausoleo real que mezcla estilos vietnamita y europeo, con interiores de mosaicos.",
+          "A royal mausoleum blending Vietnamese and European styles, with mosaic interiors.",
+        ]
+      ),
+      PN(
+        "tu-duc-tomb",
+        "Tumba de Tự Đức",
+        ["Histórico", "Historic"],
+        "historico",
+        16.457,
+        107.556,
+        "Hue_Vietnam.jpg",
+        ["₫ ~150.000", "₫ ~150,000"],
+        ["Taxi / tour.", "Taxi / tour."],
+        [
+          "La más bella de las tumbas reales, un complejo de pabellones sobre un lago.",
+          "The most beautiful of the royal tombs, a complex of pavilions around a lake.",
+        ]
+      ),
+      PN(
+        "perfume-river",
+        "Río de los Perfumes",
+        ["Paseo", "River"],
+        "paseo",
+        16.463,
+        107.585,
+        "Hue_Vietnam.jpg",
+        ["Barco arancelado", "Paid dragon boat"],
+        ["Muelle del centro.", "Town pier."],
+        [
+          "Paseo en barco-dragón por el río que da su nombre poético a la ciudad.",
+          "A dragon-boat cruise on the river that gives the city its poetic name.",
+        ]
+      ),
+      PN(
+        "dong-ba",
+        "Mercado Đông Ba",
+        ["Mercado", "Market"],
+        "gastronomia",
+        16.472,
+        107.586,
+        "Hue_Vietnam.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["A pie / taxi.", "Walk / taxi."],
+        [
+          "El gran mercado de la ciudad, cuna de la refinada cocina imperial de Huế.",
+          "The city's great market, home of Huế's refined imperial cuisine.",
+        ]
+      ),
+      PN(
+        "minh-mang-tomb",
+        "Tumba de Minh Mạng",
+        ["Histórico", "Historic"],
+        "historico",
+        16.447,
+        107.553,
+        "Hue_Vietnam.jpg",
+        ["₫ ~150.000", "₫ ~150,000"],
+        ["Taxi / barco.", "Taxi / boat."],
+        [
+          "Mausoleo majestuoso y simétrico entre lagos y jardines, el más clásico.",
+          "A stately, symmetrical mausoleum among lakes and gardens, the most classical.",
+        ]
+      ),
+      PN(
+        "hue-museum",
+        "Museo de Antigüedades Reales",
+        ["Museo", "Museum"],
+        "museo",
+        16.47,
+        107.582,
+        "Hue_Vietnam.jpg",
+        ["₫ ~150.000 (con ciudadela)", "₫ ~150,000 (with citadel)"],
+        ["A pie.", "On foot."],
+        [
+          "Tesoros, tronos y trajes de la corte de los emperadores Nguyễn.",
+          "Treasures, thrones and robes from the court of the Nguyễn emperors.",
+        ]
+      ),
+      PN(
+        "thuan-an",
+        "Playa Thuận An",
+        ["Playa", "Beach"],
+        "playa",
+        16.567,
+        107.64,
+        "Hue_Vietnam.jpg",
+        ["Gratis", "Free"],
+        ["Taxi (~15 km).", "Taxi (~15 km)."],
+        [
+          "Playa local en la laguna de Tam Giang, la mayor del sudeste asiático.",
+          "A local beach on the Tam Giang lagoon, Southeast Asia's largest.",
+        ]
+      ),
+      PN(
+        "abandoned-waterpark",
+        "Parque acuático abandonado",
+        ["Paseo", "Urbex"],
+        "paseo",
+        16.4,
+        107.57,
+        "Hue_Vietnam.jpg",
+        ["Gratis", "Free"],
+        ["Taxi / moto.", "Taxi / motorbike."],
+        [
+          "El famoso parque acuático Hồ Thủy Tiên abandonado, con su dragón de hormigón.",
+          "The famous abandoned Hồ Thủy Tiên water park, with its concrete dragon.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "sapa",
+    nombre: "Sa Pa",
+    provincia: VN_NORTE,
+    center: [22.336, 103.844],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Info de Sa Pa", en: "Sa Pa info" },
+      lat: 22.336,
+      lng: 103.844,
+      img: "Sapa_Vietnam.jpg",
+      url: "https://www.vietnam.travel/places-to-go/northern-vietnam/sapa",
+      sinopsis: {
+        es: "Pueblo de montaña entre terrazas de arroz y aldeas de minorías étnicas, al pie del techo de Indochina.",
+        en: "A mountain town amid rice terraces and ethnic-minority villages, at the foot of Indochina's rooftop.",
+      },
+    },
+    puntos: [
+      PN(
+        "fansipan",
+        "Fansipan (techo de Indochina)",
+        ["Montaña", "Peak"],
+        "trekking",
+        22.303,
+        103.775,
+        "Fansipan_Vietnam.jpg",
+        ["Teleférico ₫ ~800.000", "Cable car ₫ ~800,000"],
+        ["Teleférico récord desde Sa Pa.", "Record cable car from Sa Pa."],
+        [
+          "El pico más alto de Indochina (3.143 m), con un complejo de templos en la cima.",
+          "The highest peak in Indochina (3,143 m), with a temple complex at the summit.",
+        ]
+      ),
+      PN(
+        "muong-hoa",
+        "Valle de Mường Hoa",
+        ["Naturaleza", "Rice terraces"],
+        "naturaleza",
+        22.3,
+        103.87,
+        "Sapa_Vietnam.jpg",
+        ["Trekking", "Trekking"],
+        ["Trekking / moto.", "Trekking / motorbike."],
+        [
+          "Valle de espectaculares terrazas de arroz esculpidas durante siglos.",
+          "A valley of spectacular rice terraces carved over centuries.",
+        ]
+      ),
+      PN(
+        "cat-cat",
+        "Aldea Cát Cát (H'Mông)",
+        ["Cultura", "Village"],
+        "paseo",
+        22.33,
+        103.83,
+        "Sapa_Vietnam.jpg",
+        ["₫ ~90.000", "₫ ~90,000"],
+        ["A pie desde Sa Pa (~2 km).", "Walk from Sa Pa (~2 km)."],
+        [
+          "Aldea H'Mông negra con cascada, molinos y trajes tradicionales.",
+          "A Black H'Mông village with a waterfall, mills and traditional dress.",
+        ]
+      ),
+      PN(
+        "ta-van",
+        "Aldea Tả Van (Giáy)",
+        ["Cultura", "Village"],
+        "naturaleza",
+        22.31,
+        103.89,
+        "Sapa_Vietnam.jpg",
+        ["Trekking", "Trekking"],
+        ["Trekking desde Sa Pa.", "Trek from Sa Pa."],
+        [
+          "Aldea entre arrozales donde se puede dormir en casas de familias locales.",
+          "A village amid rice paddies where you can homestay with local families.",
+        ]
+      ),
+      PN(
+        "sapa-church",
+        "Iglesia de piedra de Sa Pa",
+        ["Histórico", "Historic"],
+        "historico",
+        22.336,
+        103.844,
+        "Sapa_Vietnam.jpg",
+        ["Gratis", "Free"],
+        ["En el centro.", "In the centre."],
+        [
+          "Iglesia colonial francesa de 1895, punto de encuentro del pueblo.",
+          "An 1895 French colonial stone church, the town's meeting point.",
+        ]
+      ),
+      PN(
+        "silver-waterfall",
+        "Cascada de Plata (Thác Bạc)",
+        ["Cascada", "Falls"],
+        "naturaleza",
+        22.355,
+        103.775,
+        "Sapa_Vietnam.jpg",
+        ["₫ ~20.000", "₫ ~20,000"],
+        ["Auto / moto (~12 km).", "Car / motorbike (~12 km)."],
+        [
+          "Cascada de 200 m junto a la ruta al paso O Quy Hồ.",
+          "A 200 m waterfall beside the road to the O Quy Hồ pass.",
+        ]
+      ),
+      PN(
+        "ham-rong",
+        "Montaña Hàm Rồng",
+        ["Mirador", "Lookout"],
+        "naturaleza",
+        22.338,
+        103.847,
+        "Sapa_Vietnam.jpg",
+        ["₫ ~70.000", "₫ ~70,000"],
+        ["A pie desde el centro.", "Walk from the centre."],
+        [
+          "Jardín de montaña con orquídeas y miradores sobre el pueblo y el valle.",
+          "A mountain garden of orchids and lookouts over the town and valley.",
+        ]
+      ),
+      PN(
+        "oquyho",
+        "Paso O Quy Hồ",
+        ["Mirador", "Mountain pass"],
+        "naturaleza",
+        22.35,
+        103.76,
+        "Sapa_Vietnam.jpg",
+        ["Gratis", "Free"],
+        ["Moto / auto.", "Motorbike / car."],
+        [
+          "Uno de los pasos de montaña más altos y espectaculares del país.",
+          "One of the country's highest and most spectacular mountain passes.",
+        ]
+      ),
+      PN(
+        "sapa-market",
+        "Mercado de Sa Pa",
+        ["Mercado", "Market"],
+        "shopping",
+        22.336,
+        103.843,
+        "Sapa_Vietnam.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["En el centro.", "In the centre."],
+        [
+          "Mercado de textiles bordados e índigo de las minorías H'Mông y Dao.",
+          "A market of embroidered and indigo textiles from the H'Mông and Dao peoples.",
+        ]
+      ),
+      PN(
+        "ta-phin",
+        "Aldea Tả Phìn (Dao rojo)",
+        ["Cultura", "Village"],
+        "paseo",
+        22.37,
+        103.89,
+        "Sapa_Vietnam.jpg",
+        ["Trekking", "Trekking"],
+        ["Moto / trekking (~12 km).", "Motorbike / trek (~12 km)."],
+        [
+          "Aldea del pueblo Dao rojo, famosa por sus baños de hierbas medicinales.",
+          "A Red Dao village famous for its medicinal herbal baths.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "ninhbinh",
+    nombre: "Ninh Bình",
+    provincia: VN_NORTE,
+    center: [20.2506, 105.9744],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Info de Ninh Bình", en: "Ninh Bình info" },
+      lat: 20.2506,
+      lng: 105.9744,
+      img: "Trang_An_Vietnam.jpg",
+      url: "https://www.vietnam.travel/places-to-go/northern-vietnam/ninh-binh",
+      sinopsis: {
+        es: "La 'bahía de Ha Long en tierra': karsts calizos que emergen de arrozales y ríos, recorridos en bote de remo.",
+        en: "'Ha Long Bay on land': limestone karsts rising from rice paddies and rivers, explored by rowing boat.",
+      },
+    },
+    puntos: [
+      PN(
+        "trang-an",
+        "Tràng An",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        20.25,
+        105.92,
+        "Trang_An_Vietnam.jpg",
+        ["₫ ~250.000", "₫ ~250,000"],
+        ["Taxi / moto desde Ninh Bình.", "Taxi / motorbike from Ninh Bình."],
+        [
+          "Paisaje kárstico Patrimonio de la Humanidad, recorrido en bote entre cuevas y templos.",
+          "A World Heritage karst landscape, toured by boat through caves and temples.",
+        ]
+      ),
+      PN(
+        "tam-coc",
+        "Tam Cốc",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        20.22,
+        105.93,
+        "Trang_An_Vietnam.jpg",
+        ["₫ ~120.000", "₫ ~120,000"],
+        ["Taxi / bici.", "Taxi / bike."],
+        [
+          "'Las tres cuevas': paseo en bote de remo por un río entre arrozales y acantilados.",
+          "'Three caves': a rowing-boat trip along a river between rice fields and cliffs.",
+        ]
+      ),
+      PN(
+        "mua-cave",
+        "Cueva y mirador Múa",
+        ["Mirador", "Lookout"],
+        "trekking",
+        20.228,
+        105.943,
+        "Trang_An_Vietnam.jpg",
+        ["₫ ~100.000", "₫ ~100,000"],
+        ["Taxi / bici + 500 escalones.", "Taxi / bike + 500 steps."],
+        [
+          "500 escalones a un pico con la mejor vista panorámica de Tam Cốc.",
+          "500 steps to a peak with the best panoramic view of Tam Cốc.",
+        ]
+      ),
+      PN(
+        "bai-dinh",
+        "Pagoda Bái Đính",
+        ["Templo", "Temple"],
+        "historico",
+        20.268,
+        105.87,
+        "Trang_An_Vietnam.jpg",
+        ["Gratis (carrito aparte)", "Free (shuttle extra)"],
+        ["Taxi (~15 km).", "Taxi (~15 km)."],
+        [
+          "El mayor complejo de templos budistas de Vietnam, con corredores de 500 estatuas.",
+          "Vietnam's largest Buddhist temple complex, with corridors of 500 arhat statues.",
+        ]
+      ),
+      PN(
+        "hoa-lu",
+        "Antigua capital Hoa Lư",
+        ["Histórico", "Historic"],
+        "historico",
+        20.28,
+        105.91,
+        "Trang_An_Vietnam.jpg",
+        ["₫ ~20.000", "₫ ~20,000"],
+        ["Taxi / bici.", "Taxi / bike."],
+        [
+          "Capital de Vietnam en los siglos X-XI, con templos a los reyes Đinh y Lê.",
+          "Vietnam's capital in the 10th–11th centuries, with temples to the Đinh and Lê kings.",
+        ]
+      ),
+      PN(
+        "bich-dong",
+        "Pagoda Bích Động",
+        ["Templo", "Temple"],
+        "historico",
+        20.216,
+        105.93,
+        "Trang_An_Vietnam.jpg",
+        ["Gratis", "Free"],
+        ["Taxi / bici.", "Taxi / bike."],
+        [
+          "Pagoda del siglo XV construida en la ladera de una montaña kárstica.",
+          "A 15th-century pagoda built into the side of a karst mountain.",
+        ]
+      ),
+      PN(
+        "cuc-phuong",
+        "Parque Nacional Cúc Phương",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        20.25,
+        105.6,
+        "Trang_An_Vietnam.jpg",
+        ["₫ ~60.000", "₫ ~60,000"],
+        ["Auto (~45 min).", "Car (~45 min)."],
+        [
+          "El parque nacional más antiguo del país, con árboles milenarios y un centro de primates.",
+          "The country's oldest national park, with ancient trees and a primate centre.",
+        ]
+      ),
+      PN(
+        "van-long",
+        "Reserva de Vân Long",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        20.34,
+        105.87,
+        "Trang_An_Vietnam.jpg",
+        ["₫ ~90.000", "₫ ~90,000"],
+        ["Taxi (~20 min).", "Taxi (~20 min)."],
+        [
+          "Humedal apacible en bote de remo, hogar del raro langur de Delacour.",
+          "A tranquil wetland by rowing boat, home to the rare Delacour's langur.",
+        ]
+      ),
+      PN(
+        "thung-nham",
+        "Parque de aves Thung Nham",
+        ["Naturaleza", "Wildlife"],
+        "naturaleza",
+        20.21,
+        105.96,
+        "Trang_An_Vietnam.jpg",
+        ["₫ ~100.000", "₫ ~100,000"],
+        ["Taxi.", "Taxi."],
+        [
+          "Valle-santuario de aves con cuevas y un jardín de garzas al atardecer.",
+          "A bird-sanctuary valley with caves and a heron garden at dusk.",
+        ]
+      ),
+    ],
+  },
+];
+
 // Países disponibles (para el selector).
 const PAISES = [
   {
@@ -12419,6 +13304,7 @@ const LOCALIDADES = [
   ...LOCALIDADES_AU.map((l) => ({ ...l, pais: "au" })),
   ...LOCALIDADES_AU2.map((l) => ({ ...l, pais: "au" })),
   ...LOCALIDADES_VN.map((l) => ({ ...l, pais: "vn" })),
+  ...LOCALIDADES_VN2.map((l) => ({ ...l, pais: "vn" })),
   ...LOCALIDADES_KH.map((l) => ({ ...l, pais: "kh" })),
   ...LOCALIDADES_CN.map((l) => ({ ...l, pais: "cn" })),
   ...LOCALIDADES_LA.map((l) => ({ ...l, pais: "la" })),
