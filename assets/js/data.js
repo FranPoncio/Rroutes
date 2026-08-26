@@ -8378,6 +8378,1470 @@ const LOCALIDADES_NZ = [
   },
 ];
 
+// =====================================================================
+//  JAPÓN (bilingüe)
+// =====================================================================
+const KANTO = { es: "Kantō", en: "Kantō" };
+const KANSAI = { es: "Kansai", en: "Kansai" };
+const LOCALIDADES_JP = [
+  {
+    id: "tokyo",
+    nombre: "Tokio / Tokyo",
+    provincia: KANTO,
+    center: [35.6762, 139.6503],
+    zoom: 11,
+    eventos: {
+      nombre: { es: "Agenda de Tokio", en: "Tokyo events" },
+      lat: 35.6762,
+      lng: 139.6503,
+      img: "Tokyo_Tower_and_skyline.jpg",
+      url: "https://www.gotokyo.org/en/",
+      sinopsis: {
+        es: "Metrópoli de 37 millones donde conviven templos antiguos y neón futurista; su agenda oficial reúne festivales (matsuri), sumo y eventos estacionales.",
+        en: "A 37-million metropolis where ancient temples meet futuristic neon; its official calendar covers matsuri festivals, sumo and seasonal events.",
+      },
+    },
+    puntos: [
+      PN(
+        "sensoji",
+        "Sensō-ji (Asakusa)",
+        ["Templo", "Temple"],
+        "historico",
+        35.7148,
+        139.7967,
+        "Sensoji_Temple.jpg",
+        ["Gratis", "Free"],
+        ["Metro Ginza (Asakusa).", "Ginza subway (Asakusa)."],
+        [
+          "El templo más antiguo de Tokio (año 645), con su gran linterna roja en la puerta Kaminarimon.",
+          "Tokyo's oldest temple (year 645), with its giant red lantern at the Kaminarimon gate.",
+        ]
+      ),
+      PN(
+        "shibuya",
+        "Cruce de Shibuya",
+        ["Ícono", "Icon"],
+        "paseo",
+        35.6595,
+        139.7004,
+        "Shibuya_Crossing.jpg",
+        ["Gratis", "Free"],
+        ["Estación Shibuya (JR / metro).", "Shibuya station (JR / subway)."],
+        [
+          "El cruce peatonal más transitado del mundo, un mar de gente bajo pantallas gigantes.",
+          "The world's busiest pedestrian crossing, a sea of people beneath giant screens.",
+        ]
+      ),
+      PN(
+        "meiji-jingu",
+        "Santuario Meiji",
+        ["Santuario", "Shrine"],
+        "historico",
+        35.6764,
+        139.6993,
+        "Meiji_Shrine.jpg",
+        ["Gratis", "Free"],
+        ["Estación Harajuku.", "Harajuku station."],
+        [
+          "Santuario sintoísta en un bosque de 100.000 árboles, oasis junto a Harajuku.",
+          "A Shinto shrine set in a forest of 100,000 trees, an oasis beside Harajuku.",
+        ]
+      ),
+      PN(
+        "skytree",
+        "Tokyo Skytree",
+        ["Mirador", "Lookout"],
+        "paseo",
+        35.7101,
+        139.8107,
+        "Tokyo_Skytree.jpg",
+        ["¥ ~3.100", "¥ ~3,100"],
+        ["Estación Oshiage / Tokyo Skytree.", "Oshiage / Tokyo Skytree station."],
+        [
+          "La torre más alta de Japón (634 m), con miradores sobre toda la ciudad.",
+          "Japan's tallest tower (634 m), with observation decks over the whole city.",
+        ]
+      ),
+      PN(
+        "shinjuku-gyoen",
+        "Shinjuku Gyoen",
+        ["Jardín", "Gardens"],
+        "naturaleza",
+        35.6852,
+        139.71,
+        "Shinjuku_Gyoen.jpg",
+        ["¥ ~500", "¥ ~500"],
+        ["Estación Shinjuku.", "Shinjuku station."],
+        [
+          "Gran parque de jardines japonés, inglés y francés; famoso por los cerezos en flor.",
+          "A large park with Japanese, English and French gardens; famous for cherry blossoms.",
+        ]
+      ),
+      PN(
+        "tsukiji",
+        "Mercado exterior de Tsukiji",
+        ["Mercado", "Market"],
+        "gastronomia",
+        35.6655,
+        139.7708,
+        "Tsukiji_Market.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["Metro Tsukiji.", "Tsukiji subway."],
+        [
+          "Callejones de puestos de sushi, mariscos y street food frente al antiguo mercado de pescado.",
+          "Lanes of sushi, seafood and street-food stalls by the old fish market.",
+        ]
+      ),
+      PN(
+        "ueno-park",
+        "Parque Ueno y museos",
+        ["Museos", "Museums"],
+        "museo",
+        35.7156,
+        139.7745,
+        "Ueno_Park.jpg",
+        ["Parque gratis", "Park free"],
+        ["Estación Ueno.", "Ueno station."],
+        [
+          "Gran parque con el Museo Nacional, zoológico y estanque de lotos.",
+          "A large park with the National Museum, a zoo and a lotus pond.",
+        ]
+      ),
+      PN(
+        "akihabara",
+        "Akihabara",
+        ["Compras", "Shopping"],
+        "shopping",
+        35.7022,
+        139.7745,
+        "Akihabara.jpg",
+        ["Gratis", "Free"],
+        ["Estación Akihabara.", "Akihabara station."],
+        [
+          "El barrio de la electrónica, el anime y los videojuegos, un festival de neón.",
+          "The district of electronics, anime and gaming, a festival of neon.",
+        ]
+      ),
+      PN(
+        "ginza",
+        "Ginza",
+        ["Compras", "Shopping"],
+        "shopping",
+        35.6717,
+        139.765,
+        "Ginza.jpg",
+        ["Gratis", "Free"],
+        ["Metro Ginza.", "Ginza subway."],
+        [
+          "El distrito de lujo y las grandes tiendas, peatonal los fines de semana.",
+          "The luxury and department-store district, pedestrian on weekends.",
+        ]
+      ),
+      PN(
+        "teamlab",
+        "teamLab Planets",
+        ["Museo digital", "Digital museum"],
+        "museo",
+        35.6486,
+        139.7906,
+        "Tokyo_Japan.jpg",
+        ["¥ ~3.800", "¥ ~3,800"],
+        ["Línea Yurikamome (Shin-Toyosu).", "Yurikamome line (Shin-Toyosu)."],
+        [
+          "Museo de arte digital inmersivo por el que se camina descalzo entre luz y agua.",
+          "An immersive digital-art museum you walk through barefoot amid light and water.",
+        ]
+      ),
+      PN(
+        "imperial-palace",
+        "Palacio Imperial",
+        ["Histórico", "Historic"],
+        "historico",
+        35.6852,
+        139.7528,
+        "Tokyo_Imperial_Palace.jpg",
+        ["Jardines gratis", "Gardens free"],
+        ["Estación Tokyo.", "Tokyo station."],
+        [
+          "Residencia del Emperador sobre el antiguo castillo de Edo, con jardines y fosos.",
+          "The Emperor's residence on the old Edo Castle grounds, with gardens and moats.",
+        ]
+      ),
+      PN(
+        "harajuku",
+        "Harajuku (Takeshita St)",
+        ["Compras", "Shopping"],
+        "shopping",
+        35.6702,
+        139.7027,
+        "Takeshita_Street.jpg",
+        ["Gratis", "Free"],
+        ["Estación Harajuku.", "Harajuku station."],
+        [
+          "La calle de la moda juvenil, el kawaii y las crepas, siempre a tope.",
+          "The street of youth fashion, kawaii culture and crêpes, always buzzing.",
+        ]
+      ),
+      PN(
+        "tokyo-tower",
+        "Tokyo Tower",
+        ["Mirador", "Lookout"],
+        "paseo",
+        35.6586,
+        139.7454,
+        "Tokyo_Tower.jpg",
+        ["¥ ~1.200", "¥ ~1,200"],
+        ["Metro Akabanebashi.", "Akabanebashi subway."],
+        [
+          "Torre roja y blanca de 1958 inspirada en la de Eiffel, ícono clásico de la ciudad.",
+          "A 1958 red-and-white tower inspired by the Eiffel, a classic city icon.",
+        ]
+      ),
+      PN(
+        "odaiba",
+        "Odaiba",
+        ["Paseo", "Waterfront"],
+        "paseo",
+        35.63,
+        139.78,
+        "Odaiba.jpg",
+        ["Gratis", "Free"],
+        ["Línea Yurikamome.", "Yurikamome line."],
+        [
+          "Isla artificial de la bahía con centros comerciales, una réplica de la Estatua de la Libertad y vistas.",
+          "A man-made bay island with malls, a replica Statue of Liberty and skyline views.",
+        ]
+      ),
+      PN(
+        "ghibli",
+        "Museo Ghibli",
+        ["Museo", "Museum"],
+        "museo",
+        35.6963,
+        139.5704,
+        "Tokyo_Japan.jpg",
+        ["¥ ~1.000 (reserva)", "¥ ~1,000 (booking)"],
+        ["Estación Mitaka + bus.", "Mitaka station + bus."],
+        [
+          "Museo mágico dedicado al Studio Ghibli, en el parque de Inokashira.",
+          "A magical museum devoted to Studio Ghibli, in Inokashira Park.",
+        ]
+      ),
+      PN(
+        "shinjuku-omoide",
+        "Shinjuku (Omoide Yokocho)",
+        ["Gastronomía", "Food"],
+        "gastronomia",
+        35.6938,
+        139.6996,
+        "Shinjuku.jpg",
+        ["Consumición", "Pay as you go"],
+        ["Estación Shinjuku.", "Shinjuku station."],
+        [
+          "Callejones de posguerra con diminutos bares de yakitori bajo las vías del tren.",
+          "Post-war alleys of tiny yakitori bars tucked under the train tracks.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "kyoto",
+    nombre: "Kioto / Kyoto",
+    provincia: KANSAI,
+    center: [35.0116, 135.7681],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Agenda de Kioto", en: "Kyoto events" },
+      lat: 35.0116,
+      lng: 135.7681,
+      img: "Kinkaku-ji.jpg",
+      url: "https://www.kyoto.travel/en/",
+      sinopsis: {
+        es: "La antigua capital imperial, con 1.600 templos y geishas; su agenda gira en torno a festivales milenarios como el Gion Matsuri y las estaciones.",
+        en: "The old imperial capital, with 1,600 temples and geisha; its calendar centres on ancient festivals like Gion Matsuri and the seasons.",
+      },
+    },
+    puntos: [
+      PN(
+        "fushimi-inari",
+        "Fushimi Inari Taisha",
+        ["Santuario", "Shrine"],
+        "historico",
+        34.9671,
+        135.7727,
+        "Fushimi_Inari.jpg",
+        ["Gratis", "Free"],
+        ["Estación JR Inari.", "JR Inari station."],
+        [
+          "Miles de torii bermellón que trepan la montaña en túneles interminables.",
+          "Thousands of vermilion torii gates climbing the mountain in endless tunnels.",
+        ]
+      ),
+      PN(
+        "kinkakuji",
+        "Kinkaku-ji (Pabellón Dorado)",
+        ["Templo", "Temple"],
+        "historico",
+        35.0394,
+        135.7292,
+        "Kinkaku-ji.jpg",
+        ["¥ ~500", "¥ ~500"],
+        ["Bus 101 / 205.", "Bus 101 / 205."],
+        [
+          "Templo zen cubierto en pan de oro que se refleja en su estanque; el más famoso de la ciudad.",
+          "A Zen temple covered in gold leaf, mirrored in its pond; the city's most famous.",
+        ]
+      ),
+      PN(
+        "arashiyama",
+        "Bosque de bambú de Arashiyama",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        35.017,
+        135.671,
+        "Arashiyama_Bamboo_Grove.jpg",
+        ["Gratis", "Free"],
+        ["Tren Randen / JR Saga-Arashiyama.", "Randen tram / JR Saga-Arashiyama."],
+        [
+          "Sendero entre cañas de bambú gigantes que susurran con el viento.",
+          "A path through towering bamboo stalks that whisper in the wind.",
+        ]
+      ),
+      PN(
+        "kiyomizu",
+        "Kiyomizu-dera",
+        ["Templo", "Temple"],
+        "historico",
+        34.9948,
+        135.785,
+        "Kiyomizu-dera.jpg",
+        ["¥ ~400", "¥ ~400"],
+        ["Bus 100 / 206.", "Bus 100 / 206."],
+        [
+          "Templo de madera sobre pilares con un balcón panorámico de la ciudad.",
+          "A wooden temple on stilts with a panoramic veranda over the city.",
+        ]
+      ),
+      PN(
+        "gion",
+        "Barrio de Gion",
+        ["Paseo histórico", "Historic quarter"],
+        "paseo",
+        35.0037,
+        135.7752,
+        "Gion_Kyoto.jpg",
+        ["Gratis", "Free"],
+        ["Estación Gion-Shijo.", "Gion-Shijo station."],
+        [
+          "El distrito de las geishas, de casas de té de madera y calles empedradas.",
+          "The geisha district, of wooden tea-houses and cobbled lanes.",
+        ]
+      ),
+      PN(
+        "nishiki",
+        "Mercado Nishiki",
+        ["Mercado", "Market"],
+        "gastronomia",
+        35.005,
+        135.7649,
+        "Nishiki_Market.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["Estación Shijo.", "Shijo station."],
+        [
+          "'La cocina de Kioto': un pasaje cubierto de 400 años con puestos de comida local.",
+          "'Kyoto's Kitchen': a 400-year-old covered arcade of local food stalls.",
+        ]
+      ),
+      PN(
+        "ginkakuji",
+        "Ginkaku-ji (Pabellón de Plata)",
+        ["Templo", "Temple"],
+        "historico",
+        35.027,
+        135.7982,
+        "Ginkaku-ji.jpg",
+        ["¥ ~500", "¥ ~500"],
+        ["Bus 5 / 17.", "Bus 5 / 17."],
+        [
+          "Templo zen con un célebre jardín seco de arena y musgo.",
+          "A Zen temple with a celebrated dry garden of raked sand and moss.",
+        ]
+      ),
+      PN(
+        "philosophers-path",
+        "Sendero del Filósofo",
+        ["Paseo", "Walk"],
+        "paseo",
+        35.027,
+        135.794,
+        "Kyoto_Japan.jpg",
+        ["Gratis", "Free"],
+        ["Bus a Ginkaku-ji.", "Bus to Ginkaku-ji."],
+        [
+          "Camino junto a un canal bordeado de cerezos, entre templos.",
+          "A canal-side path lined with cherry trees, linking temples.",
+        ]
+      ),
+      PN(
+        "nijo-castle",
+        "Castillo Nijō",
+        ["Histórico", "Historic"],
+        "historico",
+        35.0142,
+        135.7481,
+        "Nijo_Castle.jpg",
+        ["¥ ~1.300", "¥ ~1,300"],
+        ["Metro Nijōjō-mae.", "Nijōjō-mae subway."],
+        [
+          "Castillo del shogunato con 'suelos de ruiseñor' que cantan para detectar intrusos.",
+          "A shogun's castle with 'nightingale floors' that chirp to reveal intruders.",
+        ]
+      ),
+      PN(
+        "tenryuji",
+        "Tenryū-ji",
+        ["Templo", "Temple"],
+        "naturaleza",
+        35.0158,
+        135.6737,
+        "Arashiyama_Bamboo_Grove.jpg",
+        ["¥ ~500", "¥ ~500"],
+        ["JR Saga-Arashiyama.", "JR Saga-Arashiyama."],
+        [
+          "Templo zen con un jardín-estanque del siglo XIV, junto al bosque de bambú.",
+          "A Zen temple with a 14th-century pond garden, next to the bamboo grove.",
+        ]
+      ),
+      PN(
+        "pontocho",
+        "Callejón Pontochō",
+        ["Gastronomía", "Food"],
+        "gastronomia",
+        35.006,
+        135.7708,
+        "Gion_Kyoto.jpg",
+        ["Consumición", "Pay as you go"],
+        ["Estación Gion-Shijo.", "Gion-Shijo station."],
+        [
+          "Estrecho callejón junto al río lleno de restaurantes tradicionales y farolillos.",
+          "A narrow riverside alley packed with traditional restaurants and lanterns.",
+        ]
+      ),
+      PN(
+        "sanjusangendo",
+        "Sanjūsangen-dō",
+        ["Templo", "Temple"],
+        "museo",
+        34.9879,
+        135.7717,
+        "Kyoto_Japan.jpg",
+        ["¥ ~600", "¥ ~600"],
+        ["Bus 100 / 206.", "Bus 100 / 206."],
+        [
+          "Salón de madera con 1.001 estatuas doradas de Kannon en fila.",
+          "A wooden hall lined with 1,001 golden statues of Kannon.",
+        ]
+      ),
+      PN(
+        "tofukuji",
+        "Tōfuku-ji",
+        ["Templo", "Temple"],
+        "historico",
+        34.9767,
+        135.774,
+        "Kyoto_Japan.jpg",
+        ["¥ ~600", "¥ ~600"],
+        ["JR Tōfukuji.", "JR Tōfukuji."],
+        [
+          "Gran templo zen célebre por sus arces rojos de otoño desde el puente Tsūtenkyō.",
+          "A great Zen temple famed for its red autumn maples from the Tsūtenkyō bridge.",
+        ]
+      ),
+      PN(
+        "kyoto-station",
+        "Estación de Kioto",
+        ["Arquitectura", "Architecture"],
+        "paseo",
+        34.9858,
+        135.7588,
+        "Kyoto_Station.jpg",
+        ["Gratis", "Free"],
+        ["Estación Kyoto.", "Kyoto station."],
+        [
+          "Futurista estación de acero y vidrio con escaleras monumentales y miradores.",
+          "A futuristic steel-and-glass station with monumental stairs and rooftop views.",
+        ]
+      ),
+      PN(
+        "arashiyama-monkey",
+        "Parque de monos de Iwatayama",
+        ["Naturaleza", "Wildlife"],
+        "naturaleza",
+        35.0092,
+        135.6772,
+        "Arashiyama_Bamboo_Grove.jpg",
+        ["¥ ~600", "¥ ~600"],
+        ["JR Saga-Arashiyama + subida.", "JR Saga-Arashiyama + climb."],
+        [
+          "Colina con macacos japoneses en libertad y vista panorámica de Kioto.",
+          "A hilltop with free-roaming Japanese macaques and a panoramic view of Kyoto.",
+        ]
+      ),
+    ],
+  },
+];
+
+// =====================================================================
+//  TAILANDIA (bilingüe)
+// =====================================================================
+const TH_CENTRO = { es: "Centro", en: "Central" };
+const TH_NORTE = { es: "Norte", en: "Northern" };
+const LOCALIDADES_TH = [
+  {
+    id: "bangkok",
+    nombre: "Bangkok",
+    provincia: TH_CENTRO,
+    center: [13.7563, 100.5018],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Agenda de Bangkok", en: "Bangkok events" },
+      lat: 13.7563,
+      lng: 100.5018,
+      img: "Wat_Arun_Bangkok.jpg",
+      url: "https://www.tourismthailand.org/Destinations/Provinces/Bangkok/",
+      sinopsis: {
+        es: "Capital vibrante de templos dorados, mercados y street food; su agenda incluye Songkran (año nuevo del agua), Loy Krathong y ferias gastronómicas.",
+        en: "A vibrant capital of golden temples, markets and street food; its calendar features Songkran (water festival), Loy Krathong and food fairs.",
+      },
+    },
+    puntos: [
+      PN(
+        "grand-palace",
+        "Gran Palacio y Wat Phra Kaew",
+        ["Palacio y templo", "Palace & temple"],
+        "historico",
+        13.75,
+        100.4913,
+        "Grand_Palace_Bangkok.jpg",
+        ["฿ ~500", "฿ ~500"],
+        ["Barco Chao Phraya (Tha Chang).", "Chao Phraya boat (Tha Chang)."],
+        [
+          "El complejo real de 1782 y el Templo del Buda Esmeralda, corazón sagrado del país.",
+          "The 1782 royal complex and the Temple of the Emerald Buddha, the country's sacred heart.",
+        ]
+      ),
+      PN(
+        "wat-pho",
+        "Wat Pho (Buda reclinado)",
+        ["Templo", "Temple"],
+        "historico",
+        13.7465,
+        100.4927,
+        "Wat_Pho.jpg",
+        ["฿ ~300", "฿ ~300"],
+        ["Barco (Tha Tien).", "Boat (Tha Tien)."],
+        [
+          "Templo del Buda reclinado de oro de 46 m y cuna del masaje tailandés.",
+          "Home to the 46 m golden Reclining Buddha and the birthplace of Thai massage.",
+        ]
+      ),
+      PN(
+        "wat-arun",
+        "Wat Arun",
+        ["Templo", "Temple"],
+        "historico",
+        13.7437,
+        100.4889,
+        "Wat_Arun_Bangkok.jpg",
+        ["฿ ~200", "฿ ~200"],
+        ["Ferry cruzando el río.", "Cross-river ferry."],
+        [
+          "El 'Templo del Amanecer', con una torre de porcelana que brilla al atardecer.",
+          "The 'Temple of Dawn', its porcelain-clad spire glowing at sunset.",
+        ]
+      ),
+      PN(
+        "chatuchak",
+        "Mercado de Chatuchak",
+        ["Mercado", "Market"],
+        "shopping",
+        13.7999,
+        100.5501,
+        "Chatuchak_Market.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["Metro MRT / BTS Mo Chit.", "MRT / BTS Mo Chit."],
+        [
+          "Uno de los mayores mercados del mundo: 15.000 puestos de todo, los fines de semana.",
+          "One of the world's largest markets: 15,000 stalls of everything, on weekends.",
+        ]
+      ),
+      PN(
+        "khaosan",
+        "Khao San Road",
+        ["Paseo", "Strip"],
+        "paseo",
+        13.759,
+        100.4977,
+        "Khao_San_Road.jpg",
+        ["Gratis", "Free"],
+        ["Barco (Phra Athit) / taxi.", "Boat (Phra Athit) / taxi."],
+        [
+          "La calle mochilera por excelencia: bares, puestos y vida nocturna caótica.",
+          "The classic backpacker street: bars, stalls and chaotic nightlife.",
+        ]
+      ),
+      PN(
+        "jim-thompson",
+        "Casa de Jim Thompson",
+        ["Museo", "Museum"],
+        "museo",
+        13.7492,
+        100.5286,
+        "Bangkok_Thailand.jpg",
+        ["฿ ~200", "฿ ~200"],
+        ["BTS National Stadium.", "BTS National Stadium."],
+        [
+          "Casa-museo de teca del magnate de la seda que desapareció misteriosamente en 1967.",
+          "The teak house-museum of the silk magnate who vanished mysteriously in 1967.",
+        ]
+      ),
+      PN(
+        "wat-saket",
+        "Wat Saket (Monte Dorado)",
+        ["Templo", "Temple"],
+        "historico",
+        13.7537,
+        100.506,
+        "Bangkok_Thailand.jpg",
+        ["฿ ~100", "฿ ~100"],
+        ["Taxi / barco canal.", "Taxi / canal boat."],
+        [
+          "Estupa dorada sobre una colina artificial con vista de 360° de la ciudad vieja.",
+          "A golden stupa atop an artificial hill with a 360° view of the old city.",
+        ]
+      ),
+      PN(
+        "chinatown-bkk",
+        "Chinatown (Yaowarat)",
+        ["Gastronomía", "Food"],
+        "gastronomia",
+        13.74,
+        100.509,
+        "Bangkok_Thailand.jpg",
+        ["Consumición", "Pay as you go"],
+        ["MRT Wat Mangkon.", "MRT Wat Mangkon."],
+        [
+          "Uno de los mejores barrios de street food del mundo, un festín de neón por la noche.",
+          "One of the world's great street-food districts, a neon feast at night.",
+        ]
+      ),
+      PN(
+        "lumphini",
+        "Parque Lumphini",
+        ["Parque", "Park"],
+        "naturaleza",
+        13.7307,
+        100.5418,
+        "Bangkok_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["MRT Lumphini / BTS Sala Daeng.", "MRT Lumphini / BTS Sala Daeng."],
+        [
+          "El gran pulmón verde de la ciudad, con lago, botes y varanos gigantes.",
+          "The city's great green lung, with a lake, paddle boats and giant monitor lizards.",
+        ]
+      ),
+      PN(
+        "iconsiam",
+        "ICONSIAM",
+        ["Compras", "Shopping"],
+        "shopping",
+        13.7266,
+        100.51,
+        "Bangkok_Thailand.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["Barco lanzadera gratis.", "Free shuttle boat."],
+        [
+          "Megacentro comercial de lujo frente al río con un mercado flotante bajo techo.",
+          "A riverside luxury mega-mall with an indoor floating market.",
+        ]
+      ),
+      PN(
+        "asiatique",
+        "Asiatique",
+        ["Paseo nocturno", "Night market"],
+        "paseo",
+        13.704,
+        100.51,
+        "Bangkok_Thailand.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["Barco lanzadera desde Saphan Taksin.", "Shuttle boat from Saphan Taksin."],
+        [
+          "Mercado nocturno junto al río en antiguos almacenes, con noria y restaurantes.",
+          "A riverside night market in old warehouses, with a Ferris wheel and restaurants.",
+        ]
+      ),
+      PN(
+        "damnoen",
+        "Mercado flotante Damnoen Saduak",
+        ["Mercado", "Market"],
+        "paseo",
+        13.52,
+        99.955,
+        "Damnoen_Saduak.jpg",
+        ["Bote arancelado", "Paid boat"],
+        ["Excursión / auto (~1,5 h).", "Tour / car (~1.5 h)."],
+        [
+          "El mercado flotante más famoso: canales llenos de canoas cargadas de frutas.",
+          "The most famous floating market: canals crowded with fruit-laden canoes.",
+        ]
+      ),
+      PN(
+        "erawan",
+        "Santuario Erawan",
+        ["Histórico", "Shrine"],
+        "historico",
+        13.744,
+        100.5405,
+        "Bangkok_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["BTS Chit Lom.", "BTS Chit Lom."],
+        [
+          "Santuario hindú muy venerado entre rascacielos, con danzas tradicionales.",
+          "A much-revered Hindu shrine amid skyscrapers, with traditional dancers.",
+        ]
+      ),
+      PN(
+        "wat-traimit",
+        "Wat Traimit (Buda de oro)",
+        ["Templo", "Temple"],
+        "historico",
+        13.7378,
+        100.5138,
+        "Bangkok_Thailand.jpg",
+        ["฿ ~100", "฿ ~100"],
+        ["MRT Hua Lamphong.", "MRT Hua Lamphong."],
+        [
+          "Guarda el mayor Buda de oro macizo del mundo, 5,5 toneladas de oro.",
+          "Home to the world's largest solid-gold Buddha, 5.5 tonnes of gold.",
+        ]
+      ),
+      PN(
+        "rooftop-bkk",
+        "Sky Bar (Lebua)",
+        ["Mirador", "Rooftop"],
+        "paseo",
+        13.7203,
+        100.5165,
+        "Bangkok_Thailand.jpg",
+        ["Consumición", "Pay as you go"],
+        ["BTS Saphan Taksin.", "BTS Saphan Taksin."],
+        [
+          "Bar en la terraza de un rascacielos con vista aérea del río y la ciudad.",
+          "A skyscraper rooftop bar with an aerial view of the river and city.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "chiangmai",
+    nombre: "Chiang Mai",
+    provincia: TH_NORTE,
+    center: [18.7883, 98.9853],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Agenda de Chiang Mai", en: "Chiang Mai events" },
+      lat: 18.7883,
+      lng: 98.9853,
+      img: "Doi_Suthep.jpg",
+      url: "https://www.tourismthailand.org/Destinations/Provinces/Chiang-Mai/",
+      sinopsis: {
+        es: "La 'Rosa del Norte', ciudad amurallada de templos y montañas; célebre por Yi Peng, el festival de los farolillos, y su cultura Lanna.",
+        en: "The 'Rose of the North', a walled city of temples and mountains; famous for Yi Peng, the lantern festival, and its Lanna culture.",
+      },
+    },
+    puntos: [
+      PN(
+        "doi-suthep",
+        "Doi Suthep (Wat Phra That)",
+        ["Templo", "Temple"],
+        "historico",
+        18.8047,
+        98.9217,
+        "Doi_Suthep.jpg",
+        ["฿ ~50", "฿ ~50"],
+        ["Songthaew rojo desde la ciudad.", "Red songthaew from town."],
+        [
+          "Templo dorado en la montaña, tras 306 escalones, con vista de todo Chiang Mai.",
+          "A golden mountain temple up 306 steps, overlooking all of Chiang Mai.",
+        ]
+      ),
+      PN(
+        "old-city-cm",
+        "Ciudad vieja y Wat Chedi Luang",
+        ["Histórico", "Historic"],
+        "historico",
+        18.787,
+        98.986,
+        "Chiang_Mai.jpg",
+        ["฿ ~40", "฿ ~40"],
+        ["A pie dentro de las murallas.", "Walk within the old walls."],
+        [
+          "Casco amurallado con fosos y el imponente chedi en ruinas del siglo XIV.",
+          "A moated walled quarter with the imposing ruined 14th-century chedi.",
+        ]
+      ),
+      PN(
+        "sunday-market-cm",
+        "Sunday Walking Street",
+        ["Mercado", "Market"],
+        "shopping",
+        18.7877,
+        98.993,
+        "Chiang_Mai.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["A pie en la ciudad vieja.", "Walk in the old city."],
+        [
+          "Mercado dominical de artesanías y street food que llena toda la calle Ratchadamnoen.",
+          "A Sunday craft-and-street-food market filling the whole Ratchadamnoen road.",
+        ]
+      ),
+      PN(
+        "elephant-park",
+        "Elephant Nature Park",
+        ["Naturaleza", "Wildlife"],
+        "naturaleza",
+        19.21,
+        98.86,
+        "Chiang_Mai.jpg",
+        ["Excursión arancelada", "Paid day trip"],
+        ["Transfer (~1 h).", "Transfer (~1 h)."],
+        [
+          "Santuario ético de elefantes rescatados, sin monta, en un valle del norte.",
+          "An ethical sanctuary for rescued elephants (no riding), in a northern valley.",
+        ]
+      ),
+      PN(
+        "doi-inthanon",
+        "Doi Inthanon",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        18.5887,
+        98.4867,
+        "Doi_Suthep.jpg",
+        ["Ingreso parque", "Park fee"],
+        ["Excursión / auto (~2 h).", "Tour / car (~2 h)."],
+        [
+          "El pico más alto de Tailandia (2.565 m), con cascadas, selva de niebla y las dos pagodas reales.",
+          "Thailand's highest peak (2,565 m), with waterfalls, cloud forest and the twin royal pagodas.",
+        ]
+      ),
+      PN(
+        "wat-phra-singh",
+        "Wat Phra Singh",
+        ["Templo", "Temple"],
+        "historico",
+        18.7889,
+        98.982,
+        "Chiang_Mai.jpg",
+        ["฿ ~40", "฿ ~40"],
+        ["A pie en la ciudad vieja.", "Walk in the old city."],
+        [
+          "El templo más venerado de la ciudad, joya de la arquitectura Lanna.",
+          "The city's most revered temple, a jewel of Lanna architecture.",
+        ]
+      ),
+      PN(
+        "nimman",
+        "Nimmanhaemin",
+        ["Gastronomía", "Dining"],
+        "gastronomia",
+        18.796,
+        98.967,
+        "Chiang_Mai.jpg",
+        ["Consumición", "Pay as you go"],
+        ["Songthaew / a pie.", "Songthaew / walk."],
+        [
+          "Barrio moderno de cafés de diseño, boutiques y vida nocturna, junto a la universidad.",
+          "A hip district of design cafés, boutiques and nightlife, by the university.",
+        ]
+      ),
+      PN(
+        "sticky-waterfalls",
+        "Cascadas Bua Thong (pegajosas)",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        19.05,
+        98.92,
+        "Chiang_Mai.jpg",
+        ["Gratis", "Free"],
+        ["Auto / excursión (~1 h).", "Car / tour (~1 h)."],
+        [
+          "Cascadas de piedra caliza por las que se puede trepar sin resbalar.",
+          "Limestone waterfalls you can climb up without slipping.",
+        ]
+      ),
+      PN(
+        "night-bazaar-cm",
+        "Night Bazaar",
+        ["Mercado", "Market"],
+        "shopping",
+        18.787,
+        99.0,
+        "Chiang_Mai.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["A pie desde la ciudad vieja.", "Walk from the old city."],
+        [
+          "Mercado nocturno diario de artesanías, ropa y comida sobre Chang Klan.",
+          "A nightly market of crafts, clothes and food along Chang Klan road.",
+        ]
+      ),
+      PN(
+        "wat-umong",
+        "Wat Umong",
+        ["Templo", "Temple"],
+        "historico",
+        18.777,
+        98.947,
+        "Chiang_Mai.jpg",
+        ["Gratis", "Free"],
+        ["Songthaew.", "Songthaew."],
+        [
+          "Templo del bosque del siglo XIV con túneles y un estanque, tranquilo y umbrío.",
+          "A 14th-century forest temple with tunnels and a pond, quiet and shady.",
+        ]
+      ),
+      PN(
+        "huay-tung-tao",
+        "Lago Huay Tung Tao",
+        ["Lago", "Lake"],
+        "playa",
+        18.85,
+        98.92,
+        "Chiang_Mai.jpg",
+        ["฿ ~50", "฿ ~50"],
+        ["Auto / bici (~20 min).", "Car / bike (~20 min)."],
+        [
+          "Lago al pie de la montaña con cabañas de bambú sobre el agua para comer.",
+          "A lake at the foot of the mountain with bamboo huts over the water for dining.",
+        ]
+      ),
+      PN(
+        "mae-sa",
+        "Valle de Mae Sa",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        18.92,
+        98.89,
+        "Chiang_Mai.jpg",
+        ["Varía", "Varies"],
+        ["Auto / excursión.", "Car / tour."],
+        [
+          "Valle verde con cascadas, jardines botánicos y tirolesas cerca de la ciudad.",
+          "A green valley with waterfalls, botanic gardens and ziplines near the city.",
+        ]
+      ),
+      PN(
+        "warorot",
+        "Mercado Warorot",
+        ["Mercado", "Market"],
+        "gastronomia",
+        18.79,
+        98.999,
+        "Chiang_Mai.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["A pie / songthaew.", "Walk / songthaew."],
+        [
+          "Gran mercado local diurno de comida, especias y textiles del norte.",
+          "A big daytime local market of food, spices and northern textiles.",
+        ]
+      ),
+    ],
+  },
+];
+
+// =====================================================================
+//  AUSTRALIA (bilingüe)
+// =====================================================================
+const AU_NSW = { es: "Nueva Gales del Sur", en: "New South Wales" };
+const AU_VIC = { es: "Victoria", en: "Victoria" };
+const LOCALIDADES_AU = [
+  {
+    id: "sydney",
+    nombre: "Sídney / Sydney",
+    provincia: AU_NSW,
+    center: [-33.8688, 151.2093],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Agenda de Sídney", en: "Sydney what's on" },
+      lat: -33.8688,
+      lng: 151.2093,
+      img: "Sydney_Opera_House.jpg",
+      url: "https://www.sydney.com/events",
+      sinopsis: {
+        es: "Ciudad de playas y bahía espectacular; su agenda incluye la Nochevieja más famosa del mundo, Vivid Sydney (festival de luces) y el Mardi Gras.",
+        en: "A city of beaches and a spectacular harbour; its calendar includes the world's most famous New Year's Eve, Vivid Sydney and Mardi Gras.",
+      },
+    },
+    puntos: [
+      PN(
+        "opera-house",
+        "Sydney Opera House",
+        ["Ícono", "Icon"],
+        "paseo",
+        -33.8568,
+        151.2153,
+        "Sydney_Opera_House.jpg",
+        ["Tour ~AU$ 43", "Tour ~AU$ 43"],
+        ["Tren / ferry Circular Quay.", "Train / ferry Circular Quay."],
+        [
+          "La ópera de velas blancas de 1973, Patrimonio de la Humanidad y símbolo de Australia.",
+          "The white-sailed 1973 opera house, a World Heritage site and symbol of Australia.",
+        ]
+      ),
+      PN(
+        "harbour-bridge",
+        "Harbour Bridge",
+        ["Ícono", "Icon"],
+        "paseo",
+        -33.8523,
+        151.2108,
+        "Sydney_Harbour_Bridge.jpg",
+        ["Escalada ~AU$ 300 / a pie gratis", "Climb ~AU$ 300 / walk free"],
+        ["Tren Milsons Point / Circular Quay.", "Train Milsons Point / Circular Quay."],
+        [
+          "El 'perchero' de acero de 1932; se cruza a pie o se escala hasta su arco.",
+          "The 1932 steel 'coathanger'; walk across it or climb to the top of its arch.",
+        ]
+      ),
+      PN(
+        "bondi",
+        "Bondi Beach",
+        ["Playa", "Beach"],
+        "playa",
+        -33.8908,
+        151.2743,
+        "Bondi_Beach.jpg",
+        ["Gratis", "Free"],
+        ["Tren a Bondi Junction + bus.", "Train to Bondi Junction + bus."],
+        [
+          "La playa urbana más famosa del país, de surf, pileta oceánica y ambiente.",
+          "The country's most famous city beach, with surf, an ocean pool and buzz.",
+        ]
+      ),
+      PN(
+        "the-rocks",
+        "The Rocks",
+        ["Histórico", "Historic"],
+        "historico",
+        -33.8599,
+        151.209,
+        "The_Rocks_Sydney.jpg",
+        ["Gratis", "Free"],
+        ["Circular Quay.", "Circular Quay."],
+        [
+          "El barrio fundacional de callejones de arenisca, con mercado de fin de semana.",
+          "The founding district of sandstone lanes, with a weekend market.",
+        ]
+      ),
+      PN(
+        "botanic-garden-syd",
+        "Royal Botanic Garden",
+        ["Jardín", "Gardens"],
+        "naturaleza",
+        -33.8642,
+        151.2166,
+        "Sydney_Australia.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde Circular Quay.", "Walk from Circular Quay."],
+        [
+          "Jardín junto a la bahía con Mrs Macquarie's Chair, mirador clásico de la ópera.",
+          "A harbourside garden with Mrs Macquarie's Chair, the classic opera-house viewpoint.",
+        ]
+      ),
+      PN(
+        "darling-harbour",
+        "Darling Harbour",
+        ["Paseo", "Waterfront"],
+        "paseo",
+        -33.873,
+        151.201,
+        "Sydney_Australia.jpg",
+        ["Gratis", "Free"],
+        ["Tren Town Hall / tranvía.", "Train Town Hall / light rail."],
+        [
+          "Bahía peatonal con acuario, museo marítimo, restaurantes y noria.",
+          "A pedestrian bay with an aquarium, maritime museum, restaurants and a wheel.",
+        ]
+      ),
+      PN(
+        "taronga",
+        "Taronga Zoo",
+        ["Naturaleza", "Zoo"],
+        "naturaleza",
+        -33.843,
+        151.241,
+        "Sydney_Australia.jpg",
+        ["~AU$ 47", "~AU$ 47"],
+        ["Ferry desde Circular Quay.", "Ferry from Circular Quay."],
+        [
+          "Zoológico con koalas y canguros y la mejor vista del skyline sobre la bahía.",
+          "A zoo with koalas and kangaroos and the best skyline view across the harbour.",
+        ]
+      ),
+      PN(
+        "manly",
+        "Manly Beach",
+        ["Playa", "Beach"],
+        "playa",
+        -33.7969,
+        151.287,
+        "Sydney_Australia.jpg",
+        ["Gratis", "Free"],
+        ["Ferry a Manly.", "Manly ferry."],
+        [
+          "Playa de surf a la que se llega con uno de los ferries más lindos del mundo.",
+          "A surf beach reached by one of the world's finest ferry rides.",
+        ]
+      ),
+      PN(
+        "bondi-coogee",
+        "Bondi to Coogee Walk",
+        ["Trekking costero", "Coastal walk"],
+        "trekking",
+        -33.9,
+        151.26,
+        "Bondi_Beach.jpg",
+        ["Gratis", "Free"],
+        ["Tren + bus a Bondi.", "Train + bus to Bondi."],
+        [
+          "Sendero de 6 km por acantilados, playas y piscinas oceánicas.",
+          "A 6 km clifftop path past beaches and ocean pools.",
+        ]
+      ),
+      PN(
+        "qvb",
+        "Queen Victoria Building",
+        ["Compras", "Shopping"],
+        "shopping",
+        -33.8716,
+        151.2069,
+        "Sydney_Australia.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["Tren Town Hall.", "Train Town Hall."],
+        [
+          "Galería comercial victoriana de 1898 bajo una gran cúpula de vidrio.",
+          "An 1898 Victorian shopping arcade beneath a grand glass dome.",
+        ]
+      ),
+      PN(
+        "art-gallery-nsw",
+        "Art Gallery of NSW",
+        ["Museo de arte", "Art gallery"],
+        "museo",
+        -33.8688,
+        151.217,
+        "Sydney_Australia.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el Domain.", "Walk from the Domain."],
+        [
+          "Gran museo de arte australiano, aborigen y europeo, con una nueva ala moderna.",
+          "A major museum of Australian, Aboriginal and European art, with a new modern wing.",
+        ]
+      ),
+      PN(
+        "sydney-tower",
+        "Sydney Tower Eye",
+        ["Mirador", "Lookout"],
+        "paseo",
+        -33.8709,
+        151.2088,
+        "Sydney_Australia.jpg",
+        ["~AU$ 30", "~AU$ 30"],
+        ["Tren St James / Town Hall.", "Train St James / Town Hall."],
+        [
+          "La estructura más alta de la ciudad (309 m), con mirador de 360°.",
+          "The city's tallest structure (309 m), with a 360° observation deck.",
+        ]
+      ),
+      PN(
+        "blue-mountains",
+        "Blue Mountains (Three Sisters)",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -33.732,
+        150.312,
+        "Three_Sisters_Blue_Mountains.jpg",
+        ["Gratis", "Free"],
+        ["Tren a Katoomba (~2 h).", "Train to Katoomba (~2 h)."],
+        [
+          "Cordillera de acantilados y eucaliptos azulados con la formación de las Tres Hermanas.",
+          "A range of cliffs and blue-hazed eucalypts with the Three Sisters rock formation.",
+        ]
+      ),
+      PN(
+        "watsons-bay",
+        "Watsons Bay y South Head",
+        ["Mirador", "Lookout"],
+        "naturaleza",
+        -33.84,
+        151.282,
+        "Sydney_Australia.jpg",
+        ["Gratis", "Free"],
+        ["Ferry a Watsons Bay.", "Ferry to Watsons Bay."],
+        [
+          "Pueblo de pescadores con acantilados oceánicos (The Gap) y fish & chips.",
+          "A fishing village with ocean cliffs (The Gap) and famous fish and chips.",
+        ]
+      ),
+      PN(
+        "luna-park-syd",
+        "Luna Park Sydney",
+        ["Paseo", "Amusement"],
+        "paseo",
+        -33.847,
+        151.21,
+        "Sydney_Australia.jpg",
+        ["Ingreso gratis; juegos aparte", "Free entry; rides extra"],
+        ["Ferry / tren Milsons Point.", "Ferry / train Milsons Point."],
+        [
+          "Parque de diversiones histórico de 1935 bajo su cara sonriente, frente a la bahía.",
+          "A historic 1935 amusement park under its giant smiling face, on the harbour.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "melbourne",
+    nombre: "Melbourne",
+    provincia: AU_VIC,
+    center: [-37.8136, 144.9631],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Agenda de Melbourne", en: "Melbourne what's on" },
+      lat: -37.8136,
+      lng: 144.9631,
+      img: "Melbourne_Australia.jpg",
+      url: "https://www.visitmelbourne.com/whats-on",
+      sinopsis: {
+        es: "La capital cultural y del café; su agenda incluye el Abierto de Australia, el Gran Premio y festivales de arte, comedia y gastronomía.",
+        en: "The cultural and coffee capital; its calendar features the Australian Open, the Grand Prix and arts, comedy and food festivals.",
+      },
+    },
+    puntos: [
+      PN(
+        "fed-square",
+        "Federation Square",
+        ["Paseo", "Square"],
+        "paseo",
+        -37.818,
+        144.9691,
+        "Federation_Square.jpg",
+        ["Gratis", "Free"],
+        ["Estación Flinders Street.", "Flinders Street station."],
+        [
+          "La plaza cívica moderna de la ciudad, punto de encuentro y de eventos.",
+          "The city's modern civic square, a hub for gatherings and events.",
+        ]
+      ),
+      PN(
+        "botanic-melb",
+        "Royal Botanic Gardens",
+        ["Jardín", "Gardens"],
+        "naturaleza",
+        -37.8304,
+        144.9796,
+        "Melbourne_Australia.jpg",
+        ["Gratis", "Free"],
+        ["Tranvía por St Kilda Rd.", "Tram along St Kilda Rd."],
+        [
+          "36 hectáreas de jardines junto al río Yarra, oasis verde de la ciudad.",
+          "36 hectares of gardens by the Yarra River, the city's green oasis.",
+        ]
+      ),
+      PN(
+        "qv-market",
+        "Queen Victoria Market",
+        ["Mercado", "Market"],
+        "gastronomia",
+        -37.8076,
+        144.9568,
+        "Queen_Victoria_Market.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["Tranvía / Flagstaff.", "Tram / Flagstaff."],
+        [
+          "Mercado histórico de 1878 de productos frescos, delicatessen y street food.",
+          "A historic 1878 market of fresh produce, delis and street food.",
+        ]
+      ),
+      PN(
+        "laneways",
+        "Laneways (Hosier Lane)",
+        ["Arte urbano", "Street art"],
+        "paseo",
+        -37.8166,
+        144.969,
+        "Hosier_Lane.jpg",
+        ["Gratis", "Free"],
+        ["Estación Flinders Street.", "Flinders Street station."],
+        [
+          "Callejones cubiertos de arte urbano, cafés escondidos y bares, alma de Melbourne.",
+          "Lanes covered in street art, hidden cafés and bars, the soul of Melbourne.",
+        ]
+      ),
+      PN(
+        "st-kilda",
+        "St Kilda Beach",
+        ["Playa", "Beach"],
+        "playa",
+        -37.8678,
+        144.974,
+        "Melbourne_Australia.jpg",
+        ["Gratis", "Free"],
+        ["Tranvía 96.", "Tram 96."],
+        [
+          "Playa bayside con muelle, pingüinos al atardecer y el parque Luna Park.",
+          "A bayside beach with a pier, sunset penguins and the Luna Park funfair.",
+        ]
+      ),
+      PN(
+        "ngv",
+        "National Gallery of Victoria",
+        ["Museo de arte", "Art gallery"],
+        "museo",
+        -37.8226,
+        144.969,
+        "Melbourne_Australia.jpg",
+        ["Gratis (colección)", "Free (collection)"],
+        ["Tranvía por St Kilda Rd.", "Tram along St Kilda Rd."],
+        [
+          "El museo de arte más antiguo y visitado del país, con su techo-vitral famoso.",
+          "The country's oldest and most-visited art museum, with its famous stained-glass ceiling.",
+        ]
+      ),
+      PN(
+        "mcg",
+        "Melbourne Cricket Ground",
+        ["Estadio", "Stadium"],
+        "paseo",
+        -37.8199,
+        144.9834,
+        "Melbourne_Cricket_Ground.jpg",
+        ["Tour ~AU$ 30", "Tour ~AU$ 30"],
+        ["Estación Richmond / Jolimont.", "Richmond / Jolimont station."],
+        [
+          "Templo del deporte australiano y del críquet, con el Museo Nacional del Deporte.",
+          "A temple of Australian sport and cricket, home to the National Sports Museum.",
+        ]
+      ),
+      PN(
+        "eureka",
+        "Eureka Skydeck",
+        ["Mirador", "Lookout"],
+        "paseo",
+        -37.8213,
+        144.9646,
+        "Melbourne_Australia.jpg",
+        ["~AU$ 28", "~AU$ 28"],
+        ["A pie en Southbank.", "Walk in Southbank."],
+        [
+          "Mirador en el piso 88, el más alto del hemisferio sur, con el cubo 'The Edge'.",
+          "An 88th-floor deck, the highest in the Southern Hemisphere, with 'The Edge' glass cube.",
+        ]
+      ),
+      PN(
+        "great-ocean-road",
+        "Great Ocean Road (12 Apóstoles)",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -38.662,
+        143.105,
+        "Twelve_Apostles.jpg",
+        ["Gratis", "Free"],
+        ["Excursión / auto (~3 h).", "Tour / car (~3 h)."],
+        [
+          "Ruta costera de acantilados con los Doce Apóstoles, agujas de roca en el océano.",
+          "A clifftop coastal drive to the Twelve Apostles, rock stacks in the ocean.",
+        ]
+      ),
+      PN(
+        "fitzroy",
+        "Fitzroy (Brunswick St)",
+        ["Gastronomía", "Dining"],
+        "gastronomia",
+        -37.799,
+        144.978,
+        "Melbourne_Australia.jpg",
+        ["Consumición", "Pay as you go"],
+        ["Tranvía 11 / 96.", "Tram 11 / 96."],
+        [
+          "Barrio bohemio de cafés, vintage, arte urbano y vida nocturna.",
+          "A bohemian district of cafés, vintage shops, street art and nightlife.",
+        ]
+      ),
+      PN(
+        "exhibition-building",
+        "Royal Exhibition Building",
+        ["Histórico", "Historic"],
+        "historico",
+        -37.8047,
+        144.9717,
+        "Royal_Exhibition_Building.jpg",
+        ["Tour arancelado", "Paid tour"],
+        ["Tranvía a Carlton Gardens.", "Tram to Carlton Gardens."],
+        [
+          "Edificio de 1880 Patrimonio de la Humanidad, junto al Museo de Melbourne.",
+          "An 1880 World Heritage building, beside the Melbourne Museum in Carlton Gardens.",
+        ]
+      ),
+      PN(
+        "brighton-boxes",
+        "Brighton Bathing Boxes",
+        ["Playa", "Beach"],
+        "playa",
+        -37.918,
+        144.985,
+        "Brighton_Bathing_Boxes.jpg",
+        ["Gratis", "Free"],
+        ["Tren a Brighton Beach.", "Train to Brighton Beach."],
+        [
+          "Las 82 casetas de playa de colores frente al skyline, postal de la ciudad.",
+          "The 82 colourful beach boxes facing the skyline, a city postcard.",
+        ]
+      ),
+      PN(
+        "phillip-island",
+        "Phillip Island (pingüinos)",
+        ["Naturaleza", "Wildlife"],
+        "naturaleza",
+        -38.51,
+        145.14,
+        "Melbourne_Australia.jpg",
+        ["Parada arancelada", "Paid Penguin Parade"],
+        ["Excursión / auto (~2 h).", "Tour / car (~2 h)."],
+        [
+          "El 'desfile de pingüinos': cientos de pingüinos pequeños salen del mar al anochecer.",
+          "The 'Penguin Parade': hundreds of little penguins waddle ashore at dusk.",
+        ]
+      ),
+      PN(
+        "shrine",
+        "Shrine of Remembrance",
+        ["Histórico", "Historic"],
+        "historico",
+        -37.8305,
+        144.9731,
+        "Shrine_of_Remembrance.jpg",
+        ["Gratis", "Free"],
+        ["Tranvía por St Kilda Rd.", "Tram along St Kilda Rd."],
+        [
+          "Monumento a los caídos con vista axial al centro por la avenida St Kilda.",
+          "A war memorial with an axial view to the city down St Kilda Road.",
+        ]
+      ),
+    ],
+  },
+];
+
 // Países disponibles (para el selector).
 const PAISES = [
   {
@@ -8394,12 +9858,30 @@ const PAISES = [
     center: [-41.5, 173.0],
     zoom: 5,
   },
+  { id: "jp", nombre: { es: "Japón", en: "Japan" }, flag: "🇯🇵", center: [36.2, 138.2], zoom: 5 },
+  {
+    id: "th",
+    nombre: { es: "Tailandia", en: "Thailand" },
+    flag: "🇹🇭",
+    center: [15.0, 101.0],
+    zoom: 6,
+  },
+  {
+    id: "au",
+    nombre: { es: "Australia", en: "Australia" },
+    flag: "🇦🇺",
+    center: [-25.0, 134.0],
+    zoom: 4,
+  },
 ];
 
 // Todas las localidades, etiquetadas por país.
 const LOCALIDADES = [
   ...LOCALIDADES_AR.map((l) => ({ ...l, pais: "ar" })),
   ...LOCALIDADES_NZ.map((l) => ({ ...l, pais: "nz" })),
+  ...LOCALIDADES_JP.map((l) => ({ ...l, pais: "jp" })),
+  ...LOCALIDADES_TH.map((l) => ({ ...l, pais: "th" })),
+  ...LOCALIDADES_AU.map((l) => ({ ...l, pais: "au" })),
 ];
 
 // Modos de transporte -> costing de Valhalla + metadatos de UI (nombre bilingüe).
