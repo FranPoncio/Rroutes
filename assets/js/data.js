@@ -9842,6 +9842,2523 @@ const LOCALIDADES_AU = [
   },
 ];
 
+// ---------- Localidades extra (países ya existentes) ----------
+const CHUGOKU = { es: "Chūgoku", en: "Chūgoku" };
+const TH_SUR = { es: "Sur", en: "Southern" };
+const AU_QLD = { es: "Queensland", en: "Queensland" };
+const AU_NT = { es: "Territorio del Norte", en: "Northern Territory" };
+
+const LOCALIDADES_JP2 = [
+  {
+    id: "osaka",
+    nombre: "Osaka",
+    provincia: KANSAI,
+    center: [34.6937, 135.5023],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Agenda de Osaka", en: "Osaka events" },
+      lat: 34.6937,
+      lng: 135.5023,
+      img: "Osaka_Castle.jpg",
+      url: "https://osaka-info.jp/en/",
+      sinopsis: {
+        es: "La capital gastronómica de Japón, ruidosa y divertida; célebre por su street food, el humor y festivales como el Tenjin Matsuri.",
+        en: "Japan's food capital, loud and fun; famous for its street food, humour and festivals like Tenjin Matsuri.",
+      },
+    },
+    puntos: [
+      PN(
+        "osaka-castle",
+        "Castillo de Osaka",
+        ["Histórico", "Historic"],
+        "historico",
+        34.6873,
+        135.5262,
+        "Osaka_Castle.jpg",
+        ["¥ ~600", "¥ ~600"],
+        ["Metro Tanimachi 4-chome.", "Metro Tanimachi 4-chome."],
+        [
+          "Castillo del siglo XVI reconstruido, rodeado de fosos y un parque de cerezos.",
+          "A rebuilt 16th-century castle ringed by moats and a cherry-blossom park.",
+        ]
+      ),
+      PN(
+        "dotonbori",
+        "Dōtonbori",
+        ["Gastronomía y neón", "Food & neon"],
+        "gastronomia",
+        34.6687,
+        135.5013,
+        "Dotonbori.jpg",
+        ["Consumición", "Pay as you go"],
+        ["Metro Namba.", "Metro Namba."],
+        [
+          "El canal de neón con el cartel de Glico, templo del takoyaki y el okonomiyaki.",
+          "The neon canal with the Glico sign, a temple of takoyaki and okonomiyaki.",
+        ]
+      ),
+      PN(
+        "usj",
+        "Universal Studios Japan",
+        ["Parque temático", "Theme park"],
+        "paseo",
+        34.6654,
+        135.4323,
+        "Osaka_Japan.jpg",
+        ["¥ ~8.600", "¥ ~8,600"],
+        ["Línea JR Yumesaki (Universal City).", "JR Yumesaki line (Universal City)."],
+        [
+          "Gran parque temático con el mundo de Super Nintendo y Harry Potter.",
+          "A major theme park with Super Nintendo World and Harry Potter.",
+        ]
+      ),
+      PN(
+        "umeda-sky",
+        "Umeda Sky Building",
+        ["Mirador", "Lookout"],
+        "paseo",
+        34.7052,
+        135.4901,
+        "Osaka_Japan.jpg",
+        ["¥ ~1.500", "¥ ~1,500"],
+        ["Estación Osaka / Umeda.", "Osaka / Umeda station."],
+        [
+          "Rascacielos con un 'jardín flotante' circular en la azotea, con vistas de 360°.",
+          "A skyscraper with a circular rooftop 'floating garden' and 360° views.",
+        ]
+      ),
+      PN(
+        "shinsekai",
+        "Shinsekai y Tsūtenkaku",
+        ["Paseo", "Retro district"],
+        "paseo",
+        34.6524,
+        135.5063,
+        "Osaka_Japan.jpg",
+        ["Torre ¥ ~1.000", "Tower ¥ ~1,000"],
+        ["Metro Ebisucho / Dobutsuen-mae.", "Metro Ebisucho / Dobutsuen-mae."],
+        [
+          "Barrio retro de los años 50 alrededor de la torre Tsūtenkaku, cuna del kushikatsu.",
+          "A retro 1950s district around the Tsūtenkaku tower, home of kushikatsu skewers.",
+        ]
+      ),
+      PN(
+        "kuromon",
+        "Mercado Kuromon Ichiba",
+        ["Mercado", "Market"],
+        "gastronomia",
+        34.6656,
+        135.5063,
+        "Osaka_Japan.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["Metro Nippombashi.", "Metro Nippombashi."],
+        [
+          "'La cocina de Osaka': 150 puestos de mariscos, wagyu y fruta.",
+          "'Osaka's Kitchen': 150 stalls of seafood, wagyu and fruit.",
+        ]
+      ),
+      PN(
+        "kaiyukan",
+        "Acuario Kaiyukan",
+        ["Acuario", "Aquarium"],
+        "museo",
+        34.6545,
+        135.4288,
+        "Osaka_Japan.jpg",
+        ["¥ ~2.700", "¥ ~2,700"],
+        ["Metro Osakako.", "Metro Osakako."],
+        [
+          "Uno de los mayores acuarios del mundo, con tiburones ballena en un tanque central.",
+          "One of the world's largest aquariums, with whale sharks in a central tank.",
+        ]
+      ),
+      PN(
+        "sumiyoshi",
+        "Sumiyoshi Taisha",
+        ["Santuario", "Shrine"],
+        "historico",
+        34.6122,
+        135.4933,
+        "Osaka_Japan.jpg",
+        ["Gratis", "Free"],
+        ["Tranvía Hankai.", "Hankai tram."],
+        [
+          "Uno de los santuarios sintoístas más antiguos, con su icónico puente arqueado.",
+          "One of the oldest Shinto shrines, with its iconic arched bridge.",
+        ]
+      ),
+      PN(
+        "namba",
+        "Namba / Shinsaibashi",
+        ["Compras", "Shopping"],
+        "shopping",
+        34.6684,
+        135.501,
+        "Osaka_Japan.jpg",
+        ["Gratis", "Free"],
+        ["Metro Namba / Shinsaibashi.", "Metro Namba / Shinsaibashi."],
+        [
+          "El gran corredor comercial cubierto, con la galería Shinsaibashi-suji.",
+          "The great covered shopping corridor, with the Shinsaibashi-suji arcade.",
+        ]
+      ),
+      PN(
+        "tennoji",
+        "Parque Tennōji y Abeno Harukas",
+        ["Mirador", "Park & lookout"],
+        "paseo",
+        34.6497,
+        135.509,
+        "Osaka_Japan.jpg",
+        ["Mirador ¥ ~1.500", "Deck ¥ ~1,500"],
+        ["Estación Tennōji.", "Tennōji station."],
+        [
+          "Parque con zoo junto al rascacielos más alto de Japón, con mirador en el piso 60.",
+          "A park with a zoo beside Japan's tallest skyscraper, with a 60th-floor deck.",
+        ]
+      ),
+      PN(
+        "minoo",
+        "Cascada de Minoo",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        34.854,
+        135.472,
+        "Osaka_Japan.jpg",
+        ["Gratis", "Free"],
+        ["Línea Hankyu (Minoo).", "Hankyu line (Minoo)."],
+        [
+          "Cascada de 33 m tras un paseo por un valle de arces, famoso en otoño.",
+          "A 33 m waterfall after a walk up a maple valley, famous in autumn.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "hiroshima",
+    nombre: "Hiroshima",
+    provincia: CHUGOKU,
+    center: [34.3853, 132.4553],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Agenda de Hiroshima", en: "Hiroshima events" },
+      lat: 34.3853,
+      lng: 132.4553,
+      img: "Hiroshima_Peace_Memorial.jpg",
+      url: "https://dive-hiroshima.com/en/",
+      sinopsis: {
+        es: "Ciudad renacida de la bomba atómica, símbolo mundial de la paz; su agenda gira en torno a la ceremonia del 6 de agosto y festivales locales.",
+        en: "A city reborn from the atomic bomb, a global symbol of peace; its calendar centres on the August 6 ceremony and local festivals.",
+      },
+    },
+    puntos: [
+      PN(
+        "peace-park",
+        "Parque de la Paz y Cúpula",
+        ["Histórico", "Historic"],
+        "historico",
+        34.3955,
+        132.4536,
+        "Hiroshima_Peace_Memorial.jpg",
+        ["Gratis", "Free"],
+        ["Tranvía a Genbaku Dome-mae.", "Tram to Genbaku Dome-mae."],
+        [
+          "El único edificio que quedó en pie en el hipocentro, hoy Patrimonio de la Humanidad.",
+          "The only building left standing at the hypocentre, now a World Heritage site.",
+        ]
+      ),
+      PN(
+        "peace-museum",
+        "Museo Memorial de la Paz",
+        ["Museo", "Museum"],
+        "museo",
+        34.3915,
+        132.4525,
+        "Hiroshima_Peace_Memorial.jpg",
+        ["¥ ~200", "¥ ~200"],
+        ["Tranvía Chuden-mae.", "Tram Chuden-mae."],
+        [
+          "Museo sobrecogedor que narra el 6 de agosto de 1945 y aboga por la paz.",
+          "A moving museum recounting August 6, 1945 and advocating for peace.",
+        ]
+      ),
+      PN(
+        "itsukushima",
+        "Santuario de Itsukushima (Miyajima)",
+        ["Santuario", "Shrine"],
+        "historico",
+        34.2959,
+        132.3199,
+        "Itsukushima_Shrine.jpg",
+        ["¥ ~300 + ferry", "¥ ~300 + ferry"],
+        ["Tren + ferry a Miyajima.", "Train + ferry to Miyajima."],
+        [
+          "El icónico torii 'flotante' bermellón sobre el mar, una de las vistas más famosas de Japón.",
+          "The iconic vermilion 'floating' torii on the sea, one of Japan's most famous views.",
+        ]
+      ),
+      PN(
+        "mount-misen",
+        "Monte Misen (Miyajima)",
+        ["Trekking", "Hike"],
+        "trekking",
+        34.277,
+        132.319,
+        "Itsukushima_Shrine.jpg",
+        ["Teleférico ¥ ~2.000", "Ropeway ¥ ~2,000"],
+        ["Ferry + teleférico.", "Ferry + ropeway."],
+        [
+          "Cima sagrada de la isla, con ciervos, bosque antiguo y vista del Mar Interior.",
+          "The island's sacred summit, with deer, ancient forest and Inland Sea views.",
+        ]
+      ),
+      PN(
+        "hiroshima-castle",
+        "Castillo de Hiroshima",
+        ["Histórico", "Historic"],
+        "historico",
+        34.4026,
+        132.4593,
+        "Hiroshima_Japan.jpg",
+        ["¥ ~370", "¥ ~370"],
+        ["Tranvía / a pie.", "Tram / walk."],
+        [
+          "Castillo 'de la carpa' reconstruido tras la guerra, rodeado de un foso.",
+          "The 'carp castle', rebuilt after the war, surrounded by a moat.",
+        ]
+      ),
+      PN(
+        "shukkeien",
+        "Jardín Shukkei-en",
+        ["Jardín", "Gardens"],
+        "naturaleza",
+        34.4008,
+        132.4667,
+        "Hiroshima_Japan.jpg",
+        ["¥ ~260", "¥ ~260"],
+        ["Tranvía Shukkeien-mae.", "Tram Shukkeien-mae."],
+        [
+          "Jardín japonés del siglo XVII que recrea paisajes en miniatura alrededor de un estanque.",
+          "A 17th-century garden recreating miniature landscapes around a pond.",
+        ]
+      ),
+      PN(
+        "hondori",
+        "Hondori",
+        ["Compras", "Shopping"],
+        "shopping",
+        34.392,
+        132.459,
+        "Hiroshima_Japan.jpg",
+        ["Gratis", "Free"],
+        ["Tranvía Hondori.", "Tram Hondori."],
+        [
+          "La gran galería comercial peatonal cubierta del centro.",
+          "The city's great covered pedestrian shopping arcade.",
+        ]
+      ),
+      PN(
+        "okonomimura",
+        "Okonomimura",
+        ["Gastronomía", "Food"],
+        "gastronomia",
+        34.3925,
+        132.461,
+        "Hiroshima_Japan.jpg",
+        ["Consumición", "Pay as you go"],
+        ["Tranvía Hatchobori.", "Tram Hatchobori."],
+        [
+          "Edificio de puestos dedicados al okonomiyaki estilo Hiroshima.",
+          "A building of stalls dedicated to Hiroshima-style okonomiyaki.",
+        ]
+      ),
+      PN(
+        "orizuru",
+        "Orizuru Tower",
+        ["Mirador", "Lookout"],
+        "paseo",
+        34.3945,
+        132.453,
+        "Hiroshima_Japan.jpg",
+        ["¥ ~1.700", "¥ ~1,700"],
+        ["Tranvía Genbaku Dome-mae.", "Tram Genbaku Dome-mae."],
+        [
+          "Mirador junto a la Cúpula, con una pared de grullas de papel por la paz.",
+          "A lookout beside the A-Bomb Dome, with a wall of paper cranes for peace.",
+        ]
+      ),
+      PN(
+        "mitaki-dera",
+        "Mitaki-dera",
+        ["Templo", "Temple"],
+        "historico",
+        34.413,
+        132.434,
+        "Hiroshima_Japan.jpg",
+        ["Gratis", "Free"],
+        ["JR Mitaki.", "JR Mitaki."],
+        [
+          "Tranquilo templo en la ladera de un bosque con tres cascadas y una pagoda.",
+          "A quiet hillside forest temple with three waterfalls and a pagoda.",
+        ]
+      ),
+    ],
+  },
+];
+
+const LOCALIDADES_TH2 = [
+  {
+    id: "phuket",
+    nombre: "Phuket",
+    provincia: TH_SUR,
+    center: [7.8804, 98.3923],
+    zoom: 11,
+    eventos: {
+      nombre: { es: "Agenda de Phuket", en: "Phuket events" },
+      lat: 7.8804,
+      lng: 98.3923,
+      img: "Phuket_Thailand.jpg",
+      url: "https://www.tourismthailand.org/Destinations/Provinces/Phuket/",
+      sinopsis: {
+        es: "La mayor isla del país, de playas tropicales y vida nocturna; célebre por su Festival Vegetariano y las islas de los alrededores.",
+        en: "The country's largest island, of tropical beaches and nightlife; famous for its Vegetarian Festival and the surrounding islands.",
+      },
+    },
+    puntos: [
+      PN(
+        "patong",
+        "Playa Patong",
+        ["Playa", "Beach"],
+        "playa",
+        7.8965,
+        98.2966,
+        "Phuket_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Songthaew / taxi.", "Songthaew / taxi."],
+        [
+          "La playa más animada de la isla, con deportes acuáticos y la ruidosa Bangla Road.",
+          "The island's liveliest beach, with watersports and the buzzing Bangla Road.",
+        ]
+      ),
+      PN(
+        "big-buddha",
+        "Big Buddha",
+        ["Histórico", "Landmark"],
+        "historico",
+        7.8276,
+        98.312,
+        "Phuket_Thailand.jpg",
+        ["A la gorra", "Donation"],
+        ["Auto / taxi.", "Car / taxi."],
+        [
+          "Buda de mármol blanco de 45 m sobre una colina con vistas de toda la isla.",
+          "A 45 m white-marble Buddha on a hill with views over the whole island.",
+        ]
+      ),
+      PN(
+        "old-town-phuket",
+        "Casco antiguo de Phuket",
+        ["Histórico", "Old town"],
+        "historico",
+        7.8846,
+        98.388,
+        "Phuket_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Songthaew al centro.", "Songthaew to town."],
+        [
+          "Calles de casas sino-portuguesas de colores, con cafés y arte urbano.",
+          "Streets of colourful Sino-Portuguese shophouses, with cafés and street art.",
+        ]
+      ),
+      PN(
+        "wat-chalong",
+        "Wat Chalong",
+        ["Templo", "Temple"],
+        "historico",
+        7.846,
+        98.337,
+        "Phuket_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Auto / taxi.", "Car / taxi."],
+        [
+          "El templo budista más importante de la isla, con una gran pagoda dorada.",
+          "The island's most important Buddhist temple, with a grand golden pagoda.",
+        ]
+      ),
+      PN(
+        "phi-phi",
+        "Islas Phi Phi",
+        ["Naturaleza", "Islands"],
+        "naturaleza",
+        7.7407,
+        98.7784,
+        "Phi_Phi_Islands.jpg",
+        ["Excursión arancelada", "Paid day trip"],
+        ["Lancha desde Phuket (~2 h).", "Speedboat from Phuket (~2 h)."],
+        [
+          "Islas de aguas turquesas y acantilados calizos, con la famosa Maya Bay.",
+          "Islands of turquoise water and limestone cliffs, with the famous Maya Bay.",
+        ]
+      ),
+      PN(
+        "promthep",
+        "Cabo Promthep",
+        ["Mirador", "Lookout"],
+        "naturaleza",
+        7.762,
+        98.305,
+        "Phuket_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Auto / taxi.", "Car / taxi."],
+        [
+          "El extremo sur de la isla, el mejor lugar para ver el atardecer.",
+          "The island's southern tip, the best spot to watch the sunset.",
+        ]
+      ),
+      PN(
+        "james-bond",
+        "Isla James Bond (Phang Nga)",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        8.274,
+        98.501,
+        "Phuket_Thailand.jpg",
+        ["Excursión arancelada", "Paid day trip"],
+        ["Excursión en lancha/kayak.", "Speedboat/kayak tour."],
+        [
+          "La aguja de roca de la bahía de Phang Nga, entre manglares y grutas.",
+          "The rock pinnacle in Phang Nga Bay, among mangroves and sea caves.",
+        ]
+      ),
+      PN(
+        "kata",
+        "Playa Kata",
+        ["Playa", "Beach"],
+        "playa",
+        7.82,
+        98.298,
+        "Phuket_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Songthaew / taxi.", "Songthaew / taxi."],
+        [
+          "Playa de arena blanca más tranquila, popular entre familias y surfistas.",
+          "A quieter white-sand beach, popular with families and surfers.",
+        ]
+      ),
+      PN(
+        "karon",
+        "Playa Karon",
+        ["Playa", "Beach"],
+        "playa",
+        7.846,
+        98.294,
+        "Phuket_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Songthaew / taxi.", "Songthaew / taxi."],
+        [
+          "Larga playa de arena que 'canta' al pisarla, entre Kata y Patong.",
+          "A long 'singing sand' beach between Kata and Patong.",
+        ]
+      ),
+      PN(
+        "bangla",
+        "Bangla Road",
+        ["Vida nocturna", "Nightlife"],
+        "paseo",
+        7.893,
+        98.297,
+        "Phuket_Thailand.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["En Patong.", "In Patong."],
+        [
+          "La calle peatonal de la fiesta de Phuket, un torbellino de neón y bares.",
+          "Phuket's pedestrian party street, a whirl of neon and bars.",
+        ]
+      ),
+      PN(
+        "similan",
+        "Islas Similan",
+        ["Naturaleza", "Islands"],
+        "naturaleza",
+        8.65,
+        97.64,
+        "Phi_Phi_Islands.jpg",
+        ["Excursión arancelada", "Paid day trip"],
+        ["Excursión (temporada nov–may).", "Day trip (Nov–May season)."],
+        [
+          "Archipiélago de arena blanca y algunos de los mejores arrecifes de buceo del país.",
+          "An archipelago of white sand and some of the country's best dive reefs.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "ayutthaya",
+    nombre: "Ayutthaya",
+    provincia: TH_CENTRO,
+    center: [14.3532, 100.5689],
+    zoom: 13,
+    eventos: {
+      nombre: { es: "Agenda de Ayutthaya", en: "Ayutthaya events" },
+      lat: 14.3532,
+      lng: 100.5689,
+      img: "Ayutthaya_Historical_Park.jpg",
+      url: "https://www.tourismthailand.org/Destinations/Provinces/Ayutthaya/",
+      sinopsis: {
+        es: "La antigua capital del reino de Siam (1350-1767), hoy un parque de ruinas de templos Patrimonio de la Humanidad.",
+        en: "The old capital of the Siamese kingdom (1350–1767), now a World Heritage park of temple ruins.",
+      },
+    },
+    puntos: [
+      PN(
+        "wat-mahathat",
+        "Wat Mahathat (Buda en el árbol)",
+        ["Ruinas", "Ruins"],
+        "historico",
+        14.357,
+        100.568,
+        "Ayutthaya_Historical_Park.jpg",
+        ["฿ ~50", "฿ ~50"],
+        ["Tuk-tuk / bici desde el centro.", "Tuk-tuk / bike from town."],
+        [
+          "Ruinas famosas por la cabeza de Buda envuelta por las raíces de una higuera.",
+          "Ruins famous for the Buddha head entwined in the roots of a fig tree.",
+        ]
+      ),
+      PN(
+        "wat-chaiwatthanaram",
+        "Wat Chaiwatthanaram",
+        ["Ruinas", "Ruins"],
+        "historico",
+        14.342,
+        100.546,
+        "Ayutthaya_Historical_Park.jpg",
+        ["฿ ~50", "฿ ~50"],
+        ["Tuk-tuk / bici.", "Tuk-tuk / bike."],
+        [
+          "El templo más fotogénico, de estilo jemer, junto al río al atardecer.",
+          "The most photogenic temple, Khmer in style, by the river at sunset.",
+        ]
+      ),
+      PN(
+        "wat-phra-si-sanphet",
+        "Wat Phra Si Sanphet",
+        ["Ruinas", "Ruins"],
+        "historico",
+        14.3556,
+        100.559,
+        "Ayutthaya_Historical_Park.jpg",
+        ["฿ ~50", "฿ ~50"],
+        ["Tuk-tuk / bici.", "Tuk-tuk / bike."],
+        [
+          "Las tres chedis en fila, símbolo del antiguo palacio real.",
+          "The three chedis in a row, symbol of the former royal palace.",
+        ]
+      ),
+      PN(
+        "wat-yai-chai",
+        "Wat Yai Chai Mongkhon",
+        ["Templo", "Temple"],
+        "historico",
+        14.347,
+        100.592,
+        "Ayutthaya_Historical_Park.jpg",
+        ["฿ ~20", "฿ ~20"],
+        ["Tuk-tuk.", "Tuk-tuk."],
+        [
+          "Gran chedi rodeado de Budas con túnica amarilla y un Buda reclinado.",
+          "A large chedi ringed by yellow-robed Buddhas and a reclining Buddha.",
+        ]
+      ),
+      PN(
+        "bang-pa-in",
+        "Palacio Bang Pa-In",
+        ["Palacio", "Palace"],
+        "historico",
+        14.232,
+        100.579,
+        "Ayutthaya_Historical_Park.jpg",
+        ["฿ ~100", "฿ ~100"],
+        ["Auto / tren (~20 min sur).", "Car / train (~20 min south)."],
+        [
+          "Residencia real de verano que mezcla estilos tailandés, europeo y chino.",
+          "A royal summer residence blending Thai, European and Chinese styles.",
+        ]
+      ),
+      PN(
+        "wat-lokayasutharam",
+        "Wat Lokayasutharam",
+        ["Templo", "Temple"],
+        "historico",
+        14.356,
+        100.552,
+        "Ayutthaya_Historical_Park.jpg",
+        ["Gratis", "Free"],
+        ["Bici / tuk-tuk.", "Bike / tuk-tuk."],
+        [
+          "Enorme Buda reclinado de 42 m al aire libre, cubierto por una túnica.",
+          "A huge 42 m open-air reclining Buddha, draped in a robe.",
+        ]
+      ),
+      PN(
+        "chao-sam-phraya",
+        "Museo Chao Sam Phraya",
+        ["Museo", "Museum"],
+        "museo",
+        14.352,
+        100.565,
+        "Ayutthaya_Historical_Park.jpg",
+        ["฿ ~150", "฿ ~150"],
+        ["Tuk-tuk.", "Tuk-tuk."],
+        [
+          "Los tesoros de oro y las reliquias recuperadas de las ruinas de la ciudad.",
+          "The gold treasures and relics recovered from the city's ruins.",
+        ]
+      ),
+      PN(
+        "wat-ratchaburana",
+        "Wat Ratchaburana",
+        ["Ruinas", "Ruins"],
+        "historico",
+        14.3585,
+        100.5695,
+        "Ayutthaya_Historical_Park.jpg",
+        ["฿ ~50", "฿ ~50"],
+        ["Bici / tuk-tuk.", "Bike / tuk-tuk."],
+        [
+          "Prang que se puede subir hasta una cripta con frescos antiguos.",
+          "A prang you can climb into a crypt with ancient frescoes.",
+        ]
+      ),
+      PN(
+        "floating-market-ayutthaya",
+        "Mercado flotante de Ayutthaya",
+        ["Mercado", "Market"],
+        "paseo",
+        14.348,
+        100.602,
+        "Ayutthaya_Historical_Park.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["Tuk-tuk.", "Tuk-tuk."],
+        [
+          "Mercado turístico sobre el agua con comida, artesanías y espectáculos.",
+          "A tourist market over the water with food, crafts and shows.",
+        ]
+      ),
+      PN(
+        "elephant-kraal",
+        "Elephant Kraal",
+        ["Naturaleza", "Wildlife"],
+        "naturaleza",
+        14.373,
+        100.576,
+        "Ayutthaya_Historical_Park.jpg",
+        ["Varía", "Varies"],
+        ["Tuk-tuk.", "Tuk-tuk."],
+        [
+          "Antiguo corral real de elefantes, hoy campamento de cuidado de elefantes.",
+          "A former royal elephant corral, now an elephant-care camp.",
+        ]
+      ),
+    ],
+  },
+];
+
+const LOCALIDADES_AU2 = [
+  {
+    id: "cairns",
+    nombre: "Cairns",
+    provincia: AU_QLD,
+    center: [-16.9203, 145.771],
+    zoom: 11,
+    eventos: {
+      nombre: { es: "Agenda de Cairns", en: "Cairns what's on" },
+      lat: -16.9203,
+      lng: 145.771,
+      img: "Great_Barrier_Reef.jpg",
+      url: "https://www.cairns.qld.gov.au/",
+      sinopsis: {
+        es: "Puerta a la Gran Barrera de Coral y a la selva de Daintree, dos Patrimonios de la Humanidad juntos; base de buceo y aventura tropical.",
+        en: "Gateway to the Great Barrier Reef and the Daintree Rainforest, two World Heritage areas side by side; a base for diving and tropical adventure.",
+      },
+    },
+    puntos: [
+      PN(
+        "great-barrier-reef",
+        "Gran Barrera de Coral",
+        ["Naturaleza", "Reef"],
+        "naturaleza",
+        -16.7,
+        146.0,
+        "Great_Barrier_Reef.jpg",
+        ["Excursión ~AU$ 200", "Trip ~AU$ 200"],
+        ["Barco desde el puerto de Cairns.", "Boat from Cairns marina."],
+        [
+          "El mayor arrecife de coral del mundo, visible desde el espacio, para bucear y snorkel.",
+          "The world's largest coral reef, visible from space, for diving and snorkelling.",
+        ]
+      ),
+      PN(
+        "cairns-esplanade",
+        "Esplanade y Lagoon de Cairns",
+        ["Paseo", "Waterfront"],
+        "paseo",
+        -16.918,
+        145.777,
+        "Cairns_Australia.jpg",
+        ["Gratis", "Free"],
+        ["En el centro.", "In town."],
+        [
+          "Costanera con una gran laguna pública de natación frente al mar.",
+          "A waterfront with a large public swimming lagoon by the sea.",
+        ]
+      ),
+      PN(
+        "daintree",
+        "Selva de Daintree",
+        ["Naturaleza", "Rainforest"],
+        "naturaleza",
+        -16.25,
+        145.42,
+        "Daintree_Rainforest.jpg",
+        ["Excursión / auto", "Tour / car"],
+        ["Auto (~2 h) + ferry.", "Car (~2 h) + ferry."],
+        [
+          "La selva tropical más antigua del planeta (180 millones de años), con cocodrilos y casuarios.",
+          "The planet's oldest rainforest (180 million years), with crocodiles and cassowaries.",
+        ]
+      ),
+      PN(
+        "kuranda",
+        "Kuranda (tren y Skyrail)",
+        ["Paseo", "Scenic ride"],
+        "paseo",
+        -16.82,
+        145.638,
+        "Cairns_Australia.jpg",
+        ["~AU$ 120 combo", "~AU$ 120 combo"],
+        ["Tren escénico / teleférico.", "Scenic railway / cableway."],
+        [
+          "Pueblo de la selva al que se sube en tren histórico y se baja en teleférico sobre el dosel.",
+          "A rainforest village reached by heritage train and a cableway over the canopy.",
+        ]
+      ),
+      PN(
+        "cape-tribulation",
+        "Cape Tribulation",
+        ["Playa y selva", "Beach & forest"],
+        "playa",
+        -16.085,
+        145.46,
+        "Daintree_Rainforest.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~2,5 h) + ferry.", "Car (~2.5 h) + ferry."],
+        [
+          "Donde 'la selva se encuentra con el arrecife', playas vírgenes entre la jungla.",
+          "Where 'the rainforest meets the reef', pristine beaches amid the jungle.",
+        ]
+      ),
+      PN(
+        "green-island",
+        "Green Island",
+        ["Isla", "Island"],
+        "playa",
+        -16.76,
+        145.97,
+        "Great_Barrier_Reef.jpg",
+        ["Ferry ~AU$ 100", "Ferry ~AU$ 100"],
+        ["Ferry (~45 min).", "Ferry (~45 min)."],
+        [
+          "Cayo de coral con selva y arrecife a metros de la playa, para snorkel.",
+          "A coral cay with rainforest and reef metres from the beach, for snorkelling.",
+        ]
+      ),
+      PN(
+        "palm-cove",
+        "Palm Cove",
+        ["Playa", "Beach"],
+        "playa",
+        -16.74,
+        145.67,
+        "Cairns_Australia.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~25 min norte).", "Car (~25 min north)."],
+        [
+          "Elegante pueblo playero de palmeras y resorts al norte de Cairns.",
+          "An elegant palm-lined beach village of resorts north of Cairns.",
+        ]
+      ),
+      PN(
+        "atherton",
+        "Atherton Tablelands",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -17.51,
+        145.61,
+        "Cairns_Australia.jpg",
+        ["Gratis", "Free"],
+        ["Auto / excursión.", "Car / tour."],
+        [
+          "Meseta verde de cascadas (Millaa Millaa), lagos de cráter y granjas.",
+          "A green plateau of waterfalls (Millaa Millaa), crater lakes and farms.",
+        ]
+      ),
+      PN(
+        "mossman-gorge",
+        "Mossman Gorge",
+        ["Naturaleza", "Gorge"],
+        "naturaleza",
+        -16.47,
+        145.33,
+        "Daintree_Rainforest.jpg",
+        ["Shuttle ~AU$ 15", "Shuttle ~AU$ 15"],
+        ["Auto (~1,5 h).", "Car (~1.5 h)."],
+        [
+          "Garganta de aguas cristalinas en la selva de Daintree, con senderos aborígenes.",
+          "A crystal-clear river gorge in the Daintree, with Aboriginal-guided walks.",
+        ]
+      ),
+      PN(
+        "fitzroy-island",
+        "Fitzroy Island",
+        ["Isla", "Island"],
+        "playa",
+        -16.93,
+        146.0,
+        "Great_Barrier_Reef.jpg",
+        ["Ferry ~AU$ 90", "Ferry ~AU$ 90"],
+        ["Ferry (~45 min).", "Ferry (~45 min)."],
+        [
+          "Isla montañosa con playa de coral, senderos y un hospital de tortugas.",
+          "A mountainous island with a coral beach, trails and a turtle hospital.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "uluru",
+    nombre: "Uluru (Centro Rojo)",
+    provincia: AU_NT,
+    center: [-25.3444, 131.0369],
+    zoom: 10,
+    eventos: {
+      nombre: { es: "Info de Uluru", en: "Uluru info" },
+      lat: -25.3444,
+      lng: 131.0369,
+      img: "Uluru_Australia.jpg",
+      url: "https://parksaustralia.gov.au/uluru/",
+      sinopsis: {
+        es: "El corazón espiritual de Australia: un monolito sagrado para el pueblo Anangu en el desierto rojo, Patrimonio de la Humanidad.",
+        en: "The spiritual heart of Australia: a monolith sacred to the Anangu people in the red desert, a World Heritage area.",
+      },
+    },
+    puntos: [
+      PN(
+        "uluru-rock",
+        "Uluru / Ayers Rock",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -25.3444,
+        131.0369,
+        "Uluru_Australia.jpg",
+        ["Parque ~AU$ 38 (3 días)", "Park ~AU$ 38 (3 days)"],
+        ["Auto / tour desde Yulara.", "Car / tour from Yulara."],
+        [
+          "Monolito de arenisca de 348 m que cambia de color al amanecer y al atardecer.",
+          "A 348 m sandstone monolith that changes colour at sunrise and sunset.",
+        ]
+      ),
+      PN(
+        "kata-tjuta",
+        "Kata Tjuta (The Olgas)",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -25.3,
+        130.736,
+        "Uluru_Australia.jpg",
+        ["Incluido en el parque", "Included in park"],
+        ["Auto / tour.", "Car / tour."],
+        [
+          "36 cúpulas de roca sagradas, con el trekking del Valle de los Vientos.",
+          "36 sacred rock domes, with the Valley of the Winds walk.",
+        ]
+      ),
+      PN(
+        "base-walk",
+        "Uluru Base Walk",
+        ["Trekking", "Hike"],
+        "trekking",
+        -25.342,
+        131.03,
+        "Uluru_Australia.jpg",
+        ["Incluido en el parque", "Included in park"],
+        ["Auto / bici / tour.", "Car / bike / tour."],
+        [
+          "Circuito llano de 10 km alrededor de la roca, entre arte rupestre y pozas.",
+          "A flat 10 km loop around the rock, past rock art and waterholes.",
+        ]
+      ),
+      PN(
+        "field-of-light",
+        "Field of Light",
+        ["Arte", "Art"],
+        "paseo",
+        -25.32,
+        131.0,
+        "Uluru_Australia.jpg",
+        ["~AU$ 45", "~AU$ 45"],
+        ["Transfer desde Yulara.", "Transfer from Yulara."],
+        [
+          "Instalación de 50.000 luces de fibra óptica que florecen en el desierto de noche.",
+          "An installation of 50,000 fibre-optic lights blooming in the desert at night.",
+        ]
+      ),
+      PN(
+        "cultural-centre-uluru",
+        "Centro Cultural de Uluru",
+        ["Museo", "Museum"],
+        "museo",
+        -25.354,
+        131.043,
+        "Uluru_Australia.jpg",
+        ["Gratis", "Free"],
+        ["Auto / tour.", "Car / tour."],
+        [
+          "Explica la cultura Anangu (Tjukurpa) y su vínculo con la roca sagrada.",
+          "Explains Anangu culture (Tjukurpa) and their bond with the sacred rock.",
+        ]
+      ),
+      PN(
+        "mutitjulu",
+        "Poza Mutitjulu",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -25.351,
+        131.056,
+        "Uluru_Australia.jpg",
+        ["Incluido en el parque", "Included in park"],
+        ["Corto sendero desde el estacionamiento.", "Short walk from the car park."],
+        [
+          "Pozo de agua permanente al pie de Uluru, con pinturas rupestres antiguas.",
+          "A permanent waterhole at the base of Uluru, with ancient rock paintings.",
+        ]
+      ),
+      PN(
+        "kings-canyon",
+        "Kings Canyon (Watarrka)",
+        ["Trekking", "Hike"],
+        "trekking",
+        -24.25,
+        131.55,
+        "Uluru_Australia.jpg",
+        ["Parque nacional", "National park"],
+        ["Auto (~3 h).", "Car (~3 h)."],
+        [
+          "Cañón de paredes de 100 m con el 'Rim Walk' y el Jardín del Edén.",
+          "A canyon with 100 m walls, the Rim Walk and the Garden of Eden.",
+        ]
+      ),
+      PN(
+        "sunset-uluru",
+        "Mirador del atardecer de Uluru",
+        ["Mirador", "Lookout"],
+        "naturaleza",
+        -25.338,
+        131.025,
+        "Uluru_Australia.jpg",
+        ["Incluido en el parque", "Included in park"],
+        ["Auto / tour.", "Car / tour."],
+        [
+          "Área designada para ver a Uluru arder en rojo con el sol poniente.",
+          "The designated area to watch Uluru glow red as the sun sets.",
+        ]
+      ),
+    ],
+  },
+];
+
+// =====================================================================
+//  VIETNAM (bilingüe)
+// =====================================================================
+const VN_NORTE = { es: "Norte", en: "Northern" };
+const VN_SUR = { es: "Sur", en: "Southern" };
+const LOCALIDADES_VN = [
+  {
+    id: "hanoi",
+    nombre: "Hanói / Hanoi",
+    provincia: VN_NORTE,
+    center: [21.0278, 105.8342],
+    zoom: 13,
+    eventos: {
+      nombre: { es: "Agenda de Hanói", en: "Hanoi events" },
+      lat: 21.0278,
+      lng: 105.8342,
+      img: "Hanoi_Vietnam.jpg",
+      url: "https://www.vietnam.travel/places-to-go/northern-vietnam/hanoi",
+      sinopsis: {
+        es: "La capital milenaria, de casco antiguo caótico y encantador; puerta de la bahía de Ha Long y del año nuevo Tết.",
+        en: "The thousand-year-old capital, of a chaotic and charming old quarter; gateway to Ha Long Bay and the Tết new year.",
+      },
+    },
+    puntos: [
+      PN(
+        "hoan-kiem",
+        "Lago Hoàn Kiếm",
+        ["Lago", "Lake"],
+        "paseo",
+        21.0287,
+        105.8524,
+        "Hanoi_Vietnam.jpg",
+        ["Gratis", "Free"],
+        ["En el centro, a pie.", "In the centre, on foot."],
+        [
+          "El lago legendario de la 'espada devuelta', con el templo Ngọc Sơn en un islote.",
+          "The legendary 'returned sword' lake, with Ngọc Sơn temple on an islet.",
+        ]
+      ),
+      PN(
+        "old-quarter-hanoi",
+        "Casco antiguo (36 calles)",
+        ["Paseo", "Old quarter"],
+        "paseo",
+        21.034,
+        105.85,
+        "Hanoi_Vietnam.jpg",
+        ["Gratis", "Free"],
+        ["A pie.", "On foot."],
+        [
+          "Laberinto de calles gremiales, cafés y motos, el alma de la ciudad.",
+          "A maze of guild streets, cafés and motorbikes, the soul of the city.",
+        ]
+      ),
+      PN(
+        "ho-chi-minh-mausoleum",
+        "Mausoleo de Ho Chi Minh",
+        ["Histórico", "Historic"],
+        "historico",
+        21.0369,
+        105.8345,
+        "Hanoi_Vietnam.jpg",
+        ["Gratis", "Free"],
+        ["Taxi / a pie.", "Taxi / walk."],
+        [
+          "Mausoleo de granito donde reposa el líder Hồ Chí Minh, junto a la plaza Ba Đình.",
+          "A granite mausoleum where leader Hồ Chí Minh lies, by Ba Đình square.",
+        ]
+      ),
+      PN(
+        "temple-literature",
+        "Templo de la Literatura",
+        ["Histórico", "Historic"],
+        "historico",
+        21.0287,
+        105.8355,
+        "Hanoi_Vietnam.jpg",
+        ["₫ ~30.000", "₫ ~30,000"],
+        ["Taxi.", "Taxi."],
+        [
+          "La primera universidad del país (1070), dedicada a Confucio, con patios y estelas.",
+          "The country's first university (1070), dedicated to Confucius, with courtyards and steles.",
+        ]
+      ),
+      PN(
+        "train-street",
+        "Train Street",
+        ["Paseo", "Icon"],
+        "paseo",
+        21.0245,
+        105.846,
+        "Hanoi_Vietnam.jpg",
+        ["Consumición", "Pay as you go"],
+        ["A pie desde el casco antiguo.", "Walk from the old quarter."],
+        [
+          "Estrecha calle de casas y cafés por donde el tren pasa a centímetros de las mesas.",
+          "A narrow street of homes and cafés where the train passes centimetres from the tables.",
+        ]
+      ),
+      PN(
+        "hoa-lo",
+        "Prisión Hỏa Lò",
+        ["Museo", "Museum"],
+        "museo",
+        21.025,
+        105.846,
+        "Hanoi_Vietnam.jpg",
+        ["₫ ~30.000", "₫ ~30,000"],
+        ["A pie / taxi.", "Walk / taxi."],
+        [
+          "El 'Hanoi Hilton', prisión colonial y de la guerra, hoy museo.",
+          "The 'Hanoi Hilton', a colonial and wartime prison, now a museum.",
+        ]
+      ),
+      PN(
+        "water-puppets",
+        "Teatro de marionetas de agua",
+        ["Cultura", "Culture"],
+        "museo",
+        21.029,
+        105.853,
+        "Hanoi_Vietnam.jpg",
+        ["₫ ~100.000", "₫ ~100,000"],
+        ["Junto al lago Hoàn Kiếm.", "By Hoàn Kiếm lake."],
+        [
+          "Arte tradicional del norte: marionetas que 'bailan' sobre un escenario de agua.",
+          "A northern folk art: puppets that 'dance' on a stage of water.",
+        ]
+      ),
+      PN(
+        "st-joseph-hanoi",
+        "Catedral de San José",
+        ["Histórico", "Historic"],
+        "historico",
+        21.0288,
+        105.849,
+        "Hanoi_Vietnam.jpg",
+        ["Gratis", "Free"],
+        ["A pie.", "On foot."],
+        [
+          "Catedral neogótica de 1886 que recuerda a Notre-Dame de París.",
+          "An 1886 Gothic Revival cathedral echoing Notre-Dame de Paris.",
+        ]
+      ),
+      PN(
+        "west-lake",
+        "Lago del Oeste (Tây Hồ)",
+        ["Lago", "Lake"],
+        "naturaleza",
+        21.06,
+        105.82,
+        "Hanoi_Vietnam.jpg",
+        ["Gratis", "Free"],
+        ["Taxi.", "Taxi."],
+        [
+          "El mayor lago de la ciudad, con la pagoda Trấn Quốc, la más antigua de Hanói.",
+          "The city's largest lake, with Trấn Quốc, Hanoi's oldest pagoda.",
+        ]
+      ),
+      PN(
+        "ha-long",
+        "Bahía de Ha Long",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        20.91,
+        107.1839,
+        "Ha_Long_Bay.jpg",
+        ["Excursión / crucero", "Tour / cruise"],
+        ["Bus / crucero (~2,5 h).", "Bus / cruise (~2.5 h)."],
+        [
+          "Miles de islotes calizos que emergen de un mar esmeralda, Patrimonio de la Humanidad.",
+          "Thousands of limestone islets rising from an emerald sea, a World Heritage site.",
+        ]
+      ),
+      PN(
+        "thang-long",
+        "Ciudadela imperial de Thăng Long",
+        ["Histórico", "Historic"],
+        "historico",
+        21.035,
+        105.84,
+        "Hanoi_Vietnam.jpg",
+        ["₫ ~30.000", "₫ ~30,000"],
+        ["Taxi.", "Taxi."],
+        [
+          "Centro del poder vietnamita durante 13 siglos, Patrimonio de la Humanidad.",
+          "The centre of Vietnamese power for 13 centuries, a World Heritage site.",
+        ]
+      ),
+      PN(
+        "dong-xuan",
+        "Mercado Đồng Xuân",
+        ["Mercado", "Market"],
+        "shopping",
+        21.038,
+        105.849,
+        "Hanoi_Vietnam.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["A pie desde el casco antiguo.", "Walk from the old quarter."],
+        [
+          "El mayor mercado cubierto de la ciudad, un hormiguero de todo.",
+          "The city's largest covered market, a bustling warren of everything.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "hcmc",
+    nombre: "Ciudad Ho Chi Minh (Saigón)",
+    provincia: VN_SUR,
+    center: [10.7769, 106.7009],
+    zoom: 13,
+    eventos: {
+      nombre: { es: "Agenda de Saigón", en: "Ho Chi Minh City events" },
+      lat: 10.7769,
+      lng: 106.7009,
+      img: "Ho_Chi_Minh_City.jpg",
+      url: "https://www.vietnam.travel/places-to-go/southern-vietnam/ho-chi-minh-city",
+      sinopsis: {
+        es: "La antigua Saigón, motor económico y frenético del sur; herencia colonial francesa, historia de la guerra y una vida nocturna intensa.",
+        en: "The former Saigon, the frantic economic engine of the south; French colonial heritage, war history and intense nightlife.",
+      },
+    },
+    puntos: [
+      PN(
+        "notre-dame-saigon",
+        "Catedral de Notre-Dame",
+        ["Histórico", "Historic"],
+        "historico",
+        10.7797,
+        106.699,
+        "Ho_Chi_Minh_City.jpg",
+        ["Gratis (exterior)", "Free (exterior)"],
+        ["Taxi / a pie.", "Taxi / walk."],
+        [
+          "Catedral colonial francesa de ladrillo rojo traído de Marsella (1880).",
+          "A French colonial cathedral of red brick shipped from Marseille (1880).",
+        ]
+      ),
+      PN(
+        "central-post-office",
+        "Oficina Central de Correos",
+        ["Histórico", "Historic"],
+        "historico",
+        10.7799,
+        106.6999,
+        "Ho_Chi_Minh_City.jpg",
+        ["Gratis", "Free"],
+        ["Junto a la catedral.", "By the cathedral."],
+        [
+          "Correo colonial de bóvedas de hierro atribuido al entorno de Eiffel.",
+          "A colonial post office with iron vaults, linked to Eiffel's circle.",
+        ]
+      ),
+      PN(
+        "war-remnants",
+        "Museo de Vestigios de la Guerra",
+        ["Museo", "Museum"],
+        "museo",
+        10.7797,
+        106.6924,
+        "Ho_Chi_Minh_City.jpg",
+        ["₫ ~40.000", "₫ ~40,000"],
+        ["Taxi.", "Taxi."],
+        [
+          "Museo crudo y conmovedor sobre la Guerra de Vietnam.",
+          "A raw and moving museum about the Vietnam War.",
+        ]
+      ),
+      PN(
+        "ben-thanh",
+        "Mercado Bến Thành",
+        ["Mercado", "Market"],
+        "shopping",
+        10.7723,
+        106.698,
+        "Ho_Chi_Minh_City.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["A pie desde el centro.", "Walk from the centre."],
+        [
+          "El mercado más famoso de la ciudad, de textiles, souvenirs y comida.",
+          "The city's most famous market, of textiles, souvenirs and food.",
+        ]
+      ),
+      PN(
+        "reunification-palace",
+        "Palacio de la Reunificación",
+        ["Histórico", "Historic"],
+        "historico",
+        10.7772,
+        106.6958,
+        "Ho_Chi_Minh_City.jpg",
+        ["₫ ~65.000", "₫ ~65,000"],
+        ["Taxi.", "Taxi."],
+        [
+          "El palacio presidencial de los años 60, donde terminó la guerra en 1975.",
+          "The 1960s presidential palace, where the war ended in 1975.",
+        ]
+      ),
+      PN(
+        "bui-vien",
+        "Bùi Viện Walking Street",
+        ["Vida nocturna", "Nightlife"],
+        "paseo",
+        10.767,
+        106.693,
+        "Ho_Chi_Minh_City.jpg",
+        ["Consumición", "Pay as you go"],
+        ["Taxi.", "Taxi."],
+        [
+          "La calle mochilera y de fiesta de Saigón, un torbellino de neón.",
+          "Saigon's backpacker and party street, a whirl of neon.",
+        ]
+      ),
+      PN(
+        "cu-chi",
+        "Túneles de Củ Chi",
+        ["Histórico", "Historic"],
+        "historico",
+        11.142,
+        106.46,
+        "Ho_Chi_Minh_City.jpg",
+        ["Excursión arancelada", "Paid day trip"],
+        ["Excursión / bus (~1,5 h).", "Tour / bus (~1.5 h)."],
+        [
+          "Red de túneles de guerra de 250 km que se pueden recorrer bajo tierra.",
+          "A 250 km wartime tunnel network you can crawl through underground.",
+        ]
+      ),
+      PN(
+        "jade-emperor",
+        "Pagoda del Emperador de Jade",
+        ["Templo", "Temple"],
+        "historico",
+        10.79,
+        106.69,
+        "Ho_Chi_Minh_City.jpg",
+        ["Gratis", "Free"],
+        ["Taxi.", "Taxi."],
+        [
+          "Pagoda taoísta de 1909 llena de humo de incienso y tallas de dioses.",
+          "A 1909 Taoist pagoda thick with incense smoke and carvings of deities.",
+        ]
+      ),
+      PN(
+        "bitexco",
+        "Bitexco Financial Tower (Skydeck)",
+        ["Mirador", "Lookout"],
+        "paseo",
+        10.7717,
+        106.7043,
+        "Ho_Chi_Minh_City.jpg",
+        ["₫ ~200.000", "₫ ~200,000"],
+        ["A pie desde el centro.", "Walk from the centre."],
+        [
+          "Rascacielos con forma de flor de loto y mirador en el piso 49.",
+          "A lotus-shaped skyscraper with an observation deck on the 49th floor.",
+        ]
+      ),
+      PN(
+        "nguyen-hue",
+        "Calle Nguyễn Huệ",
+        ["Paseo", "Walk"],
+        "paseo",
+        10.774,
+        106.704,
+        "Ho_Chi_Minh_City.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el centro.", "Walk from the centre."],
+        [
+          "Amplia calle peatonal frente al ayuntamiento y la estatua de Ho Chi Minh.",
+          "A broad pedestrian boulevard by the city hall and the Ho Chi Minh statue.",
+        ]
+      ),
+      PN(
+        "mekong-delta",
+        "Delta del Mekong",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        10.36,
+        105.96,
+        "Mekong_Delta.jpg",
+        ["Excursión arancelada", "Paid day trip"],
+        ["Excursión (~2 h).", "Tour (~2 h)."],
+        [
+          "El 'tazón de arroz' de canales, mercados flotantes y palmeras.",
+          "The 'rice bowl' of canals, floating markets and palm trees.",
+        ]
+      ),
+      PN(
+        "saigon-central-mosque",
+        "Mezquita Central de Saigón",
+        ["Histórico", "Historic"],
+        "historico",
+        10.777,
+        106.702,
+        "Ho_Chi_Minh_City.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el centro.", "Walk from the centre."],
+        [
+          "Serena mezquita azul y blanca de 1935 en pleno centro.",
+          "A serene blue-and-white 1935 mosque in the heart of downtown.",
+        ]
+      ),
+    ],
+  },
+];
+
+// =====================================================================
+//  CAMBOYA (bilingüe)
+// =====================================================================
+const KH_SR = { es: "Siem Reap", en: "Siem Reap" };
+const KH_PP = { es: "Phnom Penh", en: "Phnom Penh" };
+const LOCALIDADES_KH = [
+  {
+    id: "siemreap",
+    nombre: "Siem Reap (Angkor)",
+    provincia: KH_SR,
+    center: [13.3617, 103.86],
+    zoom: 11,
+    eventos: {
+      nombre: { es: "Agenda de Siem Reap", en: "Siem Reap events" },
+      lat: 13.3617,
+      lng: 103.86,
+      img: "Angkor_Wat.jpg",
+      url: "https://www.tourismcambodia.com/",
+      sinopsis: {
+        es: "La puerta a Angkor, la mayor ciudad-templo del mundo; base para explorar el legado del imperio jemer.",
+        en: "The gateway to Angkor, the world's largest temple city; a base to explore the legacy of the Khmer empire.",
+      },
+    },
+    puntos: [
+      PN(
+        "angkor-wat",
+        "Angkor Wat",
+        ["Templo", "Temple"],
+        "historico",
+        13.4125,
+        103.867,
+        "Angkor_Wat.jpg",
+        ["Pase 1 día ~US$ 37", "1-day pass ~US$ 37"],
+        ["Tuk-tuk desde Siem Reap.", "Tuk-tuk from Siem Reap."],
+        [
+          "El mayor monumento religioso del mundo (siglo XII), símbolo de Camboya, mágico al amanecer.",
+          "The world's largest religious monument (12th c.), Cambodia's symbol, magical at sunrise.",
+        ]
+      ),
+      PN(
+        "bayon",
+        "Bayon (Angkor Thom)",
+        ["Templo", "Temple"],
+        "historico",
+        13.4413,
+        103.859,
+        "Angkor_Wat.jpg",
+        ["Pase Angkor", "Angkor pass"],
+        ["Tuk-tuk.", "Tuk-tuk."],
+        [
+          "Templo de 216 rostros de piedra sonrientes en el centro de la antigua capital.",
+          "A temple of 216 smiling stone faces at the centre of the old capital.",
+        ]
+      ),
+      PN(
+        "ta-prohm",
+        "Ta Prohm",
+        ["Templo", "Temple"],
+        "historico",
+        13.4348,
+        103.8891,
+        "Angkor_Wat.jpg",
+        ["Pase Angkor", "Angkor pass"],
+        ["Tuk-tuk.", "Tuk-tuk."],
+        [
+          "El 'templo de la jungla' abrazado por raíces de ceiba gigantes, de 'Tomb Raider'.",
+          "The 'jungle temple' entwined by giant silk-cotton roots, of 'Tomb Raider' fame.",
+        ]
+      ),
+      PN(
+        "angkor-thom",
+        "Angkor Thom",
+        ["Ruinas", "Ruins"],
+        "historico",
+        13.4413,
+        103.859,
+        "Angkor_Wat.jpg",
+        ["Pase Angkor", "Angkor pass"],
+        ["Tuk-tuk.", "Tuk-tuk."],
+        [
+          "La última gran capital jemer, con sus puertas monumentales y la Terraza de los Elefantes.",
+          "The last great Khmer capital, with monumental gates and the Terrace of the Elephants.",
+        ]
+      ),
+      PN(
+        "banteay-srei",
+        "Banteay Srei",
+        ["Templo", "Temple"],
+        "historico",
+        13.599,
+        103.963,
+        "Angkor_Wat.jpg",
+        ["Pase Angkor", "Angkor pass"],
+        ["Tuk-tuk / auto (~40 min).", "Tuk-tuk / car (~40 min)."],
+        [
+          "'La ciudadela de las mujeres', tallada con delicadeza en arenisca rosa.",
+          "The 'citadel of women', delicately carved in pink sandstone.",
+        ]
+      ),
+      PN(
+        "pub-street",
+        "Pub Street",
+        ["Vida nocturna", "Nightlife"],
+        "paseo",
+        13.354,
+        103.856,
+        "Siem_Reap.jpg",
+        ["Consumición", "Pay as you go"],
+        ["A pie en el centro.", "Walk in the centre."],
+        [
+          "La calle de la fiesta de Siem Reap, con bares, mercados y masajes.",
+          "Siem Reap's party street, with bars, markets and massages.",
+        ]
+      ),
+      PN(
+        "angkor-museum",
+        "Museo Nacional de Angkor",
+        ["Museo", "Museum"],
+        "museo",
+        13.364,
+        103.856,
+        "Siem_Reap.jpg",
+        ["~US$ 12", "~US$ 12"],
+        ["Tuk-tuk.", "Tuk-tuk."],
+        [
+          "Museo moderno que da contexto a los templos con salas de mil Budas.",
+          "A modern museum giving context to the temples, with a hall of a thousand Buddhas.",
+        ]
+      ),
+      PN(
+        "tonle-sap",
+        "Tonlé Sap (aldeas flotantes)",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        13.16,
+        103.85,
+        "Siem_Reap.jpg",
+        ["Excursión arancelada", "Paid boat trip"],
+        ["Tuk-tuk + barco (~40 min).", "Tuk-tuk + boat (~40 min)."],
+        [
+          "El mayor lago del sudeste asiático, con pueblos de casas sobre pilotes.",
+          "Southeast Asia's largest lake, with villages of stilt houses.",
+        ]
+      ),
+      PN(
+        "phnom-bakheng",
+        "Phnom Bakheng",
+        ["Mirador", "Lookout"],
+        "historico",
+        13.423,
+        103.858,
+        "Angkor_Wat.jpg",
+        ["Pase Angkor", "Angkor pass"],
+        ["Tuk-tuk + subida.", "Tuk-tuk + climb."],
+        [
+          "Templo-montaña, el mejor lugar para ver el atardecer sobre Angkor Wat.",
+          "A temple-mountain, the top spot to watch the sunset over Angkor Wat.",
+        ]
+      ),
+      PN(
+        "old-market-siemreap",
+        "Mercado Antiguo (Psar Chas)",
+        ["Mercado", "Market"],
+        "shopping",
+        13.354,
+        103.856,
+        "Siem_Reap.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["A pie en el centro.", "Walk in the centre."],
+        [
+          "Mercado de especias, seda y souvenirs junto a Pub Street.",
+          "A market of spices, silk and souvenirs next to Pub Street.",
+        ]
+      ),
+      PN(
+        "preah-khan",
+        "Preah Khan",
+        ["Templo", "Temple"],
+        "historico",
+        13.462,
+        103.873,
+        "Angkor_Wat.jpg",
+        ["Pase Angkor", "Angkor pass"],
+        ["Tuk-tuk.", "Tuk-tuk."],
+        [
+          "Vasto templo-monasterio en parte tomado por la selva, tranquilo y laberíntico.",
+          "A vast temple-monastery partly reclaimed by jungle, quiet and labyrinthine.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "phnompenh",
+    nombre: "Phnom Penh",
+    provincia: KH_PP,
+    center: [11.5564, 104.9282],
+    zoom: 13,
+    eventos: {
+      nombre: { es: "Agenda de Phnom Penh", en: "Phnom Penh events" },
+      lat: 11.5564,
+      lng: 104.9282,
+      img: "Phnom_Penh.jpg",
+      url: "https://www.tourismcambodia.com/",
+      sinopsis: {
+        es: "La capital a orillas del Mekong, de elegancia colonial y memoria dolorosa; el corazón político y cultural del país.",
+        en: "The Mekong-side capital, of colonial elegance and painful memory; the country's political and cultural heart.",
+      },
+    },
+    puntos: [
+      PN(
+        "royal-palace-pp",
+        "Palacio Real y Pagoda de Plata",
+        ["Palacio", "Palace"],
+        "historico",
+        11.564,
+        104.931,
+        "Phnom_Penh.jpg",
+        ["~US$ 10", "~US$ 10"],
+        ["Tuk-tuk.", "Tuk-tuk."],
+        [
+          "Residencia real dorada con una pagoda de suelo de plata y un Buda de esmeralda.",
+          "A golden royal residence with a silver-floored pagoda and an emerald Buddha.",
+        ]
+      ),
+      PN(
+        "tuol-sleng",
+        "Museo del Genocidio Tuol Sleng",
+        ["Museo", "Museum"],
+        "museo",
+        11.549,
+        104.918,
+        "Phnom_Penh.jpg",
+        ["~US$ 5", "~US$ 5"],
+        ["Tuk-tuk.", "Tuk-tuk."],
+        [
+          "La prisión S-21 de los Jemeres Rojos, hoy museo de la memoria.",
+          "The Khmer Rouge's S-21 prison, now a museum of remembrance.",
+        ]
+      ),
+      PN(
+        "killing-fields",
+        "Campos de la Muerte (Choeung Ek)",
+        ["Histórico", "Historic"],
+        "historico",
+        11.484,
+        104.902,
+        "Phnom_Penh.jpg",
+        ["~US$ 6", "~US$ 6"],
+        ["Tuk-tuk (~30 min).", "Tuk-tuk (~30 min)."],
+        [
+          "Sitio conmemorativo de las víctimas del régimen de Pol Pot, con una estupa memorial.",
+          "A memorial to the victims of the Pol Pot regime, with a remembrance stupa.",
+        ]
+      ),
+      PN(
+        "wat-phnom",
+        "Wat Phnom",
+        ["Templo", "Temple"],
+        "historico",
+        11.576,
+        104.921,
+        "Phnom_Penh.jpg",
+        ["~US$ 1", "~US$ 1"],
+        ["Tuk-tuk.", "Tuk-tuk."],
+        [
+          "El templo sobre la colina que da nombre a la ciudad.",
+          "The hilltop temple that gives the city its name.",
+        ]
+      ),
+      PN(
+        "national-museum-kh",
+        "Museo Nacional de Camboya",
+        ["Museo", "Museum"],
+        "museo",
+        11.565,
+        104.928,
+        "Phnom_Penh.jpg",
+        ["~US$ 10", "~US$ 10"],
+        ["Tuk-tuk / a pie.", "Tuk-tuk / walk."],
+        [
+          "La mayor colección de arte jemer, en un pabellón rojo tradicional.",
+          "The largest collection of Khmer art, in a traditional red pavilion.",
+        ]
+      ),
+      PN(
+        "central-market-pp",
+        "Mercado Central (Psar Thmei)",
+        ["Mercado", "Market"],
+        "shopping",
+        11.569,
+        104.921,
+        "Phnom_Penh.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["Tuk-tuk / a pie.", "Tuk-tuk / walk."],
+        [
+          "Mercado art déco de 1937 bajo una gran cúpula amarilla.",
+          "A 1937 art-deco market beneath a huge yellow dome.",
+        ]
+      ),
+      PN(
+        "riverside-pp",
+        "Sisowath Quay (Riverside)",
+        ["Paseo", "Waterfront"],
+        "paseo",
+        11.57,
+        104.932,
+        "Phnom_Penh.jpg",
+        ["Gratis", "Free"],
+        ["Tuk-tuk / a pie.", "Tuk-tuk / walk."],
+        [
+          "Paseo junto a los ríos Mekong y Tonlé Sap, de restaurantes y bares.",
+          "A promenade by the Mekong and Tonlé Sap rivers, of restaurants and bars.",
+        ]
+      ),
+      PN(
+        "independence-monument",
+        "Monumento a la Independencia",
+        ["Histórico", "Historic"],
+        "historico",
+        11.556,
+        104.928,
+        "Phnom_Penh.jpg",
+        ["Gratis (exterior)", "Free (exterior)"],
+        ["Tuk-tuk.", "Tuk-tuk."],
+        [
+          "Torre de estilo angkoriano de 1958 que celebra la independencia de Francia.",
+          "A 1958 Angkorian-style tower marking independence from France.",
+        ]
+      ),
+      PN(
+        "russian-market",
+        "Mercado Ruso (Toul Tom Poung)",
+        ["Mercado", "Market"],
+        "shopping",
+        11.543,
+        104.918,
+        "Phnom_Penh.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["Tuk-tuk.", "Tuk-tuk."],
+        [
+          "Laberinto de puestos de artesanías, seda y comida muy querido por los locales.",
+          "A warren of craft, silk and food stalls beloved by locals.",
+        ]
+      ),
+    ],
+  },
+];
+
+// =====================================================================
+//  CHINA (bilingüe)
+// =====================================================================
+const CN_BJ = { es: "Pekín", en: "Beijing" };
+const CN_SH = { es: "Shanghái", en: "Shanghai" };
+const LOCALIDADES_CN = [
+  {
+    id: "beijing",
+    nombre: "Pekín / Beijing",
+    provincia: CN_BJ,
+    center: [39.9042, 116.4074],
+    zoom: 11,
+    eventos: {
+      nombre: { es: "Agenda de Pekín", en: "Beijing events" },
+      lat: 39.9042,
+      lng: 116.4074,
+      img: "Forbidden_City_Beijing.jpg",
+      url: "https://www.visitbeijing.com.cn/",
+      sinopsis: {
+        es: "La capital imperial y política de China, de la Gran Muralla a los hutongs; milenios de historia entre rascacielos.",
+        en: "China's imperial and political capital, from the Great Wall to the hutongs; millennia of history amid skyscrapers.",
+      },
+    },
+    puntos: [
+      PN(
+        "great-wall",
+        "Gran Muralla (Mutianyu)",
+        ["Histórico", "Historic"],
+        "historico",
+        40.4319,
+        116.5704,
+        "Great_Wall_of_China.jpg",
+        ["¥ ~45 + teleférico", "¥ ~45 + cable car"],
+        ["Bus / tour (~1,5 h).", "Bus / tour (~1.5 h)."],
+        [
+          "El tramo mejor restaurado y menos concurrido de la muralla, entre montañas boscosas.",
+          "The best-restored and less-crowded stretch of the wall, amid forested hills.",
+        ]
+      ),
+      PN(
+        "forbidden-city",
+        "Ciudad Prohibida",
+        ["Palacio", "Palace"],
+        "historico",
+        39.9163,
+        116.3972,
+        "Forbidden_City_Beijing.jpg",
+        ["¥ ~60", "¥ ~60"],
+        ["Metro Tiananmen East.", "Metro Tiananmen East."],
+        [
+          "El palacio imperial más grande del mundo, hogar de 24 emperadores durante 500 años.",
+          "The world's largest imperial palace, home to 24 emperors over 500 years.",
+        ]
+      ),
+      PN(
+        "tiananmen",
+        "Plaza de Tiananmén",
+        ["Histórico", "Historic"],
+        "historico",
+        39.9055,
+        116.3976,
+        "Beijing_China.jpg",
+        ["Gratis (con registro)", "Free (with ID)"],
+        ["Metro Tiananmen.", "Metro Tiananmen."],
+        [
+          "Una de las plazas más grandes del mundo, corazón cívico de la nación.",
+          "One of the world's largest squares, the nation's civic heart.",
+        ]
+      ),
+      PN(
+        "temple-heaven",
+        "Templo del Cielo",
+        ["Templo", "Temple"],
+        "historico",
+        39.8822,
+        116.4066,
+        "Temple_of_Heaven.jpg",
+        ["¥ ~35", "¥ ~35"],
+        ["Metro Tiantandongmen.", "Metro Tiantandongmen."],
+        [
+          "Templo circular de 1420 donde el emperador rezaba por buenas cosechas.",
+          "A circular 1420 temple where the emperor prayed for good harvests.",
+        ]
+      ),
+      PN(
+        "summer-palace",
+        "Palacio de Verano",
+        ["Palacio", "Palace"],
+        "historico",
+        39.999,
+        116.2755,
+        "Beijing_China.jpg",
+        ["¥ ~30", "¥ ~30"],
+        ["Metro Beigongmen.", "Metro Beigongmen."],
+        [
+          "Enorme jardín imperial alrededor del lago Kunming, con pabellones y un barco de mármol.",
+          "A vast imperial garden around Kunming Lake, with pavilions and a marble boat.",
+        ]
+      ),
+      PN(
+        "hutongs",
+        "Hutongs (Nanluoguxiang)",
+        ["Paseo", "Old lanes"],
+        "paseo",
+        39.937,
+        116.403,
+        "Beijing_China.jpg",
+        ["Gratis", "Free"],
+        ["Metro Nanluoguxiang.", "Metro Nanluoguxiang."],
+        [
+          "Callejones tradicionales de patios (siheyuan), hoy llenos de cafés y tiendas.",
+          "Traditional courtyard lanes (siheyuan), now full of cafés and shops.",
+        ]
+      ),
+      PN(
+        "lama-temple",
+        "Templo Lama (Yonghe)",
+        ["Templo", "Temple"],
+        "historico",
+        39.947,
+        116.417,
+        "Beijing_China.jpg",
+        ["¥ ~25", "¥ ~25"],
+        ["Metro Yonghegong.", "Metro Yonghegong."],
+        [
+          "El templo budista tibetano más importante de la ciudad, con un Buda de 18 m de sándalo.",
+          "The city's foremost Tibetan Buddhist temple, with an 18 m sandalwood Buddha.",
+        ]
+      ),
+      PN(
+        "798",
+        "Distrito de Arte 798",
+        ["Arte", "Art district"],
+        "museo",
+        39.984,
+        116.495,
+        "Beijing_China.jpg",
+        ["Gratis (galerías aparte)", "Free (galleries vary)"],
+        ["Taxi / bus.", "Taxi / bus."],
+        [
+          "Antigua fábrica militar reconvertida en el mayor barrio de arte contemporáneo de China.",
+          "A former military factory turned China's largest contemporary-art district.",
+        ]
+      ),
+      PN(
+        "beihai-park",
+        "Parque Beihai",
+        ["Parque", "Park"],
+        "naturaleza",
+        39.925,
+        116.39,
+        "Beijing_China.jpg",
+        ["¥ ~10", "¥ ~10"],
+        ["Metro Beihai North.", "Metro Beihai North."],
+        [
+          "Jardín imperial alrededor de un lago con una estupa blanca en una isla.",
+          "An imperial garden around a lake, with a white stupa on an island.",
+        ]
+      ),
+      PN(
+        "jingshan",
+        "Parque Jingshan",
+        ["Mirador", "Lookout"],
+        "naturaleza",
+        39.928,
+        116.39,
+        "Beijing_China.jpg",
+        ["¥ ~2", "¥ ~2"],
+        ["A pie desde la Ciudad Prohibida.", "Walk from the Forbidden City."],
+        [
+          "Colina artificial con la mejor vista aérea de la Ciudad Prohibida.",
+          "An artificial hill with the best aerial view of the Forbidden City.",
+        ]
+      ),
+      PN(
+        "wangfujing",
+        "Wangfujing",
+        ["Compras", "Shopping"],
+        "shopping",
+        39.915,
+        116.41,
+        "Beijing_China.jpg",
+        ["Gratis", "Free"],
+        ["Metro Wangfujing.", "Metro Wangfujing."],
+        [
+          "La gran calle comercial peatonal, con un mercado de snacks famoso.",
+          "The great pedestrian shopping street, with a famous snack market.",
+        ]
+      ),
+      PN(
+        "national-museum-cn",
+        "Museo Nacional de China",
+        ["Museo", "Museum"],
+        "museo",
+        39.904,
+        116.401,
+        "Beijing_China.jpg",
+        ["Gratis (registro)", "Free (register)"],
+        ["Metro Tiananmen East.", "Metro Tiananmen East."],
+        [
+          "Uno de los museos más grandes del mundo, con 5.000 años de historia china.",
+          "One of the world's largest museums, with 5,000 years of Chinese history.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "shanghai",
+    nombre: "Shanghái / Shanghai",
+    provincia: CN_SH,
+    center: [31.2304, 121.4737],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Agenda de Shanghái", en: "Shanghai events" },
+      lat: 31.2304,
+      lng: 121.4737,
+      img: "Shanghai_Skyline.jpg",
+      url: "https://www.meet-in-shanghai.net/",
+      sinopsis: {
+        es: "La metrópoli más cosmopolita de China, donde el Bund colonial mira a los rascacielos futuristas de Pudong.",
+        en: "China's most cosmopolitan metropolis, where the colonial Bund faces the futuristic skyscrapers of Pudong.",
+      },
+    },
+    puntos: [
+      PN(
+        "the-bund",
+        "El Bund (Waitan)",
+        ["Paseo", "Waterfront"],
+        "paseo",
+        31.24,
+        121.49,
+        "Shanghai_Skyline.jpg",
+        ["Gratis", "Free"],
+        ["Metro East Nanjing Road.", "Metro East Nanjing Road."],
+        [
+          "Malecón de edificios coloniales frente al skyline iluminado de Pudong.",
+          "A waterfront of colonial buildings facing the lit-up Pudong skyline.",
+        ]
+      ),
+      PN(
+        "yu-garden",
+        "Jardín Yuyuan",
+        ["Jardín", "Gardens"],
+        "historico",
+        31.227,
+        121.492,
+        "Shanghai_China.jpg",
+        ["¥ ~40", "¥ ~40"],
+        ["Metro Yuyuan Garden.", "Metro Yuyuan Garden."],
+        [
+          "Jardín clásico Ming de 1577 con estanques, pabellones y el bazar antiguo.",
+          "A classical 1577 Ming garden with ponds, pavilions and the old bazaar.",
+        ]
+      ),
+      PN(
+        "oriental-pearl",
+        "Torre Perla de Oriente",
+        ["Mirador", "Lookout"],
+        "paseo",
+        31.2397,
+        121.4998,
+        "Shanghai_Skyline.jpg",
+        ["¥ ~160", "¥ ~160"],
+        ["Metro Lujiazui.", "Metro Lujiazui."],
+        [
+          "Icónica torre de TV de esferas rosadas con miradores y suelo de vidrio.",
+          "An iconic pink-sphere TV tower with observation decks and a glass floor.",
+        ]
+      ),
+      PN(
+        "nanjing-road",
+        "Nanjing Road",
+        ["Compras", "Shopping"],
+        "shopping",
+        31.235,
+        121.475,
+        "Shanghai_China.jpg",
+        ["Gratis", "Free"],
+        ["Metro Nanjing Road.", "Metro Nanjing Road."],
+        [
+          "Una de las calles comerciales más transitadas del mundo, un río de neón.",
+          "One of the world's busiest shopping streets, a river of neon.",
+        ]
+      ),
+      PN(
+        "shanghai-tower",
+        "Shanghai Tower",
+        ["Mirador", "Lookout"],
+        "paseo",
+        31.2337,
+        121.5055,
+        "Shanghai_Skyline.jpg",
+        ["¥ ~180", "¥ ~180"],
+        ["Metro Lujiazui.", "Metro Lujiazui."],
+        [
+          "El edificio más alto de China (632 m), con el mirador más alto del mundo.",
+          "China's tallest building (632 m), with one of the world's highest observation decks.",
+        ]
+      ),
+      PN(
+        "tianzifang",
+        "Tianzifang",
+        ["Paseo", "Arts lanes"],
+        "paseo",
+        31.21,
+        121.468,
+        "Shanghai_China.jpg",
+        ["Gratis", "Free"],
+        ["Metro Dapuqiao.", "Metro Dapuqiao."],
+        [
+          "Laberinto de callejones shikumen con estudios de arte, cafés y boutiques.",
+          "A maze of shikumen lanes with art studios, cafés and boutiques.",
+        ]
+      ),
+      PN(
+        "jade-buddha",
+        "Templo del Buda de Jade",
+        ["Templo", "Temple"],
+        "historico",
+        31.246,
+        121.445,
+        "Shanghai_China.jpg",
+        ["¥ ~20", "¥ ~20"],
+        ["Metro Changshou Road.", "Metro Changshou Road."],
+        [
+          "Templo activo con dos Budas tallados en jade blanco birmano.",
+          "An active temple with two Buddhas carved from white Burmese jade.",
+        ]
+      ),
+      PN(
+        "shanghai-museum",
+        "Museo de Shanghái",
+        ["Museo", "Museum"],
+        "museo",
+        31.229,
+        121.475,
+        "Shanghai_China.jpg",
+        ["Gratis", "Free"],
+        ["Metro People's Square.", "Metro People's Square."],
+        [
+          "Gran museo de arte antiguo chino: bronces, cerámica y caligrafía.",
+          "A great museum of ancient Chinese art: bronzes, ceramics and calligraphy.",
+        ]
+      ),
+      PN(
+        "french-concession",
+        "Concesión Francesa",
+        ["Paseo", "Walk"],
+        "paseo",
+        31.21,
+        121.455,
+        "Shanghai_China.jpg",
+        ["Gratis", "Free"],
+        ["Metro Shaanxi South Road.", "Metro Shaanxi South Road."],
+        [
+          "Barrio arbolado de villas coloniales, boutiques y cafés, el más elegante.",
+          "A leafy district of colonial villas, boutiques and cafés, the most elegant.",
+        ]
+      ),
+      PN(
+        "zhujiajiao",
+        "Zhujiajiao (pueblo del agua)",
+        ["Naturaleza", "Water town"],
+        "paseo",
+        31.112,
+        121.056,
+        "Shanghai_China.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["Metro + bus (~1 h).", "Metro + bus (~1 h)."],
+        [
+          "Antiguo pueblo de canales y puentes de piedra a las afueras de la ciudad.",
+          "An ancient town of canals and stone bridges on the city's outskirts.",
+        ]
+      ),
+      PN(
+        "xintiandi",
+        "Xintiandi",
+        ["Gastronomía", "Dining"],
+        "gastronomia",
+        31.22,
+        121.475,
+        "Shanghai_China.jpg",
+        ["Consumición", "Pay as you go"],
+        ["Metro Xintiandi.", "Metro Xintiandi."],
+        [
+          "Manzana de casas shikumen restauradas, hoy de restaurantes y bares de moda.",
+          "A block of restored shikumen houses, now trendy restaurants and bars.",
+        ]
+      ),
+    ],
+  },
+];
+
+// =====================================================================
+//  LAOS (bilingüe)
+// =====================================================================
+const LA_LP = { es: "Luang Prabang", en: "Luang Prabang" };
+const LA_VT = { es: "Vientián", en: "Vientiane" };
+const LOCALIDADES_LA = [
+  {
+    id: "luangprabang",
+    nombre: "Luang Prabang",
+    provincia: LA_LP,
+    center: [19.8845, 102.1348],
+    zoom: 13,
+    eventos: {
+      nombre: { es: "Info de Luang Prabang", en: "Luang Prabang info" },
+      lat: 19.8845,
+      lng: 102.1348,
+      img: "Luang_Prabang.jpg",
+      url: "https://www.tourismlaos.org/",
+      sinopsis: {
+        es: "Ciudad de templos dorados entre dos ríos, Patrimonio de la Humanidad; célebre por la ceremonia budista de las limosnas al amanecer.",
+        en: "A city of golden temples between two rivers, a World Heritage site; famous for the dawn Buddhist alms-giving ceremony.",
+      },
+    },
+    puntos: [
+      PN(
+        "kuang-si",
+        "Cascadas de Kuang Si",
+        ["Cascada", "Falls"],
+        "naturaleza",
+        19.749,
+        101.988,
+        "Kuang_Si_Falls.jpg",
+        ["₭ ~25.000", "₭ ~25,000"],
+        ["Tuk-tuk (~40 min).", "Tuk-tuk (~40 min)."],
+        [
+          "Cascadas turquesa escalonadas con pozas para nadar, en la selva.",
+          "Tiered turquoise waterfalls with swimming pools, deep in the forest.",
+        ]
+      ),
+      PN(
+        "mount-phousi",
+        "Monte Phousi",
+        ["Mirador", "Lookout"],
+        "naturaleza",
+        19.889,
+        102.137,
+        "Luang_Prabang.jpg",
+        ["₭ ~20.000", "₭ ~20,000"],
+        ["A pie en el centro.", "Walk in the centre."],
+        [
+          "Colina en el centro con 300 escalones a un templo y la mejor vista del atardecer.",
+          "A central hill with 300 steps to a temple and the best sunset view.",
+        ]
+      ),
+      PN(
+        "wat-xieng-thong",
+        "Wat Xieng Thong",
+        ["Templo", "Temple"],
+        "historico",
+        19.899,
+        102.14,
+        "Luang_Prabang.jpg",
+        ["₭ ~20.000", "₭ ~20,000"],
+        ["A pie.", "On foot."],
+        [
+          "El templo más bello de la ciudad (1560), con mosaicos y techos curvos dorados.",
+          "The city's most beautiful temple (1560), with mosaics and sweeping golden roofs.",
+        ]
+      ),
+      PN(
+        "royal-palace-lp",
+        "Museo del Palacio Real",
+        ["Museo", "Museum"],
+        "museo",
+        19.889,
+        102.135,
+        "Luang_Prabang.jpg",
+        ["₭ ~30.000", "₭ ~30,000"],
+        ["A pie.", "On foot."],
+        [
+          "Ex palacio real que guarda el Pha Bang, el Buda dorado que da nombre a la ciudad.",
+          "The former royal palace, home to the Pha Bang, the golden Buddha that names the city.",
+        ]
+      ),
+      PN(
+        "alms-giving",
+        "Ceremonia de las limosnas (Tak Bat)",
+        ["Cultura", "Culture"],
+        "historico",
+        19.888,
+        102.136,
+        "Luang_Prabang.jpg",
+        ["Gratis (respetuoso)", "Free (be respectful)"],
+        ["A pie al amanecer.", "On foot at dawn."],
+        [
+          "Al alba, cientos de monjes de túnica azafrán reciben arroz de los fieles.",
+          "At dawn, hundreds of saffron-robed monks receive rice from the faithful.",
+        ]
+      ),
+      PN(
+        "night-market-lp",
+        "Mercado nocturno",
+        ["Mercado", "Market"],
+        "shopping",
+        19.889,
+        102.135,
+        "Luang_Prabang.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["A pie en el centro.", "Walk in the centre."],
+        [
+          "Mercado de textiles hmong, artesanías y comida a lo largo de la calle principal.",
+          "A market of Hmong textiles, crafts and food along the main street.",
+        ]
+      ),
+      PN(
+        "pak-ou",
+        "Cuevas de Pak Ou",
+        ["Cuevas", "Caves"],
+        "naturaleza",
+        20.05,
+        102.21,
+        "Luang_Prabang.jpg",
+        ["Barco arancelado", "Paid boat"],
+        ["Barco por el Mekong (~2 h).", "Mekong boat (~2 h)."],
+        [
+          "Grutas sobre el Mekong con miles de estatuas de Buda dejadas por peregrinos.",
+          "Riverside caves holding thousands of Buddha statues left by pilgrims.",
+        ]
+      ),
+      PN(
+        "mekong-cruise-lp",
+        "Crucero por el Mekong",
+        ["Paseo", "River cruise"],
+        "paseo",
+        19.89,
+        102.13,
+        "Luang_Prabang.jpg",
+        ["Arancelado", "Paid"],
+        ["Muelle del centro.", "Town pier."],
+        [
+          "Paseo al atardecer por el gran río que abraza la ciudad.",
+          "A sunset cruise along the great river that hugs the city.",
+        ]
+      ),
+      PN(
+        "wat-mai",
+        "Wat Mai",
+        ["Templo", "Temple"],
+        "historico",
+        19.888,
+        102.136,
+        "Luang_Prabang.jpg",
+        ["₭ ~10.000", "₭ ~10,000"],
+        ["A pie.", "On foot."],
+        [
+          "Templo de bajorrelieves dorados junto al Palacio Real.",
+          "A temple of gilded bas-reliefs next to the Royal Palace.",
+        ]
+      ),
+      PN(
+        "uxo-centre",
+        "Centro de Visitantes UXO Laos",
+        ["Museo", "Museum"],
+        "museo",
+        19.885,
+        102.14,
+        "Luang_Prabang.jpg",
+        ["A la gorra", "Donation"],
+        ["A pie.", "On foot."],
+        [
+          "Museo sobre las bombas sin explotar de la guerra y su desminado.",
+          "A museum about wartime unexploded ordnance and its clearance.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "vientiane",
+    nombre: "Vientián / Vientiane",
+    provincia: LA_VT,
+    center: [17.9757, 102.6331],
+    zoom: 13,
+    eventos: {
+      nombre: { es: "Info de Vientián", en: "Vientiane info" },
+      lat: 17.9757,
+      lng: 102.6331,
+      img: "Vientiane_Laos.jpg",
+      url: "https://www.tourismlaos.org/",
+      sinopsis: {
+        es: "La tranquila capital a orillas del Mekong, de aire francés y templos dorados; una de las capitales más relajadas de Asia.",
+        en: "The sleepy Mekong-side capital, with a French air and golden temples; one of Asia's most laid-back capitals.",
+      },
+    },
+    puntos: [
+      PN(
+        "pha-that-luang",
+        "Pha That Luang",
+        ["Histórico", "Historic"],
+        "historico",
+        17.975,
+        102.644,
+        "Vientiane_Laos.jpg",
+        ["₭ ~10.000", "₭ ~10,000"],
+        ["Tuk-tuk.", "Tuk-tuk."],
+        [
+          "La gran estupa dorada del siglo XVI, símbolo nacional de Laos.",
+          "The great 16th-century golden stupa, the national symbol of Laos.",
+        ]
+      ),
+      PN(
+        "patuxai",
+        "Patuxai (Arco de la Victoria)",
+        ["Monumento", "Monument"],
+        "historico",
+        17.968,
+        102.618,
+        "Vientiane_Laos.jpg",
+        ["₭ ~5.000 (mirador)", "₭ ~5,000 (top)"],
+        ["A pie / tuk-tuk.", "Walk / tuk-tuk."],
+        [
+          "Arco monumental de estilo francés con detalles laosianos y mirador arriba.",
+          "A French-style triumphal arch with Lao detailing and a rooftop lookout.",
+        ]
+      ),
+      PN(
+        "wat-si-saket",
+        "Wat Si Saket",
+        ["Templo", "Temple"],
+        "historico",
+        17.963,
+        102.61,
+        "Vientiane_Laos.jpg",
+        ["₭ ~10.000", "₭ ~10,000"],
+        ["A pie / tuk-tuk.", "Walk / tuk-tuk."],
+        [
+          "El templo más antiguo en pie de la ciudad, con miles de pequeños Budas en sus muros.",
+          "The city's oldest surviving temple, with thousands of tiny Buddhas in its walls.",
+        ]
+      ),
+      PN(
+        "buddha-park",
+        "Buddha Park (Xieng Khuan)",
+        ["Escultura", "Sculpture park"],
+        "paseo",
+        17.92,
+        102.77,
+        "Vientiane_Laos.jpg",
+        ["₭ ~15.000", "₭ ~15,000"],
+        ["Bus / tuk-tuk (~25 km).", "Bus / tuk-tuk (~25 km)."],
+        [
+          "Prado junto al Mekong con más de 200 esculturas budistas e hindúes surrealistas.",
+          "A Mekong-side meadow of 200+ surreal Buddhist and Hindu sculptures.",
+        ]
+      ),
+      PN(
+        "cope-centre",
+        "Centro de Visitantes COPE",
+        ["Museo", "Museum"],
+        "museo",
+        17.96,
+        102.62,
+        "Vientiane_Laos.jpg",
+        ["A la gorra", "Donation"],
+        ["Tuk-tuk.", "Tuk-tuk."],
+        [
+          "Museo conmovedor sobre las víctimas de las bombas de racimo y sus prótesis.",
+          "A moving museum about cluster-bomb survivors and their prosthetics.",
+        ]
+      ),
+      PN(
+        "ho-phra-keo",
+        "Wat Ho Phra Keo",
+        ["Museo", "Museum"],
+        "museo",
+        17.963,
+        102.612,
+        "Vientiane_Laos.jpg",
+        ["₭ ~10.000", "₭ ~10,000"],
+        ["A pie.", "On foot."],
+        [
+          "Ex templo real que albergó el Buda de Esmeralda, hoy museo de arte religioso.",
+          "A former royal temple that housed the Emerald Buddha, now a religious-art museum.",
+        ]
+      ),
+      PN(
+        "mekong-riverside-vt",
+        "Mekong y mercado nocturno",
+        ["Paseo", "Waterfront"],
+        "paseo",
+        17.956,
+        102.61,
+        "Vientiane_Laos.jpg",
+        ["Gratis", "Free"],
+        ["A pie en el centro.", "Walk in the centre."],
+        [
+          "Paseo junto al río con un mercado nocturno frente a Tailandia.",
+          "A riverside promenade with a night market facing Thailand.",
+        ]
+      ),
+      PN(
+        "that-dam",
+        "That Dam (Estupa Negra)",
+        ["Histórico", "Historic"],
+        "historico",
+        17.966,
+        102.611,
+        "Vientiane_Laos.jpg",
+        ["Gratis", "Free"],
+        ["A pie.", "On foot."],
+        [
+          "Antigua estupa de ladrillo cubierta de musgo, envuelta en leyendas de un dragón.",
+          "An old moss-covered brick stupa, wrapped in legends of a guardian dragon.",
+        ]
+      ),
+      PN(
+        "talat-sao",
+        "Mercado Talat Sao",
+        ["Mercado", "Market"],
+        "shopping",
+        17.967,
+        102.614,
+        "Vientiane_Laos.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["A pie.", "On foot."],
+        [
+          "El 'mercado de la mañana', de seda, plata y electrónica.",
+          "The 'morning market', of silk, silver and electronics.",
+        ]
+      ),
+    ],
+  },
+];
+
 // Países disponibles (para el selector).
 const PAISES = [
   {
@@ -9873,6 +12390,22 @@ const PAISES = [
     center: [-25.0, 134.0],
     zoom: 4,
   },
+  {
+    id: "vn",
+    nombre: { es: "Vietnam", en: "Vietnam" },
+    flag: "🇻🇳",
+    center: [16.0, 106.0],
+    zoom: 6,
+  },
+  {
+    id: "kh",
+    nombre: { es: "Camboya", en: "Cambodia" },
+    flag: "🇰🇭",
+    center: [12.5, 104.9],
+    zoom: 7,
+  },
+  { id: "cn", nombre: { es: "China", en: "China" }, flag: "🇨🇳", center: [35.0, 105.0], zoom: 4 },
+  { id: "la", nombre: { es: "Laos", en: "Laos" }, flag: "🇱🇦", center: [18.5, 103.5], zoom: 6 },
 ];
 
 // Todas las localidades, etiquetadas por país.
@@ -9880,8 +12413,15 @@ const LOCALIDADES = [
   ...LOCALIDADES_AR.map((l) => ({ ...l, pais: "ar" })),
   ...LOCALIDADES_NZ.map((l) => ({ ...l, pais: "nz" })),
   ...LOCALIDADES_JP.map((l) => ({ ...l, pais: "jp" })),
+  ...LOCALIDADES_JP2.map((l) => ({ ...l, pais: "jp" })),
   ...LOCALIDADES_TH.map((l) => ({ ...l, pais: "th" })),
+  ...LOCALIDADES_TH2.map((l) => ({ ...l, pais: "th" })),
   ...LOCALIDADES_AU.map((l) => ({ ...l, pais: "au" })),
+  ...LOCALIDADES_AU2.map((l) => ({ ...l, pais: "au" })),
+  ...LOCALIDADES_VN.map((l) => ({ ...l, pais: "vn" })),
+  ...LOCALIDADES_KH.map((l) => ({ ...l, pais: "kh" })),
+  ...LOCALIDADES_CN.map((l) => ({ ...l, pais: "cn" })),
+  ...LOCALIDADES_LA.map((l) => ({ ...l, pais: "la" })),
 ];
 
 // Modos de transporte -> costing de Valhalla + metadatos de UI (nombre bilingüe).
