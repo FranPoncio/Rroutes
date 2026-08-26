@@ -24,67 +24,87 @@
             <span class="brand-sun">☀</span>
             <div>
               <h1>Rroutes</h1>
-              <p>Viajá a los mejores puntos turísticos de Argentina</p>
+              <p data-i18n="subtitulo">Viajá a los mejores puntos turísticos</p>
             </div>
           </div>
-          <button
-            id="theme-toggle"
-            class="theme-toggle"
-            title="Cambiar tema claro/oscuro"
-            aria-label="Cambiar tema"
-          >
-            🌙
-          </button>
+          <div class="header-controls">
+            <button
+              id="lang-toggle"
+              class="theme-toggle"
+              title="Language / Idioma"
+              aria-label="Language"
+            >
+              EN
+            </button>
+            <button
+              id="theme-toggle"
+              class="theme-toggle"
+              title="Cambiar tema claro/oscuro"
+              aria-label="Cambiar tema"
+            >
+              🌙
+            </button>
+          </div>
         </header>
 
         <div class="panel-body">
+          <!-- PAÍS -->
+          <section class="block">
+            <h2 data-i18n="pais">País</h2>
+            <div id="pais-selector" class="paises"></div>
+          </section>
+
           <!-- FILTRO POR ACTIVIDAD -->
           <section class="block">
-            <h2>¿Qué querés hacer?</h2>
+            <h2 data-i18n="actividad_q">¿Qué querés hacer?</h2>
             <div id="chips-actividad" class="chips"></div>
           </section>
 
           <!-- 1) DESTINO -->
           <section class="block">
-            <h2><span class="step">1</span> ¿A dónde vas?</h2>
+            <h2><span class="step">1</span> <span data-i18n="paso1">¿A dónde vas?</span></h2>
             <div class="field">
-              <span>Localidad / región</span>
+              <span data-i18n="localidad_label">Localidad / región</span>
               <div id="dd-localidad" class="dropdown"></div>
             </div>
             <div class="field">
-              <span>Destino específico</span>
+              <span data-i18n="destino_label">Destino específico</span>
               <div id="dd-destino" class="dropdown"></div>
             </div>
           </section>
 
           <!-- 2) MODO -->
           <section class="block">
-            <h2><span class="step">2</span> ¿Cómo viajás?</h2>
+            <h2><span class="step">2</span> <span data-i18n="paso2">¿Cómo viajás?</span></h2>
             <div id="modos" class="modos"></div>
           </section>
 
           <!-- 3) ORIGEN -->
           <section class="block">
-            <h2><span class="step">3</span> ¿Desde dónde salís?</h2>
+            <h2><span class="step">3</span> <span data-i18n="paso3">¿Desde dónde salís?</span></h2>
             <button id="btn-ubicacion" class="btn btn-ghost">📍 Usar mi ubicación</button>
             <p class="hint" id="origen-estado">
               O hacé clic en el mapa para marcar tu punto de salida.
             </p>
           </section>
 
-          <button id="btn-crear" class="btn btn-primary btn-block" disabled>Crear rutas</button>
+          <button id="btn-crear" class="btn btn-primary btn-block" disabled data-i18n="crear">
+            Crear rutas
+          </button>
 
           <!-- RESULTADOS -->
           <section id="resultados" class="block resultados hidden">
-            <h2>Rutas sugeridas</h2>
+            <h2 data-i18n="rutas_sugeridas">Rutas sugeridas</h2>
             <p class="hint" id="resultados-hint"></p>
             <div id="lista-rutas"></div>
           </section>
 
           <footer class="panel-footer">
             <p>
-              Mapa © OpenStreetMap · CARTO &nbsp;|&nbsp; Ruteo © Valhalla / OSM<br />Precios y
-              transporte son orientativos.
+              Mapa © OpenStreetMap · CARTO &nbsp;|&nbsp; Ruteo © Valhalla / OSM<br /><span
+                data-i18n="footer"
+                >Precios y transporte son orientativos.</span
+              >
             </p>
           </footer>
         </div>

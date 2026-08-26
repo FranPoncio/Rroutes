@@ -1,7 +1,12 @@
-# 🇦🇷 Rutas Argentinas
+# 🌏 Rroutes
 
-Aplicación web para **planificar viajes a los puntos más turísticos de Argentina**,
-calculando las mejores rutas según tu ubicación y tu medio de transporte.
+Aplicación web **bilingüe (ES/EN)** para **planificar viajes a los puntos más turísticos
+de Argentina y Nueva Zelanda** (ambas islas), calculando las mejores rutas según tu
+ubicación y tu medio de transporte. Un **selector de país** cambia entre 🇦🇷 Argentina y
+🇳🇿 Nueva Zelanda, y un **toggle de idioma** alterna toda la interfaz y las fichas.
+
+> Nota: el contenido de Nueva Zelanda está en español e inglés; el de Argentina, por ahora,
+> en español (la interfaz sí es bilingüe en ambos países).
 
 ![Rutas Argentinas](https://commons.wikimedia.org/wiki/Special:FilePath/Obelisco_de_Buenos_Aires_2021.jpg?width=800)
 

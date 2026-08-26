@@ -195,6 +195,54 @@ body {
   background: rgba(255, 255, 255, 0.3);
   transform: translateY(-1px);
 }
+.header-controls {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+#lang-toggle {
+  font-family: var(--fuente-titulo);
+  font-size: 13px;
+  font-weight: 700;
+  width: auto;
+  padding: 0 12px;
+}
+
+/* Selector de país */
+.paises {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.pais-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 8px;
+  background: var(--bg-panel-2);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  color: var(--texto-soft);
+  font-family: var(--fuente-titulo);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.pais-btn:hover {
+  border-color: var(--celeste);
+  transform: translateY(-1px);
+}
+.pais-btn.activo {
+  border-color: var(--sol);
+  background: rgba(246, 180, 14, 0.14);
+  color: var(--texto);
+  box-shadow: 0 0 0 1px var(--sol) inset;
+}
+.pais-flag {
+  font-size: 18px;
+}
 
 .panel-body {
   flex: 1;

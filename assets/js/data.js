@@ -16,19 +16,49 @@ function wiki(file, width = 600) {
   return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=${width}`;
 }
 
-// Tipos de actividad para filtrar.
+// Tipos de actividad para filtrar (nombre bilingüe es/en).
 const ACTIVIDADES = [
-  { id: "naturaleza", nombre: "Naturaleza y miradores", icon: "🏞️", color: "#34d399" },
-  { id: "trekking", nombre: "Trekking y aventura", icon: "🥾", color: "#fb923c" },
-  { id: "museo", nombre: "Museos y cultura", icon: "🏛️", color: "#60a5fa" },
-  { id: "historico", nombre: "Histórico", icon: "🏰", color: "#f6b40e" },
-  { id: "shopping", nombre: "Shopping", icon: "🛍️", color: "#f472b6" },
-  { id: "paseo", nombre: "Paseos y peatonal", icon: "🚶", color: "#c084fc" },
-  { id: "gastronomia", nombre: "Gastronomía y bodegas", icon: "🍷", color: "#d97706" },
-  { id: "playa", nombre: "Playas y balnearios", icon: "🏖️", color: "#22d3ee" },
+  {
+    id: "naturaleza",
+    nombre: { es: "Naturaleza y miradores", en: "Nature & lookouts" },
+    icon: "🏞️",
+    color: "#34d399",
+  },
+  {
+    id: "trekking",
+    nombre: { es: "Trekking y aventura", en: "Hiking & adventure" },
+    icon: "🥾",
+    color: "#fb923c",
+  },
+  {
+    id: "museo",
+    nombre: { es: "Museos y cultura", en: "Museums & culture" },
+    icon: "🏛️",
+    color: "#60a5fa",
+  },
+  { id: "historico", nombre: { es: "Histórico", en: "Historic" }, icon: "🏰", color: "#f6b40e" },
+  { id: "shopping", nombre: { es: "Shopping", en: "Shopping" }, icon: "🛍️", color: "#f472b6" },
+  {
+    id: "paseo",
+    nombre: { es: "Paseos y peatonal", en: "Walks & strolls" },
+    icon: "🚶",
+    color: "#c084fc",
+  },
+  {
+    id: "gastronomia",
+    nombre: { es: "Gastronomía y bodegas", en: "Food & wine" },
+    icon: "🍷",
+    color: "#d97706",
+  },
+  {
+    id: "playa",
+    nombre: { es: "Playas y balnearios", en: "Beaches" },
+    icon: "🏖️",
+    color: "#22d3ee",
+  },
 ];
 
-// Helper para acortar la escritura de cada punto.
+// Helper (Argentina): campos en español simple.
 function P(id, nombre, categoria, actividad, lat, lng, img, entrada, transporte, sinopsis) {
   return {
     id,
@@ -44,7 +74,23 @@ function P(id, nombre, categoria, actividad, lat, lng, img, entrada, transporte,
   };
 }
 
-const LOCALIDADES = [
+// Helper (bilingüe): cat/entrada/transporte/sinopsis se pasan como pares [es, en].
+function PN(id, nombre, cat, actividad, lat, lng, img, entrada, transporte, sinopsis) {
+  return {
+    id,
+    nombre,
+    categoria: { es: cat[0], en: cat[1] },
+    actividad,
+    lat,
+    lng,
+    img: wiki(img),
+    entrada: { es: entrada[0], en: entrada[1] },
+    transporte: { es: transporte[0], en: transporte[1] },
+    sinopsis: { es: sinopsis[0], en: sinopsis[1] },
+  };
+}
+
+const LOCALIDADES_AR = [
   // ===================== CABA =====================
   {
     id: "caba",
@@ -5282,14 +5328,1771 @@ const LOCALIDADES = [
   },
 ];
 
-// Modos de transporte -> costing de Valhalla + metadatos de UI.
+// =====================================================================
+//  NUEVA ZELANDA — ambas islas (contenido bilingüe es/en con PN)
+// =====================================================================
+const ISLA_NORTE = { es: "Isla Norte", en: "North Island" };
+const ISLA_SUR = { es: "Isla Sur", en: "South Island" };
+
+const LOCALIDADES_NZ = [
+  // ---------- AUCKLAND (Isla Norte) ----------
+  {
+    id: "auckland",
+    nombre: "Auckland",
+    provincia: ISLA_NORTE,
+    center: [-36.8485, 174.7633],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Agenda de Auckland", en: "Auckland what's on" },
+      lat: -36.8485,
+      lng: 174.7633,
+      img: "Auckland_skyline.jpg",
+      url: "https://www.aucklandnz.com/whats-on",
+      sinopsis: {
+        es: "La ciudad más grande del país, entre dos puertos y decenas de volcanes; su agenda oficial reúne festivales, cultura polinesia y eventos náuticos todo el año.",
+        en: "The country's largest city, set between two harbours and dozens of volcanoes; its official calendar is full of festivals, Pasifika culture and sailing events year-round.",
+      },
+    },
+    puntos: [
+      PN(
+        "sky-tower",
+        "Sky Tower",
+        ["Mirador", "Landmark"],
+        "paseo",
+        -36.8485,
+        174.7621,
+        "Sky_Tower,_Auckland.jpg",
+        ["NZ$ ~45", "NZ$ ~45"],
+        ["Trenes y buses al centro (Britomart).", "Trains & buses to the city centre (Britomart)."],
+        [
+          "Torre de 328 m, la más alta del hemisferio sur; mirador y salto base opcional.",
+          "At 328 m the tallest tower in the Southern Hemisphere, with a viewing deck and optional base jump.",
+        ]
+      ),
+      PN(
+        "auckland-museum",
+        "Auckland War Memorial Museum",
+        ["Museo", "Museum"],
+        "museo",
+        -36.8607,
+        174.7776,
+        "Auckland_War_Memorial_Museum.jpg",
+        ["NZ$ ~28 (extranjeros)", "NZ$ ~28 (non-residents)"],
+        ["Buses al Auckland Domain.", "Buses to the Auckland Domain."],
+        [
+          "Museo con la mayor colección de arte y taonga maorí y polinesio, y un show cultural diario.",
+          "Home to the largest Māori and Pacific treasures collection, with a daily cultural performance.",
+        ]
+      ),
+      PN(
+        "mount-eden",
+        "Mount Eden / Maungawhau",
+        ["Volcán y mirador", "Volcano & lookout"],
+        "naturaleza",
+        -36.877,
+        174.7644,
+        "Mount_Eden_Auckland.jpg",
+        ["Gratis", "Free"],
+        ["Bus 27 desde el centro.", "Bus 27 from downtown."],
+        [
+          "Cono volcánico de 196 m con vista de 360° de la ciudad y sus dos puertos.",
+          "A 196 m volcanic cone with a 360° view over the city and its two harbours.",
+        ]
+      ),
+      PN(
+        "one-tree-hill",
+        "One Tree Hill / Cornwall Park",
+        ["Parque", "Park"],
+        "paseo",
+        -36.9006,
+        174.7836,
+        "One_Tree_Hill_Auckland.jpg",
+        ["Gratis", "Free"],
+        ["Bus a Greenlane.", "Bus to Greenlane."],
+        [
+          "Gran parque con ovejas, un obelisco y otro cono volcánico con vista panorámica.",
+          "A large park with grazing sheep, an obelisk and another volcanic summit with sweeping views.",
+        ]
+      ),
+      PN(
+        "viaduct-harbour",
+        "Viaduct Harbour",
+        ["Paseo costero", "Waterfront"],
+        "paseo",
+        -36.843,
+        174.759,
+        "Viaduct_Harbour_Auckland.jpg",
+        ["Gratis", "Free"],
+        ["Caminando desde Britomart.", "Walk from Britomart."],
+        [
+          "Marina de yates con restaurantes y bares, corazón de la 'Ciudad de las Velas'.",
+          "A superyacht marina lined with restaurants and bars, heart of the 'City of Sails'.",
+        ]
+      ),
+      PN(
+        "waiheke",
+        "Isla Waiheke",
+        ["Isla y viñedos", "Island & vineyards"],
+        "gastronomia",
+        -36.8,
+        175.1,
+        "Waiheke_Island.jpg",
+        ["Ferry ~NZ$ 45 i/v", "Ferry ~NZ$ 45 return"],
+        ["Ferry 40 min desde el centro.", "40-min ferry from downtown."],
+        [
+          "Isla de playas y bodegas boutique a 40 minutos en ferry, ideal para un día de vinos.",
+          "An island of beaches and boutique wineries 40 minutes away by ferry, perfect for a wine day.",
+        ]
+      ),
+      PN(
+        "rangitoto",
+        "Isla Rangitoto",
+        ["Volcán", "Volcano"],
+        "trekking",
+        -36.787,
+        174.859,
+        "Rangitoto_Island.jpg",
+        ["Ferry ~NZ$ 40", "Ferry ~NZ$ 40"],
+        ["Ferry desde el centro.", "Ferry from downtown."],
+        [
+          "El volcán más joven de la región (600 años); caminata por lava hasta la cima.",
+          "The region's youngest volcano (600 years old); a lava-field walk leads to the summit.",
+        ]
+      ),
+      PN(
+        "art-gallery-akl",
+        "Auckland Art Gallery",
+        ["Museo de arte", "Art gallery"],
+        "museo",
+        -36.852,
+        174.766,
+        "Auckland_Art_Gallery.jpg",
+        ["Gratis (residentes)", "Free (residents)"],
+        ["Centro, a pie.", "City centre, on foot."],
+        [
+          "La principal galería del país, con arte maorí, neozelandés y europeo.",
+          "The country's main art gallery, showing Māori, New Zealand and European art.",
+        ]
+      ),
+      PN(
+        "queen-street",
+        "Queen Street",
+        ["Compras", "Shopping"],
+        "shopping",
+        -36.848,
+        174.765,
+        "Queen_Street,_Auckland.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["Britomart / cualquier bus al centro.", "Britomart / any city bus."],
+        [
+          "La principal calle comercial, del puerto a Karangahape Road.",
+          "The main shopping street, running from the waterfront up to Karangahape Road.",
+        ]
+      ),
+      PN(
+        "devonport",
+        "Devonport y Mount Victoria",
+        ["Pueblo y mirador", "Village & lookout"],
+        "paseo",
+        -36.833,
+        174.796,
+        "Devonport_Auckland.jpg",
+        ["Ferry ~NZ$ 15 i/v", "Ferry ~NZ$ 15 return"],
+        ["Ferry 12 min desde el centro.", "12-min ferry from downtown."],
+        [
+          "Barrio victoriano frente al mar con un cono volcánico y vista al skyline.",
+          "A seaside Victorian suburb with a small volcanic cone and skyline views.",
+        ]
+      ),
+      PN(
+        "piha",
+        "Playa Piha",
+        ["Playa", "Beach"],
+        "playa",
+        -36.955,
+        174.468,
+        "Piha_Beach.jpg",
+        ["Gratis", "Free"],
+        [
+          "Auto (~45 min); sin transporte público directo.",
+          "Car (~45 min); no direct public transport.",
+        ],
+        [
+          "Playa salvaje de arena negra y la roca Lion Rock, meca del surf de la costa oeste.",
+          "A wild black-sand surf beach guarded by Lion Rock, on the west coast.",
+        ]
+      ),
+      PN(
+        "mission-bay",
+        "Mission Bay",
+        ["Playa", "Beach"],
+        "playa",
+        -36.849,
+        174.829,
+        "Mission_Bay_Auckland.jpg",
+        ["Gratis", "Free"],
+        ["Bus 767 desde el centro.", "Bus 767 from downtown."],
+        [
+          "Playa urbana con paseo, heladerías y vista a la isla Rangitoto.",
+          "A city beach with a promenade, ice-cream parlours and views to Rangitoto.",
+        ]
+      ),
+      PN(
+        "ponsonby",
+        "Ponsonby Road",
+        ["Gastronomía", "Dining"],
+        "gastronomia",
+        -36.856,
+        174.744,
+        "Ponsonby_Auckland.jpg",
+        ["Consumición", "Pay as you go"],
+        ["Buses Ponsonby.", "Ponsonby buses."],
+        [
+          "Barrio de moda con villas victorianas, cafés, bares y la mejor gastronomía.",
+          "A trendy strip of Victorian villas packed with cafés, bars and the city's best dining.",
+        ]
+      ),
+      PN(
+        "wynyard",
+        "Wynyard Quarter",
+        ["Paseo costero", "Waterfront"],
+        "paseo",
+        -36.841,
+        174.756,
+        "Wynyard_Quarter_Auckland.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde Viaduct.", "Walk from the Viaduct."],
+        [
+          "Antiguo puerto industrial reconvertido en paseo con plazas, food trucks y juegos.",
+          "A former industrial port turned waterfront precinct with plazas, food trucks and playgrounds.",
+        ]
+      ),
+      PN(
+        "kelly-tarltons",
+        "Kelly Tarlton's Sea Life",
+        ["Acuario", "Aquarium"],
+        "museo",
+        -36.846,
+        174.821,
+        "Auckland_New_Zealand.jpg",
+        ["NZ$ ~42", "NZ$ ~42"],
+        ["Bus 767.", "Bus 767."],
+        [
+          "Acuario submarino con pingüinos antárticos y un túnel de tiburones y rayas.",
+          "An underwater aquarium with Antarctic penguins and a shark-and-ray tunnel.",
+        ]
+      ),
+      PN(
+        "botanic-gardens-akl",
+        "Auckland Botanic Gardens",
+        ["Jardín", "Gardens"],
+        "naturaleza",
+        -37.011,
+        174.908,
+        "Auckland_Botanic_Gardens.jpg",
+        ["Gratis", "Free"],
+        ["Auto / bus a Manurewa.", "Car / bus to Manurewa."],
+        [
+          "64 hectáreas de jardines temáticos y plantas nativas al sur de la ciudad.",
+          "64 hectares of themed gardens and native plants in the city's south.",
+        ]
+      ),
+      PN(
+        "auckland-zoo",
+        "Auckland Zoo",
+        ["Zoológico", "Zoo"],
+        "naturaleza",
+        -36.863,
+        174.719,
+        "Auckland_New_Zealand.jpg",
+        ["NZ$ ~28", "NZ$ ~28"],
+        ["Bus a Western Springs.", "Bus to Western Springs."],
+        [
+          "Zoológico de conservación con kiwis, tuátaras y fauna nativa en Western Springs.",
+          "A conservation zoo with kiwi, tuatara and native wildlife at Western Springs.",
+        ]
+      ),
+      PN(
+        "karangahape",
+        "Karangahape Road (K' Road)",
+        ["Paseo", "Strip"],
+        "paseo",
+        -36.857,
+        174.762,
+        "Karangahape_Road_Auckland.jpg",
+        ["Gratis", "Free"],
+        ["Estación K'Road (CRL) / buses.", "K'Road station (CRL) / buses."],
+        [
+          "Calle bohemia de arte urbano, vintage, bares y vida nocturna alternativa.",
+          "A bohemian street of street art, vintage shops, bars and alternative nightlife.",
+        ]
+      ),
+      PN(
+        "eden-park",
+        "Eden Park",
+        ["Estadio", "Stadium"],
+        "paseo",
+        -36.8747,
+        174.7448,
+        "Eden_Park_Auckland.jpg",
+        ["Tour arancelado", "Paid tours"],
+        ["Tren a Kingsland.", "Train to Kingsland."],
+        [
+          "El estadio nacional de rugby y críquet, sede de finales de Copa del Mundo.",
+          "The national rugby and cricket stadium, host of World Cup finals.",
+        ]
+      ),
+      PN(
+        "muriwai",
+        "Playa Muriwai (colonia de alcatraces)",
+        ["Playa y naturaleza", "Beach & wildlife"],
+        "naturaleza",
+        -36.817,
+        174.418,
+        "Muriwai_Beach.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~40 min).", "Car (~40 min)."],
+        [
+          "Playa de arena negra con una colonia de alcatraces (gannets) sobre los acantilados.",
+          "A black-sand beach with a cliff-top gannet colony on the west coast.",
+        ]
+      ),
+      PN(
+        "mount-victoria-domain",
+        "Auckland Domain",
+        ["Parque", "Park"],
+        "paseo",
+        -36.8607,
+        174.777,
+        "Auckland_Domain.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el centro.", "Walk from the city."],
+        [
+          "El parque más antiguo de la ciudad, sobre un volcán, con el museo y el invernadero Wintergarden.",
+          "The city's oldest park, on a volcano, home to the museum and the Wintergarden glasshouses.",
+        ]
+      ),
+    ],
+  },
+
+  // ---------- ROTORUA (Isla Norte) ----------
+  {
+    id: "rotorua",
+    nombre: "Rotorua",
+    provincia: ISLA_NORTE,
+    center: [-38.1368, 176.2497],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Agenda de Rotorua", en: "Rotorua what's on" },
+      lat: -38.1368,
+      lng: 176.2497,
+      img: "Rotorua_geyser.jpg",
+      url: "https://www.rotoruanz.com/visit/whats-on",
+      sinopsis: {
+        es: "Capital geotermal y de la cultura maorí; su agenda incluye festivales de kapa haka, aguas termales y eventos de mountain bike.",
+        en: "The geothermal and Māori-culture capital; its calendar features kapa haka festivals, hot-spring events and mountain-biking races.",
+      },
+    },
+    puntos: [
+      PN(
+        "te-puia",
+        "Te Puia (géiser Pohutu)",
+        ["Geotermal y cultura", "Geothermal & culture"],
+        "naturaleza",
+        -38.162,
+        176.253,
+        "Pohutu_Geyser.jpg",
+        ["NZ$ ~90", "NZ$ ~90"],
+        ["Bus urbano / a pie desde el centro.", "City bus / walk from downtown."],
+        [
+          "El géiser Pohutu erupciona hasta 30 m junto a un instituto de arte y cultura maorí.",
+          "The Pohutu geyser erupts up to 30 m beside a Māori arts and culture institute.",
+        ]
+      ),
+      PN(
+        "wai-o-tapu",
+        "Wai-O-Tapu Thermal Wonderland",
+        ["Geotermal", "Geothermal"],
+        "naturaleza",
+        -38.356,
+        176.366,
+        "Wai-O-Tapu.jpg",
+        ["NZ$ ~40", "NZ$ ~40"],
+        ["Auto (~30 min).", "Car (~30 min)."],
+        [
+          "Piletas de colores imposibles como la Champagne Pool y el géiser Lady Knox.",
+          "Impossibly colourful pools like the Champagne Pool and the Lady Knox geyser.",
+        ]
+      ),
+      PN(
+        "whakarewarewa",
+        "Whakarewarewa Living Village",
+        ["Cultura maorí", "Māori village"],
+        "historico",
+        -38.163,
+        176.254,
+        "Whakarewarewa.jpg",
+        ["NZ$ ~45", "NZ$ ~45"],
+        ["A pie / bus.", "Walk / bus."],
+        [
+          "Pueblo maorí habitado donde se cocina con vapor geotermal desde hace siglos.",
+          "A living Māori village where locals still cook with geothermal steam, as for centuries.",
+        ]
+      ),
+      PN(
+        "redwoods",
+        "Redwoods (Whakarewarewa Forest)",
+        ["Bosque y trekking", "Forest & trails"],
+        "trekking",
+        -38.156,
+        176.272,
+        "Redwoods_Rotorua.jpg",
+        ["Gratis (Treewalk arancelado)", "Free (paid Treewalk)"],
+        ["Bus / auto.", "Bus / car."],
+        [
+          "Bosque de secuoyas gigantes con senderos, bici y una pasarela nocturna iluminada.",
+          "A giant redwood forest with trails, mountain biking and an illuminated night Treewalk.",
+        ]
+      ),
+      PN(
+        "government-gardens",
+        "Government Gardens y Museo",
+        ["Histórico", "Historic"],
+        "historico",
+        -38.136,
+        176.256,
+        "Rotorua_Museum.jpg",
+        ["Jardines gratis", "Gardens free"],
+        ["A pie desde el centro.", "Walk from downtown."],
+        [
+          "Jardines eduardianos junto al lago con el emblemático edificio Tudor del museo (Bath House).",
+          "Edwardian lakeside gardens around the landmark Tudor Bath House museum.",
+        ]
+      ),
+      PN(
+        "blue-lake",
+        "Blue Lake (Tikitapu)",
+        ["Lago", "Lake"],
+        "playa",
+        -38.178,
+        176.33,
+        "Blue_Lake_Rotorua.jpg",
+        ["Gratis", "Free"],
+        ["Auto.", "Car."],
+        [
+          "Lago de agua azul para nadar y kayak, rodeado de bosque nativo.",
+          "A blue swimming and kayaking lake ringed by native forest.",
+        ]
+      ),
+      PN(
+        "kuirau-park",
+        "Kuirau Park",
+        ["Geotermal (gratis)", "Geothermal (free)"],
+        "naturaleza",
+        -38.133,
+        176.24,
+        "Kuirau_Park.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el centro.", "Walk from downtown."],
+        [
+          "Parque público con piletas de barro burbujeante y baños de pies termales gratis.",
+          "A free public park with bubbling mud pools and warm foot baths.",
+        ]
+      ),
+      PN(
+        "polynesian-spa",
+        "Polynesian Spa",
+        ["Termas", "Hot springs"],
+        "naturaleza",
+        -38.14,
+        176.256,
+        "Rotorua_New_Zealand.jpg",
+        ["NZ$ ~35", "NZ$ ~35"],
+        ["A pie desde el centro.", "Walk from downtown."],
+        [
+          "Complejo de aguas termales minerales a orillas del lago Rotorua.",
+          "A mineral hot-spring complex on the shore of Lake Rotorua.",
+        ]
+      ),
+      PN(
+        "hells-gate",
+        "Hells Gate",
+        ["Geotermal", "Geothermal"],
+        "naturaleza",
+        -38.053,
+        176.366,
+        "Rotorua_New_Zealand.jpg",
+        ["NZ$ ~45", "NZ$ ~45"],
+        ["Auto (~15 min).", "Car (~15 min)."],
+        [
+          "El campo geotermal más activo, con la mayor cascada de agua caliente del hemisferio sur.",
+          "The most active geothermal field, with the Southern Hemisphere's largest hot waterfall.",
+        ]
+      ),
+      PN(
+        "skyline-rotorua",
+        "Skyline Rotorua & Luge",
+        ["Aventura y mirador", "Adventure & lookout"],
+        "paseo",
+        -38.109,
+        176.236,
+        "Rotorua_New_Zealand.jpg",
+        ["Góndola+luge ~NZ$ 60", "Gondola+luge ~NZ$ 60"],
+        ["Auto / bus.", "Car / bus."],
+        [
+          "Góndola al monte Ngongotaha con carritos 'luge', tirolesas y vista al lago.",
+          "A gondola up Mt Ngongotaha with luge carts, ziplines and lake views.",
+        ]
+      ),
+      PN(
+        "ohinemutu",
+        "Aldea Ohinemutu",
+        ["Cultura maorí", "Māori village"],
+        "historico",
+        -38.13,
+        176.25,
+        "Rotorua_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el centro.", "Walk from downtown."],
+        [
+          "Aldea maorí a orillas del lago con la iglesia Tama-te-Kapua y vapores geotermales.",
+          "A lakeside Māori village with the carved St Faith's church and geothermal steam.",
+        ]
+      ),
+      PN(
+        "waimangu",
+        "Waimangu Volcanic Valley",
+        ["Geotermal", "Geothermal"],
+        "trekking",
+        -38.283,
+        176.393,
+        "Rotorua_New_Zealand.jpg",
+        ["NZ$ ~45", "NZ$ ~45"],
+        ["Auto (~25 min).", "Car (~25 min)."],
+        [
+          "El valle hidrotermal más joven del mundo, nacido de la erupción del Tarawera de 1886.",
+          "The world's youngest hydrothermal valley, born of the 1886 Tarawera eruption.",
+        ]
+      ),
+      PN(
+        "mount-ngongotaha",
+        "Monte Ngongotaha",
+        ["Mirador y trekking", "Lookout & trails"],
+        "trekking",
+        -38.09,
+        176.205,
+        "Rotorua_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Auto.", "Car."],
+        [
+          "Cerro boscoso sobre la ciudad con senderos y vistas del lago Rotorua.",
+          "A forested hill above town with walking tracks and Lake Rotorua views.",
+        ]
+      ),
+      PN(
+        "kerosene-creek",
+        "Kerosene Creek",
+        ["Termas (gratis)", "Hot stream (free)"],
+        "naturaleza",
+        -38.32,
+        176.37,
+        "Rotorua_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Auto (camino de ripio).", "Car (gravel road)."],
+        [
+          "Arroyo de agua caliente natural con una pequeña cascada, gratis y al aire libre.",
+          "A natural warm-water stream with a small waterfall — free and outdoors.",
+        ]
+      ),
+      PN(
+        "okere-falls",
+        "Okere Falls",
+        ["Cascada y rafting", "Falls & rafting"],
+        "naturaleza",
+        -38.03,
+        176.34,
+        "Rotorua_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~20 min).", "Car (~20 min)."],
+        [
+          "Cascadas del río Kaituna, con la caída comercial más alta del mundo para rafting (7 m).",
+          "Rapids on the Kaituna River, home to the world's highest commercially rafted waterfall (7 m).",
+        ]
+      ),
+      PN(
+        "agrodome",
+        "Agrodome",
+        ["Granja", "Farm show"],
+        "paseo",
+        -38.07,
+        176.22,
+        "Rotorua_New_Zealand.jpg",
+        ["NZ$ ~40", "NZ$ ~40"],
+        ["Auto.", "Car."],
+        [
+          "Show de ovejas y esquila y un tour por una granja neozelandesa en funcionamiento.",
+          "A sheep-and-shearing show plus a tour of a working New Zealand farm.",
+        ]
+      ),
+      PN(
+        "rainbow-springs",
+        "Rainbow Springs Kiwi Wildlife",
+        ["Naturaleza", "Wildlife park"],
+        "naturaleza",
+        -38.09,
+        176.24,
+        "Rotorua_New_Zealand.jpg",
+        ["NZ$ ~40", "NZ$ ~40"],
+        ["Auto / bus.", "Car / bus."],
+        [
+          "Parque de vida silvestre con incubadora de kiwis y manantiales de agua cristalina.",
+          "A wildlife park with a kiwi hatchery and crystal-clear freshwater springs.",
+        ]
+      ),
+      PN(
+        "lake-rotorua",
+        "Lago Rotorua y costanera",
+        ["Lago", "Lakefront"],
+        "paseo",
+        -38.1,
+        176.27,
+        "Lake_Rotorua.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el centro.", "Walk from downtown."],
+        [
+          "Costanera del lago dentro de una caldera, con muelle y la isla sagrada Mokoia.",
+          "A lakefront inside a caldera, with a jetty and the sacred Mokoia Island offshore.",
+        ]
+      ),
+    ],
+  },
+
+  // ---------- WELLINGTON (Isla Norte) ----------
+  {
+    id: "wellington",
+    nombre: "Wellington",
+    provincia: ISLA_NORTE,
+    center: [-41.2865, 174.7762],
+    zoom: 13,
+    eventos: {
+      nombre: { es: "Agenda de Wellington", en: "Wellington what's on" },
+      lat: -41.2865,
+      lng: 174.7762,
+      img: "Wellington_New_Zealand.jpg",
+      url: "https://www.wellingtonnz.com/whats-on",
+      sinopsis: {
+        es: "La capital creativa y del cine; su agenda reúne festivales de arte, gastronomía, cerveza artesanal y el mundo de 'El Señor de los Anillos'.",
+        en: "The creative and film capital; its calendar brims with arts festivals, food, craft beer and all things 'Lord of the Rings'.",
+      },
+    },
+    puntos: [
+      PN(
+        "te-papa",
+        "Museo Te Papa Tongarewa",
+        ["Museo", "Museum"],
+        "museo",
+        -41.2905,
+        174.782,
+        "Te_Papa_museum.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el centro.", "Walk from the city centre."],
+        [
+          "El museo nacional de Nueva Zelanda: naturaleza, historia y cultura maorí, interactivo y gratis.",
+          "New Zealand's national museum — nature, history and Māori culture, interactive and free.",
+        ]
+      ),
+      PN(
+        "cable-car",
+        "Wellington Cable Car",
+        ["Paseo histórico", "Historic tram"],
+        "paseo",
+        -41.2846,
+        174.7695,
+        "Wellington_Cable_Car.jpg",
+        ["NZ$ ~11 i/v", "NZ$ ~11 return"],
+        ["Estación en Lambton Quay.", "Base station on Lambton Quay."],
+        [
+          "Funicular rojo de 1902 que sube del centro al jardín botánico y su mirador.",
+          "A red 1902 funicular climbing from downtown to the Botanic Garden lookout.",
+        ]
+      ),
+      PN(
+        "mount-victoria-wlg",
+        "Mount Victoria Lookout",
+        ["Mirador", "Lookout"],
+        "naturaleza",
+        -41.296,
+        174.794,
+        "Mount_Victoria_Wellington.jpg",
+        ["Gratis", "Free"],
+        ["Bus 20 / auto.", "Bus 20 / car."],
+        [
+          "Mirador a 196 m con vista de 360° de la ciudad, el puerto y la costa.",
+          "A 196 m lookout with a 360° view of the city, harbour and coast.",
+        ]
+      ),
+      PN(
+        "botanic-garden-wlg",
+        "Wellington Botanic Garden",
+        ["Jardín", "Gardens"],
+        "naturaleza",
+        -41.282,
+        174.766,
+        "Wellington_Botanic_Garden.jpg",
+        ["Gratis", "Free"],
+        ["Cable Car hasta arriba.", "Cable Car to the top."],
+        [
+          "25 hectáreas en ladera con un rosedal, el observatorio y bosque nativo.",
+          "25 hillside hectares with a rose garden, observatory and native bush.",
+        ]
+      ),
+      PN(
+        "cuba-street",
+        "Cuba Street",
+        ["Paseo y gastronomía", "Strip & dining"],
+        "gastronomia",
+        -41.294,
+        174.774,
+        "Cuba_Street_Wellington.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el centro.", "Walk from the city."],
+        [
+          "Calle peatonal bohemia de cafés, música, vintage y la fuente Bucket Fountain.",
+          "A bohemian pedestrian strip of cafés, live music, vintage shops and the Bucket Fountain.",
+        ]
+      ),
+      PN(
+        "weta-workshop",
+        "Wētā Workshop",
+        ["Cine y efectos", "Film & FX"],
+        "museo",
+        -41.323,
+        174.81,
+        "Wellington_New_Zealand.jpg",
+        ["Tour ~NZ$ 55", "Tour ~NZ$ 55"],
+        ["Bus a Miramar.", "Bus to Miramar."],
+        [
+          "El taller detrás de 'El Señor de los Anillos' y 'Avatar', con tours de sus efectos.",
+          "The studio behind 'Lord of the Rings' and 'Avatar', with behind-the-scenes tours.",
+        ]
+      ),
+      PN(
+        "parliament-beehive",
+        "Parlamento (The Beehive)",
+        ["Histórico", "Historic"],
+        "historico",
+        -41.2785,
+        174.777,
+        "Beehive_Wellington.jpg",
+        ["Gratis (guiadas)", "Free (guided tours)"],
+        ["Estación Wellington.", "Wellington station."],
+        [
+          "El singular edificio 'Colmena' del Ejecutivo, junto al Parlamento neozelandés.",
+          "The unmistakable 'Beehive' executive wing, beside the New Zealand Parliament.",
+        ]
+      ),
+      PN(
+        "zealandia",
+        "Zealandia Ecosanctuary",
+        ["Reserva", "Sanctuary"],
+        "naturaleza",
+        -41.29,
+        174.744,
+        "Zealandia_Wellington.jpg",
+        ["NZ$ ~24", "NZ$ ~24"],
+        ["Bus / shuttle.", "Bus / shuttle."],
+        [
+          "Valle cercado libre de predadores con aves nativas raras como el takahē y la kākā.",
+          "A predator-fenced valley home to rare native birds like takahē and kākā.",
+        ]
+      ),
+      PN(
+        "oriental-bay",
+        "Oriental Bay",
+        ["Playa", "Beach"],
+        "playa",
+        -41.293,
+        174.796,
+        "Oriental_Bay_Wellington.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el centro.", "Walk from the city."],
+        [
+          "La playa de la ciudad, con paseo, palmeras y vista al puerto.",
+          "The city's beach, with a promenade, palm trees and harbour views.",
+        ]
+      ),
+      PN(
+        "waterfront-wlg",
+        "Wellington Waterfront",
+        ["Paseo costero", "Waterfront"],
+        "paseo",
+        -41.287,
+        174.781,
+        "Wellington_Waterfront.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el centro.", "Walk from the city."],
+        [
+          "Costanera peatonal con Te Papa, esculturas, saltos al agua y food trucks.",
+          "A pedestrian waterfront linking Te Papa, sculptures, wharf jumps and food trucks.",
+        ]
+      ),
+      PN(
+        "mount-kaukau",
+        "Mount Kaukau",
+        ["Trekking y mirador", "Hike & lookout"],
+        "trekking",
+        -41.24,
+        174.77,
+        "Wellington_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Tren a Khandallah.", "Train to Khandallah."],
+        [
+          "El punto más alto de la ciudad (445 m), con vistas hasta la Isla Sur en días claros.",
+          "The city's highest point (445 m), with views to the South Island on a clear day.",
+        ]
+      ),
+      PN(
+        "city-gallery",
+        "City Gallery Wellington",
+        ["Museo de arte", "Art gallery"],
+        "museo",
+        -41.29,
+        174.777,
+        "Wellington_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Civic Square, centro.", "Civic Square, city centre."],
+        [
+          "Galería de arte contemporáneo en la plaza cívica, sin colección permanente.",
+          "A contemporary art gallery on Civic Square, with a changing exhibition programme.",
+        ]
+      ),
+      PN(
+        "red-rocks",
+        "Red Rocks (lobos marinos)",
+        ["Costa y fauna", "Coast & wildlife"],
+        "trekking",
+        -41.345,
+        174.73,
+        "Wellington_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Auto a Owhiro Bay + caminata.", "Car to Owhiro Bay + walk."],
+        [
+          "Costa de rocas rojizas volcánicas con una colonia de lobos marinos en invierno.",
+          "A reddish volcanic coastline with a fur-seal colony in winter.",
+        ]
+      ),
+      PN(
+        "wellington-zoo",
+        "Wellington Zoo",
+        ["Zoológico", "Zoo"],
+        "naturaleza",
+        -41.319,
+        174.783,
+        "Wellington_New_Zealand.jpg",
+        ["NZ$ ~26", "NZ$ ~26"],
+        ["Bus a Newtown.", "Bus to Newtown."],
+        [
+          "El zoológico más antiguo del país, enfocado en conservación y fauna nativa.",
+          "The country's oldest zoo, focused on conservation and native wildlife.",
+        ]
+      ),
+      PN(
+        "old-st-pauls",
+        "Old St Paul's",
+        ["Histórico", "Historic"],
+        "historico",
+        -41.277,
+        174.779,
+        "Wellington_New_Zealand.jpg",
+        ["A la gorra", "Koha / donation"],
+        ["A pie desde el centro.", "Walk from the city."],
+        [
+          "Iglesia de madera colonial (1866), joya del estilo neogótico en pino nativo.",
+          "A colonial timber church (1866), a Gothic Revival gem built in native pine.",
+        ]
+      ),
+      PN(
+        "days-bay",
+        "Days Bay y Eastbourne",
+        ["Playa", "Beach"],
+        "playa",
+        -41.276,
+        174.906,
+        "Wellington_New_Zealand.jpg",
+        ["Ferry ~NZ$ 12", "Ferry ~NZ$ 12"],
+        ["Ferry desde el centro.", "Ferry from downtown."],
+        [
+          "Playa al otro lado del puerto, a la que se llega en un ferry histórico.",
+          "A beach across the harbour, reached by a much-loved historic ferry.",
+        ]
+      ),
+      PN(
+        "wellington-museum",
+        "Wellington Museum",
+        ["Museo", "Museum"],
+        "museo",
+        -41.285,
+        174.779,
+        "Wellington_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["A pie, en el waterfront.", "On the waterfront, on foot."],
+        [
+          "Historia marítima y social de la ciudad en un almacén portuario de 1892.",
+          "The city's maritime and social history in an 1892 wharf storehouse.",
+        ]
+      ),
+    ],
+  },
+
+  // ---------- QUEENSTOWN (Isla Sur) ----------
+  {
+    id: "queenstown",
+    nombre: "Queenstown",
+    provincia: ISLA_SUR,
+    center: [-45.0312, 168.6626],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Agenda de Queenstown", en: "Queenstown what's on" },
+      lat: -45.0312,
+      lng: 168.6626,
+      img: "Queenstown_New_Zealand.jpg",
+      url: "https://www.queenstownnz.co.nz/things-to-do/events/",
+      sinopsis: {
+        es: "La capital mundial de la aventura, junto al lago Wakatipu; su agenda combina festivales de invierno, gastronomía y deportes extremos.",
+        en: "The world's adventure capital, on Lake Wakatipu; its calendar mixes winter festivals, food events and extreme sports.",
+      },
+    },
+    puntos: [
+      PN(
+        "skyline-queenstown",
+        "Skyline Gondola (Bob's Peak)",
+        ["Mirador", "Lookout"],
+        "paseo",
+        -45.027,
+        168.654,
+        "Queenstown_New_Zealand.jpg",
+        ["Góndola ~NZ$ 50", "Gondola ~NZ$ 50"],
+        ["A pie desde el centro.", "Walk from downtown."],
+        [
+          "Góndola empinada a un mirador con carritos 'luge' y vista del lago y Los Remarkables.",
+          "A steep gondola to a lookout with luge carts and views of the lake and The Remarkables.",
+        ]
+      ),
+      PN(
+        "lake-wakatipu",
+        "Lago Wakatipu",
+        ["Lago", "Lake"],
+        "naturaleza",
+        -45.03,
+        168.66,
+        "Lake_Wakatipu.jpg",
+        ["Gratis", "Free"],
+        ["Costanera del centro.", "Town waterfront."],
+        [
+          "Lago con forma de rayo, de 80 km, corazón de Queenstown.",
+          "An 80 km lightning-shaped lake at the heart of Queenstown.",
+        ]
+      ),
+      PN(
+        "queenstown-gardens",
+        "Queenstown Gardens",
+        ["Parque", "Park"],
+        "paseo",
+        -45.036,
+        168.669,
+        "Queenstown_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el centro.", "Walk from downtown."],
+        [
+          "Península arbolada con disc golf, rosedal y vistas del lago desde todos lados.",
+          "A tree-filled peninsula with disc golf, a rose garden and lake views all around.",
+        ]
+      ),
+      PN(
+        "tss-earnslaw",
+        "Vapor TSS Earnslaw",
+        ["Paseo histórico", "Historic steamship"],
+        "paseo",
+        -45.033,
+        168.658,
+        "TSS_Earnslaw.jpg",
+        ["Crucero ~NZ$ 75", "Cruise ~NZ$ 75"],
+        ["Muelle del centro.", "Town pier."],
+        [
+          "Vapor de carbón de 1912, la 'Dama del Lago', que cruza a la estancia Walter Peak.",
+          "A 1912 coal-fired steamship, the 'Lady of the Lake', crossing to Walter Peak farm.",
+        ]
+      ),
+      PN(
+        "kawarau-bungy",
+        "Kawarau Bridge Bungy",
+        ["Aventura", "Adventure"],
+        "trekking",
+        -45.0,
+        168.97,
+        "Kawarau_Bridge_Bungy.jpg",
+        ["Salto ~NZ$ 235", "Jump ~NZ$ 235"],
+        ["Auto (~25 min).", "Car (~25 min)."],
+        [
+          "El puente donde nació el bungee comercial del mundo, sobre el río Kawarau (43 m).",
+          "The bridge where commercial bungy jumping began, over the Kawarau River (43 m).",
+        ]
+      ),
+      PN(
+        "shotover-jet",
+        "Shotover Jet",
+        ["Aventura", "Adventure"],
+        "trekking",
+        -44.98,
+        168.73,
+        "Queenstown_New_Zealand.jpg",
+        ["~NZ$ 165", "~NZ$ 165"],
+        ["Shuttle desde el centro.", "Shuttle from downtown."],
+        [
+          "Lancha jet que roza los cañones del río Shotover a alta velocidad con giros de 360°.",
+          "A jet boat skimming the Shotover River canyons at speed with 360° spins.",
+        ]
+      ),
+      PN(
+        "arrowtown",
+        "Arrowtown",
+        ["Pueblo histórico", "Historic town"],
+        "historico",
+        -44.94,
+        168.83,
+        "Arrowtown_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Bus / auto (~20 min).", "Bus / car (~20 min)."],
+        [
+          "Pueblo minero de la fiebre del oro de 1860, con calle histórica y colores de otoño.",
+          "A 1860s gold-rush village with a historic main street and famous autumn colours.",
+        ]
+      ),
+      PN(
+        "remarkables",
+        "The Remarkables",
+        ["Montaña", "Mountains"],
+        "trekking",
+        -45.05,
+        168.81,
+        "The_Remarkables.jpg",
+        ["Ski arancelado", "Paid ski field"],
+        ["Shuttle (temporada).", "Shuttle (season)."],
+        [
+          "La cadena montañosa que enmarca Queenstown; centro de esquí y trekkings de altura.",
+          "The mountain range framing Queenstown; a ski field and alpine hikes in summer.",
+        ]
+      ),
+      PN(
+        "ben-lomond",
+        "Ben Lomond Track",
+        ["Trekking", "Hike"],
+        "trekking",
+        -45.01,
+        168.64,
+        "Queenstown_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Desde la góndola / centro.", "From the gondola / town."],
+        [
+          "Ascenso exigente a 1.748 m con una de las mejores panorámicas alpinas del país.",
+          "A tough climb to 1,748 m with one of the country's best alpine panoramas.",
+        ]
+      ),
+      PN(
+        "glenorchy",
+        "Glenorchy",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -44.85,
+        168.38,
+        "Glenorchy_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~45 min).", "Car (~45 min)."],
+        [
+          "Pueblo al final del lago, puerta a los trekkings Routeburn y a paisajes de cine.",
+          "A village at the head of the lake, gateway to the Routeburn track and film-set scenery.",
+        ]
+      ),
+      PN(
+        "moke-lake",
+        "Moke Lake",
+        ["Lago", "Lake"],
+        "naturaleza",
+        -44.98,
+        168.57,
+        "Queenstown_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Auto (camino de ripio).", "Car (gravel road)."],
+        [
+          "Lago espejado y tranquilo rodeado de cerros, ideal para acampar y reflejos al amanecer.",
+          "A calm mirror-lake among the hills, great for camping and sunrise reflections.",
+        ]
+      ),
+      PN(
+        "lake-hayes",
+        "Lake Hayes",
+        ["Lago", "Lake"],
+        "naturaleza",
+        -44.98,
+        168.8,
+        "Queenstown_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~15 min).", "Car (~15 min)."],
+        [
+          "Lago con un sendero llano de 8 km, famoso por los reflejos de otoño.",
+          "A lake with a flat 8 km loop track, famous for its autumn reflections.",
+        ]
+      ),
+      PN(
+        "gibbston-valley",
+        "Gibbston Valley (vinos)",
+        ["Bodegas", "Wineries"],
+        "gastronomia",
+        -45.01,
+        168.93,
+        "Queenstown_New_Zealand.jpg",
+        ["Degustaciones", "Tastings"],
+        ["Auto / tour del vino.", "Car / wine tour."],
+        [
+          "'El valle del Pinot Noir', con bodegas en cuevas y una vía de bici entre viñedos.",
+          "The 'Valley of the Vines', with cave cellars and a wine-country cycle trail.",
+        ]
+      ),
+      PN(
+        "onsen-pools",
+        "Onsen Hot Pools",
+        ["Termas", "Hot pools"],
+        "paseo",
+        -44.99,
+        168.62,
+        "Queenstown_New_Zealand.jpg",
+        ["~NZ$ 115 privado", "~NZ$ 115 private"],
+        ["Shuttle.", "Shuttle."],
+        [
+          "Piletas privadas de agua caliente con vista al cañón del río Shotover.",
+          "Private hot pools overlooking the Shotover River canyon.",
+        ]
+      ),
+      PN(
+        "skippers-canyon",
+        "Skippers Canyon",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -44.89,
+        168.67,
+        "Queenstown_New_Zealand.jpg",
+        ["Tour arancelado", "Paid 4WD tour"],
+        ["Solo con tour 4x4.", "Guided 4WD only."],
+        [
+          "Cañón histórico de la fiebre del oro por un vertiginoso camino de cornisa.",
+          "A historic gold-rush canyon reached by a dramatic cliff-edge road (4WD tours).",
+        ]
+      ),
+      PN(
+        "kiwi-park",
+        "Kiwi Park Queenstown",
+        ["Naturaleza", "Wildlife"],
+        "naturaleza",
+        -45.033,
+        168.656,
+        "Queenstown_New_Zealand.jpg",
+        ["NZ$ ~55", "NZ$ ~55"],
+        ["A pie desde el centro.", "Walk from downtown."],
+        [
+          "Reserva de conservación con kiwis, keas y reptiles nativos junto a los jardines.",
+          "A conservation park with kiwi, kea and native reptiles next to the gardens.",
+        ]
+      ),
+      PN(
+        "frankton-trail",
+        "Frankton Track",
+        ["Paseo y bici", "Walk & bike"],
+        "paseo",
+        -45.02,
+        168.73,
+        "Queenstown_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["A pie / bici desde el centro.", "Walk / bike from town."],
+        [
+          "Sendero llano junto al lago que une el centro con Frankton, ideal en bici.",
+          "A flat lakeside trail linking downtown with Frankton, great by bike.",
+        ]
+      ),
+    ],
+  },
+
+  // ---------- CHRISTCHURCH (Isla Sur) ----------
+  {
+    id: "christchurch",
+    nombre: "Christchurch",
+    provincia: ISLA_SUR,
+    center: [-43.5321, 172.6362],
+    zoom: 13,
+    eventos: {
+      nombre: { es: "Agenda de Christchurch", en: "Christchurch what's on" },
+      lat: -43.5321,
+      lng: 172.6362,
+      img: "Christchurch_New_Zealand.jpg",
+      url: "https://www.christchurchnz.com/explore/whats-on",
+      sinopsis: {
+        es: "La 'Ciudad Jardín', renacida tras los terremotos de 2010-2011; su agenda incluye festivales de flores, arte urbano y música.",
+        en: "The 'Garden City', reborn after the 2010–2011 earthquakes; its calendar features flower festivals, street art and music.",
+      },
+    },
+    puntos: [
+      PN(
+        "botanic-gardens-chch",
+        "Christchurch Botanic Gardens",
+        ["Jardín", "Gardens"],
+        "naturaleza",
+        -43.531,
+        172.62,
+        "Christchurch_Botanic_Gardens.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el centro.", "Walk from the city centre."],
+        [
+          "21 hectáreas de jardines junto al río Avon, símbolo de la 'Ciudad Jardín'.",
+          "21 hectares of riverside gardens along the Avon, the pride of the 'Garden City'.",
+        ]
+      ),
+      PN(
+        "cardboard-cathedral",
+        "Catedral de Cartón",
+        ["Histórico", "Historic"],
+        "historico",
+        -43.534,
+        172.642,
+        "Cardboard_Cathedral_Christchurch.jpg",
+        ["A la gorra", "Koha / donation"],
+        ["A pie desde el centro.", "Walk from the city."],
+        [
+          "Catedral transicional de tubos de cartón de Shigeru Ban, tras el terremoto de 2011.",
+          "A transitional cathedral built of cardboard tubes by Shigeru Ban after the 2011 quake.",
+        ]
+      ),
+      PN(
+        "christchurch-cathedral",
+        "ChristChurch Cathedral",
+        ["Histórico", "Historic"],
+        "historico",
+        -43.531,
+        172.637,
+        "ChristChurch_Cathedral.jpg",
+        ["Exterior gratis", "Exterior free"],
+        ["Cathedral Square, centro.", "Cathedral Square, city centre."],
+        [
+          "La catedral gótica de 1904, dañada en el sismo y en proceso de restauración.",
+          "The 1904 Gothic cathedral, damaged in the quake and being restored.",
+        ]
+      ),
+      PN(
+        "canterbury-museum",
+        "Canterbury Museum",
+        ["Museo", "Museum"],
+        "museo",
+        -43.531,
+        172.627,
+        "Canterbury_Museum.jpg",
+        ["Gratis", "Free"],
+        ["Junto al jardín botánico.", "Next to the Botanic Gardens."],
+        [
+          "Museo de historia natural y antártica, con una casa de conchas paua.",
+          "A natural-history and Antarctic museum, home to a famous paua-shell house.",
+        ]
+      ),
+      PN(
+        "punting-avon",
+        "Punting on the Avon",
+        ["Paseo", "River punt"],
+        "paseo",
+        -43.53,
+        172.632,
+        "Christchurch_New_Zealand.jpg",
+        ["~NZ$ 35", "~NZ$ 35"],
+        ["Centro, a pie.", "City centre, on foot."],
+        [
+          "Paseo en batea con pértiga por el río Avon, guiado por barqueros vestidos de época.",
+          "A punt ride poled along the Avon River by boaters in Edwardian dress.",
+        ]
+      ),
+      PN(
+        "riverside-market",
+        "Riverside Market",
+        ["Mercado", "Market"],
+        "gastronomia",
+        -43.532,
+        172.635,
+        "Christchurch_New_Zealand.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["Centro, a pie.", "City centre, on foot."],
+        [
+          "Mercado gastronómico cubierto junto al río, epicentro del renacer del centro.",
+          "A covered food market by the river, epicentre of the city's revival.",
+        ]
+      ),
+      PN(
+        "chch-gondola",
+        "Christchurch Gondola",
+        ["Mirador", "Lookout"],
+        "paseo",
+        -43.58,
+        172.705,
+        "Christchurch_Gondola.jpg",
+        ["~NZ$ 40", "~NZ$ 40"],
+        ["Bus 28 / auto.", "Bus 28 / car."],
+        [
+          "Góndola a la cima de los Port Hills con vista a la ciudad, el mar y la bahía Lyttelton.",
+          "A gondola to the Port Hills summit with views over the city, sea and Lyttelton Harbour.",
+        ]
+      ),
+      PN(
+        "antarctic-centre",
+        "International Antarctic Centre",
+        ["Museo", "Museum"],
+        "museo",
+        -43.489,
+        172.533,
+        "Christchurch_New_Zealand.jpg",
+        ["~NZ$ 59", "~NZ$ 59"],
+        ["Bus 29 al aeropuerto.", "Bus 29 to the airport."],
+        [
+          "Centro interactivo sobre la Antártida con tormenta de nieve simulada y pingüinos.",
+          "An interactive Antarctic centre with a simulated snowstorm and little penguins.",
+        ]
+      ),
+      PN(
+        "new-regent-street",
+        "New Regent Street",
+        ["Compras", "Shopping"],
+        "shopping",
+        -43.53,
+        172.639,
+        "New_Regent_Street_Christchurch.jpg",
+        ["Gratis", "Free"],
+        ["Centro, a pie.", "City centre, on foot."],
+        [
+          "Calle peatonal de fachadas pastel estilo español de 1932, con el tranvía histórico.",
+          "A pedestrian street of 1932 pastel Spanish-Mission façades, on the heritage tram line.",
+        ]
+      ),
+      PN(
+        "hagley-park",
+        "Hagley Park",
+        ["Parque", "Park"],
+        "paseo",
+        -43.531,
+        172.618,
+        "Hagley_Park_Christchurch.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el centro.", "Walk from the city."],
+        [
+          "El gran parque urbano (165 ha) que rodea el jardín botánico y el río Avon.",
+          "The city's great 165-hectare park wrapping around the gardens and the Avon.",
+        ]
+      ),
+      PN(
+        "quake-city",
+        "Quake City",
+        ["Museo", "Museum"],
+        "museo",
+        -43.532,
+        172.636,
+        "Christchurch_New_Zealand.jpg",
+        ["~NZ$ 20", "~NZ$ 20"],
+        ["Centro, a pie.", "City centre, on foot."],
+        [
+          "Museo que cuenta los terremotos de 2010-2011 y la reconstrucción de la ciudad.",
+          "A museum telling the story of the 2010–2011 quakes and the city's rebuild.",
+        ]
+      ),
+      PN(
+        "sumner",
+        "Playa Sumner",
+        ["Playa", "Beach"],
+        "playa",
+        -43.567,
+        172.757,
+        "Christchurch_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Bus 3 desde el centro.", "Bus 3 from the city."],
+        [
+          "Barrio costero con playa de surf y la icónica roca Cave Rock.",
+          "A seaside suburb with a surf beach and the iconic Cave Rock.",
+        ]
+      ),
+      PN(
+        "godley-head",
+        "Godley Head",
+        ["Costa y trekking", "Coast & trails"],
+        "trekking",
+        -43.585,
+        172.79,
+        "Christchurch_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Auto.", "Car."],
+        [
+          "Cabo con senderos costeros y fortificaciones de la Segunda Guerra sobre acantilados.",
+          "A headland with coastal walks and WWII gun emplacements above the cliffs.",
+        ]
+      ),
+      PN(
+        "willowbank",
+        "Willowbank Wildlife Reserve",
+        ["Naturaleza", "Wildlife"],
+        "naturaleza",
+        -43.477,
+        172.596,
+        "Christchurch_New_Zealand.jpg",
+        ["~NZ$ 35", "~NZ$ 35"],
+        ["Auto / bus.", "Car / bus."],
+        [
+          "Reserva de fauna nativa con encuentro nocturno de kiwis en su hábitat.",
+          "A native wildlife reserve with a nocturnal kiwi encounter.",
+        ]
+      ),
+      PN(
+        "lyttelton",
+        "Lyttelton",
+        ["Puerto y gastronomía", "Port & dining"],
+        "gastronomia",
+        -43.603,
+        172.72,
+        "Lyttelton_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Bus 28 / auto por el túnel.", "Bus 28 / car through the tunnel."],
+        [
+          "Pueblo portuario de casas de madera, cafés y mercado, sobre el cráter de un volcán.",
+          "A port village of timber houses, cafés and a market, set in an old volcanic crater.",
+        ]
+      ),
+      PN(
+        "ferrymead",
+        "Ferrymead Heritage Park",
+        ["Museo", "Museum"],
+        "museo",
+        -43.562,
+        172.7,
+        "Christchurch_New_Zealand.jpg",
+        ["~NZ$ 25", "~NZ$ 25"],
+        ["Bus / auto.", "Bus / car."],
+        [
+          "Pueblo eduardiano viviente con tranvías y trenes históricos en funcionamiento.",
+          "A living Edwardian township with working heritage trams and trains.",
+        ]
+      ),
+    ],
+  },
+
+  // ---------- FIORDLAND / TE ANAU (Isla Sur) ----------
+  {
+    id: "fiordland",
+    nombre: "Fiordland (Te Anau)",
+    provincia: ISLA_SUR,
+    center: [-45.4144, 167.718],
+    zoom: 8,
+    eventos: {
+      nombre: { es: "Info y agenda de Fiordland", en: "Fiordland info & events" },
+      lat: -45.4144,
+      lng: 167.718,
+      img: "Milford_Sound.jpg",
+      url: "https://www.fiordland.org.nz/",
+      sinopsis: {
+        es: "La puerta a los fiordos y a Milford Sound, Patrimonio de la Humanidad; Te Anau reúne la info del parque, cruceros y los 'Great Walks'.",
+        en: "The gateway to the fjords and to Milford Sound, a World Heritage area; Te Anau is the hub for park info, cruises and the Great Walks.",
+      },
+    },
+    puntos: [
+      PN(
+        "milford-sound",
+        "Milford Sound / Piopiotahi",
+        ["Fiordo", "Fjord"],
+        "naturaleza",
+        -44.6414,
+        167.8974,
+        "Milford_Sound.jpg",
+        ["Crucero ~NZ$ 100", "Cruise ~NZ$ 100"],
+        ["Bus o auto desde Te Anau (~2 h).", "Coach or car from Te Anau (~2 h)."],
+        [
+          "El fiordo más famoso del país, con el pico Mitre y cascadas que caen a pique.",
+          "The country's most famous fjord, with Mitre Peak and waterfalls plunging to the sea.",
+        ]
+      ),
+      PN(
+        "te-anau-lake",
+        "Lago Te Anau",
+        ["Lago", "Lake"],
+        "naturaleza",
+        -45.4144,
+        167.718,
+        "Lake_Te_Anau.jpg",
+        ["Gratis", "Free"],
+        ["Costanera del pueblo.", "Town lakefront."],
+        [
+          "El mayor lago de la Isla Sur, base de excursiones a los fiordos.",
+          "The largest lake in the South Island, a base for fjord excursions.",
+        ]
+      ),
+      PN(
+        "te-anau-glowworm",
+        "Cuevas de luciérnagas de Te Anau",
+        ["Cuevas", "Caves"],
+        "naturaleza",
+        -45.47,
+        167.66,
+        "Fiordland_New_Zealand.jpg",
+        ["Tour ~NZ$ 110", "Tour ~NZ$ 110"],
+        ["Crucero por el lago + tour.", "Lake cruise + tour."],
+        [
+          "Cuevas con miles de luciérnagas (glowworms) sobre un río subterráneo.",
+          "Caves lit by thousands of glowworms above an underground river.",
+        ]
+      ),
+      PN(
+        "kepler-track",
+        "Kepler Track",
+        ["Great Walk", "Great Walk"],
+        "trekking",
+        -45.43,
+        167.66,
+        "Kepler_Track.jpg",
+        ["Gratis (refugios aranc.)", "Free (paid huts)"],
+        ["Desde Te Anau.", "From Te Anau."],
+        [
+          "Uno de los 'Great Walks': 60 km de circuito por crestas alpinas y bosque.",
+          "One of the Great Walks: a 60 km loop over alpine ridges and through beech forest.",
+        ]
+      ),
+      PN(
+        "milford-track",
+        "Milford Track",
+        ["Great Walk", "Great Walk"],
+        "trekking",
+        -44.8,
+        167.93,
+        "Fiordland_New_Zealand.jpg",
+        ["Refugios aranc.", "Paid huts"],
+        ["Barco + bus desde Te Anau.", "Boat + bus from Te Anau."],
+        [
+          "'La caminata más bella del mundo': 53,5 km de valles, pasos y cascadas.",
+          "'The finest walk in the world': 53.5 km of valleys, passes and waterfalls.",
+        ]
+      ),
+      PN(
+        "doubtful-sound",
+        "Doubtful Sound",
+        ["Fiordo", "Fjord"],
+        "naturaleza",
+        -45.32,
+        167.0,
+        "Fiordland_New_Zealand.jpg",
+        ["Excursión ~NZ$ 300", "Trip ~NZ$ 300"],
+        ["Barco + bus desde Manapouri.", "Boat + bus from Manapouri."],
+        [
+          "El fiordo del silencio: más grande, remoto y salvaje que Milford, con delfines.",
+          "The 'sound of silence' — larger, wilder and more remote than Milford, with dolphins.",
+        ]
+      ),
+      PN(
+        "mirror-lakes",
+        "Mirror Lakes",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -45.03,
+        167.95,
+        "Fiordland_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Ruta a Milford; auto.", "On the road to Milford; car."],
+        [
+          "Pequeñas lagunas que reflejan como espejo las montañas Earl, en un paseo corto.",
+          "Small lagoons that mirror the Earl Mountains, on a short boardwalk stop.",
+        ]
+      ),
+      PN(
+        "the-chasm",
+        "The Chasm",
+        ["Cascada", "Falls"],
+        "naturaleza",
+        -44.73,
+        167.87,
+        "Fiordland_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Ruta a Milford; auto.", "On the road to Milford; car."],
+        [
+          "Cascadas que esculpieron pozos y arcos en la roca, en un sendero de 20 min.",
+          "Waterfalls that have carved potholes and arches in the rock, on a 20-min loop.",
+        ]
+      ),
+      PN(
+        "homer-tunnel",
+        "Homer Tunnel",
+        ["Paso de montaña", "Mountain pass"],
+        "paseo",
+        -44.766,
+        167.98,
+        "Fiordland_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Ruta a Milford; auto.", "On the road to Milford; car."],
+        [
+          "Túnel de 1,2 km excavado a mano en la roca, entrada a un anfiteatro alpino con keas.",
+          "A 1.2 km hand-cut rock tunnel opening onto an alpine amphitheatre full of kea.",
+        ]
+      ),
+      PN(
+        "key-summit",
+        "Key Summit (Routeburn)",
+        ["Trekking", "Hike"],
+        "trekking",
+        -44.82,
+        168.1,
+        "Fiordland_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["The Divide; auto.", "The Divide; car."],
+        [
+          "Caminata de medio día a un mirador alpino con lagunas y vista de tres valles.",
+          "A half-day walk to an alpine lookout with tarns and views over three valleys.",
+        ]
+      ),
+      PN(
+        "lake-marian",
+        "Lake Marian",
+        ["Trekking", "Hike"],
+        "trekking",
+        -44.75,
+        168.03,
+        "Fiordland_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Hollyford Rd; auto.", "Hollyford Rd; car."],
+        [
+          "Laguna glaciar colgante rodeada de picos, tras un trekking exigente por bosque.",
+          "A hanging glacial tarn ringed by peaks, after a steep forest hike.",
+        ]
+      ),
+      PN(
+        "eglinton-valley",
+        "Eglinton Valley",
+        ["Valle", "Valley"],
+        "naturaleza",
+        -44.95,
+        168.01,
+        "Fiordland_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Ruta a Milford; auto.", "On the road to Milford; car."],
+        [
+          "Amplio valle glaciar de praderas doradas y montañas, escenario de cine.",
+          "A broad glacial valley of golden grasslands and mountains, a film-set landscape.",
+        ]
+      ),
+      PN(
+        "manapouri",
+        "Lago Manapouri",
+        ["Lago", "Lake"],
+        "naturaleza",
+        -45.57,
+        167.6,
+        "Fiordland_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~20 min de Te Anau).", "Car (~20 min from Te Anau)."],
+        [
+          "Lago considerado el más bello del país, con islas boscosas; puerta a Doubtful Sound.",
+          "Often called the country's loveliest lake, dotted with forested islands; gateway to Doubtful Sound.",
+        ]
+      ),
+      PN(
+        "te-anau-bird-sanctuary",
+        "Punanga Manu (santuario de aves)",
+        ["Naturaleza", "Wildlife"],
+        "naturaleza",
+        -45.42,
+        167.72,
+        "Fiordland_New_Zealand.jpg",
+        ["A la gorra", "Koha / donation"],
+        ["A pie desde Te Anau.", "Walk from Te Anau."],
+        [
+          "Santuario junto al lago para ver de cerca al takahē, ave que se creía extinta.",
+          "A lakeside sanctuary to see the takahē up close, a bird once thought extinct.",
+        ]
+      ),
+      PN(
+        "lake-gunn",
+        "Lake Gunn",
+        ["Lago", "Lake"],
+        "naturaleza",
+        -44.87,
+        168.07,
+        "Fiordland_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Ruta a Milford; auto.", "On the road to Milford; car."],
+        [
+          "Lago rodeado de bosque de hayas rojas con un sendero corto entre helechos.",
+          "A lake ringed by red-beech forest with a short fern-lined loop walk.",
+        ]
+      ),
+    ],
+  },
+];
+
+// Países disponibles (para el selector).
+const PAISES = [
+  {
+    id: "ar",
+    nombre: { es: "Argentina", en: "Argentina" },
+    flag: "🇦🇷",
+    center: [-38.4, -63.6],
+    zoom: 5,
+  },
+  {
+    id: "nz",
+    nombre: { es: "Nueva Zelanda", en: "New Zealand" },
+    flag: "🇳🇿",
+    center: [-41.5, 173.0],
+    zoom: 5,
+  },
+];
+
+// Todas las localidades, etiquetadas por país.
+const LOCALIDADES = [
+  ...LOCALIDADES_AR.map((l) => ({ ...l, pais: "ar" })),
+  ...LOCALIDADES_NZ.map((l) => ({ ...l, pais: "nz" })),
+];
+
+// Modos de transporte -> costing de Valhalla + metadatos de UI (nombre bilingüe).
 const MODOS = [
-  { id: "auto", nombre: "Auto", costing: "auto", icon: "🚗", velocidad: 70 },
-  { id: "moto", nombre: "Moto", costing: "motorcycle", icon: "🏍️", velocidad: 65 },
-  { id: "bicicleta", nombre: "Bicicleta", costing: "bicycle", icon: "🚲", velocidad: 16 },
-  { id: "monopatin", nombre: "Monopatín", costing: "motor_scooter", icon: "🛴", velocidad: 22 },
-  { id: "publico", nombre: "Transporte público", costing: "bus", icon: "🚌", velocidad: 28 },
-  { id: "caminando", nombre: "Caminando", costing: "pedestrian", icon: "🚶", velocidad: 4.8 },
+  { id: "auto", nombre: { es: "Auto", en: "Car" }, costing: "auto", icon: "🚗", velocidad: 70 },
+  {
+    id: "moto",
+    nombre: { es: "Moto", en: "Motorbike" },
+    costing: "motorcycle",
+    icon: "🏍️",
+    velocidad: 65,
+  },
+  {
+    id: "bicicleta",
+    nombre: { es: "Bicicleta", en: "Bicycle" },
+    costing: "bicycle",
+    icon: "🚲",
+    velocidad: 16,
+  },
+  {
+    id: "monopatin",
+    nombre: { es: "Monopatín", en: "Scooter" },
+    costing: "motor_scooter",
+    icon: "🛴",
+    velocidad: 22,
+  },
+  {
+    id: "publico",
+    nombre: { es: "Transporte público", en: "Public transport" },
+    costing: "bus",
+    icon: "🚌",
+    velocidad: 28,
+  },
+  {
+    id: "caminando",
+    nombre: { es: "Caminando", en: "Walking" },
+    costing: "pedestrian",
+    icon: "🚶",
+    velocidad: 4.8,
+  },
 ];
 
 // Lista plana de todos los puntos (para búsquedas globales / rutas escénicas).
@@ -5299,6 +7102,7 @@ const TODOS_LOS_PUNTOS = LOCALIDADES.flatMap((l) =>
     localidadId: l.id,
     localidadNombre: l.nombre,
     provincia: l.provincia,
+    pais: l.pais,
   }))
 );
 

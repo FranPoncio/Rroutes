@@ -12,6 +12,8 @@ const TILES = {
 
 // ------- Estado global -------
 const estado = {
+  pais: "ar", // "ar" | "nz"
+  idioma: "es", // "es" | "en"
   localidad: null,
   destino: null,
   modo: MODOS[0],
@@ -19,6 +21,119 @@ const estado = {
   rutas: [],
   actividades: new Set(), // vacío = todas
 };
+
+// ------- i18n -------
+const I18N = {
+  es: {
+    subtitulo: "Viajá a los mejores puntos turísticos",
+    pais: "País",
+    actividad_q: "¿Qué querés hacer?",
+    paso1: "¿A dónde vas?",
+    localidad_label: "Localidad / región",
+    destino_label: "Destino específico",
+    paso2: "¿Cómo viajás?",
+    paso3: "¿Desde dónde salís?",
+    usar_ubicacion: "📍 Usar mi ubicación",
+    origen_hint: "O hacé clic en el mapa para marcar tu punto de salida.",
+    crear: "Crear rutas",
+    rutas_sugeridas: "Rutas sugeridas",
+    footer: "Precios y transporte son orientativos.",
+    ph_localidad: "— Elegí una localidad —",
+    ph_destino: "— Elegí un destino —",
+    ph_destino_first: "— Elegí primero una localidad —",
+    sin_puntos: "Sin puntos para ese filtro",
+    calc: "Calculando las mejores rutas…",
+    ruta_corta: "Ruta más corta",
+    ruta_alt: "Ruta alternativa",
+    ruta_esc: "Ruta escénica",
+    prio1: "Prioridad 1",
+    alt: "Alternativa",
+    prio2: "Prioridad 2",
+    estimada_short: "estimada",
+    km: "km",
+    tiempo: "tiempo est.",
+    pasas_por: "Pasás por",
+    entrada: "Entrada",
+    transporte_pub: "Transporte público",
+    transporte_gtfs: "Transporte (GTFS)",
+    empresas: "empresas",
+    lineas: "líneas",
+    parada: "parada",
+    eventos_agenda: "Eventos y agenda",
+    agenda: "🔗 Agenda oficial de eventos",
+    salida: "Salida",
+    mi_ubicacion: "Mi ubicación",
+    punto_mapa: "Punto marcado en el mapa",
+    tu_salida: "Tu punto de salida",
+    hacia: "hacia",
+    estimadas: "(algunas rutas son estimadas por falta de conexión al ruteador)",
+    geo_no: "Tu navegador no soporta geolocalización. Hacé clic en el mapa.",
+    geo_obteniendo: "📍 Obteniendo ubicación…",
+    geo_detectada: "📍 Ubicación detectada",
+    geo_error: "No pudimos acceder a tu ubicación. Hacé clic en el mapa para marcar tu salida.",
+  },
+  en: {
+    subtitulo: "Travel to the best sights",
+    pais: "Country",
+    actividad_q: "What do you want to do?",
+    paso1: "Where to?",
+    localidad_label: "Town / region",
+    destino_label: "Specific destination",
+    paso2: "How are you travelling?",
+    paso3: "Where do you start?",
+    usar_ubicacion: "📍 Use my location",
+    origen_hint: "Or click on the map to set your starting point.",
+    crear: "Create routes",
+    rutas_sugeridas: "Suggested routes",
+    footer: "Prices and transport are indicative.",
+    ph_localidad: "— Choose a town —",
+    ph_destino: "— Choose a destination —",
+    ph_destino_first: "— Choose a town first —",
+    sin_puntos: "No spots for that filter",
+    calc: "Finding the best routes…",
+    ruta_corta: "Shortest route",
+    ruta_alt: "Alternative route",
+    ruta_esc: "Scenic route",
+    prio1: "Priority 1",
+    alt: "Alternative",
+    prio2: "Priority 2",
+    estimada_short: "estimated",
+    km: "km",
+    tiempo: "est. time",
+    pasas_por: "Passes by",
+    entrada: "Entry",
+    transporte_pub: "Public transport",
+    transporte_gtfs: "Transport (GTFS)",
+    empresas: "operators",
+    lineas: "lines",
+    parada: "stop",
+    eventos_agenda: "Events & what's on",
+    agenda: "🔗 Official events page",
+    salida: "Start",
+    mi_ubicacion: "My location",
+    punto_mapa: "Point set on the map",
+    tu_salida: "Your starting point",
+    hacia: "to",
+    estimadas: "(some routes are estimated — router offline)",
+    geo_no: "Your browser doesn't support geolocation. Click on the map.",
+    geo_obteniendo: "📍 Getting location…",
+    geo_detectada: "📍 Location detected",
+    geo_error: "We couldn't access your location. Click on the map to set your start.",
+  },
+};
+
+function idiomaActual() {
+  return localStorage.getItem("idioma") === "en" ? "en" : "es";
+}
+// Devuelve el texto de un campo bilingüe ({es,en}) o el string tal cual.
+function t(campo) {
+  if (campo == null) return "";
+  return typeof campo === "object" ? campo[estado.idioma] || campo.es || campo.en || "" : campo;
+}
+// Devuelve una cadena de interfaz según el idioma.
+function ui(k) {
+  return (I18N[estado.idioma] && I18N[estado.idioma][k]) || I18N.es[k] || k;
+}
 
 // ------- Mapa -------
 let map, capaPines, capaRutas, marcadorOrigen, capaTiles;
@@ -62,7 +177,7 @@ function initMapa() {
   aplicarTema(document.documentElement.dataset.theme || temaActual());
   capaPines = L.layerGroup().addTo(map);
   capaRutas = L.layerGroup().addTo(map);
-  map.on("click", (e) => setOrigen([e.latlng.lat, e.latlng.lng], "Punto marcado en el mapa"));
+  map.on("click", (e) => setOrigen([e.latlng.lat, e.latlng.lng], ui("punto_mapa")));
 }
 
 function iconoPin({ tipo = "", emoji = "•", color = null }) {
@@ -105,36 +220,37 @@ function transporteHTML(p) {
     const ic = MODO_ICONO[g.modes[0]] || "🚏";
     const modos = g.modes.join(" · ");
     // "empresas" para micros de larga distancia; "líneas" para el resto.
-    const etiqueta = g.modes[0] === "micro" ? "empresas" : "líneas";
+    const etiqueta = g.modes[0] === "micro" ? ui("empresas") : ui("lineas");
     const lineas = g.lines.length > 10 ? g.lines.slice(0, 10).join(", ") + "…" : g.lines.join(", ");
     const dist = g.nearestM < 60 ? "" : ` a ${g.nearestM} m`;
     return `<div class="poi-row"><span class="ic">${ic}</span><span>
-      <b>Transporte (GTFS):</b> ${modos} — ${etiqueta} ${lineas}
-      <span class="poi-gtfs">· parada «${g.nearestStop}»${dist}</span></span></div>`;
+      <b>${ui("transporte_gtfs")}:</b> ${modos} — ${etiqueta} ${lineas}
+      <span class="poi-gtfs">· ${ui("parada")} «${g.nearestStop}»${dist}</span></span></div>`;
   }
-  return `<div class="poi-row"><span class="ic">🚌</span><span><b>Transporte público:</b> ${p.transporte}</span></div>`;
+  return `<div class="poi-row"><span class="ic">🚌</span><span><b>${ui("transporte_pub")}:</b> ${t(p.transporte)}</span></div>`;
 }
 
 // Popup del pin de eventos: foto, sinopsis y enlace a la agenda oficial.
 function popupEventos(ev, loc) {
   const cont = document.createElement("div");
   cont.className = "poi";
+  const nombre = t(ev.nombre);
   cont.innerHTML = `
-    <img class="poi-foto" src="${ev.img}" alt="${ev.nombre}" />
+    <img class="poi-foto" src="${ev.img}" alt="${nombre}" />
     <div class="poi-info">
       <div class="poi-badges">
-        <span class="poi-badge" style="background:#e11d48">🎟️ Eventos y agenda</span>
+        <span class="poi-badge" style="background:#e11d48">🎟️ ${ui("eventos_agenda")}</span>
       </div>
-      <h3>${ev.nombre}</h3>
-      <p>${ev.sinopsis}</p>
-      <a class="poi-link" href="${ev.url}" target="_blank" rel="noopener noreferrer">🔗 Agenda oficial de eventos</a>
-      <div class="poi-loc">📍 ${loc.nombre}${loc.provincia ? " · " + loc.provincia : ""}</div>
+      <h3>${nombre}</h3>
+      <p>${t(ev.sinopsis)}</p>
+      <a class="poi-link" href="${ev.url}" target="_blank" rel="noopener noreferrer">${ui("agenda")}</a>
+      <div class="poi-loc">📍 ${loc.nombre}${loc.provincia ? " · " + t(loc.provincia) : ""}</div>
     </div>`;
   const img = cont.querySelector("img");
   img.addEventListener("error", () => {
     const ph = document.createElement("div");
     ph.className = "poi-foto-fallback";
-    ph.textContent = ev.nombre;
+    ph.textContent = nombre;
     img.replaceWith(ph);
   });
   return cont;
@@ -148,14 +264,14 @@ function popupPunto(p) {
     <img class="poi-foto" src="${p.img}" alt="${p.nombre}" />
     <div class="poi-info">
       <div class="poi-badges">
-        <span class="poi-badge" style="background:${act.color}">${act.icon} ${act.nombre}</span>
-        <span class="poi-badge" style="background:#64748b">${p.categoria}</span>
+        <span class="poi-badge" style="background:${act.color}">${act.icon} ${t(act.nombre)}</span>
+        <span class="poi-badge" style="background:#64748b">${t(p.categoria)}</span>
       </div>
       <h3>${p.nombre}</h3>
-      <p>${p.sinopsis}</p>
-      <div class="poi-row"><span class="ic">🎫</span><span><b>Entrada:</b> ${p.entrada}</span></div>
+      <p>${t(p.sinopsis)}</p>
+      <div class="poi-row"><span class="ic">🎫</span><span><b>${ui("entrada")}:</b> ${t(p.entrada)}</span></div>
       ${transporteHTML(p)}
-      <div class="poi-loc">📍 ${p.localidadNombre || ""}${p.provincia ? " · " + p.provincia : ""}</div>
+      <div class="poi-loc">📍 ${p.localidadNombre || ""}${p.provincia ? " · " + t(p.provincia) : ""}</div>
     </div>`;
   const img = cont.querySelector("img");
   img.addEventListener("error", () => {
@@ -222,12 +338,12 @@ function dibujarPines() {
 function setOrigen(coords, etiqueta) {
   estado.origen = coords;
   document.getElementById("origen-estado").textContent =
-    `✔ Salida: ${etiqueta} (${coords[0].toFixed(4)}, ${coords[1].toFixed(4)})`;
+    `✔ ${ui("salida")}: ${etiqueta} (${coords[0].toFixed(4)}, ${coords[1].toFixed(4)})`;
   if (marcadorOrigen) capaPines.removeLayer(marcadorOrigen);
   marcadorOrigen = L.marker(coords, {
     icon: iconoPin({ tipo: "origen", emoji: "🧍" }),
     zIndexOffset: 1200,
-  }).bindPopup("<b>Tu punto de salida</b>");
+  }).bindPopup(`<b>${ui("tu_salida")}</b>`);
   capaPines.addLayer(marcadorOrigen);
   actualizarBotonCrear();
 }
@@ -235,22 +351,20 @@ function setOrigen(coords, etiqueta) {
 function usarGeolocalizacion() {
   const btn = document.getElementById("btn-ubicacion");
   if (!navigator.geolocation) {
-    document.getElementById("origen-estado").textContent =
-      "Tu navegador no soporta geolocalización. Hacé clic en el mapa.";
+    document.getElementById("origen-estado").textContent = ui("geo_no");
     return;
   }
-  btn.textContent = "📍 Obteniendo ubicación…";
+  btn.textContent = ui("geo_obteniendo");
   navigator.geolocation.getCurrentPosition(
     (pos) => {
-      setOrigen([pos.coords.latitude, pos.coords.longitude], "Mi ubicación");
-      btn.textContent = "📍 Ubicación detectada";
+      setOrigen([pos.coords.latitude, pos.coords.longitude], ui("mi_ubicacion"));
+      btn.textContent = ui("geo_detectada");
       btn.classList.add("ok");
       map.setView([pos.coords.latitude, pos.coords.longitude], 12);
     },
     () => {
-      btn.textContent = "📍 Usar mi ubicación";
-      document.getElementById("origen-estado").textContent =
-        "No pudimos acceder a tu ubicación. Hacé clic en el mapa para marcar tu salida.";
+      btn.textContent = ui("usar_ubicacion");
+      document.getElementById("origen-estado").textContent = ui("geo_error");
     },
     { enableHighAccuracy: true, timeout: 10000 }
   );
@@ -355,7 +469,7 @@ function rutaEstimada(waypoints, meta) {
 
 async function crearRutas() {
   if (!estado.origen || !estado.destino) return;
-  mostrarLoader(true, "Calculando las mejores rutas…");
+  mostrarLoader(true, ui("calc"));
   const origen = estado.origen;
   const destino = [estado.destino.lat, estado.destino.lng];
   const costing = estado.modo.costing;
@@ -364,26 +478,22 @@ async function crearRutas() {
   try {
     const data = await valhalla([origen, destino], costing);
     const principal = tripARuta(data.trip, {
-      nombre: "Ruta más corta",
-      tag: "Prioridad 1",
+      nombreKey: "ruta_corta",
+      tagKey: "prio1",
       tipo: "corta",
     });
     rutas.push(principal);
     if (data.alternates && data.alternates.length) {
       const alt = tripARuta(data.alternates[0].trip, {
-        nombre: "Ruta alternativa",
-        tag: "Alternativa",
+        nombreKey: "ruta_alt",
+        tagKey: "alt",
         tipo: "alternativa",
       });
       if (Math.abs(alt.distancia - principal.distancia) > 0.5) rutas.push(alt);
     }
   } catch (e) {
     rutas.push(
-      rutaEstimada([origen, destino], {
-        nombre: "Ruta más corta (estimada)",
-        tag: "Prioridad 1",
-        tipo: "corta",
-      })
+      rutaEstimada([origen, destino], { nombreKey: "ruta_corta", tagKey: "prio1", tipo: "corta" })
     );
   }
 
@@ -394,8 +504,8 @@ async function crearRutas() {
       const data = await valhalla([origen, via, destino], costing);
       rutas.push(
         tripARuta(data.trip, {
-          nombre: "Ruta escénica",
-          tag: "Prioridad 2",
+          nombreKey: "ruta_esc",
+          tagKey: "prio2",
           tipo: "escenica",
           via: escenico.nombre,
         })
@@ -403,8 +513,8 @@ async function crearRutas() {
     } catch (e) {
       rutas.push(
         rutaEstimada([origen, via, destino], {
-          nombre: "Ruta escénica (estimada)",
-          tag: "Prioridad 2",
+          nombreKey: "ruta_esc",
+          tagKey: "prio2",
           tipo: "escenica",
           via: escenico.nombre,
         })
@@ -477,9 +587,14 @@ function construirDropdown(cont, { placeholder, options, valorSel, onSelect }) {
   });
 }
 
+// Localidades del país actualmente seleccionado.
+function localidadesDelPais() {
+  return LOCALIDADES.filter((l) => l.pais === estado.pais);
+}
+
 function renderDropdownLocalidad() {
   const porProvincia = {};
-  LOCALIDADES.forEach((l) => (porProvincia[l.provincia] ||= []).push(l));
+  localidadesDelPais().forEach((l) => (porProvincia[t(l.provincia)] ||= []).push(l));
   const options = [];
   Object.keys(porProvincia)
     .sort()
@@ -489,7 +604,7 @@ function renderDropdownLocalidad() {
       );
     });
   construirDropdown(document.getElementById("dd-localidad"), {
-    placeholder: "— Elegí una localidad —",
+    placeholder: ui("ph_localidad"),
     options,
     valorSel: estado.localidad?.id,
     onSelect: (id) => seleccionarLocalidad(id),
@@ -500,7 +615,7 @@ function renderDropdownDestino() {
   const cont = document.getElementById("dd-destino");
   if (!estado.localidad) {
     construirDropdown(cont, {
-      placeholder: "— Elegí primero una localidad —",
+      placeholder: ui("ph_destino_first"),
       options: [],
       onSelect: () => {},
     });
@@ -509,10 +624,10 @@ function renderDropdownDestino() {
   const vis = puntosVisibles();
   const options = vis.map((p) => {
     const act = ACTIVIDAD_POR_ID[p.actividad];
-    return { value: p.id, label: p.nombre, sublabel: act.nombre, emoji: act.icon };
+    return { value: p.id, label: p.nombre, sublabel: t(act.nombre), emoji: act.icon };
   });
   construirDropdown(cont, {
-    placeholder: vis.length ? "— Elegí un destino —" : "Sin puntos para ese filtro",
+    placeholder: vis.length ? ui("ph_destino") : ui("sin_puntos"),
     options,
     valorSel: estado.destino?.id,
     onSelect: (id) => seleccionarDestino(id),
@@ -531,7 +646,7 @@ function renderChips() {
     el.type = "button";
     el.className = "chip" + (activo ? " activo" : "");
     if (activo) el.style.background = a.color;
-    el.innerHTML = `<span class="ico">${a.icon}</span>${a.nombre}`;
+    el.innerHTML = `<span class="ico">${a.icon}</span>${t(a.nombre)}`;
     el.addEventListener("click", () => {
       if (estado.actividades.has(a.id)) estado.actividades.delete(a.id);
       else estado.actividades.add(a.id);
@@ -586,7 +701,7 @@ function renderModos() {
   MODOS.forEach((m) => {
     const el = document.createElement("div");
     el.className = "modo" + (m.id === estado.modo.id ? " activo" : "");
-    el.innerHTML = `<span class="ico">${m.icon}</span><span class="txt">${m.nombre}</span>`;
+    el.innerHTML = `<span class="ico">${m.icon}</span><span class="txt">${t(m.nombre)}</span>`;
     el.addEventListener("click", () => {
       estado.modo = m;
       renderModos();
@@ -607,19 +722,20 @@ function renderResultados() {
   lista.innerHTML = "";
   const alguna = estado.rutas.some((r) => r.estimada);
   hint.textContent =
-    `${estado.modo.icon} ${estado.modo.nombre} · hacia ${estado.destino.nombre}` +
-    (alguna ? " · (algunas rutas son estimadas por falta de conexión al ruteador)" : "");
+    `${estado.modo.icon} ${t(estado.modo.nombre)} · ${ui("hacia")} ${estado.destino.nombre}` +
+    (alguna ? " · " + ui("estimadas") : "");
   estado.rutas.forEach((r, i) => {
+    const nombre = ui(r.nombreKey) + (r.estimada ? ` (${ui("estimada_short")})` : "");
     const card = document.createElement("div");
     card.className = "ruta-card" + (r.tipo === "escenica" ? " escenica" : "");
     card.innerHTML = `
-      <div class="titulo">${r.nombre}
-        <span class="ruta-tag ${r.tipo === "escenica" ? "escenica" : ""}">${r.tag}</span></div>
+      <div class="titulo">${nombre}
+        <span class="ruta-tag ${r.tipo === "escenica" ? "escenica" : ""}">${ui(r.tagKey)}</span></div>
       <div class="datos">
-        <div class="dato"><b>${r.distancia.toFixed(1)}</b><small>km</small></div>
-        <div class="dato"><b>${fmtDuracion(r.duracion)}</b><small>tiempo est.</small></div>
+        <div class="dato"><b>${r.distancia.toFixed(1)}</b><small>${ui("km")}</small></div>
+        <div class="dato"><b>${fmtDuracion(r.duracion)}</b><small>${ui("tiempo")}</small></div>
       </div>
-      ${r.via ? `<div class="via">✨ Pasás por: ${r.via}</div>` : ""}`;
+      ${r.via ? `<div class="via">✨ ${ui("pasas_por")}: ${r.via}</div>` : ""}`;
     card.addEventListener("click", () => dibujarRuta(i));
     lista.appendChild(card);
   });
@@ -636,17 +752,82 @@ function mostrarLoader(mostrar, texto) {
 }
 
 // =====================================================================
+//  PAÍS E IDIOMA
+// =====================================================================
+function renderPaisSelector() {
+  const cont = document.getElementById("pais-selector");
+  cont.innerHTML = "";
+  PAISES.forEach((pa) => {
+    const el = document.createElement("button");
+    el.type = "button";
+    el.className = "pais-btn" + (pa.id === estado.pais ? " activo" : "");
+    el.innerHTML = `<span class="pais-flag">${pa.flag}</span>${t(pa.nombre)}`;
+    el.addEventListener("click", () => seleccionarPais(pa.id));
+    cont.appendChild(el);
+  });
+}
+
+function seleccionarPais(id) {
+  if (id === estado.pais) return;
+  estado.pais = id;
+  estado.localidad = null;
+  estado.destino = null;
+  estado.rutas = [];
+  capaRutas.clearLayers();
+  capaPines.clearLayers();
+  if (marcadorOrigen) capaPines.addLayer(marcadorOrigen);
+  document.getElementById("resultados").classList.add("hidden");
+  const pa = PAISES.find((p) => p.id === id);
+  if (pa) map.setView(pa.center, pa.zoom);
+  renderPaisSelector();
+  renderDropdownLocalidad();
+  renderDropdownDestino();
+  actualizarBotonCrear();
+}
+
+function toggleIdioma() {
+  estado.idioma = estado.idioma === "es" ? "en" : "es";
+  localStorage.setItem("idioma", estado.idioma);
+  aplicarIdioma();
+}
+
+function aplicarIdioma() {
+  document.documentElement.lang = estado.idioma;
+  // Textos estáticos marcados con data-i18n.
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    el.textContent = ui(el.dataset.i18n);
+  });
+  // El botón de idioma muestra el idioma al que se cambia.
+  const lb = document.getElementById("lang-toggle");
+  if (lb) lb.textContent = estado.idioma === "es" ? "EN" : "ES";
+  // Botón de ubicación (si no fue usado) y hint de origen.
+  const bu = document.getElementById("btn-ubicacion");
+  if (bu && !bu.classList.contains("ok")) bu.textContent = ui("usar_ubicacion");
+  const oe = document.getElementById("origen-estado");
+  if (oe && !estado.origen) oe.textContent = ui("origen_hint");
+  // Re-render de todo lo dinámico.
+  renderPaisSelector();
+  renderChips();
+  renderModos();
+  renderDropdownLocalidad();
+  renderDropdownDestino();
+  dibujarPines();
+  if (estado.rutas.length && estado.destino) renderResultados();
+}
+
+// =====================================================================
 //  ARRANQUE
 // =====================================================================
 function main() {
+  estado.idioma = idiomaActual();
   aplicarTema(temaActual());
   initMapa();
-  renderChips();
-  renderDropdownLocalidad();
-  renderDropdownDestino();
-  renderModos();
+  const pa = PAISES.find((p) => p.id === estado.pais);
+  if (pa) map.setView(pa.center, pa.zoom);
+  aplicarIdioma(); // renderiza país, chips, modos, dropdowns y textos
 
   document.getElementById("theme-toggle").addEventListener("click", toggleTema);
+  document.getElementById("lang-toggle").addEventListener("click", toggleIdioma);
   document.getElementById("btn-ubicacion").addEventListener("click", usarGeolocalizacion);
   document.getElementById("btn-crear").addEventListener("click", crearRutas);
   document.addEventListener("click", () => cerrarDropdowns(null));
