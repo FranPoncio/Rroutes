@@ -7029,6 +7029,1353 @@ const LOCALIDADES_NZ = [
       ),
     ],
   },
+
+  // ---------- WANAKA (Isla Sur) ----------
+  {
+    id: "wanaka",
+    nombre: "Wanaka",
+    provincia: ISLA_SUR,
+    center: [-44.7, 169.15],
+    zoom: 11,
+    eventos: {
+      nombre: { es: "Agenda de Wanaka", en: "Wanaka what's on" },
+      lat: -44.7,
+      lng: 169.15,
+      img: "Lake_Wanaka.jpg",
+      url: "https://www.lakewanaka.co.nz/",
+      sinopsis: {
+        es: "Pueblo tranquilo junto a un lago alpino, alternativa relajada a Queenstown; su agenda suma festivales de arte, cine y deportes de montaña.",
+        en: "A laid-back alpine-lake town, the relaxed alternative to Queenstown; its calendar features art, film and mountain-sport events.",
+      },
+    },
+    puntos: [
+      PN(
+        "that-wanaka-tree",
+        "#ThatWanakaTree",
+        ["Ícono", "Icon"],
+        "paseo",
+        -44.698,
+        169.142,
+        "Lake_Wanaka.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el centro.", "Walk from town."],
+        [
+          "El sauce solitario que crece dentro del lago, probablemente el árbol más fotografiado del país.",
+          "The lone willow growing in the lake — probably the most photographed tree in the country.",
+        ]
+      ),
+      PN(
+        "roys-peak",
+        "Roys Peak",
+        ["Trekking", "Hike"],
+        "trekking",
+        -44.64,
+        169.07,
+        "Roys_Peak.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~10 min) + trekking.", "Car (~10 min) + hike."],
+        [
+          "Ascenso exigente de 16 km a un mirador de postal sobre el lago y el monte Aspiring.",
+          "A tough 16 km climb to a postcard lookout over the lake and Mount Aspiring.",
+        ]
+      ),
+      PN(
+        "puzzling-world",
+        "Puzzling World",
+        ["Atracción", "Attraction"],
+        "paseo",
+        -44.69,
+        169.17,
+        "Wanaka_New_Zealand.jpg",
+        ["NZ$ ~25", "NZ$ ~25"],
+        ["Auto / bus.", "Car / bus."],
+        [
+          "Laberinto e ilusiones ópticas, un clásico familiar a la entrada del pueblo.",
+          "A giant maze and optical-illusion rooms, a family classic at the edge of town.",
+        ]
+      ),
+      PN(
+        "rob-roy-glacier",
+        "Rob Roy Glacier Track",
+        ["Trekking", "Hike"],
+        "trekking",
+        -44.53,
+        168.74,
+        "Mount_Aspiring_National_Park.jpg",
+        ["Gratis", "Free"],
+        ["Auto (ripio) + trekking.", "Car (gravel) + hike."],
+        [
+          "Caminata por el valle Matukituki hasta un glaciar colgante y cascadas.",
+          "A walk up the Matukituki Valley to a hanging glacier and waterfalls.",
+        ]
+      ),
+      PN(
+        "mount-iron",
+        "Mount Iron",
+        ["Mirador", "Lookout"],
+        "trekking",
+        -44.69,
+        169.16,
+        "Wanaka_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el centro.", "Walk from town."],
+        [
+          "Colina de ascenso corto con vista de 360° del lago y las montañas.",
+          "A short-climb hill with a 360° view of the lake and mountains.",
+        ]
+      ),
+      PN(
+        "blue-pools",
+        "Blue Pools (Haast Pass)",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -44.17,
+        169.28,
+        "Mount_Aspiring_National_Park.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~1 h).", "Car (~1 h)."],
+        [
+          "Pozas de agua glaciar de un azul increíble, tras un paseo por bosque nativo.",
+          "Incredibly blue glacier-fed pools, reached by a short native-forest walk.",
+        ]
+      ),
+      PN(
+        "diamond-lake",
+        "Diamond Lake & Rocky Mountain",
+        ["Trekking", "Hike"],
+        "trekking",
+        -44.68,
+        169.07,
+        "Lake_Wanaka.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~15 min).", "Car (~15 min)."],
+        [
+          "Circuito con miradores escalonados sobre el lago Wanaka y un lago pequeño.",
+          "A loop with tiered lookouts over Lake Wanaka and a small tarn.",
+        ]
+      ),
+      PN(
+        "rippon",
+        "Rippon Vineyard",
+        ["Bodega", "Winery"],
+        "gastronomia",
+        -44.7,
+        169.12,
+        "Lake_Wanaka.jpg",
+        ["Degustaciones", "Tastings"],
+        ["Auto / bici.", "Car / bike."],
+        [
+          "Viñedo biodinámico con una de las vistas de bodega más bellas del mundo.",
+          "A biodynamic vineyard with one of the world's most beautiful cellar-door views.",
+        ]
+      ),
+      PN(
+        "cardrona-hotel",
+        "Cardrona Hotel & Bra Fence",
+        ["Histórico", "Historic"],
+        "historico",
+        -44.86,
+        168.95,
+        "Cardrona_Hotel.jpg",
+        ["Consumición", "Pay as you go"],
+        ["Auto (~25 min).", "Car (~25 min)."],
+        [
+          "Hotel de la fiebre del oro de 1863 y la curiosa 'reja de corpiños' en el camino.",
+          "An 1863 gold-rush hotel and the quirky roadside 'Bra Fence' nearby.",
+        ]
+      ),
+      PN(
+        "lake-hawea",
+        "Lago Hāwea",
+        ["Lago", "Lake"],
+        "naturaleza",
+        -44.61,
+        169.25,
+        "Lake_Hawea.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~15 min).", "Car (~15 min)."],
+        [
+          "Lago vecino de aguas profundas azules, más tranquilo que Wanaka.",
+          "A neighbouring deep-blue lake, quieter than Wanaka itself.",
+        ]
+      ),
+      PN(
+        "glendhu-bay",
+        "Glendhu Bay",
+        ["Playa y camping", "Beach & camp"],
+        "playa",
+        -44.68,
+        169.08,
+        "Lake_Wanaka.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~15 min).", "Car (~15 min)."],
+        [
+          "Bahía del lago con playa de guijarros y camping frente al monte Aspiring.",
+          "A lakeside bay with a pebble beach and campground facing Mount Aspiring.",
+        ]
+      ),
+      PN(
+        "isthmus-peak",
+        "Isthmus Peak",
+        ["Trekking", "Hike"],
+        "trekking",
+        -44.51,
+        169.22,
+        "Lake_Hawea.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~25 min) + trekking.", "Car (~25 min) + hike."],
+        [
+          "Cima entre los lagos Wanaka y Hāwea, con vistas a ambos a la vez.",
+          "A summit between Lakes Wanaka and Hāwea, with views of both at once.",
+        ]
+      ),
+      PN(
+        "wanaka-lavender",
+        "Wanaka Lavender Farm",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -44.67,
+        169.19,
+        "Wanaka_New_Zealand.jpg",
+        ["NZ$ ~10", "NZ$ ~10"],
+        ["Auto / bici.", "Car / bike."],
+        [
+          "Granja de lavanda con animales y café, con las montañas de fondo.",
+          "A lavender farm with animals and a café, framed by the mountains.",
+        ]
+      ),
+      PN(
+        "warbirds-wheels",
+        "Warbirds & Wheels",
+        ["Museo", "Museum"],
+        "museo",
+        -44.72,
+        169.25,
+        "Wanaka_New_Zealand.jpg",
+        ["NZ$ ~25", "NZ$ ~25"],
+        ["Junto al aeropuerto.", "By the airport."],
+        [
+          "Museo de aviones de guerra y autos clásicos, sede del show aéreo Warbirds.",
+          "A museum of warplanes and classic cars, home of the Warbirds air show.",
+        ]
+      ),
+      PN(
+        "wanaka-lakefront",
+        "Wanaka Lakefront",
+        ["Paseo", "Waterfront"],
+        "paseo",
+        -44.7,
+        169.148,
+        "Lake_Wanaka.jpg",
+        ["Gratis", "Free"],
+        ["En el centro.", "In town."],
+        [
+          "Costanera del lago con cafés, kayak y atardeceres sobre las montañas.",
+          "A lakeside promenade with cafés, kayaking and mountain sunsets.",
+        ]
+      ),
+      PN(
+        "mou-waho",
+        "Isla Mou Waho",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -44.62,
+        169.06,
+        "Lake_Wanaka.jpg",
+        ["Excursión arancelada", "Paid cruise"],
+        ["Barco desde el centro.", "Boat from town."],
+        [
+          "Isla-reserva en el lago con un lago propio en su cima y wekas curiosos.",
+          "An island reserve with a lake atop it and curious weka birds.",
+        ]
+      ),
+    ],
+  },
+
+  // ---------- GLACIARES / FRANZ JOSEF & FOX (Isla Sur) ----------
+  {
+    id: "glaciares",
+    nombre: "Franz Josef y Fox (glaciares)",
+    provincia: ISLA_SUR,
+    center: [-43.4, 170.15],
+    zoom: 10,
+    eventos: {
+      nombre: { es: "Info de Glacier Country", en: "Glacier Country info" },
+      lat: -43.39,
+      lng: 170.18,
+      img: "Franz_Josef_Glacier.jpg",
+      url: "https://www.westcoast.co.nz/",
+      sinopsis: {
+        es: "Dos glaciares que descienden casi hasta la selva templada, en la salvaje Costa Oeste; base de vuelos panorámicos y caminatas sobre el hielo.",
+        en: "Two glaciers that flow almost into temperate rainforest on the wild West Coast; a base for scenic flights and glacier hikes.",
+      },
+    },
+    puntos: [
+      PN(
+        "franz-josef",
+        "Glaciar Franz Josef",
+        ["Glaciar", "Glacier"],
+        "naturaleza",
+        -43.466,
+        170.19,
+        "Franz_Josef_Glacier.jpg",
+        ["Sendero al mirador gratis", "Valley walk free"],
+        ["Auto + caminata al mirador.", "Car + walk to the viewpoint."],
+        [
+          "Glaciar de rápido movimiento que baja entre selva; el mirador del valle es gratis.",
+          "A fast-moving glacier descending through rainforest; the valley viewpoint is free.",
+        ]
+      ),
+      PN(
+        "fox-glacier",
+        "Glaciar Fox",
+        ["Glaciar", "Glacier"],
+        "naturaleza",
+        -43.53,
+        170.1,
+        "Fox_Glacier.jpg",
+        ["Sendero gratis", "Valley walk free"],
+        ["Auto + caminata.", "Car + walk."],
+        [
+          "El glaciar gemelo, algo más largo, con un sendero al frente entre la selva.",
+          "The twin glacier, a little longer, with a valley walk to its terminal face.",
+        ]
+      ),
+      PN(
+        "lake-matheson",
+        "Lake Matheson",
+        ["Mirador", "Lookout"],
+        "naturaleza",
+        -43.45,
+        169.96,
+        "Lake_Matheson.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~5 min de Fox).", "Car (~5 min from Fox)."],
+        [
+          "El 'lago espejo' que refleja el Aoraki/Mount Cook y el Tasman al amanecer.",
+          "The 'mirror lake' reflecting Aoraki/Mount Cook and Mount Tasman at dawn.",
+        ]
+      ),
+      PN(
+        "heli-hike-franz",
+        "Heli-hike Franz Josef",
+        ["Aventura", "Adventure"],
+        "trekking",
+        -43.466,
+        170.191,
+        "Franz_Josef_Glacier.jpg",
+        ["~NZ$ 600", "~NZ$ 600"],
+        ["Desde el pueblo.", "From the township."],
+        [
+          "Helicóptero al hielo superior para caminar entre grietas y cuevas azules.",
+          "A helicopter onto the upper ice to walk among crevasses and blue caves.",
+        ]
+      ),
+      PN(
+        "glacier-hot-pools",
+        "Glacier Hot Pools",
+        ["Termas", "Hot pools"],
+        "paseo",
+        -43.39,
+        170.181,
+        "Franz_Josef_Glacier.jpg",
+        ["~NZ$ 35", "~NZ$ 35"],
+        ["En Franz Josef pueblo.", "In Franz Josef township."],
+        [
+          "Piletas termales rodeadas de selva, ideales tras un día de glaciar.",
+          "Hot pools set in the rainforest, perfect after a day on the ice.",
+        ]
+      ),
+      PN(
+        "okarito",
+        "Laguna Okarito",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -43.24,
+        170.17,
+        "Okarito_Lagoon.jpg",
+        ["Kayak arancelado", "Paid kayak"],
+        ["Auto (~25 min).", "Car (~25 min)."],
+        [
+          "El mayor humedal costero del país, hogar de la garza blanca (kōtuku) y el kiwi rowi.",
+          "The country's largest coastal wetland, home to the white heron and rowi kiwi.",
+        ]
+      ),
+      PN(
+        "west-coast-wildlife",
+        "West Coast Wildlife Centre",
+        ["Naturaleza", "Wildlife"],
+        "naturaleza",
+        -43.39,
+        170.18,
+        "Franz_Josef_Glacier.jpg",
+        ["~NZ$ 40", "~NZ$ 40"],
+        ["En Franz Josef pueblo.", "In Franz Josef township."],
+        [
+          "Centro de cría de los kiwis más raros del mundo, el rowi y el Haast tokoeka.",
+          "A breeding centre for the world's rarest kiwi, the rowi and Haast tokoeka.",
+        ]
+      ),
+      PN(
+        "roberts-point",
+        "Roberts Point Track",
+        ["Trekking", "Hike"],
+        "trekking",
+        -43.44,
+        170.16,
+        "Franz_Josef_Glacier.jpg",
+        ["Gratis", "Free"],
+        ["Desde el valle del glaciar.", "From the glacier valley."],
+        [
+          "Sendero exigente con puentes colgantes a un mirador cara a cara con el Franz Josef.",
+          "A challenging track with swing bridges to a lookout facing the Franz Josef.",
+        ]
+      ),
+      PN(
+        "lake-mapourika",
+        "Lake Mapourika",
+        ["Lago", "Lake"],
+        "naturaleza",
+        -43.33,
+        170.21,
+        "Franz_Josef_Glacier.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~10 min).", "Car (~10 min)."],
+        [
+          "Lago oscuro que refleja la selva y las montañas, ideal para kayak al amanecer.",
+          "A dark lake mirroring rainforest and peaks, great for a dawn kayak.",
+        ]
+      ),
+      PN(
+        "gillespies-beach",
+        "Gillespies Beach",
+        ["Playa", "Beach"],
+        "playa",
+        -43.4,
+        169.83,
+        "Fox_Glacier.jpg",
+        ["Gratis", "Free"],
+        ["Auto de ripio (~30 min).", "Gravel road (~30 min)."],
+        [
+          "Playa salvaje de la Costa Oeste con restos de la minería del oro y focas.",
+          "A wild West Coast beach with old gold-mining relics and fur seals.",
+        ]
+      ),
+      PN(
+        "alex-knob",
+        "Alex Knob Track",
+        ["Trekking", "Hike"],
+        "trekking",
+        -43.44,
+        170.15,
+        "Franz_Josef_Glacier.jpg",
+        ["Gratis", "Free"],
+        ["Desde el valle del glaciar.", "From the glacier valley."],
+        [
+          "Ascenso de día completo a un mirador sobre el glaciar, el mar y las montañas.",
+          "A full-day climb to a lookout over the glacier, the sea and the peaks.",
+        ]
+      ),
+      PN(
+        "peters-pool",
+        "Peters Pool",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -43.44,
+        170.18,
+        "Franz_Josef_Glacier.jpg",
+        ["Gratis", "Free"],
+        ["Camino al glaciar.", "On the road to the glacier."],
+        [
+          "Pequeña laguna de kettle que refleja el glaciar Franz Josef en un paseo corto.",
+          "A small kettle pond mirroring the Franz Josef glacier, on a short walk.",
+        ]
+      ),
+      PN(
+        "minnehaha",
+        "Minnehaha Walk",
+        ["Trekking", "Walk"],
+        "trekking",
+        -43.39,
+        170.182,
+        "Franz_Josef_Glacier.jpg",
+        ["Gratis", "Free"],
+        ["En Franz Josef pueblo.", "In Franz Josef township."],
+        [
+          "Paseo nocturno por la selva para ver luciérnagas (glowworms).",
+          "A short night walk through the rainforest to see glowworms.",
+        ]
+      ),
+    ],
+  },
+
+  // ---------- KAIKOURA (Isla Sur) ----------
+  {
+    id: "kaikoura",
+    nombre: "Kaikōura",
+    provincia: ISLA_SUR,
+    center: [-42.4, 173.68],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Agenda de Kaikōura", en: "Kaikōura what's on" },
+      lat: -42.4,
+      lng: 173.68,
+      img: "Kaikoura_New_Zealand.jpg",
+      url: "https://www.kaikoura.co.nz/",
+      sinopsis: {
+        es: "Pueblo costero donde las montañas caen al mar; capital del avistaje de ballenas, delfines y focas todo el año.",
+        en: "A coastal town where the mountains meet the sea; the capital of whale, dolphin and seal watching year-round.",
+      },
+    },
+    puntos: [
+      PN(
+        "whale-watch",
+        "Avistaje de ballenas",
+        ["Naturaleza", "Wildlife"],
+        "naturaleza",
+        -42.42,
+        173.7,
+        "Kaikoura_New_Zealand.jpg",
+        ["~NZ$ 165", "~NZ$ 165"],
+        ["Desde el centro / South Bay.", "From town / South Bay."],
+        [
+          "Cachalotes residentes todo el año gracias a un cañón submarino frente a la costa.",
+          "Resident sperm whales all year, thanks to a deep undersea canyon just offshore.",
+        ]
+      ),
+      PN(
+        "point-kean-seals",
+        "Point Kean Seal Colony",
+        ["Fauna", "Wildlife"],
+        "naturaleza",
+        -42.425,
+        173.705,
+        "Kaikoura_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el centro.", "Walk from town."],
+        [
+          "Colonia de lobos marinos que descansan sobre las rocas al final de la península.",
+          "A fur-seal colony lounging on the rocks at the tip of the peninsula.",
+        ]
+      ),
+      PN(
+        "peninsula-walkway",
+        "Kaikōura Peninsula Walkway",
+        ["Trekking", "Hike"],
+        "trekking",
+        -42.43,
+        173.69,
+        "Kaikoura_Peninsula.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el centro.", "Walk from town."],
+        [
+          "Circuito costero por acantilados con focas, aves marinas y vistas de las montañas.",
+          "A clifftop coastal loop with seals, seabirds and mountain views.",
+        ]
+      ),
+      PN(
+        "ohau-waterfall",
+        "Ohau Stream Waterfall",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -42.24,
+        173.5,
+        "Kaikoura_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~25 min al norte).", "Car (~25 min north)."],
+        [
+          "Cascada donde, en primavera, juegan las crías de lobo marino en la poza.",
+          "A waterfall where, in spring, fur-seal pups play in the plunge pool.",
+        ]
+      ),
+      PN(
+        "fyffe-house",
+        "Fyffe House",
+        ["Histórico", "Historic"],
+        "historico",
+        -42.41,
+        173.69,
+        "Kaikoura_New_Zealand.jpg",
+        ["~NZ$ 15", "~NZ$ 15"],
+        ["A pie desde el centro.", "Walk from town."],
+        [
+          "La casa más antigua de Kaikōura (1842), sobre cimientos de huesos de ballena.",
+          "Kaikōura's oldest house (1842), built on whale-bone foundations.",
+        ]
+      ),
+      PN(
+        "mt-fyffe",
+        "Mount Fyffe",
+        ["Trekking", "Hike"],
+        "trekking",
+        -42.34,
+        173.62,
+        "Kaikoura_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Auto + trekking.", "Car + hike."],
+        [
+          "Ascenso a 1.602 m con vista del mar, la península y los Alpes del Sur.",
+          "A climb to 1,602 m with views of the sea, the peninsula and the Southern Alps.",
+        ]
+      ),
+      PN(
+        "swim-dolphins",
+        "Nado con delfines",
+        ["Naturaleza", "Wildlife"],
+        "naturaleza",
+        -42.4,
+        173.681,
+        "Kaikoura_New_Zealand.jpg",
+        ["~NZ$ 220", "~NZ$ 220"],
+        ["Desde el centro.", "From town."],
+        [
+          "Encuentro con enormes cardúmenes de delfines oscuros en mar abierto.",
+          "An encounter with huge pods of dusky dolphins in the open sea.",
+        ]
+      ),
+      PN(
+        "esplanade-kaikoura",
+        "Costanera de Kaikōura",
+        ["Paseo", "Waterfront"],
+        "paseo",
+        -42.4,
+        173.68,
+        "Kaikoura_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["En el centro.", "In town."],
+        [
+          "Paseo frente al mar con cafés, arte y las montañas nevadas de fondo.",
+          "A seafront promenade with cafés, art and snow-capped mountains behind.",
+        ]
+      ),
+      PN(
+        "maori-leap-cave",
+        "Maori Leap Cave",
+        ["Cuevas", "Caves"],
+        "naturaleza",
+        -42.43,
+        173.66,
+        "Kaikoura_New_Zealand.jpg",
+        ["~NZ$ 20", "~NZ$ 20"],
+        ["Auto (~5 min al sur).", "Car (~5 min south)."],
+        [
+          "Cueva de piedra caliza marina con estalactitas, formada por el mar.",
+          "A sea-formed limestone cave with stalactites, just south of town.",
+        ]
+      ),
+      PN(
+        "south-bay",
+        "South Bay",
+        ["Playa", "Beach"],
+        "playa",
+        -42.43,
+        173.67,
+        "Kaikoura_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Auto / a pie.", "Car / walk."],
+        [
+          "Bahía de pescadores y punto de salida de muchas excursiones marinas.",
+          "A fishing bay and departure point for many marine trips.",
+        ]
+      ),
+      PN(
+        "nins-bin",
+        "Nin's Bin (langosta)",
+        ["Gastronomía", "Food"],
+        "gastronomia",
+        -42.25,
+        173.52,
+        "Kaikoura_New_Zealand.jpg",
+        ["Consumición", "Pay as you go"],
+        ["Auto al norte por la SH1.", "Car north on SH1."],
+        [
+          "Legendario puesto de langosta (crayfish) al costado de la ruta, frente al mar.",
+          "A legendary roadside crayfish caravan right by the sea.",
+        ]
+      ),
+      PN(
+        "lavendyl",
+        "Lavendyl Lavender Farm",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -42.38,
+        173.64,
+        "Kaikoura_New_Zealand.jpg",
+        ["~NZ$ 5", "~NZ$ 5"],
+        ["Auto (~5 min).", "Car (~5 min)."],
+        [
+          "Granja de lavanda orgánica con las montañas de Kaikōura de telón.",
+          "An organic lavender farm backed by the Kaikōura mountains.",
+        ]
+      ),
+    ],
+  },
+
+  // ---------- DUNEDIN (Isla Sur) ----------
+  {
+    id: "dunedin",
+    nombre: "Dunedin",
+    provincia: ISLA_SUR,
+    center: [-45.8788, 170.5028],
+    zoom: 13,
+    eventos: {
+      nombre: { es: "Agenda de Dunedin", en: "Dunedin what's on" },
+      lat: -45.8788,
+      lng: 170.5028,
+      img: "Dunedin_Railway_Station.jpg",
+      url: "https://www.dunedinnz.com/",
+      sinopsis: {
+        es: "La 'Edimburgo del Sur', ciudad universitaria de herencia escocesa y vida silvestre única en su península.",
+        en: "The 'Edinburgh of the South', a Scottish-heritage university city with unique wildlife on its peninsula.",
+      },
+    },
+    puntos: [
+      PN(
+        "larnach-castle",
+        "Larnach Castle",
+        ["Histórico", "Historic"],
+        "historico",
+        -45.84,
+        170.63,
+        "Larnach_Castle.jpg",
+        ["~NZ$ 40", "~NZ$ 40"],
+        ["Auto por la península.", "Car on the peninsula."],
+        [
+          "El único 'castillo' del país (1871), con jardines destacados y vista al puerto.",
+          "The country's only 'castle' (1871), with acclaimed gardens and harbour views.",
+        ]
+      ),
+      PN(
+        "baldwin-street",
+        "Baldwin Street",
+        ["Ícono", "Icon"],
+        "paseo",
+        -45.858,
+        170.534,
+        "Baldwin_Street_Dunedin.jpg",
+        ["Gratis", "Free"],
+        ["Bus / auto.", "Bus / car."],
+        [
+          "La calle residencial más empinada del mundo según el Guinness.",
+          "The world's steepest residential street, per Guinness World Records.",
+        ]
+      ),
+      PN(
+        "railway-station",
+        "Dunedin Railway Station",
+        ["Histórico", "Historic"],
+        "historico",
+        -45.875,
+        170.51,
+        "Dunedin_Railway_Station.jpg",
+        ["Gratis", "Free"],
+        ["Centro, a pie.", "City centre, on foot."],
+        [
+          "Estación eduardiana de 1906, el edificio más fotografiado del país.",
+          "A grand 1906 Edwardian station, the most photographed building in the country.",
+        ]
+      ),
+      PN(
+        "otago-peninsula",
+        "Península de Otago (albatros)",
+        ["Fauna", "Wildlife"],
+        "naturaleza",
+        -45.77,
+        170.72,
+        "Otago_Peninsula.jpg",
+        ["Reserva arancelada", "Paid reserve"],
+        ["Auto (~30 min).", "Car (~30 min)."],
+        [
+          "Única colonia continental de albatros reales del mundo, en Taiaroa Head.",
+          "The world's only mainland royal albatross colony, at Taiaroa Head.",
+        ]
+      ),
+      PN(
+        "tunnel-beach",
+        "Tunnel Beach",
+        ["Trekking y playa", "Hike & beach"],
+        "trekking",
+        -45.91,
+        170.47,
+        "Dunedin_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Auto + caminata.", "Car + walk."],
+        [
+          "Sendero por acantilados a una playa oculta por un túnel tallado a mano en 1870.",
+          "A cliff walk to a beach reached through a tunnel hand-cut into the rock in the 1870s.",
+        ]
+      ),
+      PN(
+        "st-clair",
+        "Playa St Clair",
+        ["Playa", "Beach"],
+        "playa",
+        -45.913,
+        170.488,
+        "Dunedin_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Bus a St Clair.", "Bus to St Clair."],
+        [
+          "Playa de surf con paseo, piscina de agua salada y cafés.",
+          "A surf beach with an esplanade, a saltwater pool and cafés.",
+        ]
+      ),
+      PN(
+        "otago-museum",
+        "Otago Museum",
+        ["Museo", "Museum"],
+        "museo",
+        -45.866,
+        170.514,
+        "Dunedin_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Cerca de la universidad.", "Near the university."],
+        [
+          "Museo de naturaleza y culturas del Pacífico con un tropical de mariposas.",
+          "A nature and Pacific-cultures museum with a tropical butterfly house.",
+        ]
+      ),
+      PN(
+        "toitu",
+        "Toitū Otago Settlers Museum",
+        ["Museo", "Museum"],
+        "museo",
+        -45.876,
+        170.503,
+        "Dunedin_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Centro, a pie.", "City centre, on foot."],
+        [
+          "Museo de historia social sobre los colonos, en un edificio art déco.",
+          "A social-history museum about the settlers, in an art-deco building.",
+        ]
+      ),
+      PN(
+        "sandfly-bay",
+        "Sandfly Bay",
+        ["Fauna", "Wildlife"],
+        "naturaleza",
+        -45.89,
+        170.64,
+        "Otago_Peninsula.jpg",
+        ["Gratis", "Free"],
+        ["Auto + caminata por dunas.", "Car + walk over dunes."],
+        [
+          "Playa de grandes dunas con lobos marinos y pingüinos de ojo amarillo.",
+          "A big-dune beach with fur seals and rare yellow-eyed penguins.",
+        ]
+      ),
+      PN(
+        "olveston",
+        "Olveston Historic Home",
+        ["Museo", "Museum"],
+        "museo",
+        -45.865,
+        170.498,
+        "Dunedin_New_Zealand.jpg",
+        ["~NZ$ 25", "~NZ$ 25"],
+        ["A pie desde el centro.", "Walk from the city."],
+        [
+          "Mansión eduardiana de 1906 conservada intacta con su mobiliario original.",
+          "A 1906 Edwardian mansion preserved intact with its original furnishings.",
+        ]
+      ),
+      PN(
+        "speights",
+        "Speight's Brewery",
+        ["Gastronomía", "Brewery"],
+        "gastronomia",
+        -45.877,
+        170.5,
+        "Dunedin_New_Zealand.jpg",
+        ["Tour ~NZ$ 35", "Tour ~NZ$ 35"],
+        ["Centro, a pie.", "City centre, on foot."],
+        [
+          "Cervecería histórica de 1876, un ícono de la identidad del sur.",
+          "A historic 1876 brewery, an icon of southern identity.",
+        ]
+      ),
+      PN(
+        "signal-hill",
+        "Signal Hill Lookout",
+        ["Mirador", "Lookout"],
+        "naturaleza",
+        -45.86,
+        170.53,
+        "Dunedin_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Auto.", "Car."],
+        [
+          "Mirador con un monumento del centenario y vista de la ciudad y el puerto.",
+          "A lookout with a centennial monument and views over the city and harbour.",
+        ]
+      ),
+      PN(
+        "moeraki",
+        "Moeraki Boulders",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -45.345,
+        170.826,
+        "Moeraki_Boulders.jpg",
+        ["Gratis (café aparte)", "Free (café koha)"],
+        ["Auto (~1 h al norte).", "Car (~1 h north)."],
+        [
+          "Enormes rocas esféricas casi perfectas dispersas sobre una playa.",
+          "Huge, almost perfectly spherical boulders scattered along a beach.",
+        ]
+      ),
+      PN(
+        "botanic-garden-dun",
+        "Dunedin Botanic Garden",
+        ["Jardín", "Gardens"],
+        "naturaleza",
+        -45.856,
+        170.518,
+        "Dunedin_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Bus / a pie.", "Bus / walk."],
+        [
+          "El jardín botánico más antiguo del país (1863), con un aviario nativo.",
+          "The country's oldest botanic garden (1863), with a native bird aviary.",
+        ]
+      ),
+    ],
+  },
+
+  // ---------- TAUPŌ (Isla Norte) ----------
+  {
+    id: "taupo",
+    nombre: "Taupō",
+    provincia: ISLA_NORTE,
+    center: [-38.6857, 176.0702],
+    zoom: 11,
+    eventos: {
+      nombre: { es: "Agenda de Taupō", en: "Taupō what's on" },
+      lat: -38.6857,
+      lng: 176.0702,
+      img: "Lake_Taupo.jpg",
+      url: "https://www.lovetaupo.com/",
+      sinopsis: {
+        es: "A orillas del mayor lago del país (una caldera volcánica); base del Tongariro Crossing y de aventuras geotermales y acuáticas.",
+        en: "On the shore of the country's largest lake (a volcanic caldera); a base for the Tongariro Crossing and geothermal and water adventures.",
+      },
+    },
+    puntos: [
+      PN(
+        "huka-falls",
+        "Huka Falls",
+        ["Cascada", "Falls"],
+        "naturaleza",
+        -38.649,
+        176.09,
+        "Huka_Falls.jpg",
+        ["Gratis", "Free"],
+        ["Auto / bici / a pie.", "Car / bike / walk."],
+        [
+          "El río Waikato se estrecha y salta con una fuerza turquesa impresionante.",
+          "The Waikato River squeezes through a chasm and bursts out in a turquoise torrent.",
+        ]
+      ),
+      PN(
+        "lake-taupo",
+        "Lago Taupō",
+        ["Lago", "Lake"],
+        "naturaleza",
+        -38.78,
+        175.95,
+        "Lake_Taupo.jpg",
+        ["Gratis", "Free"],
+        ["Costanera del pueblo.", "Town lakefront."],
+        [
+          "Lago del tamaño de Singapur en el cráter de un supervolcán, para navegar y pescar.",
+          "A lake the size of Singapore in a supervolcano crater, for boating and fishing.",
+        ]
+      ),
+      PN(
+        "maori-carvings",
+        "Tallas rupestres de Mine Bay",
+        ["Cultura", "Culture"],
+        "historico",
+        -38.77,
+        175.97,
+        "Lake_Taupo.jpg",
+        ["Excursión arancelada", "Boat trip"],
+        ["Barco o kayak desde el centro.", "Boat or kayak from town."],
+        [
+          "Enormes tallas maoríes de 10 m sobre la roca, solo accesibles desde el agua.",
+          "Huge 10 m Māori rock carvings, only reachable from the water.",
+        ]
+      ),
+      PN(
+        "craters-moon",
+        "Craters of the Moon",
+        ["Geotermal", "Geothermal"],
+        "naturaleza",
+        -38.63,
+        176.07,
+        "Craters_of_the_Moon.jpg",
+        ["~NZ$ 10", "~NZ$ 10"],
+        ["Auto (~10 min).", "Car (~10 min)."],
+        [
+          "Campo geotermal humeante con cráteres de barro, por pasarelas.",
+          "A steaming geothermal field of mud craters, on a boardwalk loop.",
+        ]
+      ),
+      PN(
+        "tongariro-crossing",
+        "Tongariro Alpine Crossing",
+        ["Trekking", "Hike"],
+        "trekking",
+        -39.13,
+        175.65,
+        "Tongariro_Alpine_Crossing.jpg",
+        ["Shuttle arancelado", "Paid shuttle"],
+        ["Transfer desde Taupō (~1 h).", "Shuttle from Taupō (~1 h)."],
+        [
+          "La mejor caminata de un día del país: volcanes activos y lagos color esmeralda.",
+          "The country's best day hike: active volcanoes and emerald crater lakes.",
+        ]
+      ),
+      PN(
+        "aratiatia",
+        "Aratiatia Rapids",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -38.62,
+        176.1,
+        "Huka_Falls.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~10 min).", "Car (~10 min)."],
+        [
+          "Rápidos que se llenan de golpe varias veces al día al abrir la represa.",
+          "Rapids that dramatically fill several times a day when the dam gates open.",
+        ]
+      ),
+      PN(
+        "spa-park",
+        "Spa Thermal Park (Otumuheke)",
+        ["Termas (gratis)", "Hot stream (free)"],
+        "playa",
+        -38.68,
+        176.09,
+        "Taupo_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el centro.", "Walk from town."],
+        [
+          "Arroyo termal gratis que desemboca en el río Waikato, para bañarse.",
+          "A free hot stream flowing into the Waikato River, perfect for a soak.",
+        ]
+      ),
+      PN(
+        "wairakei-terraces",
+        "Wairakei Terraces",
+        ["Geotermal", "Geothermal"],
+        "naturaleza",
+        -38.63,
+        176.1,
+        "Taupo_New_Zealand.jpg",
+        ["~NZ$ 25", "~NZ$ 25"],
+        ["Auto (~10 min).", "Car (~10 min)."],
+        [
+          "Terrazas de sílice reconstruidas y géiseres, con un poblado maorí.",
+          "Recreated silica terraces and geysers, with a Māori village.",
+        ]
+      ),
+      PN(
+        "orakei-korako",
+        "Orakei Korako",
+        ["Geotermal", "Geothermal"],
+        "naturaleza",
+        -38.47,
+        176.14,
+        "Taupo_New_Zealand.jpg",
+        ["~NZ$ 45", "~NZ$ 45"],
+        ["Auto (~30 min).", "Car (~30 min)."],
+        [
+          "Uno de los campos geotermales más bellos y menos visitados, cruzando un lago.",
+          "One of the finest and least-visited geothermal fields, reached across a lake.",
+        ]
+      ),
+      PN(
+        "taupo-lakefront",
+        "Taupō Lakefront",
+        ["Paseo", "Waterfront"],
+        "paseo",
+        -38.6857,
+        176.0702,
+        "Lake_Taupo.jpg",
+        ["Gratis", "Free"],
+        ["En el centro.", "In town."],
+        [
+          "Costanera con playas, cafés y vista a los volcanes del Tongariro.",
+          "A lakefront with beaches, cafés and views to the Tongariro volcanoes.",
+        ]
+      ),
+      PN(
+        "taupo-bungy",
+        "Taupō Bungy & Cliffhanger",
+        ["Aventura", "Adventure"],
+        "trekking",
+        -38.68,
+        176.092,
+        "Taupo_New_Zealand.jpg",
+        ["~NZ$ 169", "~NZ$ 169"],
+        ["A pie / auto.", "Walk / car."],
+        [
+          "Salto bungee de 47 m sobre las aguas turquesas del río Waikato.",
+          "A 47 m bungy over the turquoise waters of the Waikato River.",
+        ]
+      ),
+      PN(
+        "mount-tauhara",
+        "Mount Tauhara",
+        ["Trekking", "Hike"],
+        "trekking",
+        -38.7,
+        176.15,
+        "Taupo_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Auto + trekking.", "Car + hike."],
+        [
+          "Ascenso a un volcán dormido con vista total del lago y la meseta central.",
+          "A climb up a dormant volcano with a full view of the lake and central plateau.",
+        ]
+      ),
+      PN(
+        "kinloch",
+        "Kinloch",
+        ["Playa", "Beach"],
+        "playa",
+        -38.67,
+        175.91,
+        "Lake_Taupo.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~20 min).", "Car (~20 min)."],
+        [
+          "Bahía tranquila del lago con playa y el inicio del sendero W2K.",
+          "A quiet lake bay with a beach and the start of the W2K trail.",
+        ]
+      ),
+    ],
+  },
+
+  // ---------- BAY OF ISLANDS / PAIHIA (Isla Norte) ----------
+  {
+    id: "bayofislands",
+    nombre: "Bay of Islands (Paihia)",
+    provincia: ISLA_NORTE,
+    center: [-35.282, 174.091],
+    zoom: 10,
+    eventos: {
+      nombre: { es: "Agenda de Bay of Islands", en: "Bay of Islands what's on" },
+      lat: -35.282,
+      lng: 174.091,
+      img: "Bay_of_Islands_New_Zealand.jpg",
+      url: "https://www.northlandnz.com/",
+      sinopsis: {
+        es: "144 islas subtropicales cuna de la nación; su agenda combina historia maorí y colonial, náutica y festivales de verano.",
+        en: "144 subtropical islands at the birthplace of the nation; its calendar blends Māori and colonial history, sailing and summer festivals.",
+      },
+    },
+    puntos: [
+      PN(
+        "waitangi",
+        "Waitangi Treaty Grounds",
+        ["Histórico", "Historic"],
+        "historico",
+        -35.265,
+        174.087,
+        "Waitangi_Treaty_Grounds.jpg",
+        ["~NZ$ 60", "~NZ$ 60"],
+        ["A pie / auto desde Paihia.", "Walk / car from Paihia."],
+        [
+          "Donde se firmó en 1840 el Tratado de Waitangi, documento fundacional del país.",
+          "Where the Treaty of Waitangi, the country's founding document, was signed in 1840.",
+        ]
+      ),
+      PN(
+        "hole-in-the-rock",
+        "Hole in the Rock (Motukōkako)",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -35.12,
+        174.34,
+        "Bay_of_Islands_New_Zealand.jpg",
+        ["Crucero ~NZ$ 120", "Cruise ~NZ$ 120"],
+        ["Crucero desde Paihia.", "Cruise from Paihia."],
+        [
+          "Arco natural en una isla por el que pasan los barcos si el mar lo permite.",
+          "A natural sea arch through which boats pass when the swell allows.",
+        ]
+      ),
+      PN(
+        "russell",
+        "Russell (Kororāreka)",
+        ["Pueblo histórico", "Historic town"],
+        "historico",
+        -35.262,
+        174.121,
+        "Russell_New_Zealand.jpg",
+        ["Ferry ~NZ$ 15", "Ferry ~NZ$ 15"],
+        ["Ferry desde Paihia.", "Ferry from Paihia."],
+        [
+          "El primer asentamiento europeo y capital del país, antaño 'el infierno del Pacífico'.",
+          "The first European settlement and former capital, once 'the hell-hole of the Pacific'.",
+        ]
+      ),
+      PN(
+        "paihia-waterfront",
+        "Costanera de Paihia",
+        ["Paseo", "Waterfront"],
+        "paseo",
+        -35.282,
+        174.091,
+        "Bay_of_Islands_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["En el centro.", "In town."],
+        [
+          "El pueblo base de la bahía, con muelle, playas y salida de todos los cruceros.",
+          "The bay's hub town, with a wharf, beaches and departures for all cruises.",
+        ]
+      ),
+      PN(
+        "haruru-falls",
+        "Haruru Falls",
+        ["Cascada", "Falls"],
+        "naturaleza",
+        -35.29,
+        174.06,
+        "Bay_of_Islands_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Auto / sendero desde Waitangi.", "Car / walk from Waitangi."],
+        [
+          "Cascada en herradura unida a Paihia por un sendero entre manglares.",
+          "A horseshoe waterfall linked to Paihia by a mangrove boardwalk trail.",
+        ]
+      ),
+      PN(
+        "cape-reinga",
+        "Cape Reinga",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        -34.429,
+        172.681,
+        "Cape_Reinga.jpg",
+        ["Gratis", "Free"],
+        ["Excursión / auto (largo).", "Tour / car (long drive)."],
+        [
+          "El faro donde se encuentran los mares de Tasman y Pacífico, extremo norte y sitio sagrado.",
+          "The lighthouse where the Tasman and Pacific seas meet — the far north and a sacred site.",
+        ]
+      ),
+      PN(
+        "ninety-mile-beach",
+        "Ninety Mile Beach",
+        ["Playa", "Beach"],
+        "playa",
+        -34.9,
+        173.0,
+        "Ninety_Mile_Beach.jpg",
+        ["Gratis", "Free"],
+        ["Excursión 4x4.", "4WD tour."],
+        [
+          "Interminable playa de arena que es también carretera oficial, con dunas gigantes.",
+          "An endless sandy beach that doubles as an official highway, with giant dunes.",
+        ]
+      ),
+      PN(
+        "kerikeri-mission",
+        "Kerikeri Mission (Stone Store)",
+        ["Histórico", "Historic"],
+        "historico",
+        -35.22,
+        173.95,
+        "Kerikeri_Stone_Store.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~25 min).", "Car (~25 min)."],
+        [
+          "El edificio de piedra más antiguo del país (1832) junto a la casa misionera Kemp.",
+          "The country's oldest stone building (1832), beside the Kemp mission house.",
+        ]
+      ),
+      PN(
+        "rainbow-falls",
+        "Rainbow Falls (Kerikeri)",
+        ["Cascada", "Falls"],
+        "naturaleza",
+        -35.21,
+        173.96,
+        "Bay_of_Islands_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~25 min).", "Car (~25 min)."],
+        [
+          "Cascada de 27 m de caída libre que a menudo forma un arcoíris.",
+          "A 27 m free-falling waterfall that often forms a rainbow.",
+        ]
+      ),
+      PN(
+        "urupukapuka",
+        "Isla Urupukapuka",
+        ["Playa y naturaleza", "Beach & nature"],
+        "playa",
+        -35.22,
+        174.23,
+        "Bay_of_Islands_New_Zealand.jpg",
+        ["Ferry arancelado", "Paid ferry"],
+        ["Ferry desde Paihia.", "Ferry from Paihia."],
+        [
+          "La mayor isla de la bahía, con calas de arena blanca y senderos, libre de predadores.",
+          "The bay's largest island, with white-sand coves, walking tracks and no predators.",
+        ]
+      ),
+      PN(
+        "opua-forest",
+        "Opua Forest",
+        ["Trekking", "Hike"],
+        "trekking",
+        -35.31,
+        174.12,
+        "Bay_of_Islands_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["Sendero desde Paihia.", "Track from Paihia."],
+        [
+          "Bosque nativo con kauris y miradores sobre la bahía, a pasos de Paihia.",
+          "Native forest with kauri trees and bay lookouts, just above Paihia.",
+        ]
+      ),
+      PN(
+        "waitangi-mtb",
+        "Waitangi Mountain Bike Park",
+        ["Aventura", "Adventure"],
+        "trekking",
+        -35.27,
+        174.08,
+        "Bay_of_Islands_New_Zealand.jpg",
+        ["~NZ$ 15", "~NZ$ 15"],
+        ["Auto / bici desde Paihia.", "Car / bike from Paihia."],
+        [
+          "Uno de los mejores parques de mountain bike del norte, entre bosque nativo.",
+          "One of the north's best mountain-bike parks, through native forest.",
+        ]
+      ),
+      PN(
+        "long-beach-russell",
+        "Oneroa (Long Beach)",
+        ["Playa", "Beach"],
+        "playa",
+        -35.25,
+        174.13,
+        "Russell_New_Zealand.jpg",
+        ["Gratis", "Free"],
+        ["A pie / auto desde Russell.", "Walk / car from Russell."],
+        [
+          "Playa protegida de arena blanca a pasos de Russell, ideal para nadar.",
+          "A sheltered white-sand beach a short hop from Russell, great for swimming.",
+        ]
+      ),
+    ],
+  },
 ];
 
 // Países disponibles (para el selector).
