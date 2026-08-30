@@ -13244,6 +13244,1351 @@ const LOCALIDADES_VN2 = [
   },
 ];
 
+// ---------- Vietnam: Ha Long como localidad propia ----------
+const LOCALIDADES_VN3 = [
+  {
+    id: "halong",
+    nombre: "Bahía de Ha Long",
+    provincia: VN_NORTE,
+    center: [20.9101, 107.1839],
+    zoom: 11,
+    eventos: {
+      nombre: { es: "Info de Ha Long", en: "Ha Long info" },
+      lat: 20.9101,
+      lng: 107.1839,
+      img: "Ha_Long_Bay.jpg",
+      url: "https://www.vietnam.travel/places-to-go/northern-vietnam/halong-bay",
+      sinopsis: {
+        es: "Miles de islotes calizos que emergen de un mar esmeralda, Patrimonio de la Humanidad y una de las bahías más famosas del planeta.",
+        en: "Thousands of limestone islets rising from an emerald sea, a World Heritage site and one of the planet's most famous bays.",
+      },
+    },
+    puntos: [
+      PN(
+        "halong-cruise",
+        "Crucero por la bahía",
+        ["Naturaleza", "Cruise"],
+        "naturaleza",
+        20.9101,
+        107.1839,
+        "Ha_Long_Bay.jpg",
+        ["Crucero ~US$ 60+", "Cruise ~US$ 60+"],
+        ["Barco desde el puerto de Ha Long / Tuần Châu.", "Boat from Ha Long / Tuần Châu port."],
+        [
+          "Navegación entre picos calizos y aldeas flotantes, con noche a bordo opcional.",
+          "A cruise among limestone peaks and floating villages, with an optional overnight.",
+        ]
+      ),
+      PN(
+        "sung-sot",
+        "Cueva Sửng Sốt",
+        ["Cuevas", "Cave"],
+        "naturaleza",
+        20.85,
+        107.1,
+        "Ha_Long_Bay.jpg",
+        ["Incluido en el crucero", "Included in cruise"],
+        ["Parada del crucero.", "Cruise stop."],
+        [
+          "La 'cueva de la sorpresa', enorme gruta iluminada con estalactitas.",
+          "The 'Surprise Cave', a huge illuminated grotto of stalactites.",
+        ]
+      ),
+      PN(
+        "ti-top",
+        "Isla Ti Tốp",
+        ["Playa y mirador", "Beach & lookout"],
+        "playa",
+        20.83,
+        107.09,
+        "Ha_Long_Bay.jpg",
+        ["Incluido en el crucero", "Included in cruise"],
+        ["Parada del crucero.", "Cruise stop."],
+        [
+          "Islote con playa y una escalinata a un mirador panorámico de la bahía.",
+          "An islet with a beach and a stairway to a panoramic bay lookout.",
+        ]
+      ),
+      PN(
+        "bai-tu-long",
+        "Bahía de Bái Tử Long",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        20.97,
+        107.35,
+        "Ha_Long_Bay.jpg",
+        ["Crucero", "Cruise"],
+        ["Crucero (menos concurrido).", "Cruise (less crowded)."],
+        [
+          "La bahía vecina, igual de bella pero más tranquila y virgen.",
+          "The neighbouring bay, just as beautiful but quieter and more pristine.",
+        ]
+      ),
+      PN(
+        "cat-ba",
+        "Isla Cát Bà",
+        ["Naturaleza", "Island"],
+        "naturaleza",
+        20.728,
+        107.049,
+        "Ha_Long_Bay.jpg",
+        ["Ferry / bus", "Ferry / bus"],
+        ["Ferry desde Hải Phòng.", "Ferry from Hải Phòng."],
+        [
+          "La mayor isla de la bahía, con parque nacional, playas y trekkings.",
+          "The bay's largest island, with a national park, beaches and hikes.",
+        ]
+      ),
+      PN(
+        "lan-ha",
+        "Bahía de Lan Hạ",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        20.76,
+        107.09,
+        "Ha_Long_Bay.jpg",
+        ["Kayak / crucero", "Kayak / cruise"],
+        ["Desde Cát Bà.", "From Cát Bà."],
+        [
+          "Bahía de aguas turquesas ideal para kayak entre islotes y playas escondidas.",
+          "A turquoise bay ideal for kayaking among islets and hidden beaches.",
+        ]
+      ),
+      PN(
+        "sun-world-halong",
+        "Sun World Ha Long",
+        ["Paseo", "Amusement"],
+        "paseo",
+        20.95,
+        107.07,
+        "Ha_Long_Bay.jpg",
+        ["Arancelado", "Paid"],
+        ["En Bãi Cháy.", "In Bãi Cháy."],
+        [
+          "Teleférico récord, noria gigante y parque acuático sobre la bahía.",
+          "A record cable car, a giant Ferris wheel and a water park over the bay.",
+        ]
+      ),
+      PN(
+        "bai-chay",
+        "Playa Bãi Cháy",
+        ["Playa", "Beach"],
+        "playa",
+        20.95,
+        107.06,
+        "Ha_Long_Bay.jpg",
+        ["Gratis", "Free"],
+        ["En la ciudad de Ha Long.", "In Ha Long city."],
+        [
+          "Playa urbana con paseo marítimo frente a la bahía.",
+          "A city beach with a seaside promenade facing the bay.",
+        ]
+      ),
+      PN(
+        "quang-ninh-museum",
+        "Museo de Quảng Ninh",
+        ["Museo", "Museum"],
+        "museo",
+        20.95,
+        107.09,
+        "Ha_Long_Bay.jpg",
+        ["₫ ~40.000", "₫ ~40,000"],
+        ["En la ciudad de Ha Long.", "In Ha Long city."],
+        [
+          "Moderno museo de vidrio negro sobre la historia minera y marina de la región.",
+          "A sleek black-glass museum on the region's mining and marine history.",
+        ]
+      ),
+      PN(
+        "dau-go",
+        "Cueva Đầu Gỗ",
+        ["Cuevas", "Cave"],
+        "naturaleza",
+        20.91,
+        107.0,
+        "Ha_Long_Bay.jpg",
+        ["Incluido en el crucero", "Included in cruise"],
+        ["Parada del crucero.", "Cruise stop."],
+        [
+          "Amplia cueva histórica donde se ocultaron estacas para vencer a los mongoles.",
+          "A vast historic cave where stakes were hidden to defeat the Mongol fleet.",
+        ]
+      ),
+    ],
+  },
+];
+
+// ---------- Tailandia: más localidades (se lleva la corona) ----------
+const LOCALIDADES_TH3 = [
+  {
+    id: "krabi",
+    nombre: "Krabi",
+    provincia: TH_SUR,
+    center: [8.0863, 98.9063],
+    zoom: 11,
+    eventos: {
+      nombre: { es: "Info de Krabi", en: "Krabi info" },
+      lat: 8.0863,
+      lng: 98.9063,
+      img: "Railay_Beach_Thailand.jpg",
+      url: "https://www.tourismthailand.org/Destinations/Provinces/Krabi/",
+      sinopsis: {
+        es: "Provincia costera de acantilados calizos, playas de postal e islas paradisíacas en el mar de Andamán.",
+        en: "A coastal province of limestone cliffs, postcard beaches and paradise islands in the Andaman Sea.",
+      },
+    },
+    puntos: [
+      PN(
+        "railay",
+        "Playa Railay",
+        ["Playa", "Beach"],
+        "playa",
+        8.011,
+        98.837,
+        "Railay_Beach_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Longtail desde Ao Nang.", "Longtail boat from Ao Nang."],
+        [
+          "Península de acantilados solo accesible en barco, meca de la escalada y de postal.",
+          "A cliff-bound peninsula reachable only by boat, a climbing mecca and picture-perfect.",
+        ]
+      ),
+      PN(
+        "ao-nang",
+        "Ao Nang",
+        ["Paseo", "Beach town"],
+        "playa",
+        8.033,
+        98.821,
+        "Krabi_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Songthaew desde Krabi.", "Songthaew from Krabi town."],
+        [
+          "El pueblo playero principal, base de las excursiones a las islas.",
+          "The main beach town, a base for island-hopping trips.",
+        ]
+      ),
+      PN(
+        "phra-nang",
+        "Playa Phra Nang",
+        ["Playa", "Beach"],
+        "playa",
+        8.005,
+        98.839,
+        "Railay_Beach_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Barco / desde Railay.", "Boat / from Railay."],
+        [
+          "Una de las playas más bellas del mundo, con una cueva-santuario junto al mar.",
+          "One of the world's most beautiful beaches, with a shrine cave by the sea.",
+        ]
+      ),
+      PN(
+        "four-islands",
+        "Tour de las Cuatro Islas",
+        ["Naturaleza", "Islands"],
+        "naturaleza",
+        7.93,
+        98.83,
+        "Krabi_Thailand.jpg",
+        ["Excursión ~฿ 1.200", "Trip ~฿ 1,200"],
+        ["Barco desde Ao Nang.", "Boat from Ao Nang."],
+        [
+          "Excursión a Poda, Chicken, Tup y Phra Nang, con un banco de arena entre islas.",
+          "A trip to Poda, Chicken, Tup and Phra Nang, with a sandbar linking the islands.",
+        ]
+      ),
+      PN(
+        "tiger-cave",
+        "Templo de la Cueva del Tigre",
+        ["Templo y mirador", "Temple & lookout"],
+        "trekking",
+        8.125,
+        98.924,
+        "Krabi_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Songthaew / taxi.", "Songthaew / taxi."],
+        [
+          "1.237 escalones a un templo en la cima con vista de 360° de Krabi.",
+          "1,237 steps to a hilltop temple with a 360° view over Krabi.",
+        ]
+      ),
+      PN(
+        "emerald-pool",
+        "Piscina Esmeralda",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        7.92,
+        99.27,
+        "Krabi_Thailand.jpg",
+        ["฿ ~200", "฿ ~200"],
+        ["Auto / tour (~1 h).", "Car / tour (~1 h)."],
+        [
+          "Poza natural de agua cristalina turquesa en plena selva.",
+          "A natural pool of crystal-clear turquoise water deep in the jungle.",
+        ]
+      ),
+      PN(
+        "hot-springs-krabi",
+        "Cascada de aguas termales",
+        ["Termas", "Hot springs"],
+        "naturaleza",
+        7.91,
+        99.26,
+        "Krabi_Thailand.jpg",
+        ["฿ ~90", "฿ ~90"],
+        ["Auto / tour.", "Car / tour."],
+        [
+          "Cascadas termales que forman piletas naturales de piedra, cerca de la Piscina Esmeralda.",
+          "Thermal falls forming natural stone pools, near the Emerald Pool.",
+        ]
+      ),
+      PN(
+        "koh-hong",
+        "Koh Hong",
+        ["Naturaleza", "Island"],
+        "naturaleza",
+        8.12,
+        98.7,
+        "Krabi_Thailand.jpg",
+        ["Excursión arancelada", "Paid day trip"],
+        ["Lancha desde Ao Nang.", "Speedboat from Ao Nang."],
+        [
+          "Isla con una laguna interior esmeralda rodeada de acantilados.",
+          "An island with an emerald inner lagoon ringed by cliffs.",
+        ]
+      ),
+      PN(
+        "krabi-walking-street",
+        "Krabi Town Walking Street",
+        ["Mercado", "Market"],
+        "gastronomia",
+        8.063,
+        98.917,
+        "Krabi_Thailand.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["En Krabi ciudad (fin de semana).", "In Krabi town (weekends)."],
+        [
+          "Mercado nocturno de fin de semana con street food y música en vivo.",
+          "A weekend night market with street food and live music.",
+        ]
+      ),
+      PN(
+        "thung-teao",
+        "Bosque de Thung Teao",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        7.92,
+        99.26,
+        "Krabi_Thailand.jpg",
+        ["Incluido con la piscina", "Included with pool"],
+        ["Auto / tour.", "Car / tour."],
+        [
+          "Reserva de selva con senderos que llevan a la Piscina Esmeralda y la Blue Pool.",
+          "A rainforest reserve with trails to the Emerald Pool and the Blue Pool.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "kohsamui",
+    nombre: "Koh Samui",
+    provincia: TH_SUR,
+    center: [9.512, 100.0136],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Info de Koh Samui", en: "Koh Samui info" },
+      lat: 9.512,
+      lng: 100.0136,
+      img: "Koh_Samui_Thailand.jpg",
+      url: "https://www.tourismthailand.org/Destinations/Provinces/Surat-Thani/",
+      sinopsis: {
+        es: "La segunda isla más grande del país, de playas de cocoteros y resorts, en el golfo de Tailandia.",
+        en: "The country's second-largest island, of coconut-palm beaches and resorts, in the Gulf of Thailand.",
+      },
+    },
+    puntos: [
+      PN(
+        "chaweng",
+        "Playa Chaweng",
+        ["Playa", "Beach"],
+        "playa",
+        9.534,
+        100.062,
+        "Koh_Samui_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Taxi / songthaew.", "Taxi / songthaew."],
+        [
+          "La playa más larga y animada de la isla, de arena blanca y vida nocturna.",
+          "The island's longest and liveliest beach, of white sand and nightlife.",
+        ]
+      ),
+      PN(
+        "big-buddha-samui",
+        "Big Buddha (Wat Phra Yai)",
+        ["Templo", "Temple"],
+        "historico",
+        9.567,
+        100.062,
+        "Koh_Samui_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Taxi.", "Taxi."],
+        [
+          "Buda dorado de 12 m sobre un islote, visible desde el aire al llegar.",
+          "A 12 m golden Buddha on an islet, visible from the air on arrival.",
+        ]
+      ),
+      PN(
+        "lamai",
+        "Playa Lamai",
+        ["Playa", "Beach"],
+        "playa",
+        9.47,
+        100.05,
+        "Koh_Samui_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Taxi / songthaew.", "Taxi / songthaew."],
+        [
+          "La segunda gran playa, algo más tranquila que Chaweng.",
+          "The second big beach, a little quieter than Chaweng.",
+        ]
+      ),
+      PN(
+        "ang-thong",
+        "Parque Marino Ang Thong",
+        ["Naturaleza", "Marine park"],
+        "naturaleza",
+        9.6,
+        99.67,
+        "Koh_Samui_Thailand.jpg",
+        ["Excursión arancelada", "Paid day trip"],
+        ["Lancha (~1 h).", "Speedboat (~1 h)."],
+        [
+          "42 islas de piedra caliza con una laguna esmeralda escondida, de 'La Playa'.",
+          "42 limestone islands with a hidden emerald lagoon, of 'The Beach' fame.",
+        ]
+      ),
+      PN(
+        "na-muang",
+        "Cascadas Na Muang",
+        ["Cascada", "Falls"],
+        "naturaleza",
+        9.46,
+        99.98,
+        "Koh_Samui_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Taxi.", "Taxi."],
+        [
+          "Dos cascadas en la selva del interior, con piletas para nadar.",
+          "Two jungle waterfalls in the island's interior, with swimming pools.",
+        ]
+      ),
+      PN(
+        "fishermans-village",
+        "Fisherman's Village (Bophut)",
+        ["Paseo", "Old village"],
+        "gastronomia",
+        9.57,
+        100.07,
+        "Koh_Samui_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Taxi.", "Taxi."],
+        [
+          "Casco antiguo de casas de madera chino-tailandesas, con mercado los viernes.",
+          "An old quarter of Sino-Thai wooden houses, with a Friday walking market.",
+        ]
+      ),
+      PN(
+        "hin-ta-hin-yai",
+        "Rocas Hin Ta Hin Yai",
+        ["Naturaleza", "Rocks"],
+        "naturaleza",
+        9.46,
+        100.06,
+        "Koh_Samui_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Taxi.", "Taxi."],
+        [
+          "Curiosas formaciones rocosas 'abuelo y abuela' junto al mar.",
+          "Quirky 'grandfather and grandmother' rock formations by the sea.",
+        ]
+      ),
+      PN(
+        "wat-plai-laem",
+        "Wat Plai Laem",
+        ["Templo", "Temple"],
+        "historico",
+        9.573,
+        100.064,
+        "Koh_Samui_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Taxi.", "Taxi."],
+        [
+          "Templo colorido con una estatua de 18 brazos de la diosa Guanyin sobre un lago.",
+          "A colourful temple with an 18-armed statue of the goddess Guanyin over a lake.",
+        ]
+      ),
+      PN(
+        "koh-tao",
+        "Koh Tao (excursión)",
+        ["Naturaleza", "Island"],
+        "naturaleza",
+        10.0956,
+        99.84,
+        "Koh_Samui_Thailand.jpg",
+        ["Ferry arancelado", "Paid ferry"],
+        ["Ferry (~2 h).", "Ferry (~2 h)."],
+        [
+          "La 'isla tortuga', meca del buceo, con la vista de Koh Nang Yuan.",
+          "'Turtle Island', a diving mecca, with the famous Koh Nang Yuan viewpoint.",
+        ]
+      ),
+      PN(
+        "chaweng-market",
+        "Mercado nocturno de Chaweng",
+        ["Mercado", "Market"],
+        "gastronomia",
+        9.53,
+        100.06,
+        "Koh_Samui_Thailand.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["Taxi.", "Taxi."],
+        [
+          "Puestos de street food y souvenirs en el corazón de Chaweng.",
+          "Street-food and souvenir stalls in the heart of Chaweng.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "chiangrai",
+    nombre: "Chiang Rai",
+    provincia: TH_NORTE,
+    center: [19.9105, 99.8406],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Info de Chiang Rai", en: "Chiang Rai info" },
+      lat: 19.9105,
+      lng: 99.8406,
+      img: "Wat_Rong_Khun.jpg",
+      url: "https://www.tourismthailand.org/Destinations/Provinces/Chiang-Rai/",
+      sinopsis: {
+        es: "Provincia del extremo norte, del Triángulo de Oro y de templos de arte contemporáneo espectaculares.",
+        en: "The far-northern province of the Golden Triangle and spectacular contemporary-art temples.",
+      },
+    },
+    puntos: [
+      PN(
+        "white-temple",
+        "Templo Blanco (Wat Rong Khun)",
+        ["Templo", "Temple"],
+        "historico",
+        19.824,
+        99.763,
+        "Wat_Rong_Khun.jpg",
+        ["฿ ~100", "฿ ~100"],
+        ["Songthaew / auto.", "Songthaew / car."],
+        [
+          "Deslumbrante templo blanco contemporáneo cubierto de espejos, obra de un artista local.",
+          "A dazzling all-white contemporary temple covered in mirrors, by a local artist.",
+        ]
+      ),
+      PN(
+        "blue-temple",
+        "Templo Azul (Wat Rong Suea Ten)",
+        ["Templo", "Temple"],
+        "historico",
+        19.933,
+        99.836,
+        "Chiang_Rai_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Songthaew / auto.", "Songthaew / car."],
+        [
+          "Templo de un azul intenso con un Buda blanco luminoso, moderno y surrealista.",
+          "An intensely blue temple with a glowing white Buddha, modern and surreal.",
+        ]
+      ),
+      PN(
+        "black-house",
+        "Casa Negra (Baan Dam)",
+        ["Museo", "Museum"],
+        "museo",
+        19.997,
+        99.85,
+        "Chiang_Rai_Thailand.jpg",
+        ["฿ ~80", "฿ ~80"],
+        ["Auto (~15 min).", "Car (~15 min)."],
+        [
+          "Museo-obra de casas negras de teca con arte macabro y huesos de animales.",
+          "A museum of black teak houses filled with macabre art and animal bones.",
+        ]
+      ),
+      PN(
+        "golden-triangle",
+        "Triángulo de Oro",
+        ["Histórico", "Historic"],
+        "naturaleza",
+        20.352,
+        100.081,
+        "Chiang_Rai_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Auto / tour (~1 h).", "Car / tour (~1 h)."],
+        [
+          "Donde el Mekong une Tailandia, Laos y Myanmar, antigua ruta del opio.",
+          "Where the Mekong joins Thailand, Laos and Myanmar, the old opium route.",
+        ]
+      ),
+      PN(
+        "singha-park",
+        "Singha Park",
+        ["Naturaleza", "Park"],
+        "naturaleza",
+        19.877,
+        99.777,
+        "Chiang_Rai_Thailand.jpg",
+        ["Gratis (tram aparte)", "Free (tram extra)"],
+        ["Auto.", "Car."],
+        [
+          "Enorme finca de té y flores con un león dorado gigante y globos aerostáticos.",
+          "A huge tea-and-flower estate with a giant golden lion and hot-air balloons.",
+        ]
+      ),
+      PN(
+        "wat-phra-kaew-cr",
+        "Wat Phra Kaew",
+        ["Templo", "Temple"],
+        "historico",
+        19.91,
+        99.83,
+        "Chiang_Rai_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["A pie en el centro.", "Walk in the centre."],
+        [
+          "Templo donde se descubrió el famoso Buda de Esmeralda de Bangkok.",
+          "The temple where Bangkok's famous Emerald Buddha was discovered.",
+        ]
+      ),
+      PN(
+        "doi-tung",
+        "Doi Tung",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        20.29,
+        99.83,
+        "Chiang_Rai_Thailand.jpg",
+        ["Villa arancelada", "Paid villa"],
+        ["Auto / tour.", "Car / tour."],
+        [
+          "Montaña con la villa real y jardines Mae Fah Luang, entre tribus de la montaña.",
+          "A mountain with the royal villa and Mae Fah Luang gardens, among hill tribes.",
+        ]
+      ),
+      PN(
+        "night-bazaar-cr",
+        "Bazar Nocturno de Chiang Rai",
+        ["Mercado", "Market"],
+        "shopping",
+        19.906,
+        99.832,
+        "Chiang_Rai_Thailand.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["A pie en el centro.", "Walk in the centre."],
+        [
+          "Mercado nocturno de artesanías de las tribus de la montaña y comida.",
+          "A night market of hill-tribe crafts and food.",
+        ]
+      ),
+      PN(
+        "choui-fong",
+        "Plantación de té Choui Fong",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        20.05,
+        99.75,
+        "Chiang_Rai_Thailand.jpg",
+        ["Gratis (café aparte)", "Free (café extra)"],
+        ["Auto (~45 min).", "Car (~45 min)."],
+        [
+          "Colinas de té verde onduladas con un café de diseño y vistas.",
+          "Rolling green tea hills with a design café and views.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "pai",
+    nombre: "Pai",
+    provincia: TH_NORTE,
+    center: [19.359, 98.441],
+    zoom: 13,
+    eventos: {
+      nombre: { es: "Info de Pai", en: "Pai info" },
+      lat: 19.359,
+      lng: 98.441,
+      img: "Pai_Thailand.jpg",
+      url: "https://www.tourismthailand.org/Destinations/Provinces/Mae-Hong-Son/",
+      sinopsis: {
+        es: "Pueblo de montaña bohemio entre valles y cascadas, en la sinuosa ruta de 762 curvas desde Chiang Mai.",
+        en: "A bohemian mountain town among valleys and waterfalls, on the winding 762-curve road from Chiang Mai.",
+      },
+    },
+    puntos: [
+      PN(
+        "pai-canyon",
+        "Cañón de Pai",
+        ["Mirador", "Lookout"],
+        "trekking",
+        19.34,
+        98.47,
+        "Pai_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Moto / auto (~8 km).", "Motorbike / car (~8 km)."],
+        [
+          "Crestas estrechas de tierra roja con vistas al valle, célebres al atardecer.",
+          "Narrow red-earth ridges with valley views, famous at sunset.",
+        ]
+      ),
+      PN(
+        "pai-walking-street",
+        "Pai Walking Street",
+        ["Paseo", "Strip"],
+        "paseo",
+        19.359,
+        98.441,
+        "Pai_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["A pie en el centro.", "Walk in the centre."],
+        [
+          "Calle bohemia de puestos de comida, música en vivo y artesanos.",
+          "A bohemian street of food stalls, live music and craft vendors.",
+        ]
+      ),
+      PN(
+        "mo-paeng",
+        "Cascada Mo Paeng",
+        ["Cascada", "Falls"],
+        "naturaleza",
+        19.38,
+        98.4,
+        "Pai_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Moto (~8 km).", "Motorbike (~8 km)."],
+        [
+          "Cascada con toboganes naturales de roca y pozas para nadar.",
+          "A waterfall with natural rock slides and swimming pools.",
+        ]
+      ),
+      PN(
+        "pai-hot-springs",
+        "Aguas Termales Tha Pai",
+        ["Termas", "Hot springs"],
+        "naturaleza",
+        19.33,
+        98.49,
+        "Pai_Thailand.jpg",
+        ["฿ ~300", "฿ ~300"],
+        ["Moto (~8 km).", "Motorbike (~8 km)."],
+        [
+          "Manantiales termales en el bosque, tan calientes que hierven huevos.",
+          "Forest hot springs, hot enough to boil eggs.",
+        ]
+      ),
+      PN(
+        "bamboo-bridge",
+        "Puente de bambú Boon Ko Ku So",
+        ["Paseo", "Walk"],
+        "naturaleza",
+        19.32,
+        98.42,
+        "Pai_Thailand.jpg",
+        ["A la gorra", "Donation"],
+        ["Moto (~10 km).", "Motorbike (~10 km)."],
+        [
+          "Largo puente de bambú sobre arrozales que lleva a un templo del bosque.",
+          "A long bamboo bridge over rice paddies leading to a forest temple.",
+        ]
+      ),
+      PN(
+        "yun-lai",
+        "Mirador Yun Lai",
+        ["Mirador", "Lookout"],
+        "naturaleza",
+        19.36,
+        98.43,
+        "Pai_Thailand.jpg",
+        ["฿ ~20", "฿ ~20"],
+        ["Moto.", "Motorbike."],
+        [
+          "Mirador chino sobre un mar de niebla al amanecer, con té gratis.",
+          "A Chinese-village lookout over a sea of morning mist, with free tea.",
+        ]
+      ),
+      PN(
+        "big-buddha-pai",
+        "Wat Phra That Mae Yen",
+        ["Templo y mirador", "Temple & lookout"],
+        "historico",
+        19.36,
+        98.45,
+        "Pai_Thailand.jpg",
+        ["Gratis", "Free"],
+        ["Moto + escalones.", "Motorbike + steps."],
+        [
+          "Gran Buda blanco sobre una colina con vista de todo el valle de Pai.",
+          "A large white Buddha on a hill overlooking the whole Pai valley.",
+        ]
+      ),
+      PN(
+        "land-split",
+        "Land Split",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        19.31,
+        98.46,
+        "Pai_Thailand.jpg",
+        ["A la gorra", "Donation"],
+        ["Moto.", "Motorbike."],
+        [
+          "Grieta en la tierra que una familia convirtió en una parada amistosa de frutas.",
+          "A crack in the earth that a family turned into a friendly fruit-and-drink stop.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "sukhothai",
+    nombre: "Sukhothai",
+    provincia: TH_CENTRO,
+    center: [17.0079, 99.7034],
+    zoom: 13,
+    eventos: {
+      nombre: { es: "Info de Sukhothai", en: "Sukhothai info" },
+      lat: 17.0079,
+      lng: 99.7034,
+      img: "Sukhothai_Historical_Park.jpg",
+      url: "https://www.tourismthailand.org/Destinations/Provinces/Sukhothai/",
+      sinopsis: {
+        es: "La primera capital del reino de Siam (siglo XIII), hoy un parque histórico de templos Patrimonio de la Humanidad.",
+        en: "The first capital of the Siamese kingdom (13th century), now a World Heritage historical park of temples.",
+      },
+    },
+    puntos: [
+      PN(
+        "sukhothai-park",
+        "Parque Histórico de Sukhothai",
+        ["Ruinas", "Ruins"],
+        "historico",
+        17.021,
+        99.704,
+        "Sukhothai_Historical_Park.jpg",
+        ["฿ ~100", "฿ ~100"],
+        ["Bici desde la ciudad vieja.", "Bike from the old town."],
+        [
+          "Extenso parque de ruinas y estanques que se recorre en bicicleta.",
+          "A vast park of ruins and ponds best explored by bicycle.",
+        ]
+      ),
+      PN(
+        "wat-mahathat-sukhothai",
+        "Wat Mahathat",
+        ["Ruinas", "Ruins"],
+        "historico",
+        17.018,
+        99.705,
+        "Sukhothai_Historical_Park.jpg",
+        ["Incluido en el parque", "Included in park"],
+        ["Bici.", "Bike."],
+        [
+          "El templo principal, con un gran Buda sentado entre columnas y una chedi de loto.",
+          "The main temple, with a large seated Buddha among columns and a lotus-bud chedi.",
+        ]
+      ),
+      PN(
+        "wat-si-chum",
+        "Wat Si Chum",
+        ["Templo", "Temple"],
+        "historico",
+        17.027,
+        99.698,
+        "Sukhothai_Historical_Park.jpg",
+        ["Incluido en el parque", "Included in park"],
+        ["Bici.", "Bike."],
+        [
+          "Enorme Buda sentado de 15 m que asoma por la rendija de un muro.",
+          "A giant 15 m seated Buddha peering through the slot of a wall.",
+        ]
+      ),
+      PN(
+        "wat-sa-si",
+        "Wat Sa Si",
+        ["Templo", "Temple"],
+        "historico",
+        17.021,
+        99.702,
+        "Sukhothai_Historical_Park.jpg",
+        ["Incluido en el parque", "Included in park"],
+        ["Bici.", "Bike."],
+        [
+          "Templo sobre una isla en un estanque, de los más fotogénicos del parque.",
+          "A temple on an island in a pond, among the park's most photogenic.",
+        ]
+      ),
+      PN(
+        "si-satchanalai",
+        "Parque de Si Satchanalai",
+        ["Ruinas", "Ruins"],
+        "historico",
+        17.43,
+        99.78,
+        "Sukhothai_Historical_Park.jpg",
+        ["฿ ~100", "฿ ~100"],
+        ["Auto (~1 h).", "Car (~1 h)."],
+        [
+          "Ciudad hermana, más tranquila, con ruinas entre bosque y un río.",
+          "A quieter sister city of ruins among forest and a river.",
+        ]
+      ),
+      PN(
+        "ramkhamhaeng-museum",
+        "Museo Ramkhamhaeng",
+        ["Museo", "Museum"],
+        "museo",
+        17.018,
+        99.706,
+        "Sukhothai_Historical_Park.jpg",
+        ["฿ ~150", "฿ ~150"],
+        ["Bici / a pie.", "Bike / walk."],
+        [
+          "Museo que reúne esculturas y objetos de la edad de oro de Sukhothai.",
+          "A museum gathering sculptures and objects from Sukhothai's golden age.",
+        ]
+      ),
+      PN(
+        "wat-saphan-hin",
+        "Wat Saphan Hin",
+        ["Templo y mirador", "Temple & lookout"],
+        "historico",
+        17.02,
+        99.68,
+        "Sukhothai_Historical_Park.jpg",
+        ["Incluido en el parque", "Included in park"],
+        ["Bici + subida de piedra.", "Bike + stone path."],
+        [
+          "Buda de pie de 12 m en una colina al oeste, con vista del parque.",
+          "A 12 m standing Buddha on a western hill, overlooking the park.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "kanchanaburi",
+    nombre: "Kanchanaburi",
+    provincia: TH_CENTRO,
+    center: [14.0227, 99.5328],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Info de Kanchanaburi", en: "Kanchanaburi info" },
+      lat: 14.0227,
+      lng: 99.5328,
+      img: "Bridge_River_Kwai.jpg",
+      url: "https://www.tourismthailand.org/Destinations/Provinces/Kanchanaburi/",
+      sinopsis: {
+        es: "Provincia de ríos, cascadas y selva, marcada por la historia del 'Puente sobre el río Kwai' de la Segunda Guerra.",
+        en: "A province of rivers, waterfalls and jungle, marked by the WWII history of the 'Bridge over the River Kwai'.",
+      },
+    },
+    puntos: [
+      PN(
+        "river-kwai-bridge",
+        "Puente sobre el río Kwai",
+        ["Histórico", "Historic"],
+        "historico",
+        14.041,
+        99.503,
+        "Bridge_River_Kwai.jpg",
+        ["Gratis", "Free"],
+        ["A pie / tren.", "Walk / train."],
+        [
+          "El puente del 'Ferrocarril de la Muerte' construido por prisioneros en la guerra.",
+          "The bridge of the 'Death Railway' built by wartime prisoners.",
+        ]
+      ),
+      PN(
+        "hellfire-pass",
+        "Hellfire Pass (Death Railway)",
+        ["Histórico", "Historic"],
+        "historico",
+        14.36,
+        98.95,
+        "Bridge_River_Kwai.jpg",
+        ["Gratis", "Free"],
+        ["Auto (~1,5 h).", "Car (~1.5 h)."],
+        [
+          "Tramo excavado a mano en la roca y su conmovedor museo memorial.",
+          "A rock cutting hewn by hand and its moving memorial museum.",
+        ]
+      ),
+      PN(
+        "erawan-falls",
+        "Cascadas de Erawan",
+        ["Cascada", "Falls"],
+        "naturaleza",
+        14.37,
+        99.14,
+        "Erawan_Falls.jpg",
+        ["฿ ~300", "฿ ~300"],
+        ["Auto (~1,5 h).", "Car (~1.5 h)."],
+        [
+          "Siete niveles de cascadas turquesa con peces y pozas para nadar.",
+          "Seven tiers of turquoise waterfalls with fish and swimming pools.",
+        ]
+      ),
+      PN(
+        "war-cemetery",
+        "Cementerio de Guerra",
+        ["Histórico", "Historic"],
+        "historico",
+        14.03,
+        99.525,
+        "Bridge_River_Kwai.jpg",
+        ["Gratis", "Free"],
+        ["A pie en el centro.", "Walk in the centre."],
+        [
+          "Descanso de casi 7.000 prisioneros aliados del Ferrocarril de la Muerte.",
+          "The resting place of nearly 7,000 Allied POWs of the Death Railway.",
+        ]
+      ),
+      PN(
+        "jeath-museum",
+        "Museo de la Guerra JEATH",
+        ["Museo", "Museum"],
+        "museo",
+        14.02,
+        99.53,
+        "Bridge_River_Kwai.jpg",
+        ["฿ ~50", "฿ ~50"],
+        ["A pie / taxi.", "Walk / taxi."],
+        [
+          "Museo en chozas de bambú que recrea las condiciones de los prisioneros.",
+          "A museum in bamboo huts recreating the prisoners' conditions.",
+        ]
+      ),
+      PN(
+        "sai-yok",
+        "Parque Nacional Sai Yok",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        14.23,
+        98.85,
+        "Erawan_Falls.jpg",
+        ["฿ ~300", "฿ ~300"],
+        ["Auto (~1,5 h).", "Car (~1.5 h)."],
+        [
+          "Selva con cascadas que caen al río y balsas-hotel flotantes.",
+          "A jungle of waterfalls dropping into the river and floating raft houses.",
+        ]
+      ),
+      PN(
+        "death-railway-train",
+        "Tren del Ferrocarril de la Muerte",
+        ["Paseo histórico", "Historic train"],
+        "paseo",
+        14.041,
+        99.503,
+        "Bridge_River_Kwai.jpg",
+        ["฿ ~100", "฿ ~100"],
+        ["Estación de Kanchanaburi.", "Kanchanaburi station."],
+        [
+          "Viaje en tren por el viaducto de Tham Krasae al borde del acantilado.",
+          "A train ride along the cliff-edge Tham Krasae viaduct.",
+        ]
+      ),
+      PN(
+        "mon-bridge",
+        "Puente Mon (Sangkhlaburi)",
+        ["Paseo", "Bridge"],
+        "paseo",
+        15.15,
+        98.45,
+        "Bridge_River_Kwai.jpg",
+        ["Gratis", "Free"],
+        ["Auto (largo, ~3 h).", "Car (long, ~3 h)."],
+        [
+          "El puente de madera hecho a mano más largo del país, en un pueblo Mon.",
+          "The country's longest handmade wooden bridge, in a Mon village.",
+        ]
+      ),
+    ],
+  },
+];
+
+// =====================================================================
+//  SINGAPUR (bilingüe)
+// =====================================================================
+const SG_PROV = { es: "Singapur", en: "Singapore" };
+const LOCALIDADES_SG = [
+  {
+    id: "singapore",
+    nombre: "Singapur / Singapore",
+    provincia: SG_PROV,
+    center: [1.3521, 103.8198],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Agenda de Singapur", en: "Singapore what's on" },
+      lat: 1.3521,
+      lng: 103.8198,
+      img: "Singapore_Marina_Bay.jpg",
+      url: "https://www.visitsingapore.com/whats-happening/all-happenings/",
+      sinopsis: {
+        es: "Ciudad-estado tropical, verde y futurista, cruce de culturas malaya, china e india; su agenda va del Gran Premio nocturno a festivales gastronómicos.",
+        en: "A tropical, green and futuristic city-state, a crossroads of Malay, Chinese and Indian cultures; its calendar runs from the night Grand Prix to food festivals.",
+      },
+    },
+    puntos: [
+      PN(
+        "marina-bay-sands",
+        "Marina Bay Sands & SkyPark",
+        ["Mirador", "Lookout"],
+        "paseo",
+        1.2834,
+        103.8607,
+        "Singapore_Marina_Bay.jpg",
+        ["SkyPark ~S$ 32", "SkyPark ~S$ 32"],
+        ["MRT Bayfront.", "MRT Bayfront."],
+        [
+          "El hotel de tres torres con una piscina-barco en la azotea, ícono del skyline.",
+          "The three-tower hotel with a boat-shaped rooftop pool, an icon of the skyline.",
+        ]
+      ),
+      PN(
+        "gardens-by-the-bay",
+        "Gardens by the Bay",
+        ["Jardín", "Gardens"],
+        "naturaleza",
+        1.2816,
+        103.8636,
+        "Gardens_by_the_Bay.jpg",
+        ["Supertrees gratis; domos ~S$ 53", "Supertrees free; domes ~S$ 53"],
+        ["MRT Bayfront.", "MRT Bayfront."],
+        [
+          "Futurista jardín de 'superárboles' iluminados y domos climatizados con selva.",
+          "A futuristic garden of lit-up 'Supertrees' and climate-controlled forest domes.",
+        ]
+      ),
+      PN(
+        "merlion",
+        "Merlion Park",
+        ["Ícono", "Icon"],
+        "paseo",
+        1.2868,
+        103.8545,
+        "Singapore_Merlion.jpg",
+        ["Gratis", "Free"],
+        ["MRT Raffles Place.", "MRT Raffles Place."],
+        [
+          "El símbolo de Singapur, mitad león mitad pez, escupiendo agua a la bahía.",
+          "The symbol of Singapore, half lion half fish, spouting water into the bay.",
+        ]
+      ),
+      PN(
+        "sentosa",
+        "Isla Sentosa",
+        ["Playa y ocio", "Beach & fun"],
+        "playa",
+        1.2494,
+        103.8303,
+        "Singapore_Sentosa.jpg",
+        ["Ingreso barato; atracciones aparte", "Cheap entry; attractions extra"],
+        ["Monorriel / teleférico.", "Monorail / cable car."],
+        [
+          "Isla-resort de playas, parques temáticos y el acuario S.E.A.",
+          "A resort island of beaches, theme parks and the S.E.A. Aquarium.",
+        ]
+      ),
+      PN(
+        "universal-singapore",
+        "Universal Studios Singapore",
+        ["Parque temático", "Theme park"],
+        "paseo",
+        1.254,
+        103.8238,
+        "Singapore_Sentosa.jpg",
+        ["~S$ 83", "~S$ 83"],
+        ["Monorriel a Sentosa.", "Sentosa monorail."],
+        [
+          "El único parque de Universal del sudeste asiático, en Sentosa.",
+          "Southeast Asia's only Universal park, on Sentosa.",
+        ]
+      ),
+      PN(
+        "chinatown-sg",
+        "Chinatown",
+        ["Paseo", "Quarter"],
+        "gastronomia",
+        1.282,
+        103.844,
+        "Singapore_China.jpg",
+        ["Gratis", "Free"],
+        ["MRT Chinatown.", "MRT Chinatown."],
+        [
+          "Barrio histórico de casas coloridas, templos y puestos de comida premiados.",
+          "A historic quarter of colourful shophouses, temples and award-winning food stalls.",
+        ]
+      ),
+      PN(
+        "little-india",
+        "Little India",
+        ["Paseo", "Quarter"],
+        "paseo",
+        1.3067,
+        103.8517,
+        "Singapore_China.jpg",
+        ["Gratis", "Free"],
+        ["MRT Little India.", "MRT Little India."],
+        [
+          "Barrio vibrante de guirnaldas, saris, templos hindúes y curry.",
+          "A vibrant quarter of garlands, saris, Hindu temples and curry.",
+        ]
+      ),
+      PN(
+        "botanic-gardens-sg",
+        "Jardín Botánico de Singapur",
+        ["Jardín", "Gardens"],
+        "naturaleza",
+        1.3138,
+        103.8159,
+        "Singapore_China.jpg",
+        ["Gratis (orquídeas aparte)", "Free (orchids extra)"],
+        ["MRT Botanic Gardens.", "MRT Botanic Gardens."],
+        [
+          "Jardín tropical de 1859, Patrimonio de la Humanidad, con un jardín de orquídeas.",
+          "An 1859 tropical garden, a World Heritage site, with a National Orchid Garden.",
+        ]
+      ),
+      PN(
+        "orchard-road",
+        "Orchard Road",
+        ["Compras", "Shopping"],
+        "shopping",
+        1.304,
+        103.832,
+        "Singapore_China.jpg",
+        ["Gratis", "Free"],
+        ["MRT Orchard.", "MRT Orchard."],
+        [
+          "La gran avenida comercial, kilómetros de centros comerciales de lujo.",
+          "The great shopping boulevard, miles of luxury malls.",
+        ]
+      ),
+      PN(
+        "singapore-zoo",
+        "Zoo y Night Safari",
+        ["Naturaleza", "Wildlife"],
+        "naturaleza",
+        1.4043,
+        103.793,
+        "Singapore_China.jpg",
+        ["~S$ 48", "~S$ 48"],
+        ["Bus / taxi.", "Bus / taxi."],
+        [
+          "Uno de los mejores zoológicos del mundo, con un safari nocturno pionero.",
+          "One of the world's best zoos, with a pioneering nocturnal safari.",
+        ]
+      ),
+      PN(
+        "clarke-quay",
+        "Clarke Quay",
+        ["Vida nocturna", "Nightlife"],
+        "paseo",
+        1.2906,
+        103.8465,
+        "Singapore_China.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["MRT Clarke Quay.", "MRT Clarke Quay."],
+        [
+          "Muelle histórico de almacenes de colores, hoy de restaurantes y bares junto al río.",
+          "A historic quay of colourful warehouses, now riverside restaurants and bars.",
+        ]
+      ),
+      PN(
+        "artscience-museum",
+        "ArtScience Museum",
+        ["Museo", "Museum"],
+        "museo",
+        1.286,
+        103.859,
+        "Singapore_Marina_Bay.jpg",
+        ["~S$ 30", "~S$ 30"],
+        ["MRT Bayfront.", "MRT Bayfront."],
+        [
+          "Museo con forma de flor de loto famoso por sus muestras digitales inmersivas.",
+          "A lotus-shaped museum famous for its immersive digital exhibitions.",
+        ]
+      ),
+      PN(
+        "national-gallery-sg",
+        "National Gallery Singapore",
+        ["Museo de arte", "Art gallery"],
+        "museo",
+        1.2903,
+        103.8519,
+        "Singapore_China.jpg",
+        ["~S$ 20", "~S$ 20"],
+        ["MRT City Hall.", "MRT City Hall."],
+        [
+          "El mayor museo de arte del sudeste asiático, en la ex Corte Suprema y el Municipio.",
+          "Southeast Asia's largest art museum, in the former Supreme Court and City Hall.",
+        ]
+      ),
+      PN(
+        "singapore-flyer",
+        "Singapore Flyer",
+        ["Mirador", "Lookout"],
+        "paseo",
+        1.2893,
+        103.8631,
+        "Singapore_Marina_Bay.jpg",
+        ["~S$ 40", "~S$ 40"],
+        ["MRT Promenade.", "MRT Promenade."],
+        [
+          "Una de las norias de observación más altas del mundo, sobre la bahía.",
+          "One of the world's tallest observation wheels, over the bay.",
+        ]
+      ),
+      PN(
+        "kampong-glam",
+        "Kampong Glam & Arab Street",
+        ["Paseo", "Quarter"],
+        "paseo",
+        1.302,
+        103.859,
+        "Singapore_China.jpg",
+        ["Gratis", "Free"],
+        ["MRT Bugis.", "MRT Bugis."],
+        [
+          "Barrio musulmán de la mezquita dorada del Sultán, cafés y arte urbano.",
+          "The Muslim quarter of the golden Sultan Mosque, cafés and street art.",
+        ]
+      ),
+      PN(
+        "hawker-centre",
+        "Hawker Centre (Lau Pa Sat)",
+        ["Gastronomía", "Food"],
+        "gastronomia",
+        1.2807,
+        103.8449,
+        "Singapore_China.jpg",
+        ["Consumición", "Pay as you go"],
+        ["MRT Raffles Place / Telok Ayer.", "MRT Raffles Place / Telok Ayer."],
+        [
+          "Mercados de comida callejera, patrimonio cultural y alma culinaria del país.",
+          "Street-food halls, a cultural heritage and the country's culinary soul.",
+        ]
+      ),
+    ],
+  },
+];
+
 // Países disponibles (para el selector).
 const PAISES = [
   {
@@ -13291,6 +14636,13 @@ const PAISES = [
   },
   { id: "cn", nombre: { es: "China", en: "China" }, flag: "🇨🇳", center: [35.0, 105.0], zoom: 4 },
   { id: "la", nombre: { es: "Laos", en: "Laos" }, flag: "🇱🇦", center: [18.5, 103.5], zoom: 6 },
+  {
+    id: "sg",
+    nombre: { es: "Singapur", en: "Singapore" },
+    flag: "🇸🇬",
+    center: [1.35, 103.82],
+    zoom: 11,
+  },
 ];
 
 // Todas las localidades, etiquetadas por país.
@@ -13303,11 +14655,14 @@ const LOCALIDADES = [
   ...LOCALIDADES_TH2.map((l) => ({ ...l, pais: "th" })),
   ...LOCALIDADES_AU.map((l) => ({ ...l, pais: "au" })),
   ...LOCALIDADES_AU2.map((l) => ({ ...l, pais: "au" })),
+  ...LOCALIDADES_TH3.map((l) => ({ ...l, pais: "th" })),
   ...LOCALIDADES_VN.map((l) => ({ ...l, pais: "vn" })),
   ...LOCALIDADES_VN2.map((l) => ({ ...l, pais: "vn" })),
+  ...LOCALIDADES_VN3.map((l) => ({ ...l, pais: "vn" })),
   ...LOCALIDADES_KH.map((l) => ({ ...l, pais: "kh" })),
   ...LOCALIDADES_CN.map((l) => ({ ...l, pais: "cn" })),
   ...LOCALIDADES_LA.map((l) => ({ ...l, pais: "la" })),
+  ...LOCALIDADES_SG.map((l) => ({ ...l, pais: "sg" })),
 ];
 
 // Modos de transporte -> costing de Valhalla + metadatos de UI (nombre bilingüe).
