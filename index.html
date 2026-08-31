@@ -93,24 +93,29 @@
             </div>
           </section>
 
-          <!-- 2) MODO -->
-          <section class="block">
-            <h2><span class="step">2</span> <span data-i18n="paso2">¿Cómo viajás?</span></h2>
-            <div id="modos" class="modos"></div>
-          </section>
+          <!-- Pasos 2 y 3 + botón: se revelan al elegir un destino -->
+          <div id="pasos-viaje" hidden>
+            <!-- 2) MODO -->
+            <section class="block">
+              <h2><span class="step">2</span> <span data-i18n="paso2">¿Cómo viajás?</span></h2>
+              <div id="modos" class="modos"></div>
+            </section>
 
-          <!-- 3) ORIGEN -->
-          <section class="block">
-            <h2><span class="step">3</span> <span data-i18n="paso3">¿Desde dónde salís?</span></h2>
-            <button id="btn-ubicacion" class="btn btn-ghost">📍 Usar mi ubicación</button>
-            <p class="hint" id="origen-estado">
-              O hacé clic en el mapa para marcar tu punto de salida.
-            </p>
-          </section>
+            <!-- 3) ORIGEN -->
+            <section class="block">
+              <h2>
+                <span class="step">3</span> <span data-i18n="paso3">¿Desde dónde salís?</span>
+              </h2>
+              <button id="btn-ubicacion" class="btn btn-ghost">📍 Usar mi ubicación</button>
+              <p class="hint" id="origen-estado">
+                O hacé clic en el mapa para marcar tu punto de salida.
+              </p>
+            </section>
 
-          <button id="btn-crear" class="btn btn-primary btn-block" disabled data-i18n="crear">
-            Crear rutas
-          </button>
+            <button id="btn-crear" class="btn btn-primary btn-block" disabled data-i18n="crear">
+              Crear rutas
+            </button>
+          </div>
 
           <!-- RESULTADOS -->
           <section id="resultados" class="block resultados hidden">

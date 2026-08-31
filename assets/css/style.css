@@ -293,6 +293,24 @@ body {
   border-radius: 8px;
 }
 
+/* Contenedor de pasos revelados (modo + origen + botón) */
+#pasos-viaje:not([hidden]) {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  animation: revelar 0.28s ease;
+}
+@keyframes revelar {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .block {
   display: flex;
   flex-direction: column;

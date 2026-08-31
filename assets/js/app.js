@@ -998,6 +998,13 @@ function renderResultados() {
 
 function actualizarBotonCrear() {
   document.getElementById("btn-crear").disabled = !(estado.origen && estado.destino);
+  actualizarPasos();
+}
+
+// Revelado progresivo: los pasos 2 y 3 (y el botón) aparecen al haber destino.
+function actualizarPasos() {
+  const cont = document.getElementById("pasos-viaje");
+  if (cont) cont.hidden = !estado.destino;
 }
 
 function mostrarLoader(mostrar, texto) {
