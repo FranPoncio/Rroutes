@@ -109,6 +109,7 @@ body {
   display: flex;
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
 }
 
 /* ===================== PANEL ===================== */
@@ -122,6 +123,33 @@ body {
   flex-direction: column;
   z-index: 500;
   box-shadow: var(--sombra);
+  transition: margin-left 0.25s ease;
+}
+/* Panel colapsado: se desliza fuera y el mapa ocupa todo */
+#app.panel-colapsado #panel {
+  margin-left: -390px;
+}
+#panel-show {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 600;
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--borde);
+  background: var(--bg-panel);
+  color: var(--texto);
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: var(--sombra);
+}
+#panel-show:hover {
+  border-color: var(--sol);
+}
+#app.panel-colapsado #panel-show {
+  display: block;
 }
 
 .panel-header {
@@ -198,23 +226,23 @@ body {
 
 /* Selector de país */
 .paises {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 .pais-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 7px;
-  padding: 10px 8px;
+  gap: 5px;
+  padding: 5px 9px;
   background: var(--bg-panel-2);
   border: 1px solid var(--borde);
-  border-radius: 12px;
+  border-radius: 999px;
   color: var(--texto-soft);
   font-family: var(--fuente-titulo);
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.3px;
   cursor: pointer;
   transition: all 0.15s ease;
 }
@@ -229,7 +257,11 @@ body {
   box-shadow: 0 0 0 1px var(--sol) inset;
 }
 .pais-flag {
-  font-size: 18px;
+  font-size: 15px;
+  line-height: 1;
+}
+.pais-abr {
+  font-size: 12px;
 }
 
 .panel-body {
@@ -394,6 +426,50 @@ body {
 .dropdown-option .emoji {
   font-size: 16px;
   flex-shrink: 0;
+}
+/* Buscador dentro del desplegable (para listas largas) */
+.dropdown-search {
+  position: sticky;
+  top: -6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  margin: -6px -6px 4px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--borde);
+  border-radius: 12px 12px 0 0;
+  z-index: 2;
+}
+.dropdown-search-ic {
+  font-size: 13px;
+  opacity: 0.6;
+}
+.dropdown-search-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: var(--fuente-texto);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--texto);
+}
+.dropdown-search-input::placeholder {
+  color: var(--texto-soft);
+  font-weight: 600;
+}
+.dropdown-option[hidden],
+.dropdown-group[hidden] {
+  display: none !important;
+}
+.dropdown-empty {
+  padding: 14px 12px;
+  text-align: center;
+  color: var(--texto-soft);
+  font-size: 13px;
+  font-weight: 600;
 }
 
 /* ===================== CHIPS DE ACTIVIDAD ===================== */
@@ -860,5 +936,13 @@ body {
   }
   #map {
     height: 52%;
+  }
+  /* Colapsar en vertical: el panel se oculta y el mapa toma toda la altura */
+  #app.panel-colapsado #panel {
+    display: none;
+    margin-left: 0;
+  }
+  #app.panel-colapsado #map {
+    height: 100%;
   }
 }

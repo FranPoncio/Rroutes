@@ -42,6 +42,10 @@ const I18N = {
     ph_localidad: "— Elegí una localidad —",
     ph_destino: "— Elegí un destino —",
     ph_destino_first: "— Elegí primero una localidad —",
+    buscar: "Buscar…",
+    sin_resultados: "Sin resultados",
+    ocultar_panel: "Ocultar panel",
+    mostrar_panel: "Mostrar panel",
     sin_puntos: "Sin puntos para ese filtro",
     calc: "Calculando las mejores rutas…",
     ruta_corta: "Ruta más corta",
@@ -169,6 +173,20 @@ function toggleTema() {
   const nuevo = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
   localStorage.setItem("tema", nuevo);
   aplicarTema(nuevo);
+}
+
+// Oculta / muestra el panel lateral para dar más espacio al mapa.
+function aplicarPanel(colapsado) {
+  document.getElementById("app").classList.toggle("panel-colapsado", colapsado);
+  localStorage.setItem("panel", colapsado ? "off" : "on");
+  const tgl = document.getElementById("panel-toggle");
+  if (tgl) tgl.title = ui(colapsado ? "mostrar_panel" : "ocultar_panel");
+  // El mapa cambió de tamaño: Leaflet necesita recalcular tras la transición.
+  if (map) setTimeout(() => map.invalidateSize(), 260);
+}
+
+function togglePanel() {
+  aplicarPanel(!document.getElementById("app").classList.contains("panel-colapsado"));
 }
 
 // =====================================================================
@@ -574,20 +592,39 @@ function cerrarDropdowns(excepto) {
   });
 }
 
+// Quita acentos y pasa a minúsculas para búsquedas tolerantes.
+function normalizar(s) {
+  return (s || "").toString().toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+}
+
 // options: [{value, label, sublabel, emoji, group}]
 function construirDropdown(cont, { placeholder, options, valorSel, onSelect }) {
   const sel = options.find((o) => o.value === valorSel);
-  let menuHTML = "";
+  // El buscador aparece sólo si la lista es larga (en listas cortas estorba).
+  const conBusqueda = options.length > 8;
+  let menuHTML = conBusqueda
+    ? `<div class="dropdown-search">
+         <span class="dropdown-search-ic">🔎</span>
+         <input type="text" class="dropdown-search-input" placeholder="${ui("buscar")}"
+           autocomplete="off" spellcheck="false" />
+       </div>`
+    : "";
+  menuHTML += `<div class="dropdown-list">`;
   let grupoActual = null;
   options.forEach((o) => {
     if (o.group && o.group !== grupoActual) {
       grupoActual = o.group;
-      menuHTML += `<div class="dropdown-group">${o.group}</div>`;
+      menuHTML += `<div class="dropdown-group" data-group="${o.group}">${o.group}</div>`;
     }
-    menuHTML += `<div class="dropdown-option ${o.value === valorSel ? "sel" : ""}" data-value="${o.value}">
+    const g = o.group || "";
+    const hay = normalizar(`${o.label} ${o.sublabel || ""} ${g}`);
+    menuHTML += `<div class="dropdown-option ${o.value === valorSel ? "sel" : ""}"
+      data-value="${o.value}" data-group="${g}" data-hay="${hay}">
       ${o.emoji ? `<span class="emoji">${o.emoji}</span>` : ""}
       <span>${o.label}${o.sublabel ? ` <small>· ${o.sublabel}</small>` : ""}</span></div>`;
   });
+  menuHTML += `<div class="dropdown-empty" hidden>${ui("sin_resultados")}</div></div>`;
+
   cont.innerHTML = `
     <button type="button" class="dropdown-toggle ${sel ? "" : "placeholder"}">
       ${sel && sel.emoji ? `<span class="emoji">${sel.emoji}</span>` : ""}
@@ -595,12 +632,58 @@ function construirDropdown(cont, { placeholder, options, valorSel, onSelect }) {
     </button>
     <div class="dropdown-menu">${menuHTML}</div>`;
 
+  const input = cont.querySelector(".dropdown-search-input");
+
+  // Filtra las opciones (y sus encabezados de grupo) según el texto tipeado.
+  function filtrar() {
+    const q = normalizar(input ? input.value : "");
+    const grupoTiene = {};
+    let visibles = 0;
+    cont.querySelectorAll(".dropdown-option").forEach((op) => {
+      const match = !q || op.dataset.hay.includes(q);
+      op.hidden = !match;
+      if (match) {
+        visibles++;
+        grupoTiene[op.dataset.group] = true;
+      }
+    });
+    cont.querySelectorAll(".dropdown-group").forEach((h) => {
+      h.hidden = !grupoTiene[h.dataset.group];
+    });
+    const vac = cont.querySelector(".dropdown-empty");
+    if (vac) vac.hidden = visibles > 0;
+  }
+
   cont.querySelector(".dropdown-toggle").addEventListener("click", (e) => {
     e.stopPropagation();
     const abierto = cont.classList.contains("abierto");
     cerrarDropdowns(cont);
     cont.classList.toggle("abierto", !abierto);
+    // Al abrir: limpiar el filtro y enfocar el buscador para tipear directo.
+    if (!abierto && input) {
+      input.value = "";
+      filtrar();
+      setTimeout(() => input.focus(), 0);
+    }
   });
+
+  if (input) {
+    input.addEventListener("click", (e) => e.stopPropagation());
+    input.addEventListener("input", filtrar);
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const primera = cont.querySelector(".dropdown-option:not([hidden])");
+        if (primera) {
+          cont.classList.remove("abierto");
+          onSelect(primera.dataset.value);
+        }
+      } else if (e.key === "Escape") {
+        cont.classList.remove("abierto");
+      }
+    });
+  }
+
   cont.querySelectorAll(".dropdown-option").forEach((op) => {
     op.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -784,7 +867,8 @@ function renderPaisSelector() {
     const el = document.createElement("button");
     el.type = "button";
     el.className = "pais-btn" + (pa.id === estado.pais ? " activo" : "");
-    el.innerHTML = `<span class="pais-flag">${pa.flag}</span>${t(pa.nombre)}`;
+    el.title = t(pa.nombre);
+    el.innerHTML = `<span class="pais-flag">${pa.flag}</span><span class="pais-abr">${pa.abr || t(pa.nombre)}</span>`;
     el.addEventListener("click", () => seleccionarPais(pa.id));
     cont.appendChild(el);
   });
@@ -823,6 +907,12 @@ function aplicarIdioma() {
   // El botón de idioma muestra el idioma al que se cambia.
   const lb = document.getElementById("lang-toggle");
   if (lb) lb.textContent = estado.idioma === "es" ? "EN" : "ES";
+  // Títulos de los botones de panel según el estado y el idioma.
+  const colapsado = document.getElementById("app").classList.contains("panel-colapsado");
+  const pt = document.getElementById("panel-toggle");
+  if (pt) pt.title = ui(colapsado ? "mostrar_panel" : "ocultar_panel");
+  const ps = document.getElementById("panel-show");
+  if (ps) ps.title = ui("mostrar_panel");
   // Botón de ubicación (si no fue usado) y hint de origen.
   const bu = document.getElementById("btn-ubicacion");
   if (bu && !bu.classList.contains("ok")) bu.textContent = ui("usar_ubicacion");
@@ -851,6 +941,9 @@ function main() {
 
   document.getElementById("theme-toggle").addEventListener("click", toggleTema);
   document.getElementById("lang-toggle").addEventListener("click", toggleIdioma);
+  document.getElementById("panel-toggle").addEventListener("click", togglePanel);
+  document.getElementById("panel-show").addEventListener("click", togglePanel);
+  if (localStorage.getItem("panel") === "off") aplicarPanel(true);
   document.getElementById("btn-ubicacion").addEventListener("click", usarGeolocalizacion);
   document.getElementById("btn-crear").addEventListener("click", crearRutas);
   document.addEventListener("click", () => cerrarDropdowns(null));
