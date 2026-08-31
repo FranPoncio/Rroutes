@@ -36,56 +36,55 @@
   src: url("../vendor/fonts/plus-jakarta-sans-latin-800-normal.woff2") format("woff2");
 }
 
-/* ---------- Paleta tierra (base blanca + acentos cálidos) ---------- */
+/* ---------- Paleta: base clara + un acento terracota + salvia de apoyo ---------- */
 :root {
-  --celeste: #c69a6d; /* arcilla suave (hovers, bordes activos) */
-  --celeste-fuerte: #9c5f38; /* arcilla fuerte (texto seleccionado) */
-  --sol: #c47a45; /* acento principal: terracota/caramelo (CTA, destino) */
-  --sol-suave: #e2b483;
-  --ok: #7f9a5b; /* verde oliva (éxito) */
-  --escenica: #a1746a; /* terracota apagado (ruta escénica) */
+  --celeste: #ecb0a0; /* clay claro (hovers, bordes activos) */
+  --celeste-fuerte: #c85f45; /* terracota fuerte (texto/acento seleccionado) */
+  --sol: #e07a5f; /* ACENTO principal: terracota coral (CTA, destino) */
+  --sol-suave: #ef9d86;
+  --ok: #7f9a76; /* verde salvia (éxito) */
+  --escenica: #a9799a; /* malva apagado (ruta escénica) */
   --radio: 16px;
   --fuente-titulo: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
   --fuente-texto: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
 
-  /* Tema claro (por defecto): blanco cálido con tierras */
-  --bg: #f5efe6;
+  /* Tema claro (por defecto): blanco y grises cálidos, poco color */
+  --bg: #f4f2ee;
   --bg-panel: #ffffff;
-  --bg-panel-2: #f1e8db;
-  --texto: #3b3128;
-  --texto-soft: #857567;
-  --borde: #e6dccc;
-  --sombra: 0 10px 30px rgba(90, 65, 40, 0.12);
-  --map-filter: grayscale(0.25) sepia(0.18) contrast(1.02) brightness(1.02);
-  --header-grad: linear-gradient(135deg, #b06a43, #8a4a2c);
+  --bg-panel-2: #f3f0ea;
+  --texto: #2f2a26;
+  --texto-soft: #8a8178;
+  --borde: #ece7e0;
+  --sombra: 0 12px 32px rgba(45, 38, 32, 0.1);
+  --map-filter: grayscale(0.15) contrast(1.02) brightness(1.03);
+  --header-bg: #ffffff;
 }
 
 /* Tema oscuro cuando el sistema lo pide y el usuario no eligió manual */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #1b1611;
-    --bg-panel: #241d16;
-    --bg-panel-2: #2f261c;
-    --texto: #efe6da;
-    --texto-soft: #b7a794;
-    --borde: #3c3125;
-    --sombra: 0 10px 30px rgba(0, 0, 0, 0.45);
-    --map-filter: invert(1) hue-rotate(180deg) sepia(0.25) brightness(0.9) contrast(0.9)
-      saturate(0.7);
-    --header-grad: linear-gradient(135deg, #8a4a2c, #5a3320);
+    --bg: #1a1816;
+    --bg-panel: #221f1c;
+    --bg-panel-2: #2b2723;
+    --texto: #efe9e2;
+    --texto-soft: #a89f95;
+    --borde: #35302b;
+    --sombra: 0 12px 32px rgba(0, 0, 0, 0.45);
+    --map-filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.9) saturate(0.65);
+    --header-bg: #221f1c;
   }
 }
 /* Override manual (gana sobre el sistema) */
 :root[data-theme="dark"] {
-  --bg: #1b1611;
-  --bg-panel: #241d16;
-  --bg-panel-2: #2f261c;
-  --texto: #efe6da;
-  --texto-soft: #b7a794;
-  --borde: #3c3125;
-  --sombra: 0 10px 30px rgba(0, 0, 0, 0.45);
-  --map-filter: invert(1) hue-rotate(180deg) sepia(0.25) brightness(0.9) contrast(0.9) saturate(0.7);
-  --header-grad: linear-gradient(135deg, #8a4a2c, #5a3320);
+  --bg: #1a1816;
+  --bg-panel: #221f1c;
+  --bg-panel-2: #2b2723;
+  --texto: #efe9e2;
+  --texto-soft: #a89f95;
+  --borde: #35302b;
+  --sombra: 0 12px 32px rgba(0, 0, 0, 0.45);
+  --map-filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.9) saturate(0.65);
+  --header-bg: #221f1c;
 }
 
 * {
@@ -154,8 +153,9 @@ body {
 }
 
 .panel-header {
-  padding: 18px 20px;
-  background: var(--header-grad);
+  padding: 16px 18px;
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--borde);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -164,12 +164,12 @@ body {
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 .brand-sun {
-  font-size: 34px;
+  font-size: 26px;
   color: var(--sol);
-  filter: drop-shadow(0 0 8px rgba(196, 122, 69, 0.5));
+  filter: drop-shadow(0 0 6px rgba(224, 122, 95, 0.35));
   animation: girar 24s linear infinite;
 }
 @keyframes girar {
@@ -180,23 +180,23 @@ body {
 .brand h1 {
   font-family: var(--fuente-titulo);
   font-weight: 800;
-  font-size: 19px;
-  letter-spacing: 1px;
-  color: #fff;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  color: var(--sol);
   line-height: 1;
 }
 .brand p {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 10.5px;
+  color: var(--texto-soft);
   margin-top: 3px;
   font-weight: 600;
 }
 
 /* Botones del header (idioma, tema, deshacer, ocultar panel) — chicos y parejos */
 .theme-toggle {
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  color: #fff;
+  background: var(--bg-panel-2);
+  border: 1px solid var(--borde);
+  color: var(--texto-soft);
   height: 30px;
   min-width: 30px;
   padding: 0 6px;
@@ -211,7 +211,8 @@ body {
   flex-shrink: 0;
 }
 .theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.3);
+  border-color: var(--celeste);
+  color: var(--texto);
   transform: translateY(-1px);
 }
 .theme-toggle:disabled {
@@ -279,10 +280,10 @@ body {
 .panel-body {
   flex: 1;
   overflow-y: auto;
-  padding: 18px 20px 8px;
+  padding: 20px 20px 8px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 22px;
 }
 .panel-body::-webkit-scrollbar {
   width: 8px;
@@ -314,9 +315,9 @@ body {
   height: 24px;
   border-radius: 50%;
   background: var(--sol);
-  color: #3a2c00;
+  color: #fff;
   font-family: var(--fuente-titulo);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
 }
 .field > span {
@@ -578,7 +579,7 @@ body {
 }
 .btn-primary {
   background: var(--sol);
-  color: #3a2c00;
+  color: #fff;
 }
 .btn-primary:hover:not(:disabled) {
   background: var(--sol-suave);
@@ -635,7 +636,7 @@ body {
 }
 .ruta-card.activa {
   box-shadow: 0 0 0 1px var(--celeste) inset;
-  background: rgba(116, 172, 223, 0.1);
+  background: rgba(224, 122, 95, 0.1);
 }
 .ruta-card.escenica {
   border-left-color: var(--escenica);
@@ -657,12 +658,12 @@ body {
   letter-spacing: 0.5px;
   padding: 2px 7px;
   border-radius: 6px;
-  background: rgba(116, 172, 223, 0.2);
+  background: rgba(224, 122, 95, 0.16);
   color: var(--celeste-fuerte);
   font-weight: 700;
 }
 .ruta-tag.escenica {
-  background: rgba(192, 132, 252, 0.2);
+  background: rgba(169, 121, 154, 0.18);
   color: var(--escenica);
 }
 .ruta-card .datos {
@@ -865,7 +866,7 @@ body {
   margin-top: 12px;
   padding: 10px 12px;
   background: var(--sol);
-  color: #3a2c00;
+  color: #fff;
   border: none;
   border-radius: 10px;
   font-family: var(--fuente-titulo);
@@ -923,7 +924,7 @@ body {
 .spinner {
   width: 42px;
   height: 42px;
-  border: 4px solid rgba(116, 172, 223, 0.3);
+  border: 4px solid rgba(224, 122, 95, 0.25);
   border-top-color: var(--sol);
   border-radius: 50%;
   animation: spin 0.9s linear infinite;
