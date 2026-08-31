@@ -922,27 +922,18 @@ body {
   }
 }
 
-/* Responsive */
+/* Responsive: panel a la izquierda y mapa a la derecha también en celular */
 @media (max-width: 820px) {
-  #app {
-    flex-direction: column;
-  }
   #panel {
-    width: 100%;
-    min-width: 0;
-    height: 48%;
-    border-right: none;
-    border-bottom: 1px solid var(--borde);
+    width: 240px;
+    min-width: 240px;
   }
-  #map {
-    height: 52%;
+  .panel-body {
+    padding: 14px 14px 8px;
   }
-  /* Colapsar en vertical: el panel se oculta y el mapa toma toda la altura */
+  /* Colapsado: el panel se oculta del todo y el mapa toma la pantalla */
   #app.panel-colapsado #panel {
     display: none;
     margin-left: 0;
-  }
-  #app.panel-colapsado #map {
-    height: 100%;
   }
 }

@@ -35,7 +35,10 @@ const I18N = {
     paso2: "¿Cómo viajás?",
     paso3: "¿Desde dónde salís?",
     usar_ubicacion: "📍 Usar mi ubicación",
-    origen_hint: "O hacé clic en el mapa para marcar tu punto de salida.",
+    origen_hint:
+      "En el mapa: 1er toque = salida, 2º toque = destino. Mantené presionado para reiniciar la salida.",
+    destino_libre: "Punto en el mapa",
+    proximo_destino: "Ahora tocá el mapa para elegir el destino.",
     crear: "Crear rutas",
     rutas_sugeridas: "Rutas sugeridas",
     footer: "Precios y transporte son orientativos.",
@@ -89,7 +92,10 @@ const I18N = {
     paso2: "How are you travelling?",
     paso3: "Where do you start?",
     usar_ubicacion: "📍 Use my location",
-    origen_hint: "Or click on the map to set your starting point.",
+    origen_hint:
+      "On the map: 1st tap = start, 2nd tap = destination. Long-press to reset the start.",
+    destino_libre: "Point on the map",
+    proximo_destino: "Now tap the map to choose the destination.",
     crear: "Create routes",
     rutas_sugeridas: "Suggested routes",
     footer: "Prices and transport are indicative.",
@@ -197,7 +203,40 @@ function initMapa() {
   aplicarTema(document.documentElement.dataset.theme || temaActual());
   capaPines = L.layerGroup().addTo(map);
   capaRutas = L.layerGroup().addTo(map);
-  map.on("click", (e) => setOrigen([e.latlng.lat, e.latlng.lng], ui("punto_mapa")));
+  // Clic simple: 1º fija la salida; 2º fija el destino (punto libre) y rutea.
+  map.on("click", (e) => manejarClickMapa([e.latlng.lat, e.latlng.lng]));
+  // Mantener presionado (touch) o clic derecho: reinicia la salida en ese punto.
+  map.on("contextmenu", (e) => {
+    if (e.originalEvent) e.originalEvent.preventDefault();
+    estado.destino = null;
+    dibujarPines();
+    setOrigen([e.latlng.lat, e.latlng.lng], ui("punto_mapa"));
+    document.getElementById("origen-estado").textContent += " · " + ui("proximo_destino");
+  });
+}
+
+// Decide qué fija cada clic en el mapa: primero la salida, luego el destino.
+function manejarClickMapa(coords) {
+  if (!estado.origen) {
+    setOrigen(coords, ui("punto_mapa"));
+    document.getElementById("origen-estado").textContent += " · " + ui("proximo_destino");
+  } else {
+    fijarDestinoLibre(coords);
+  }
+}
+
+// Fija un destino en un punto arbitrario del mapa (sin pasar por el desplegable).
+function fijarDestinoLibre(coords) {
+  estado.destino = {
+    id: "__click__",
+    nombre: ui("destino_libre"),
+    lat: coords[0],
+    lng: coords[1],
+  };
+  renderDropdownDestino();
+  dibujarPines();
+  actualizarBotonCrear();
+  if (estado.origen) crearRutas();
 }
 
 function iconoPin({ tipo = "", emoji = "•", color = null }) {
@@ -338,6 +377,15 @@ function puntosVisibles() {
 function dibujarPines() {
   capaPines.clearLayers();
   if (marcadorOrigen) capaPines.addLayer(marcadorOrigen);
+  // Destino elegido con un clic libre en el mapa (no pertenece a una localidad).
+  if (estado.destino && estado.destino.id === "__click__") {
+    L.marker([estado.destino.lat, estado.destino.lng], {
+      icon: iconoPin({ tipo: "destino", emoji: "★", color: "#f6b40e" }),
+      zIndexOffset: 1000,
+    })
+      .bindPopup(`<b>${ui("hacia")}: ${estado.destino.nombre}</b>`)
+      .addTo(capaPines);
+  }
   if (!estado.localidad) return;
 
   puntosVisibles().forEach((p) => {
@@ -719,10 +767,17 @@ function renderDropdownLocalidad() {
 
 function renderDropdownDestino() {
   const cont = document.getElementById("dd-destino");
+  // Destino elegido con un clic libre en el mapa: se muestra como opción propia.
+  const libre =
+    estado.destino && estado.destino.id === "__click__"
+      ? { value: "__click__", label: estado.destino.nombre, emoji: "📌" }
+      : null;
+
   if (!estado.localidad) {
     construirDropdown(cont, {
       placeholder: ui("ph_destino_first"),
-      options: [],
+      options: libre ? [libre] : [],
+      valorSel: libre ? "__click__" : undefined,
       onSelect: () => {},
     });
     return;
@@ -732,6 +787,7 @@ function renderDropdownDestino() {
     const act = ACTIVIDAD_POR_ID[p.actividad];
     return { value: p.id, label: p.nombre, sublabel: t(act.nombre), emoji: act.icon };
   });
+  if (libre) options.unshift(libre);
   construirDropdown(cont, {
     placeholder: vis.length ? ui("ph_destino") : ui("sin_puntos"),
     options,
@@ -792,6 +848,8 @@ function seleccionarLocalidad(id) {
 }
 
 function seleccionarDestino(id) {
+  // El punto libre del mapa no está en la localidad: se conserva tal cual.
+  if (id === "__click__") return;
   estado.destino = estado.localidad.puntos.find((p) => p.id === id) || null;
   renderDropdownDestino();
   dibujarPines();
