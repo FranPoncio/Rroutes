@@ -1,4 +1,4 @@
-# 🌏 Rroutes
+# 🌏 TRAVAPP
 
 Aplicación web **bilingüe (ES/EN)** para **planificar viajes a los puntos más turísticos
 de Argentina y Nueva Zelanda** (ambas islas), calculando las mejores rutas según tu

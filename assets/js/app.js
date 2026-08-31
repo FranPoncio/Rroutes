@@ -1,5 +1,5 @@
 /* ============================================================
-   Rutas Argentinas — lógica de la aplicación
+   TRAVAPP — lógica de la aplicación
    ============================================================ */
 
 const VALHALLA_URL = "https://valhalla1.openstreetmap.de/route";
@@ -49,6 +49,7 @@ const I18N = {
     sin_resultados: "Sin resultados",
     ocultar_panel: "Ocultar panel",
     mostrar_panel: "Mostrar panel",
+    deshacer: "Deshacer",
     sin_puntos: "Sin puntos para ese filtro",
     calc: "Calculando las mejores rutas…",
     ruta_corta: "Ruta más corta",
@@ -102,6 +103,11 @@ const I18N = {
     ph_localidad: "— Choose a town —",
     ph_destino: "— Choose a destination —",
     ph_destino_first: "— Choose a town first —",
+    buscar: "Search…",
+    sin_resultados: "No results",
+    ocultar_panel: "Hide panel",
+    mostrar_panel: "Show panel",
+    deshacer: "Undo",
     sin_puntos: "No spots for that filter",
     calc: "Finding the best routes…",
     ruta_corta: "Shortest route",
@@ -196,6 +202,84 @@ function togglePanel() {
 }
 
 // =====================================================================
+//  DESHACER (historial de selecciones)
+// =====================================================================
+const historial = [];
+
+// Guarda el estado actual antes de una acción, para poder volver atrás.
+function snapshot() {
+  historial.push({
+    pais: estado.pais,
+    localidadId: estado.localidad?.id || null,
+    destino: estado.destino
+      ? {
+          id: estado.destino.id,
+          lat: estado.destino.lat,
+          lng: estado.destino.lng,
+          nombre: estado.destino.nombre,
+        }
+      : null,
+    origen: estado.origen ? estado.origen.slice() : null,
+    origenTxt: document.getElementById("origen-estado").textContent,
+    actividades: [...estado.actividades],
+  });
+  if (historial.length > 60) historial.shift();
+  actualizarUndo();
+}
+
+function actualizarUndo() {
+  const b = document.getElementById("undo-btn");
+  if (b) b.disabled = historial.length === 0;
+}
+
+// Restaura el último estado guardado (deshace la última acción).
+function deshacer() {
+  const s = historial.pop();
+  if (!s) return;
+  estado.pais = s.pais;
+  estado.localidad = LOCALIDADES.find((l) => l.id === s.localidadId) || null;
+  estado.actividades = new Set(s.actividades);
+
+  if (!s.destino) estado.destino = null;
+  else if (s.destino.id === "__click__") estado.destino = { ...s.destino };
+  else
+    estado.destino = estado.localidad?.puntos.find((p) => p.id === s.destino.id) || {
+      ...s.destino,
+    };
+
+  // Reconstruir el punto de salida y su marcador.
+  estado.rutas = [];
+  capaRutas.clearLayers();
+  document.getElementById("resultados").classList.add("hidden");
+  if (marcadorOrigen) {
+    capaPines.removeLayer(marcadorOrigen);
+    marcadorOrigen = null;
+  }
+  estado.origen = s.origen ? s.origen.slice() : null;
+  if (estado.origen) {
+    marcadorOrigen = L.marker(estado.origen, {
+      icon: iconoPin({ tipo: "origen", emoji: "🧍" }),
+      zIndexOffset: 1200,
+    }).bindPopup(`<b>${ui("tu_salida")}</b>`);
+    capaPines.addLayer(marcadorOrigen);
+  }
+  document.getElementById("origen-estado").textContent = s.origenTxt;
+
+  renderPaisSelector();
+  renderChips();
+  renderDropdownLocalidad();
+  renderDropdownDestino();
+  dibujarPines();
+  if (estado.localidad) map.setView(estado.localidad.center, estado.localidad.zoom);
+  else {
+    const pa = PAISES.find((p) => p.id === estado.pais);
+    if (pa) map.setView(pa.center, pa.zoom);
+  }
+  actualizarBotonCrear();
+  actualizarUndo();
+}
+
+// =====================================================================
 //  MAPA
 // =====================================================================
 function initMapa() {
@@ -208,6 +292,7 @@ function initMapa() {
   // Mantener presionado (touch) o clic derecho: reinicia la salida en ese punto.
   map.on("contextmenu", (e) => {
     if (e.originalEvent) e.originalEvent.preventDefault();
+    snapshot();
     estado.destino = null;
     dibujarPines();
     setOrigen([e.latlng.lat, e.latlng.lng], ui("punto_mapa"));
@@ -217,6 +302,7 @@ function initMapa() {
 
 // Decide qué fija cada clic en el mapa: primero la salida, luego el destino.
 function manejarClickMapa(coords) {
+  snapshot();
   if (!estado.origen) {
     setOrigen(coords, ui("punto_mapa"));
     document.getElementById("origen-estado").textContent += " · " + ui("proximo_destino");
@@ -349,6 +435,7 @@ function popupPunto(p) {
 function irADestino(id) {
   const p = estado.localidad?.puntos.find((x) => x.id === id);
   if (!p) return;
+  snapshot();
   estado.destino = p;
   renderDropdownDestino();
   dibujarPines();
@@ -380,7 +467,7 @@ function dibujarPines() {
   // Destino elegido con un clic libre en el mapa (no pertenece a una localidad).
   if (estado.destino && estado.destino.id === "__click__") {
     L.marker([estado.destino.lat, estado.destino.lng], {
-      icon: iconoPin({ tipo: "destino", emoji: "★", color: "#f6b40e" }),
+      icon: iconoPin({ tipo: "destino", emoji: "★", color: "#c47a45" }),
       zIndexOffset: 1000,
     })
       .bindPopup(`<b>${ui("hacia")}: ${estado.destino.nombre}</b>`)
@@ -446,6 +533,7 @@ function usarGeolocalizacion() {
   btn.textContent = ui("geo_obteniendo");
   navigator.geolocation.getCurrentPosition(
     (pos) => {
+      snapshot();
       setOrigen([pos.coords.latitude, pos.coords.longitude], ui("mi_ubicacion"));
       btn.textContent = ui("geo_detectada");
       btn.classList.add("ok");
@@ -622,7 +710,7 @@ function dibujarRuta(indice) {
   const r = estado.rutas[indice];
   if (!r) return;
   const color =
-    r.tipo === "escenica" ? "#c084fc" : r.tipo === "alternativa" ? "#74acdf" : "#f6b40e";
+    r.tipo === "escenica" ? "#a1746a" : r.tipo === "alternativa" ? "#8a9a5b" : "#c47a45";
   L.polyline(r.coords, { color: "#000", weight: 8, opacity: 0.22 }).addTo(capaRutas);
   L.polyline(r.coords, { color, weight: 5, opacity: 0.95, lineJoin: "round" }).addTo(capaRutas);
   document
@@ -810,6 +898,7 @@ function renderChips() {
     if (activo) el.style.background = a.color;
     el.innerHTML = `<span class="ico">${a.icon}</span>${t(a.nombre)}`;
     el.addEventListener("click", () => {
+      snapshot();
       if (estado.actividades.has(a.id)) estado.actividades.delete(a.id);
       else estado.actividades.add(a.id);
       aplicarFiltroActividad();
@@ -834,6 +923,7 @@ function aplicarFiltroActividad() {
 //  SELECCIONES
 // =====================================================================
 function seleccionarLocalidad(id) {
+  snapshot();
   estado.localidad = LOCALIDADES.find((l) => l.id === id) || null;
   estado.rutas = [];
   capaRutas.clearLayers();
@@ -850,6 +940,7 @@ function seleccionarLocalidad(id) {
 function seleccionarDestino(id) {
   // El punto libre del mapa no está en la localidad: se conserva tal cual.
   if (id === "__click__") return;
+  snapshot();
   estado.destino = estado.localidad.puntos.find((p) => p.id === id) || null;
   renderDropdownDestino();
   dibujarPines();
@@ -926,7 +1017,13 @@ function renderPaisSelector() {
     el.type = "button";
     el.className = "pais-btn" + (pa.id === estado.pais ? " activo" : "");
     el.title = t(pa.nombre);
-    el.innerHTML = `<span class="pais-flag">${pa.flag}</span><span class="pais-abr">${pa.abr || t(pa.nombre)}</span>`;
+    // Bandera como imagen (los emoji de bandera no se ven en Windows/algunos navegadores).
+    // El id de cada país es su código ISO (ar, jp, kr…), que flagcdn usa directamente.
+    el.innerHTML =
+      `<img class="pais-flag" alt="" loading="lazy" width="19" height="13"` +
+      ` src="https://flagcdn.com/w40/${pa.id}.png"` +
+      ` srcset="https://flagcdn.com/w20/${pa.id}.png 1x, https://flagcdn.com/w40/${pa.id}.png 2x" />` +
+      `<span class="pais-abr">${pa.abr || t(pa.nombre)}</span>`;
     el.addEventListener("click", () => seleccionarPais(pa.id));
     cont.appendChild(el);
   });
@@ -934,6 +1031,7 @@ function renderPaisSelector() {
 
 function seleccionarPais(id) {
   if (id === estado.pais) return;
+  snapshot();
   estado.pais = id;
   estado.localidad = null;
   estado.destino = null;
@@ -971,6 +1069,8 @@ function aplicarIdioma() {
   if (pt) pt.title = ui(colapsado ? "mostrar_panel" : "ocultar_panel");
   const ps = document.getElementById("panel-show");
   if (ps) ps.title = ui("mostrar_panel");
+  const ub = document.getElementById("undo-btn");
+  if (ub) ub.title = ui("deshacer");
   // Botón de ubicación (si no fue usado) y hint de origen.
   const bu = document.getElementById("btn-ubicacion");
   if (bu && !bu.classList.contains("ok")) bu.textContent = ui("usar_ubicacion");
@@ -1001,6 +1101,13 @@ function main() {
   document.getElementById("lang-toggle").addEventListener("click", toggleIdioma);
   document.getElementById("panel-toggle").addEventListener("click", togglePanel);
   document.getElementById("panel-show").addEventListener("click", togglePanel);
+  document.getElementById("undo-btn").addEventListener("click", deshacer);
+  document.addEventListener("keydown", (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z") {
+      e.preventDefault();
+      deshacer();
+    }
+  });
   if (localStorage.getItem("panel") === "off") aplicarPanel(true);
   document.getElementById("btn-ubicacion").addEventListener("click", usarGeolocalizacion);
   document.getElementById("btn-crear").addEventListener("click", crearRutas);
