@@ -39,6 +39,9 @@ const I18N = {
       "En el mapa: 1er toque = salida, 2º toque = destino. Mantené presionado para reiniciar la salida.",
     destino_libre: "Punto en el mapa",
     proximo_destino: "Ahora tocá el mapa para elegir el destino.",
+    hint_ambos: "🧭 Tocá el mapa o elegí un destino",
+    hint_salida: "🧍 Tocá tu punto de salida",
+    hint_destino: "📍 Ahora tocá tu destino",
     crear: "Crear rutas",
     rutas_sugeridas: "Rutas sugeridas",
     footer: "Precios y transporte son orientativos.",
@@ -97,6 +100,9 @@ const I18N = {
       "On the map: 1st tap = start, 2nd tap = destination. Long-press to reset the start.",
     destino_libre: "Point on the map",
     proximo_destino: "Now tap the map to choose the destination.",
+    hint_ambos: "🧭 Tap the map or pick a destination",
+    hint_salida: "🧍 Tap your starting point",
+    hint_destino: "📍 Now tap your destination",
     crear: "Create routes",
     rutas_sugeridas: "Suggested routes",
     footer: "Prices and transport are indicative.",
@@ -296,19 +302,33 @@ function initMapa() {
     estado.destino = null;
     dibujarPines();
     setOrigen([e.latlng.lat, e.latlng.lng], ui("punto_mapa"));
-    document.getElementById("origen-estado").textContent += " · " + ui("proximo_destino");
   });
 }
 
 // Decide qué fija cada clic en el mapa: primero la salida, luego el destino.
+// Con ambos ya fijados, un clic suelto se ignora (para no mover el destino sin
+// querer); para rehacer se mantiene presionado (contextmenu) y se reinicia.
 function manejarClickMapa(coords) {
+  if (estado.origen && estado.destino) return;
   snapshot();
   if (!estado.origen) {
     setOrigen(coords, ui("punto_mapa"));
-    document.getElementById("origen-estado").textContent += " · " + ui("proximo_destino");
   } else {
     fijarDestinoLibre(coords);
   }
+  actualizarMapHint();
+}
+
+// Guía flotante sobre el mapa: dice qué va a fijar el próximo toque.
+function actualizarMapHint() {
+  const el = document.getElementById("map-hint");
+  if (!el) return;
+  let msg = "";
+  if (!estado.origen && !estado.destino) msg = ui("hint_ambos");
+  else if (!estado.origen) msg = ui("hint_salida");
+  else if (!estado.destino) msg = ui("hint_destino");
+  el.textContent = msg;
+  el.hidden = !msg;
 }
 
 // Fija un destino en un punto arbitrario del mapa (sin pasar por el desplegable).
@@ -999,6 +1019,7 @@ function renderResultados() {
 function actualizarBotonCrear() {
   document.getElementById("btn-crear").disabled = !(estado.origen && estado.destino);
   actualizarPasos();
+  actualizarMapHint();
 }
 
 // Revelado progresivo: los pasos 2 y 3 (y el botón) aparecen al haber destino.
@@ -1090,6 +1111,7 @@ function aplicarIdioma() {
   renderDropdownLocalidad();
   renderDropdownDestino();
   dibujarPines();
+  actualizarMapHint();
   if (estado.rutas.length && estado.destino) renderResultados();
 }
 
