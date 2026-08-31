@@ -4,48 +4,36 @@
    Tema claro/oscuro con toggle que respeta el sistema.
    ============================================================ */
 
-/* ---------- Fuentes locales ---------- */
+/* ---------- Fuente local: Plus Jakarta Sans ---------- */
 @font-face {
-  font-family: "Fredoka";
-  font-weight: 500;
-  font-display: swap;
-  src: url("../vendor/fonts/fredoka-latin-500-normal.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Fredoka";
-  font-weight: 600;
-  font-display: swap;
-  src: url("../vendor/fonts/fredoka-latin-600-normal.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Fredoka";
-  font-weight: 700;
-  font-display: swap;
-  src: url("../vendor/fonts/fredoka-latin-700-normal.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Nunito";
+  font-family: "Plus Jakarta Sans";
   font-weight: 400;
   font-display: swap;
-  src: url("../vendor/fonts/nunito-latin-400-normal.woff2") format("woff2");
+  src: url("../vendor/fonts/plus-jakarta-sans-latin-400-normal.woff2") format("woff2");
 }
 @font-face {
-  font-family: "Nunito";
+  font-family: "Plus Jakarta Sans";
+  font-weight: 500;
+  font-display: swap;
+  src: url("../vendor/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
   font-weight: 600;
   font-display: swap;
-  src: url("../vendor/fonts/nunito-latin-600-normal.woff2") format("woff2");
+  src: url("../vendor/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2");
 }
 @font-face {
-  font-family: "Nunito";
+  font-family: "Plus Jakarta Sans";
   font-weight: 700;
   font-display: swap;
-  src: url("../vendor/fonts/nunito-latin-700-normal.woff2") format("woff2");
+  src: url("../vendor/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2");
 }
 @font-face {
-  font-family: "Nunito";
+  font-family: "Plus Jakarta Sans";
   font-weight: 800;
   font-display: swap;
-  src: url("../vendor/fonts/nunito-latin-800-normal.woff2") format("woff2");
+  src: url("../vendor/fonts/plus-jakarta-sans-latin-800-normal.woff2") format("woff2");
 }
 
 /* ---------- Paleta (acentos constantes) ---------- */
@@ -57,8 +45,8 @@
   --ok: #34d399;
   --escenica: #c084fc;
   --radio: 16px;
-  --fuente-titulo: "Fredoka", "Segoe UI", system-ui, sans-serif;
-  --fuente-texto: "Nunito", "Segoe UI", system-ui, sans-serif;
+  --fuente-titulo: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+  --fuente-texto: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
 
   /* Tema claro (por defecto) */
   --bg: #eef2f7;
@@ -68,7 +56,7 @@
   --texto-soft: #5b6b7d;
   --borde: #dce4ee;
   --sombra: 0 10px 30px rgba(20, 40, 70, 0.12);
-  --map-filter: grayscale(0.15) contrast(1.05) brightness(1.02);
+  --map-filter: grayscale(0.4) contrast(1.02) brightness(1.02);
   --header-grad: linear-gradient(135deg, #4a90d9, #2b6cb0);
 }
 
@@ -82,7 +70,7 @@
     --texto-soft: #9fb2c6;
     --borde: #26384b;
     --sombra: 0 10px 30px rgba(0, 0, 0, 0.4);
-    --map-filter: grayscale(0.25) contrast(1.08) brightness(0.92);
+    --map-filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.9) saturate(0.6);
     --header-grad: linear-gradient(135deg, #2b6cb0, #1a3a5c);
   }
 }
@@ -95,7 +83,7 @@
   --texto-soft: #9fb2c6;
   --borde: #26384b;
   --sombra: 0 10px 30px rgba(0, 0, 0, 0.4);
-  --map-filter: grayscale(0.25) contrast(1.08) brightness(0.92);
+  --map-filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.9) saturate(0.6);
   --header-grad: linear-gradient(135deg, #2b6cb0, #1a3a5c);
 }
 
@@ -782,6 +770,25 @@ body {
 .poi-gtfs {
   color: var(--ok);
   font-weight: 700;
+}
+.poi-go {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: var(--sol);
+  color: #3a2c00;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--fuente-titulo);
+  font-weight: 700;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.poi-go:hover {
+  background: var(--sol-suave);
+  transform: translateY(-1px);
 }
 .poi-link {
   display: inline-block;

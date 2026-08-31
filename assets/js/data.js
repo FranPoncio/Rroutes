@@ -14589,6 +14589,1045 @@ const LOCALIDADES_SG = [
   },
 ];
 
+// ---------- Japón: más localidades ----------
+const KANAGAWA = { es: "Kanagawa", en: "Kanagawa" };
+const LOCALIDADES_JP3 = [
+  {
+    id: "nara",
+    nombre: "Nara",
+    provincia: KANSAI,
+    center: [34.6851, 135.8048],
+    zoom: 14,
+    eventos: {
+      nombre: { es: "Info de Nara", en: "Nara info" },
+      lat: 34.6851,
+      lng: 135.8048,
+      img: "Todai-ji_Nara.jpg",
+      url: "https://www.visitnara.jp/",
+      sinopsis: {
+        es: "La primera capital permanente de Japón (siglo VIII), de templos monumentales y ciervos sagrados que pasean libres.",
+        en: "Japan's first permanent capital (8th century), of monumental temples and sacred deer roaming free.",
+      },
+    },
+    puntos: [
+      PN(
+        "nara-park",
+        "Parque de Nara (ciervos)",
+        ["Parque", "Park"],
+        "naturaleza",
+        34.685,
+        135.843,
+        "Nara_Park.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde estación Kintetsu-Nara.", "Walk from Kintetsu-Nara station."],
+        [
+          "Más de 1.000 ciervos sagrados que se inclinan a cambio de galletas, entre templos.",
+          "Over 1,000 sacred deer that bow for crackers, among the temples.",
+        ]
+      ),
+      PN(
+        "todaiji",
+        "Tōdai-ji (Gran Buda)",
+        ["Templo", "Temple"],
+        "historico",
+        34.6889,
+        135.8398,
+        "Todai-ji_Nara.jpg",
+        ["¥ ~600", "¥ ~600"],
+        ["A pie por el parque.", "Walk through the park."],
+        [
+          "El mayor edificio de madera del mundo, hogar de un Buda de bronce de 15 m.",
+          "The world's largest wooden building, home to a 15 m bronze Buddha.",
+        ]
+      ),
+      PN(
+        "kasuga",
+        "Kasuga Taisha",
+        ["Santuario", "Shrine"],
+        "historico",
+        34.6817,
+        135.8483,
+        "Nara_Japan.jpg",
+        ["Gratis (interior ¥500)", "Free (inner ¥500)"],
+        ["A pie por el bosque.", "Walk through the forest."],
+        [
+          "Santuario de 3.000 linternas de bronce y piedra en un bosque milenario.",
+          "A shrine of 3,000 bronze and stone lanterns in an ancient forest.",
+        ]
+      ),
+      PN(
+        "kofukuji",
+        "Kōfuku-ji",
+        ["Templo", "Temple"],
+        "historico",
+        34.6832,
+        135.8306,
+        "Nara_Japan.jpg",
+        ["Gratis (pagoda ¥)", "Free (pagoda ¥)"],
+        ["Junto a la estación.", "Next to the station."],
+        [
+          "Templo con la segunda pagoda de cinco pisos más alta de Japón.",
+          "A temple with Japan's second-tallest five-storey pagoda.",
+        ]
+      ),
+      PN(
+        "isuien",
+        "Jardín Isuien",
+        ["Jardín", "Gardens"],
+        "naturaleza",
+        34.687,
+        135.836,
+        "Nara_Japan.jpg",
+        ["¥ ~1.200", "¥ ~1,200"],
+        ["A pie.", "On foot."],
+        [
+          "Elegante jardín de paseo que usa el Tōdai-ji como paisaje prestado.",
+          "An elegant strolling garden that 'borrows' Tōdai-ji as scenery.",
+        ]
+      ),
+      PN(
+        "naramachi",
+        "Naramachi (casco antiguo)",
+        ["Paseo", "Old town"],
+        "paseo",
+        34.679,
+        135.829,
+        "Nara_Japan.jpg",
+        ["Gratis", "Free"],
+        ["A pie desde el centro.", "Walk from the centre."],
+        [
+          "Barrio de casas de mercaderes con cafés, artesanos y museos pequeños.",
+          "A merchant-house quarter with cafés, artisans and small museums.",
+        ]
+      ),
+      PN(
+        "wakakusa",
+        "Monte Wakakusa",
+        ["Mirador", "Lookout"],
+        "trekking",
+        34.685,
+        135.856,
+        "Nara_Japan.jpg",
+        ["¥ ~150", "¥ ~150"],
+        ["A pie por el parque.", "Walk through the park."],
+        [
+          "Colina de pasto sobre la ciudad, quemada en un festival de fuego cada enero.",
+          "A grassy hill above the city, set alight in a fire festival each January.",
+        ]
+      ),
+      PN(
+        "horyuji",
+        "Hōryū-ji",
+        ["Templo", "Temple"],
+        "historico",
+        34.6144,
+        135.7346,
+        "Nara_Japan.jpg",
+        ["¥ ~1.500", "¥ ~1,500"],
+        ["Tren + bus (~30 min).", "Train + bus (~30 min)."],
+        [
+          "Los edificios de madera más antiguos del mundo (siglo VII), Patrimonio de la Humanidad.",
+          "The world's oldest wooden buildings (7th century), a World Heritage site.",
+        ]
+      ),
+      PN(
+        "yoshikien",
+        "Jardín Yoshikien",
+        ["Jardín", "Gardens"],
+        "naturaleza",
+        34.687,
+        135.834,
+        "Nara_Japan.jpg",
+        ["Gratis (extranjeros)", "Free (foreign visitors)"],
+        ["A pie.", "On foot."],
+        [
+          "Tres jardines japoneses distintos —estanque, musgo y té— en un mismo predio.",
+          "Three distinct Japanese gardens — pond, moss and tea — on one site.",
+        ]
+      ),
+      PN(
+        "nara-museum",
+        "Museo Nacional de Nara",
+        ["Museo", "Museum"],
+        "museo",
+        34.685,
+        135.838,
+        "Nara_Japan.jpg",
+        ["¥ ~700", "¥ ~700"],
+        ["En el parque.", "In the park."],
+        [
+          "Gran colección de arte budista japonés, con una muestra anual de tesoros.",
+          "A great collection of Japanese Buddhist art, with an annual treasures show.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "hakone",
+    nombre: "Hakone",
+    provincia: KANAGAWA,
+    center: [35.2324, 139.1069],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Info de Hakone", en: "Hakone info" },
+      lat: 35.2324,
+      lng: 139.1069,
+      img: "Hakone_Shrine.jpg",
+      url: "https://www.hakone.or.jp/en/",
+      sinopsis: {
+        es: "Pueblo de montaña de aguas termales (onsen) y vistas al monte Fuji, escapada clásica desde Tokio.",
+        en: "A mountain onsen town with Mount Fuji views, a classic getaway from Tokyo.",
+      },
+    },
+    puntos: [
+      PN(
+        "owakudani",
+        "Owakudani",
+        ["Valle volcánico", "Volcanic valley"],
+        "naturaleza",
+        35.2447,
+        139.0193,
+        "Hakone_Japan.jpg",
+        ["Teleférico arancelado", "Ropeway fare"],
+        ["Teleférico de Hakone.", "Hakone Ropeway."],
+        [
+          "Valle humeante de fumarolas donde se venden huevos ennegrecidos por el azufre.",
+          "A steaming sulfur valley selling eggs blackened in the hot springs.",
+        ]
+      ),
+      PN(
+        "lake-ashi",
+        "Lago Ashi",
+        ["Lago", "Lake"],
+        "naturaleza",
+        35.2,
+        139.02,
+        "Hakone_Shrine.jpg",
+        ["Barco arancelado", "Boat fare"],
+        ["Barco pirata / bus.", "Pirate boat / bus."],
+        [
+          "Lago de caldera con barcos temáticos y vistas del Fuji en días claros.",
+          "A caldera lake with themed boats and Fuji views on clear days.",
+        ]
+      ),
+      PN(
+        "hakone-shrine",
+        "Santuario de Hakone",
+        ["Santuario", "Shrine"],
+        "historico",
+        35.2043,
+        139.0257,
+        "Hakone_Shrine.jpg",
+        ["Gratis", "Free"],
+        ["Bus a Moto-Hakone.", "Bus to Moto-Hakone."],
+        [
+          "Su icónico torii rojo se alza sobre las aguas del lago Ashi.",
+          "Its iconic red torii gate rises from the waters of Lake Ashi.",
+        ]
+      ),
+      PN(
+        "open-air-museum",
+        "Museo al Aire Libre de Hakone",
+        ["Museo", "Museum"],
+        "museo",
+        35.2447,
+        139.05,
+        "Hakone_Japan.jpg",
+        ["¥ ~1.600", "¥ ~1,600"],
+        ["Tren Hakone-Tozan (Chokoku-no-Mori).", "Hakone-Tozan train (Chokoku-no-Mori)."],
+        [
+          "Museo de escultura al aire libre con obras de Picasso, Moore y Miró entre montañas.",
+          "An open-air sculpture museum with Picasso, Moore and Miró among the mountains.",
+        ]
+      ),
+      PN(
+        "hakone-ropeway",
+        "Teleférico de Hakone",
+        ["Mirador", "Ropeway"],
+        "paseo",
+        35.24,
+        139.03,
+        "Hakone_Japan.jpg",
+        ["Arancelado", "Fare"],
+        ["Parte del 'Hakone Free Pass'.", "Part of the Hakone Free Pass."],
+        [
+          "Cabinas sobre el valle volcánico con vistas del Fuji y el lago.",
+          "Cable cars over the volcanic valley with Fuji and lake views.",
+        ]
+      ),
+      PN(
+        "yumoto",
+        "Hakone-Yumoto (onsen)",
+        ["Termas", "Onsen town"],
+        "paseo",
+        35.233,
+        139.105,
+        "Hakone_Japan.jpg",
+        ["Baños aranceados", "Paid baths"],
+        ["Estación Hakone-Yumoto.", "Hakone-Yumoto station."],
+        [
+          "El pueblo termal de entrada, con baños públicos y calle de tiendas.",
+          "The gateway hot-spring town, with public baths and a shopping street.",
+        ]
+      ),
+      PN(
+        "pola-museum",
+        "Museo de Arte Pola",
+        ["Museo", "Museum"],
+        "museo",
+        35.256,
+        139.023,
+        "Hakone_Japan.jpg",
+        ["¥ ~1.800", "¥ ~1,800"],
+        ["Bus desde Gora.", "Bus from Gora."],
+        [
+          "Impresionismo francés y arte japonés en un edificio de vidrio en el bosque.",
+          "French Impressionism and Japanese art in a glass building in the forest.",
+        ]
+      ),
+      PN(
+        "gora-park",
+        "Parque Gora",
+        ["Jardín", "Gardens"],
+        "naturaleza",
+        35.247,
+        139.047,
+        "Hakone_Japan.jpg",
+        ["¥ ~550", "¥ ~550"],
+        ["Tren Hakone-Tozan (Gora).", "Hakone-Tozan train (Gora)."],
+        [
+          "Jardín francés en ladera con invernaderos y talleres de artesanía.",
+          "A hillside French garden with greenhouses and craft workshops.",
+        ]
+      ),
+      PN(
+        "odawara-castle",
+        "Castillo de Odawara",
+        ["Histórico", "Historic"],
+        "historico",
+        35.251,
+        139.153,
+        "Hakone_Japan.jpg",
+        ["¥ ~510", "¥ ~510"],
+        ["Estación Odawara.", "Odawara station."],
+        [
+          "Castillo reconstruido del clan Hōjō, puerta de entrada a la región de Hakone.",
+          "A rebuilt castle of the Hōjō clan, gateway to the Hakone region.",
+        ]
+      ),
+      PN(
+        "moto-hakone-view",
+        "Mirador del Fuji (Moto-Hakone)",
+        ["Mirador", "Lookout"],
+        "naturaleza",
+        35.19,
+        139.02,
+        "Hakone_Shrine.jpg",
+        ["Gratis", "Free"],
+        ["Bus a Moto-Hakone.", "Bus to Moto-Hakone."],
+        [
+          "La avenida de cedros y la orilla del lago, el punto clásico de foto con el Fuji.",
+          "The cedar avenue and lake shore, the classic Fuji photo spot.",
+        ]
+      ),
+    ],
+  },
+];
+
+// ---------- China: más localidades ----------
+const CN_XIAN = { es: "Shaanxi", en: "Shaanxi" };
+const CN_GUILIN = { es: "Guangxi", en: "Guangxi" };
+const LOCALIDADES_CN2 = [
+  {
+    id: "xian",
+    nombre: "Xi'an / Xián",
+    provincia: CN_XIAN,
+    center: [34.3416, 108.9398],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Info de Xi'an", en: "Xi'an info" },
+      lat: 34.3416,
+      lng: 108.9398,
+      img: "Terracotta_Army.jpg",
+      url: "https://www.travelchina.gov.cn/",
+      sinopsis: {
+        es: "Antigua capital de trece dinastías y punto de partida de la Ruta de la Seda; hogar de los Guerreros de Terracota.",
+        en: "The ancient capital of thirteen dynasties and start of the Silk Road; home to the Terracotta Army.",
+      },
+    },
+    puntos: [
+      PN(
+        "terracotta",
+        "Guerreros de Terracota",
+        ["Histórico", "Historic"],
+        "historico",
+        34.3841,
+        109.2785,
+        "Terracotta_Army.jpg",
+        ["¥ ~120", "¥ ~120"],
+        ["Bus / tour (~1 h).", "Bus / tour (~1 h)."],
+        [
+          "Ejército de más de 8.000 soldados de terracota que custodian la tumba del primer emperador.",
+          "An army of 8,000+ terracotta soldiers guarding the first emperor's tomb.",
+        ]
+      ),
+      PN(
+        "city-wall-xian",
+        "Muralla de Xi'an",
+        ["Histórico", "Historic"],
+        "historico",
+        34.261,
+        108.956,
+        "Xian_China.jpg",
+        ["¥ ~54", "¥ ~54"],
+        ["Metro Yongningmen.", "Metro Yongningmen."],
+        [
+          "La muralla urbana más completa de China (siglo XIV), que se recorre en bici.",
+          "China's most complete city wall (14th century), rideable by bike.",
+        ]
+      ),
+      PN(
+        "muslim-quarter",
+        "Barrio Musulmán y Gran Mezquita",
+        ["Gastronomía", "Food & mosque"],
+        "gastronomia",
+        34.267,
+        108.94,
+        "Xian_China.jpg",
+        ["Barrio gratis", "Quarter free"],
+        ["Metro Bell Tower.", "Metro Bell Tower."],
+        [
+          "Callejones de street food hui y una mezquita de estilo chino de 1.300 años.",
+          "Lanes of Hui street food and a 1,300-year-old Chinese-style mosque.",
+        ]
+      ),
+      PN(
+        "big-goose-pagoda",
+        "Gran Pagoda de la Oca Salvaje",
+        ["Templo", "Temple"],
+        "historico",
+        34.2186,
+        108.9597,
+        "Xian_China.jpg",
+        ["¥ ~50", "¥ ~50"],
+        ["Metro Dayan Pagoda.", "Metro Dayan Pagoda."],
+        [
+          "Pagoda del siglo VII construida para guardar sutras budistas de la India.",
+          "A 7th-century pagoda built to hold Buddhist sutras from India.",
+        ]
+      ),
+      PN(
+        "bell-tower-xian",
+        "Torre de la Campana",
+        ["Histórico", "Historic"],
+        "historico",
+        34.261,
+        108.953,
+        "Xian_China.jpg",
+        ["¥ ~30", "¥ ~30"],
+        ["Metro Bell Tower.", "Metro Bell Tower."],
+        [
+          "Torre de madera de 1384 en el centro geográfico de la ciudad antigua.",
+          "A 1384 wooden tower at the geographic centre of the old city.",
+        ]
+      ),
+      PN(
+        "huashan",
+        "Monte Hua (Huàshān)",
+        ["Montaña", "Peak"],
+        "trekking",
+        34.4772,
+        110.087,
+        "Xian_China.jpg",
+        ["¥ ~160 + teleférico", "¥ ~160 + cable car"],
+        ["Tren de alta velocidad (~40 min).", "High-speed train (~40 min)."],
+        [
+          "Una de las cinco montañas sagradas taoístas, famosa por su vertiginoso sendero.",
+          "One of the five sacred Taoist mountains, famous for its vertiginous plank path.",
+        ]
+      ),
+      PN(
+        "shaanxi-museum",
+        "Museo de Historia de Shaanxi",
+        ["Museo", "Museum"],
+        "museo",
+        34.22,
+        108.943,
+        "Xian_China.jpg",
+        ["Gratis (reserva)", "Free (reserve)"],
+        ["Metro Xiaozhai.", "Metro Xiaozhai."],
+        [
+          "Uno de los mejores museos de China, con bronces y arte de la Ruta de la Seda.",
+          "One of China's finest museums, with bronzes and Silk Road art.",
+        ]
+      ),
+      PN(
+        "tang-paradise",
+        "Tang Paradise",
+        ["Paseo", "Cultural park"],
+        "paseo",
+        34.21,
+        108.96,
+        "Xian_China.jpg",
+        ["¥ ~120", "¥ ~120"],
+        ["Metro / taxi.", "Metro / taxi."],
+        [
+          "Parque temático de la dinastía Tang con pabellones, lago y show de agua nocturno.",
+          "A Tang-dynasty theme park with pavilions, a lake and a night water show.",
+        ]
+      ),
+      PN(
+        "drum-tower-xian",
+        "Torre del Tambor",
+        ["Histórico", "Historic"],
+        "historico",
+        34.264,
+        108.948,
+        "Xian_China.jpg",
+        ["¥ ~30", "¥ ~30"],
+        ["Metro Bell Tower.", "Metro Bell Tower."],
+        [
+          "Gemela de la Torre de la Campana, a la entrada del Barrio Musulmán.",
+          "The twin of the Bell Tower, at the entrance to the Muslim Quarter.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "guilin",
+    nombre: "Guilin y Yangshuo",
+    provincia: CN_GUILIN,
+    center: [25.2736, 110.29],
+    zoom: 9,
+    eventos: {
+      nombre: { es: "Info de Guilin", en: "Guilin info" },
+      lat: 25.2736,
+      lng: 110.29,
+      img: "Li_River_Guilin.jpg",
+      url: "https://www.travelchina.gov.cn/",
+      sinopsis: {
+        es: "Paisaje de picos kársticos sobre el río Li que inspiró la pintura china durante siglos y aparece en el billete de 20 yuanes.",
+        en: "A karst-peak landscape over the Li River that inspired Chinese painting for centuries and features on the 20-yuan note.",
+      },
+    },
+    puntos: [
+      PN(
+        "li-river",
+        "Crucero por el río Li",
+        ["Naturaleza", "Cruise"],
+        "naturaleza",
+        25.0,
+        110.4,
+        "Li_River_Guilin.jpg",
+        ["¥ ~250", "¥ ~250"],
+        ["Barco de Guilin a Yangshuo (~4 h).", "Boat from Guilin to Yangshuo (~4 h)."],
+        [
+          "Navegación entre montañas de piedra caliza y aldeas de pescadores con cormoranes.",
+          "A cruise among limestone mountains and fishing villages with cormorants.",
+        ]
+      ),
+      PN(
+        "yangshuo",
+        "Yangshuo y West Street",
+        ["Pueblo", "Town"],
+        "paseo",
+        24.7784,
+        110.496,
+        "Li_River_Guilin.jpg",
+        ["Gratis", "Free"],
+        ["Bus / barco desde Guilin.", "Bus / boat from Guilin."],
+        [
+          "Pueblo entre picos con la peatonal West Street, bici y escalada.",
+          "A town among the peaks with pedestrian West Street, cycling and climbing.",
+        ]
+      ),
+      PN(
+        "elephant-hill",
+        "Colina de la Trompa del Elefante",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        25.257,
+        110.296,
+        "Guilin_China.jpg",
+        ["¥ ~55", "¥ ~55"],
+        ["Taxi / bus.", "Taxi / bus."],
+        [
+          "Cerro con un arco natural que parece un elefante bebiendo del río, símbolo de Guilin.",
+          "A hill with a natural arch like an elephant drinking from the river, Guilin's symbol.",
+        ]
+      ),
+      PN(
+        "reed-flute-cave",
+        "Cueva de la Flauta de Caña",
+        ["Cuevas", "Cave"],
+        "naturaleza",
+        25.305,
+        110.268,
+        "Guilin_China.jpg",
+        ["¥ ~110", "¥ ~110"],
+        ["Bus / taxi.", "Bus / taxi."],
+        [
+          "Gruta de estalactitas iluminada con luces de colores, un mundo subterráneo mágico.",
+          "A stalactite cave lit with coloured lights, a magical underground world.",
+        ]
+      ),
+      PN(
+        "longji",
+        "Terrazas de arroz de Longji",
+        ["Naturaleza", "Rice terraces"],
+        "naturaleza",
+        25.77,
+        110.12,
+        "Longji_Rice_Terraces.jpg",
+        ["¥ ~80", "¥ ~80"],
+        ["Bus (~2,5 h).", "Bus (~2.5 h)."],
+        [
+          "El 'espinazo del dragón': laderas enteras esculpidas en terrazas de arroz.",
+          "The 'dragon's backbone': whole hillsides carved into rice terraces.",
+        ]
+      ),
+      PN(
+        "two-rivers-four-lakes",
+        "Dos Ríos y Cuatro Lagos",
+        ["Paseo", "Waterfront"],
+        "paseo",
+        25.27,
+        110.29,
+        "Guilin_China.jpg",
+        ["Barco arancelado", "Boat fare"],
+        ["En el centro de Guilin.", "In central Guilin."],
+        [
+          "Anillo de agua con las pagodas gemelas del Sol y la Luna iluminadas de noche.",
+          "A ring of water with the twin Sun and Moon Pagodas lit up at night.",
+        ]
+      ),
+      PN(
+        "xingping",
+        "Xingping (billete de 20 yuanes)",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        24.93,
+        110.47,
+        "Li_River_Guilin.jpg",
+        ["Gratis", "Free"],
+        ["Bus / barco.", "Bus / boat."],
+        [
+          "Pueblo ribereño con el mismísimo paisaje que aparece en el billete de 20 yuanes.",
+          "A riverside village with the very scene printed on the 20-yuan note.",
+        ]
+      ),
+      PN(
+        "yulong",
+        "Río Yulong (balsa de bambú)",
+        ["Naturaleza", "Nature"],
+        "naturaleza",
+        24.75,
+        110.42,
+        "Li_River_Guilin.jpg",
+        ["Balsa arancelada", "Bamboo raft fare"],
+        ["Desde Yangshuo.", "From Yangshuo."],
+        [
+          "Paseo tranquilo en balsa de bambú entre arrozales y picos, cerca de Yangshuo.",
+          "A gentle bamboo-raft float among rice fields and peaks, near Yangshuo.",
+        ]
+      ),
+    ],
+  },
+];
+
+// =====================================================================
+//  COREA DEL SUR (bilingüe)
+// =====================================================================
+const KR_SEOUL = { es: "Seúl", en: "Seoul" };
+const KR_BUSAN = { es: "Busan", en: "Busan" };
+const LOCALIDADES_KR = [
+  {
+    id: "seoul",
+    nombre: "Seúl / Seoul",
+    provincia: KR_SEOUL,
+    center: [37.5665, 126.978],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Agenda de Seúl", en: "Seoul events" },
+      lat: 37.5665,
+      lng: 126.978,
+      img: "Gyeongbokgung_Seoul.jpg",
+      url: "https://english.visitseoul.net/",
+      sinopsis: {
+        es: "Capital hiperconectada donde palacios de la dinastía Joseon conviven con rascacielos, K-pop y la mejor vida nocturna de Asia.",
+        en: "A hyper-connected capital where Joseon-dynasty palaces meet skyscrapers, K-pop and some of Asia's best nightlife.",
+      },
+    },
+    puntos: [
+      PN(
+        "gyeongbokgung",
+        "Palacio Gyeongbokgung",
+        ["Palacio", "Palace"],
+        "historico",
+        37.5796,
+        126.977,
+        "Gyeongbokgung_Seoul.jpg",
+        ["₩ ~3.000", "₩ ~3,000"],
+        ["Metro Gyeongbokgung.", "Metro Gyeongbokgung."],
+        [
+          "El gran palacio real de 1395, con cambio de guardia y hanbok de alquiler.",
+          "The grand 1395 royal palace, with a guard-changing ceremony and hanbok rental.",
+        ]
+      ),
+      PN(
+        "bukchon",
+        "Aldea Hanok de Bukchon",
+        ["Paseo", "Historic village"],
+        "paseo",
+        37.5826,
+        126.983,
+        "Seoul_Korea.jpg",
+        ["Gratis", "Free"],
+        ["Metro Anguk.", "Metro Anguk."],
+        [
+          "Callejones de casas tradicionales (hanok) entre dos palacios, con vistas a la ciudad.",
+          "Lanes of traditional hanok houses between two palaces, with city views.",
+        ]
+      ),
+      PN(
+        "nseoul-tower",
+        "N Seoul Tower (Namsan)",
+        ["Mirador", "Lookout"],
+        "paseo",
+        37.5512,
+        126.9882,
+        "Seoul_Korea.jpg",
+        ["₩ ~21.000", "₩ ~21,000"],
+        ["Teleférico de Namsan.", "Namsan cable car."],
+        [
+          "Torre en la montaña Namsan con vista de 360° y muros de candados de amor.",
+          "A tower on Namsan mountain with a 360° view and 'love lock' fences.",
+        ]
+      ),
+      PN(
+        "myeongdong",
+        "Myeongdong",
+        ["Compras", "Shopping"],
+        "shopping",
+        37.5637,
+        126.982,
+        "Seoul_Korea.jpg",
+        ["Gratis", "Free"],
+        ["Metro Myeongdong.", "Metro Myeongdong."],
+        [
+          "La meca de las compras y la cosmética coreana, con street food por la noche.",
+          "The mecca of shopping and Korean cosmetics, with street food at night.",
+        ]
+      ),
+      PN(
+        "changdeokgung",
+        "Changdeokgung y Jardín Secreto",
+        ["Palacio", "Palace"],
+        "historico",
+        37.5794,
+        126.991,
+        "Seoul_Korea.jpg",
+        ["₩ ~3.000 + jardín", "₩ ~3,000 + garden"],
+        ["Metro Anguk.", "Metro Anguk."],
+        [
+          "Palacio Patrimonio de la Humanidad con un jardín real escondido entre bosque.",
+          "A World Heritage palace with a hidden royal garden amid forest.",
+        ]
+      ),
+      PN(
+        "insadong",
+        "Insadong",
+        ["Paseo", "Arts street"],
+        "paseo",
+        37.5714,
+        126.986,
+        "Seoul_Korea.jpg",
+        ["Gratis", "Free"],
+        ["Metro Anguk.", "Metro Anguk."],
+        [
+          "Calle de galerías, casas de té, caligrafía y artesanías tradicionales.",
+          "A street of galleries, tea houses, calligraphy and traditional crafts.",
+        ]
+      ),
+      PN(
+        "ddp",
+        "Dongdaemun Design Plaza",
+        ["Arquitectura", "Architecture"],
+        "museo",
+        37.5669,
+        127.009,
+        "Seoul_Korea.jpg",
+        ["Gratis (muestras aparte)", "Free (shows extra)"],
+        ["Metro Dongdaemun History & Culture Park.", "Metro Dongdaemun HCP."],
+        [
+          "Futurista edificio curvo de Zaha Hadid, ícono del diseño y de la moda.",
+          "A futuristic curved building by Zaha Hadid, an icon of design and fashion.",
+        ]
+      ),
+      PN(
+        "hongdae",
+        "Hongdae",
+        ["Vida nocturna", "Nightlife"],
+        "paseo",
+        37.5563,
+        126.922,
+        "Seoul_Korea.jpg",
+        ["Gratis", "Free"],
+        ["Metro Hongik University.", "Metro Hongik University."],
+        [
+          "Barrio universitario del arte callejero, la música indie y el K-pop.",
+          "A university district of street art, indie music and K-pop.",
+        ]
+      ),
+      PN(
+        "gwangjang",
+        "Mercado Gwangjang",
+        ["Mercado", "Market"],
+        "gastronomia",
+        37.57,
+        127.0,
+        "Seoul_Korea.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["Metro Jongno 5-ga.", "Metro Jongno 5-ga."],
+        [
+          "Uno de los mercados más antiguos, meca de la comida callejera coreana.",
+          "One of the oldest markets, a mecca of Korean street food.",
+        ]
+      ),
+      PN(
+        "han-river",
+        "Parque del río Han",
+        ["Parque", "Park"],
+        "naturaleza",
+        37.52,
+        126.96,
+        "Seoul_Korea.jpg",
+        ["Gratis", "Free"],
+        ["Metro Yeouinaru.", "Metro Yeouinaru."],
+        [
+          "Riberas verdes para picnic, bici y pollo frito con cerveza al atardecer.",
+          "Green riverbanks for picnics, cycling and fried chicken with beer at sunset.",
+        ]
+      ),
+      PN(
+        "lotte-tower",
+        "Lotte World Tower (Seoul Sky)",
+        ["Mirador", "Lookout"],
+        "paseo",
+        37.5125,
+        127.1025,
+        "Seoul_Korea.jpg",
+        ["₩ ~29.000", "₩ ~29,000"],
+        ["Metro Jamsil.", "Metro Jamsil."],
+        [
+          "El quinto edificio más alto del mundo (555 m), con un mirador de suelo de vidrio.",
+          "The world's fifth-tallest building (555 m), with a glass-floored deck.",
+        ]
+      ),
+      PN(
+        "national-museum-kr",
+        "Museo Nacional de Corea",
+        ["Museo", "Museum"],
+        "museo",
+        37.524,
+        126.98,
+        "Seoul_Korea.jpg",
+        ["Gratis", "Free"],
+        ["Metro Ichon.", "Metro Ichon."],
+        [
+          "Uno de los mayores museos de Asia, con 5.000 años de historia coreana.",
+          "One of Asia's largest museums, with 5,000 years of Korean history.",
+        ]
+      ),
+      PN(
+        "bukhansan",
+        "Parque Nacional Bukhansan",
+        ["Trekking", "Hike"],
+        "trekking",
+        37.658,
+        126.977,
+        "Seoul_Korea.jpg",
+        ["Gratis", "Free"],
+        ["Metro + bus.", "Metro + bus."],
+        [
+          "Montañas de granito con trekkings, dentro de los límites de la ciudad.",
+          "Granite mountains with hiking trails, within the city limits.",
+        ]
+      ),
+    ],
+  },
+  {
+    id: "busan",
+    nombre: "Busan",
+    provincia: KR_BUSAN,
+    center: [35.1796, 129.0756],
+    zoom: 12,
+    eventos: {
+      nombre: { es: "Agenda de Busan", en: "Busan events" },
+      lat: 35.1796,
+      lng: 129.0756,
+      img: "Gamcheon_Busan.jpg",
+      url: "https://www.visitbusan.net/en/",
+      sinopsis: {
+        es: "La gran ciudad portuaria del sur, de playas, templos junto al mar y un célebre festival internacional de cine.",
+        en: "The great southern port city, of beaches, seaside temples and a famous international film festival.",
+      },
+    },
+    puntos: [
+      PN(
+        "haeundae",
+        "Playa Haeundae",
+        ["Playa", "Beach"],
+        "playa",
+        35.1587,
+        129.1604,
+        "Busan_Korea.jpg",
+        ["Gratis", "Free"],
+        ["Metro Haeundae.", "Metro Haeundae."],
+        [
+          "La playa urbana más famosa del país, con rascacielos y paseo marítimo.",
+          "The country's most famous city beach, with skyscrapers and a promenade.",
+        ]
+      ),
+      PN(
+        "gamcheon",
+        "Aldea Cultural de Gamcheon",
+        ["Paseo", "Village"],
+        "paseo",
+        35.0975,
+        129.0106,
+        "Gamcheon_Busan.jpg",
+        ["Gratis", "Free"],
+        ["Metro Toseong + bus.", "Metro Toseong + bus."],
+        [
+          "Barrio de casas de colores escalonadas en la ladera, el 'Machu Picchu coreano'.",
+          "A hillside neighbourhood of colourful tiered houses, the 'Korean Machu Picchu'.",
+        ]
+      ),
+      PN(
+        "yonggungsa",
+        "Haedong Yonggungsa",
+        ["Templo", "Temple"],
+        "historico",
+        35.1884,
+        129.2233,
+        "Busan_Korea.jpg",
+        ["Gratis", "Free"],
+        ["Metro + bus.", "Metro + bus."],
+        [
+          "Raro templo budista construido sobre las rocas junto al mar.",
+          "A rare Buddhist temple built on the rocks right by the sea.",
+        ]
+      ),
+      PN(
+        "gwangalli",
+        "Playa Gwangalli y puente Diamante",
+        ["Playa", "Beach"],
+        "playa",
+        35.1531,
+        129.1186,
+        "Busan_Korea.jpg",
+        ["Gratis", "Free"],
+        ["Metro Gwangan.", "Metro Gwangan."],
+        [
+          "Playa con vista al gran puente Gwangan iluminado, de bares y cafés.",
+          "A beach facing the lit-up Gwangan Bridge, with bars and cafés.",
+        ]
+      ),
+      PN(
+        "jagalchi",
+        "Mercado de pescado Jagalchi",
+        ["Mercado", "Market"],
+        "gastronomia",
+        35.0966,
+        129.0304,
+        "Busan_Korea.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["Metro Jagalchi.", "Metro Jagalchi."],
+        [
+          "El mayor mercado de mariscos del país, donde se elige y se come al momento.",
+          "The country's largest seafood market, where you pick and eat on the spot.",
+        ]
+      ),
+      PN(
+        "beomeosa",
+        "Templo Beomeosa",
+        ["Templo", "Temple"],
+        "historico",
+        35.282,
+        129.069,
+        "Busan_Korea.jpg",
+        ["Gratis", "Free"],
+        ["Metro Beomeosa + bus.", "Metro Beomeosa + bus."],
+        [
+          "Templo de montaña del año 678, uno de los principales del budismo coreano.",
+          "A mountain temple from the year 678, a major seat of Korean Buddhism.",
+        ]
+      ),
+      PN(
+        "taejongdae",
+        "Taejongdae",
+        ["Mirador", "Cliffs"],
+        "naturaleza",
+        35.053,
+        129.087,
+        "Busan_Korea.jpg",
+        ["Gratis (tren aparte)", "Free (train extra)"],
+        ["Metro Nampo + bus.", "Metro Nampo + bus."],
+        [
+          "Parque de acantilados con faro y vistas al mar abierto en el extremo de la isla.",
+          "A clifftop park with a lighthouse and open-sea views at the island's tip.",
+        ]
+      ),
+      PN(
+        "songdo",
+        "Playa Songdo y teleférico",
+        ["Playa", "Beach"],
+        "playa",
+        35.076,
+        129.016,
+        "Busan_Korea.jpg",
+        ["Teleférico arancelado", "Cable car fare"],
+        ["Metro Jagalchi + bus.", "Metro Jagalchi + bus."],
+        [
+          "La playa más antigua del país, con un teleférico marino de suelo de vidrio.",
+          "The country's oldest beach, with a sea cable car with a glass floor.",
+        ]
+      ),
+      PN(
+        "gukje",
+        "Mercado Gukje",
+        ["Mercado", "Market"],
+        "shopping",
+        35.101,
+        129.029,
+        "Busan_Korea.jpg",
+        ["Gratis (ingreso)", "Free (entry)"],
+        ["Metro Jagalchi / Nampo.", "Metro Jagalchi / Nampo."],
+        [
+          "Gran mercado callejero nacido tras la Guerra de Corea, de todo y street food.",
+          "A big street market born after the Korean War, of everything and street food.",
+        ]
+      ),
+      PN(
+        "oryukdo",
+        "Oryukdo Skywalk",
+        ["Mirador", "Lookout"],
+        "naturaleza",
+        35.101,
+        129.124,
+        "Busan_Korea.jpg",
+        ["Gratis", "Free"],
+        ["Metro + bus.", "Metro + bus."],
+        [
+          "Pasarela de vidrio sobre el mar frente a los islotes de Oryukdo.",
+          "A glass walkway over the sea facing the Oryukdo islets.",
+        ]
+      ),
+    ],
+  },
+];
+
 // Países disponibles (para el selector).
 const PAISES = [
   {
@@ -14643,6 +15682,13 @@ const PAISES = [
     center: [1.35, 103.82],
     zoom: 11,
   },
+  {
+    id: "kr",
+    nombre: { es: "Corea del Sur", en: "South Korea" },
+    flag: "🇰🇷",
+    center: [36.5, 127.8],
+    zoom: 6,
+  },
 ];
 
 // Todas las localidades, etiquetadas por país.
@@ -14651,6 +15697,7 @@ const LOCALIDADES = [
   ...LOCALIDADES_NZ.map((l) => ({ ...l, pais: "nz" })),
   ...LOCALIDADES_JP.map((l) => ({ ...l, pais: "jp" })),
   ...LOCALIDADES_JP2.map((l) => ({ ...l, pais: "jp" })),
+  ...LOCALIDADES_JP3.map((l) => ({ ...l, pais: "jp" })),
   ...LOCALIDADES_TH.map((l) => ({ ...l, pais: "th" })),
   ...LOCALIDADES_TH2.map((l) => ({ ...l, pais: "th" })),
   ...LOCALIDADES_AU.map((l) => ({ ...l, pais: "au" })),
@@ -14661,8 +15708,10 @@ const LOCALIDADES = [
   ...LOCALIDADES_VN3.map((l) => ({ ...l, pais: "vn" })),
   ...LOCALIDADES_KH.map((l) => ({ ...l, pais: "kh" })),
   ...LOCALIDADES_CN.map((l) => ({ ...l, pais: "cn" })),
+  ...LOCALIDADES_CN2.map((l) => ({ ...l, pais: "cn" })),
   ...LOCALIDADES_LA.map((l) => ({ ...l, pais: "la" })),
   ...LOCALIDADES_SG.map((l) => ({ ...l, pais: "sg" })),
+  ...LOCALIDADES_KR.map((l) => ({ ...l, pais: "kr" })),
 ];
 
 // Modos de transporte -> costing de Valhalla + metadatos de UI (nombre bilingüe).

@@ -4,11 +4,10 @@
 
 const VALHALLA_URL = "https://valhalla1.openstreetmap.de/route";
 
-// Bases de mapa grises, según el tema.
-const TILES = {
-  light: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-  dark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-};
+// Base de mapa: OpenStreetMap (sin API key, funciona en cualquier host).
+// El look claro/oscuro se resuelve con un filtro CSS (var --map-filter).
+const TILE_URL = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+const TILE_ATTR = "© OpenStreetMap contributors";
 
 // ------- Estado global -------
 const estado = {
@@ -31,6 +30,8 @@ const I18N = {
     paso1: "¿A dónde vas?",
     localidad_label: "Localidad / región",
     destino_label: "Destino específico",
+    destino_hint: "💡 Tip: tocá cualquier pin del mapa y elegí «Ir acá».",
+    ir_aca: "Ir acá",
     paso2: "¿Cómo viajás?",
     paso3: "¿Desde dónde salís?",
     usar_ubicacion: "📍 Usar mi ubicación",
@@ -79,6 +80,8 @@ const I18N = {
     paso1: "Where to?",
     localidad_label: "Town / region",
     destino_label: "Specific destination",
+    destino_hint: "💡 Tip: tap any pin on the map and choose 'Route here'.",
+    ir_aca: "Route here",
     paso2: "How are you travelling?",
     paso3: "Where do you start?",
     usar_ubicacion: "📍 Use my location",
@@ -151,12 +154,11 @@ function aplicarTema(tema) {
   document.documentElement.dataset.theme = tema;
   const btn = document.getElementById("theme-toggle");
   if (btn) btn.textContent = tema === "dark" ? "☀️" : "🌙";
-  // Cambiar la base del mapa si ya está creado.
-  if (map) {
-    if (capaTiles) map.removeLayer(capaTiles);
-    capaTiles = L.tileLayer(TILES[tema], {
-      attribution: "© OpenStreetMap · © CARTO",
-      subdomains: "abcd",
+  // La base del mapa no cambia con el tema (lo hace el filtro CSS), se crea una sola vez.
+  if (map && !capaTiles) {
+    capaTiles = L.tileLayer(TILE_URL, {
+      attribution: TILE_ATTR,
+      subdomains: "abc",
       maxZoom: 19,
     }).addTo(map);
     capaTiles.bringToBack();
@@ -272,6 +274,7 @@ function popupPunto(p) {
       <div class="poi-row"><span class="ic">🎫</span><span><b>${ui("entrada")}:</b> ${t(p.entrada)}</span></div>
       ${transporteHTML(p)}
       <div class="poi-loc">📍 ${p.localidadNombre || ""}${p.provincia ? " · " + t(p.provincia) : ""}</div>
+      <button type="button" class="poi-go">🧭 ${ui("ir_aca")}</button>
     </div>`;
   const img = cont.querySelector("img");
   img.addEventListener("error", () => {
@@ -280,7 +283,27 @@ function popupPunto(p) {
     ph.textContent = p.nombre;
     img.replaceWith(ph);
   });
+  // Tocar el pin y elegirlo como destino (sin usar el desplegable).
+  cont.querySelector(".poi-go").addEventListener("click", () => irADestino(p.id));
   return cont;
+}
+
+// Elige un punto como destino desde el mapa; si ya hay origen, calcula las rutas.
+function irADestino(id) {
+  const p = estado.localidad?.puntos.find((x) => x.id === id);
+  if (!p) return;
+  estado.destino = p;
+  renderDropdownDestino();
+  dibujarPines();
+  actualizarBotonCrear();
+  map.closePopup();
+  if (estado.origen) {
+    crearRutas();
+  } else {
+    document
+      .getElementById("btn-ubicacion")
+      .scrollIntoView({ behavior: "smooth", block: "center" });
+  }
 }
 
 // ¿Pasa el punto el filtro de actividad?
