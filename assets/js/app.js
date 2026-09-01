@@ -950,13 +950,14 @@ function renderChips() {
 
 function aplicarFiltroActividad() {
   renderChips();
-  // Si el destino actual ya no pasa el filtro, elegir el primero visible.
-  if (estado.destino && !pasaFiltro(estado.destino)) {
-    const vis = puntosVisibles();
-    estado.destino = vis[0] || null;
+  // Si el destino actual ya no pasa el filtro, se limpia (no se fuerza otro).
+  if (estado.destino && estado.destino.id !== "__click__" && !pasaFiltro(estado.destino)) {
+    estado.destino = null;
   }
   renderDropdownDestino();
   dibujarPines();
+  // Reencuadrar a los puntos filtrados (salvo que ya haya una ruta dibujada).
+  if (!estado.rutas.length) ajustarVista();
   actualizarBotonCrear();
 }
 
@@ -966,16 +967,32 @@ function aplicarFiltroActividad() {
 function seleccionarLocalidad(id) {
   snapshot();
   estado.localidad = LOCALIDADES.find((l) => l.id === id) || null;
+  // No se fuerza un destino: primero se ven TODOS los puntos de la ciudad
+  // (por actividad); el destino se elige después (lista, pin o clic en el mapa).
+  estado.destino = null;
   estado.rutas = [];
   capaRutas.clearLayers();
   document.getElementById("resultados").classList.add("hidden");
-  const vis = puntosVisibles();
-  estado.destino = vis[0] || null;
   renderDropdownLocalidad();
   renderDropdownDestino();
   dibujarPines();
-  if (estado.localidad) map.setView(estado.localidad.center, estado.localidad.zoom);
+  ajustarVista();
   actualizarBotonCrear();
+}
+
+// Encuadra el mapa para que se vean todos los puntos visibles de la localidad,
+// aunque el mapa estuviera en otro lado o alejado.
+function ajustarVista() {
+  if (!estado.localidad) return;
+  const pts = puntosVisibles();
+  if (!pts.length) {
+    map.setView(estado.localidad.center, estado.localidad.zoom);
+    return;
+  }
+  const bounds = L.latLngBounds(pts.map((p) => [p.lat, p.lng]));
+  const ev = estado.localidad.eventos;
+  if (ev) bounds.extend([ev.lat, ev.lng]);
+  map.fitBounds(bounds, { padding: [50, 50], maxZoom: 15 });
 }
 
 function seleccionarDestino(id) {
