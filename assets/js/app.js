@@ -4,10 +4,15 @@
 
 const VALHALLA_URL = "https://valhalla1.openstreetmap.de/route";
 
-// Base de mapa: OpenStreetMap (sin API key, funciona en cualquier host).
-// El look claro/oscuro se resuelve con un filtro CSS (var --map-filter).
-const TILE_URL = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
-const TILE_ATTR = "© OpenStreetMap contributors";
+// Base de mapa: CARTO Voyager (claro) / Dark Matter (oscuro) — sin API key.
+// Cada tema usa su propio basemap diseñado (no se invierte por CSS).
+const TILE_ATTR = "© OpenStreetMap · © CARTO";
+const TILES = {
+  light: "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png",
+  dark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",
+  // Respaldo si CARTO no carga (p. ej. bloqueado en algún host): OpenStreetMap.
+  fallback: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+};
 
 // ------- Estado global -------
 const estado = {
@@ -176,14 +181,28 @@ function aplicarTema(tema) {
   document.documentElement.dataset.theme = tema;
   const btn = document.getElementById("theme-toggle");
   if (btn) btn.textContent = tema === "dark" ? "☀️" : "🌙";
-  // La base del mapa no cambia con el tema (lo hace el filtro CSS), se crea una sola vez.
-  if (map && !capaTiles) {
-    capaTiles = L.tileLayer(TILE_URL, {
-      attribution: TILE_ATTR,
-      subdomains: "abc",
-      maxZoom: 19,
-    }).addTo(map);
-    capaTiles.bringToBack();
+  // Cada tema usa su propio basemap de CARTO; se crea una vez y luego se cambia la URL.
+  if (map) {
+    const url = TILES[tema] || TILES.light;
+    if (!capaTiles) {
+      capaTiles = L.tileLayer(url, {
+        attribution: TILE_ATTR,
+        subdomains: "abcd",
+        maxZoom: 20,
+      }).addTo(map);
+      capaTiles.bringToBack();
+      // Si CARTO falla varias veces, se pasa a OpenStreetMap y no se vuelve a cambiar.
+      let errores = 0;
+      capaTiles.on("tileerror", () => {
+        if (capaTiles._fallback) return;
+        if (++errores >= 5) {
+          capaTiles._fallback = true;
+          capaTiles.setUrl(TILES.fallback);
+        }
+      });
+    } else if (!capaTiles._fallback) {
+      capaTiles.setUrl(url);
+    }
   }
 }
 

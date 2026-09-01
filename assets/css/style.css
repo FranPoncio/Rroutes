@@ -56,7 +56,7 @@
   --texto-soft: #8a8178;
   --borde: #ece7e0;
   --sombra: 0 12px 32px rgba(45, 38, 32, 0.1);
-  --map-filter: grayscale(0.15) contrast(1.02) brightness(1.03);
+  --map-filter: none;
   --header-bg: #ffffff;
 }
 
@@ -70,7 +70,7 @@
     --texto-soft: #a89f95;
     --borde: #35302b;
     --sombra: 0 12px 32px rgba(0, 0, 0, 0.45);
-    --map-filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.9) saturate(0.65);
+    --map-filter: none;
     --header-bg: #221f1c;
   }
 }
@@ -83,7 +83,7 @@
   --texto-soft: #a89f95;
   --borde: #35302b;
   --sombra: 0 12px 32px rgba(0, 0, 0, 0.45);
-  --map-filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.9) saturate(0.65);
+  --map-filter: none;
   --header-bg: #221f1c;
 }
 
