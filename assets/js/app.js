@@ -289,7 +289,9 @@ function deshacer() {
 //  MAPA
 // =====================================================================
 function initMapa() {
-  map = L.map("map", { zoomControl: true }).setView([-38.4, -63.6], 5);
+  map = L.map("map", { zoomControl: false }).setView([-38.4, -63.6], 5);
+  // Zoom abajo a la derecha: así no choca con el botón ☰ ni la guía flotante.
+  L.control.zoom({ position: "bottomright" }).addTo(map);
   aplicarTema(document.documentElement.dataset.theme || temaActual());
   capaPines = L.layerGroup().addTo(map);
   capaRutas = L.layerGroup().addTo(map);
