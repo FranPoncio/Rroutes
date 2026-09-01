@@ -950,9 +950,9 @@ function renderChips() {
 
 function aplicarFiltroActividad() {
   renderChips();
-  // Si el destino actual ya no pasa el filtro, se limpia (no se fuerza otro).
+  // Si el destino actual ya no pasa el filtro, se preselecciona el primer visible.
   if (estado.destino && estado.destino.id !== "__click__" && !pasaFiltro(estado.destino)) {
-    estado.destino = null;
+    estado.destino = puntosVisibles()[0] || null;
   }
   renderDropdownDestino();
   dibujarPines();
@@ -967,12 +967,12 @@ function aplicarFiltroActividad() {
 function seleccionarLocalidad(id) {
   snapshot();
   estado.localidad = LOCALIDADES.find((l) => l.id === id) || null;
-  // No se fuerza un destino: primero se ven TODOS los puntos de la ciudad
-  // (por actividad); el destino se elige después (lista, pin o clic en el mapa).
-  estado.destino = null;
   estado.rutas = [];
   capaRutas.clearLayers();
   document.getElementById("resultados").classList.add("hidden");
+  // Se ven TODOS los puntos de la ciudad (por actividad) y se preselecciona
+  // el primero como destino, para no arrancar de cero.
+  estado.destino = puntosVisibles()[0] || null;
   renderDropdownLocalidad();
   renderDropdownDestino();
   dibujarPines();
