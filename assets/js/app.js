@@ -4,15 +4,44 @@
 
 const VALHALLA_URL = "https://valhalla1.openstreetmap.de/route";
 
-// Base de mapa: CARTO Voyager (claro) / Dark Matter (oscuro) — sin API key.
-// Cada tema usa su propio basemap diseñado (no se invierte por CSS).
-const TILE_ATTR = "© OpenStreetMap · © CARTO";
-const TILES = {
-  light: "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png",
-  dark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",
-  // Respaldo si CARTO no carga (p. ej. bloqueado en algún host): OpenStreetMap.
-  fallback: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+// Catálogo de estilos de mapa (todos sin API key). El usuario elige el que
+// más le guste con el selector del mapa; se recuerda su elección.
+const CARTO_ATTR = "© OpenStreetMap · © CARTO";
+const ESRI_ATTR = "Tiles © Esri";
+const BASEMAPS = {
+  positron: {
+    nombre: { es: "Claro", en: "Light" },
+    light: "https://{s}.basemaps.cartocdn.com/rastertiles/positron/{z}/{x}/{y}.png",
+    dark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",
+    attr: CARTO_ATTR,
+    sub: "abcd",
+    max: 20,
+  },
+  voyager: {
+    nombre: { es: "Colorido", en: "Colorful" },
+    light: "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png",
+    dark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",
+    attr: CARTO_ATTR,
+    sub: "abcd",
+    max: 20,
+  },
+  satelite: {
+    nombre: { es: "Satélite", en: "Satellite" },
+    light:
+      "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    attr: ESRI_ATTR,
+    max: 19,
+  },
+  relieve: {
+    nombre: { es: "Relieve", en: "Terrain" },
+    light:
+      "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
+    attr: ESRI_ATTR,
+    max: 19,
+  },
 };
+// Respaldo si el basemap elegido no carga (p. ej. bloqueado en algún host).
+const TILE_FALLBACK = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
 
 // ------- Estado global -------
 const estado = {
@@ -24,6 +53,7 @@ const estado = {
   origen: null,
   rutas: [],
   actividades: new Set(), // vacío = todas
+  mapa: localStorage.getItem("mapa") || "positron",
 };
 
 // ------- i18n -------
@@ -181,29 +211,56 @@ function aplicarTema(tema) {
   document.documentElement.dataset.theme = tema;
   const btn = document.getElementById("theme-toggle");
   if (btn) btn.textContent = tema === "dark" ? "☀️" : "🌙";
-  // Cada tema usa su propio basemap de CARTO; se crea una vez y luego se cambia la URL.
-  if (map) {
-    const url = TILES[tema] || TILES.light;
-    if (!capaTiles) {
-      capaTiles = L.tileLayer(url, {
-        attribution: TILE_ATTR,
-        subdomains: "abcd",
-        maxZoom: 20,
-      }).addTo(map);
-      capaTiles.bringToBack();
-      // Si CARTO falla varias veces, se pasa a OpenStreetMap y no se vuelve a cambiar.
-      let errores = 0;
-      capaTiles.on("tileerror", () => {
-        if (capaTiles._fallback) return;
-        if (++errores >= 5) {
-          capaTiles._fallback = true;
-          capaTiles.setUrl(TILES.fallback);
-        }
-      });
-    } else if (!capaTiles._fallback) {
-      capaTiles.setUrl(url);
+  aplicarBasemap(); // el basemap depende del tema (variante clara/oscura)
+}
+
+// Dibuja el basemap elegido (según el estilo y el tema). Se recrea la capa
+// para refrescar también la atribución; incluye respaldo a OSM si no carga.
+function aplicarBasemap() {
+  if (!map) return;
+  const bm = BASEMAPS[estado.mapa] || BASEMAPS.positron;
+  const tema = document.documentElement.dataset.theme;
+  const url = (tema === "dark" && bm.dark) || bm.light;
+  if (capaTiles) map.removeLayer(capaTiles);
+  capaTiles = L.tileLayer(url, {
+    attribution: bm.attr,
+    subdomains: bm.sub || "abc",
+    maxZoom: bm.max || 19,
+  }).addTo(map);
+  capaTiles.bringToBack();
+  // Si el basemap elegido falla varias veces, se pasa a OpenStreetMap.
+  let errores = 0;
+  capaTiles.on("tileerror", () => {
+    if (capaTiles._fallback) return;
+    if (++errores >= 6) {
+      capaTiles._fallback = true;
+      capaTiles.setUrl(TILE_FALLBACK);
     }
-  }
+  });
+  renderMapStyles();
+}
+
+// Cambia el estilo de mapa desde el selector y lo recuerda.
+function cambiarMapa(id) {
+  if (!BASEMAPS[id] || id === estado.mapa) return;
+  estado.mapa = id;
+  localStorage.setItem("mapa", id);
+  aplicarBasemap();
+}
+
+// Renderiza el selector de estilos de mapa (chips flotantes sobre el mapa).
+function renderMapStyles() {
+  const cont = document.getElementById("map-styles");
+  if (!cont) return;
+  cont.innerHTML = "";
+  Object.keys(BASEMAPS).forEach((id) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "map-style" + (id === estado.mapa ? " activo" : "");
+    b.textContent = t(BASEMAPS[id].nombre);
+    b.addEventListener("click", () => cambiarMapa(id));
+    cont.appendChild(b);
+  });
 }
 
 function toggleTema() {
@@ -1148,6 +1205,7 @@ function aplicarIdioma() {
   renderModos();
   renderDropdownLocalidad();
   renderDropdownDestino();
+  renderMapStyles();
   dibujarPines();
   actualizarMapHint();
   if (estado.rutas.length && estado.destino) renderResultados();

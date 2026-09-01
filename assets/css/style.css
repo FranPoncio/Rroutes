@@ -156,6 +156,39 @@ body {
     top: 8px;
   }
 }
+/* Selector de estilo de mapa (chips flotantes, abajo a la izquierda) */
+.map-styles {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 800;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  max-width: 65%;
+}
+.map-style {
+  font-family: var(--fuente-titulo);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--borde);
+  background: var(--bg-panel);
+  color: var(--texto-soft);
+  cursor: pointer;
+  box-shadow: var(--sombra);
+  transition: all 0.15s ease;
+}
+.map-style:hover {
+  color: var(--texto);
+  border-color: var(--celeste);
+}
+.map-style.activo {
+  background: var(--sol);
+  color: #fff;
+  border-color: var(--sol);
+}
 #panel-show {
   position: absolute;
   top: 14px;
