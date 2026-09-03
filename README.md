@@ -69,10 +69,13 @@ python3 -m http.server 8000
 
 ## 📁 Estructura
 
+Lo que se publica en Pages son **sólo** `index.html` y `assets/`. El resto
+(feeds crudos, scripts, configuración) son insumos de desarrollo.
+
 ```
 .
-├── index.html                 # Estructura de la app
-├── assets/
+├── index.html                 # Estructura de la app          ← publicado
+├── assets/                    #                               ← publicado
 │   ├── css/style.css          # Estilos, tema claro/oscuro, pines
 │   ├── data/
 │   │   └── transporte-gtfs.json  # Transporte real generado desde GTFS
@@ -80,7 +83,9 @@ python3 -m http.server 8000
 │   │   ├── data.js            # Localidades, puntos turísticos, actividades y modos
 │   │   └── app.js             # Lógica: mapa, ruteo, prioridades, filtros, GTFS, UI
 │   └── vendor/                # Leaflet y fuentes (Fredoka, Nunito) vendorizados
-├── data/gtfs/                 # Feeds GTFS crudos (Subte de Buenos Aires)
+│
+├── data/gtfs/                 # Feeds GTFS crudos (subte de Buenos Aires,
+│                              #   interurbano de Córdoba) — insumo de `npm run gtfs`
 ├── scripts/
 │   ├── build-gtfs.mjs         # Pipeline GTFS -> transporte-gtfs.json
 │   └── gtfs-sources.json      # Fuentes GTFS (locales y remotas)

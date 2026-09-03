@@ -3,6 +3,10 @@ name: Deploy a GitHub Pages
 # Publica el sitio estático en GitHub Pages en cada push a main.
 # `configure-pages` con enablement:true habilita Pages automáticamente
 # la primera vez, sin tener que tocar Settings a mano.
+#
+# Sólo se sube lo que el navegador pide de verdad (index.html, assets/ y
+# .nojekyll). Las fuentes GTFS crudas de data/gtfs/, los scripts de build y
+# la configuración del repo son insumos de desarrollo: quedan fuera del sitio.
 
 on:
   push:
@@ -33,10 +37,16 @@ jobs:
         with:
           enablement: true
 
+      - name: Armar el sitio a publicar
+        run: |
+          mkdir -p _site
+          cp index.html .nojekyll _site/
+          cp -r assets _site/
+
       - name: Subir el sitio como artefacto
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "."
+          path: _site
 
       - name: Desplegar en Pages
         id: deployment
